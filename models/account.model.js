@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 
+// helper
+const generateHelper = require('../helper/generate.help');
+
 // Defining a model
 const accountSchema = new mongoose.Schema(
     {
         fullName: String,
         avatar: String,
         role_id: String,
-        token: String,
+        token: {
+            type: String,
+            default: generateHelper.randomString(20)
+        },
         email: String,
         password: String,
         tel: String,
