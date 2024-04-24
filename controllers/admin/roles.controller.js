@@ -150,6 +150,6 @@ module.exports.changePermissions = async (req, res) => {
         res.redirect('back');
     }
     catch(error){
-
+        res.redirect('back');
     }
 }
