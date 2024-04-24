@@ -1,0 +1,18 @@
+mixin form-change-multi(id, action)
+    form(
+        action=action
+        method="POST" 
+        id=id
+        class=""
+    )
+        select(name="type" class="select-model border-square-right")
+            option(selected disabled) Default 
+            option(value="active") Active
+            option(value="inactive") Inactive
+            option(value="delete") Delete
+            option(value="position") Position
+        input(type="text" name="ids" value="" class="dnone")
+        button(
+            type="submit"
+            class="btn btn-bg-blue border-square-left btn-mid"
+        ) Application

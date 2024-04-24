@@ -1,0 +1,89 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+include ../../mixins/select-tree.pug
+block main 
+    +alert-success
+    +alert-error 
+    +alert-warning 
+    div(class="card")
+        div(class="card-header") Create Account 
+        div(class="card-body")
+            form(
+                action=`${path_admin}/accounts/create`
+                method="POST"
+                enctype="multipart/form-data"
+            )
+                div(class="form-item")
+                    label(class="label-style" for="fullName") Full Name:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="fullName" 
+                        name="fullName"
+                        placeholder="Your name..."
+                        required
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="role_id") Role: 
+                    select(name="role_id" id="role_id" class="select-model")
+                        option(selected disabled) Choose 
+                        if(roles)
+                            each role in roles 
+                                option(value = role.id) #{role.title}
+                        
+                    
+                div(class="form-item")
+                    label(class="label-style" for="email") Email:
+                    input(
+                        type="email" 
+                        class="input-form" 
+                        id="email" 
+                        name="email"
+                        placeholder="Your email..."
+                        required
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="password") Password:
+                    input(
+                        type="password" 
+                        class="input-form" 
+                        id="password" 
+                        name="password"
+                        placeholder="Your password..."
+                        required
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="tel") Telephone:
+                    input(
+                        type="tel" 
+                        class="input-form" 
+                        id="tel" 
+                        name="tel"
+                        placeholder="Your telephone number..."
+                        required
+                    )
+                +file-upload("Avatar", "avatar", "form-item")
+                div(class="form-item-radio")
+                    input(
+                        type="radio"
+                        class="input-radio"
+                        id="statusActive"
+                        name="status"
+                        value="active"
+                        checked=true
+                    )
+                    label(class="label-style-radio" for="statusActive") Active
+                div(class="form-item-radio")
+                    input(
+                        type="radio"
+                        class="input-radio"
+                        id="statusInctive"
+                        name="status"
+                        value="inactive"
+                    )
+                    label(class="label-style-radio" for="statusInctive") Inactive
+                div(class="form-item ")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Create
+
+    script(src="/admin/js/file-upload.js")

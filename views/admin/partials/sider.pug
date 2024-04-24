@@ -1,0 +1,86 @@
+nav(class="sider")
+    div(class="sider-header")
+        img(src="/admin/images/svg/nodejs-icon.svg")
+        div(class="title hide") Nodejs 
+    div(class="expand-btn")
+            svg(width='16', height='16', viewBox='0 0 16 16', fill='none', xmlns='http://www.w3.org/2000/svg')
+                path(d='M6.00979 2.72L10.3565 7.06667C10.8698 7.58 10.8698 8.42 10.3565 8.93333L6.00979 13.28', stroke-width='1.5', stroke-miterlimit='10', stroke-linecap='round', stroke-linejoin='round')
+    form(class="sider-search sider-link")
+        svg(width='14', height='14', viewBox='0 0 14 14', fill='none', xmlns='http://www.w3.org/2000/svg', aria-labelledby='search-icon', role='img')
+            title#search-icon Search
+            path(d='M9 9L13 13M5.66667 10.3333C3.08934 10.3333 1 8.244 1 5.66667C1 3.08934 3.08934 1 5.66667 1C8.244 1 10.3333 3.08934 10.3333 5.66667C10.3333 8.244 8.244 10.3333 5.66667 10.3333Z', stroke-width='1.5', stroke-linecap='round', stroke-linejoin='round')
+        input(type="search" placeholder="Search for anything...")
+    div(class="sider-body sider-link")
+        h2 Main 
+        ul 
+            li 
+                a(href=`${path_admin}/dashboard` class="sider--active")
+                    svg.icon.icon-tabler.icon-tabler-home(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M5 12l-2 0l9 -9l9 9l-2 0')
+                        path(d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7')
+                        path(d='M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6')
+                    span(class="hide") Dashboard 
+            li 
+                a(href=`${path_admin}/products-category` class="")
+                    svg.icon.icon-tabler.icon-tabler-layout-dashboard(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M4 4h6v8h-6z')
+                        path(d='M4 16h6v4h-6z')
+                        path(d='M14 12h6v8h-6z')
+                        path(d='M14 4h6v4h-6z')
+                    span(class="hide") Category 
+            li 
+                a(href=`${path_admin}/products` class="")
+                    svg.icon.icon-tabler.icon-tabler-box(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5')
+                        path(d='M12 12l8 -4.5')
+                        path(d='M12 12l0 9')
+                        path(d='M12 12l-8 -4.5')
+                    span(class="hide") Products 
+            li 
+                a(href=`${path_admin}/accounts` class="")
+                    svg.icon.icon-tabler.icon-tabler-users(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0')
+                        path(d='M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2')
+                        path(d='M16 3.13a4 4 0 0 1 0 7.75')
+                        path(d='M21 21v-2a4 4 0 0 0 -3 -3.85')
+                    span(class="hide") Accounts 
+            li 
+                a(href=`${path_admin}/roles` class="")
+                    svg(height='800px', viewBox='0 0 48 48', fill='none', xmlns='http://www.w3.org/2000/svg')
+                        path(d='M20 10H6C4.89543 10 4 10.8954 4 12V38C4 39.1046 4.89543 40 6 40H42C43.1046 40 44 39.1046 44 38V29.5', stroke-width='4', stroke-linecap='round', stroke-linejoin='round')
+                        path(d='M10 23H20', stroke-width='4', stroke-linecap='round')
+                        path(d='M10 31H38', stroke-width='4', stroke-linecap='round')
+                        circle(cx='34', cy='16', r='6', fill='#', stroke-width='4', stroke-linecap='round', stroke-linejoin='round')
+                        path(d='M44.0001 28.4187C42.0469 24.6023 38.153 22 33.6682 22C28.2313 22 23.663 25.8243 22.3677 31', stroke-width='4', stroke-linecap='round', stroke-linejoin='round')
+                    span(class="hide") Roles 
+            li 
+                a(href=`${path_admin}/roles/permissions` class="")
+                    svg(height='23', viewBox='0 0 22 24', fill='none', xmlns='http://www.w3.org/2000/svg', stroke-width='2')
+                        path(d='M11.8789 14.5088C9.78491 19.9913 3.92166 14.5088 1.82764 19.9913', stroke='#', stroke-width='1.4', stroke-linecap='round', stroke-linejoin='round')
+                        path(d='M14.1636 14.509H15.5354C17.6891 14.509 18.766 14.509 19.4351 13.8399C20.1041 13.1708 20.1041 12.094 20.1041 9.94022V8.11272C20.1041 5.95898 20.1041 4.88211 19.4351 4.21303C18.766 3.54395 17.6891 3.54395 15.5354 3.54395L11.8804 3.54395C9.72661 3.54395 8.64974 3.54395 7.98066 4.21303C7.41376 4.77993 7.32719 5.63958 7.31396 7.19896', stroke='#', stroke-width='1.4', stroke-linecap='round', stroke-linejoin='round')
+                        ellipse(cx='6.85323', cy='12.2248', rx='2.28439', ry='2.28439', stroke='#', stroke-width='1.4', stroke-linecap='round', stroke-linejoin='round')
+                        path(d='M10.9653 7.19922L16.4479 7.19922M16.4479 10.8542L13.7066 10.8542', stroke='#', stroke-width='1.4', stroke-linecap='round', stroke-linejoin='round')
+                    span(class="hide") Permissions 
+    div(class="sider-body sider-link")
+        h2 Support 
+        ul 
+            li 
+                a(href="#" class="")     
+                    svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='#F8F7FD', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0')
+                        path(d='M12 16v.01')
+                        path(d='M12 13a2 2 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483')
+                    span(class="hide") Help
+            li 
+                a(href="#" class="")     
+                    svg(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='currentColor', fill='none', stroke-linecap='round', stroke-linejoin='round', aria-hidden='true')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z')
+                        path(d='M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0')
+                    span(class="hide") Settings
+                    

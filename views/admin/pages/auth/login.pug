@@ -1,0 +1,52 @@
+extends ../../layouts/auth.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+include ../../mixins/select-tree.pug
+block main 
+    +alert-success
+    +alert-error
+    +alert-warning
+    div(class="login background")
+        div(class="center")
+            form(
+                method="POST"
+                class="form-login"
+                id="form-login"
+            )
+                div(class="login-welcome")
+                    img(class="login-welcome-image" src='/admin/images/login-welcom.jpg' alt='login welcome image')
+                    h1 LogIn!
+                div(class="login-field")
+                    label(for='email') Email:
+                    input(
+                        id="email" 
+                        type='email' 
+                        placeholder='Your Email' 
+                        autocomplete="off"
+                        value=""
+                        required
+                    )
+                    img(src='/admin/images/svg/email.svg' alt='email icon')
+                div(class="login-field")
+                    label(for='password') Password:
+                    input(
+                        id="password" 
+                        type='password' 
+                        placeholder='Your Password' 
+                        required
+                    )
+                    img(src='/admin/images/svg/password.svg' alt='password icon')
+                button(class="button-login" type='submit') Login
+                div(class="login-help")
+                    div(class="login-forget")
+                        span Did you forget your password?
+                        a(href='#') Reset password
+                    div(class="login-create")
+                        a(href='#') Create Account
+    form(
+        action= `${path_admin}/auth/login`
+        method="POST"
+        id="form-submit"
+    )
+        input(type="text" name="login" value="" class="dnone")
+    script(src="/admin/js/login.js")

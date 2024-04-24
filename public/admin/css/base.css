@@ -1,0 +1,159 @@
+/* font ROBOTO*/
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* default */
+*{
+    box-sizing: border-box;
+}
+
+:root {
+    --background-primary : #1A1F25;
+    --background-secondary: #4AD295;
+    --background-third: #8CC84B;
+
+    --font-primary: "Roboto", sans-serif;
+}
+
+:root {
+    --primary: #DD946F ;
+    --primary-hover: #CD7D7C;                
+    --secondary: #EFD0F8;
+    --secondary-hover: #B8A1D9;
+    --aura: #9265CA80;
+    --background: #261E5A;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: var(--background); */
+    font-family: Mulish;
+}
+
+
+body {
+    font-family: var(--font-primary);
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    /* background-color: var(--background-primary); */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* default */
+
+/* element body */
+.body {
+    display: flex;
+}
+/* end element body */
+
+/* display */
+.dflex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dflex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dflex {
+    display: flex;
+}
+
+.dnone {
+    display: none;
+}
+
+.dblock {
+    display: block;
+}
+
+.column-2 {
+    width: calc(100% / 2 - 50px);
+}
+
+.column-3 {
+    width: calc(100% / 3);
+}
+
+.txt-align-right {
+    text-align: right;
+}
+
+.txt-align-left {
+    text-align: left;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+/* end display */
+
+/* margin */
+.mr-5 {
+    margin-right: 5px;
+}
+
+.ml-5 {
+    margin-left: 5px;
+}
+
+.mt-5 {
+    margin-top: 5px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.reset-m {
+    margin: 0;
+}
+
+.noWrap {
+    display: flex;
+    flex-wrap: nowrap;
+}
+/* end margin */
+
+/* text */
+.txt-align-center {
+    text-align: center;
+}
+
+.txt-decoration-none {
+    text-decoration: none;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+}
+
+.txt-success {
+    background-color: #EAFEF3;
+    color: #2ECC71;
+}
+
+.txt-danger {
+    background-color: #eaf2ff;
+    color: red;
+}
+
+.txt-warning {
+    background-color: #fff6e5;
+    color: #F4BD50;
+}
+/* end text */

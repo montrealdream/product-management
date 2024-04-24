@@ -1,0 +1,9 @@
+mixin form-search(id, keyword)
+    form(action="" id=id)
+        input(
+            type="search"
+            placeholder="Search for anything..."
+            class="input-search"
+            value=keyword
+        ) 
+        button(type="submit" class="button-search btn-bg-blue") Search

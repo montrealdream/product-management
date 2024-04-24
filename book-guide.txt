@@ -1,0 +1,38 @@
+├── router
+|	└── client
+|		└── home.router.js
+|		└── index.router.js
+|
+├── controller
+|	└── client
+|		└── home.controller.js
+|
+├── config
+|	└── system.js
+|
+├── public
+|	└── client
+|		└── css
+|		└── images
+|		└── js
+|
+├── views
+|	└── client
+|		└── layouts
+|		└── pages
+|			└── home
+|		└── partials
+|
+|
+├── .gitignore
+|
+├── index.js
+|
+└── .env
+
+CẤU HÌNH:
+	dotenv
+	pug
+	epxress
+	static files
+	app.locals

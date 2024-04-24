@@ -1,0 +1,6 @@
+mixin button-filter-status(buttonFilterStatus)
+     each button in buttonFilterStatus
+        button(
+            class=`btn btn-sm mr-5 btn-outline-green ${button.class}`
+            button-filter-status = button.status
+        ) #{button.title}

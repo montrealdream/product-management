@@ -1,0 +1,37 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+block main 
+    +alert-success
+    +alert-error 
+    +alert-warning
+    div(class="card")
+        div(class="card-header txt-align-center") Create Category
+        div(class="card-body")
+            form(
+                action=`${path_admin}/roles/create` 
+                method="POST"
+            )
+                div(class="form-item")
+                    label(class="label-style" for="title") Title:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="title" 
+                        name="title"
+                        placeholder="Title of product..."
+                        required
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="description") Description:
+                    textarea(
+                        name="description",
+                        class="txt-area use-tinymce"
+                        id="description",
+                        placeholder="Describe yours product here..."
+                        rows="5"
+                    )
+                div(class="form-item ")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Create
+
+    script(src="/admin/js/file-upload.js")

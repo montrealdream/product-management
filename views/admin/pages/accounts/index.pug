@@ -1,0 +1,88 @@
+extends ../../layouts/default.pug
+include ../../mixins/button-filter-status.pug
+include ../../mixins/form-search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/form-change-multi.pug
+include ../../mixins/alert.pug
+block main 
+    
+    +alert-success
+    +alert-error 
+    div(class="card")
+        div(class="card-header") Feature
+        div(class="card-body")
+            div(class="dflex-row")
+                .column-2 
+                    a(
+                        href=`${path_admin}/accounts/create`
+                        class="btn btn-sm btn-outline-green txt-decoration-none"
+                    ) Create
+        div(class="card-header")
+            div(class="caption")
+                |   Accounts 
+                span(class="length-products") #{numberOfRecords}
+        div(class="card-body")
+            table(class="table" table-record)
+                thead 
+                    tr
+                        th 
+                            input(type="checkbox" name="checkbox-all")
+                        th Name 
+                        th Status
+                        th Email address 
+                        th Role 
+                        th Acitve
+                tbody 
+                    if(records)
+                        each record in records
+                            tr
+                                td
+                                    input(
+                                        type="checkbox"
+                                        value=record.id
+                                        name="checkbox-single"
+                                    )
+                                td(class="account__profile")
+                                    img(
+                                        src=record.avatar 
+                                    )
+                                    span #{record.fullName}
+                                if(record.status == "active")
+                                    td
+                                        div(class="status__style")
+                                            div(class="status__circle status__circle--active")
+                                            <span>active</span>
+                                else if(record.status == "inactive")
+                                    td
+                                        div(class="status__style")
+                                            div(class="status__circle status__circle--inactive")
+                                            <span>inactive</span>
+                                td #{record.email}
+                                td 
+                                    span(class="tag--role") #{record.role}
+                                td 
+                                    a(
+                                        href=`${path_admin}/accounts/detail/${record.id}`
+                                        class="tag tag--detail mr-5"
+                                    ) detail
+                                    a(
+                                        href=`${path_admin}/accounts/edit/${record.id}`
+                                        class="tag tag--edit mr-5"
+                                    ) edit
+                                    button(
+                                        class="tag tag--delete btn btn-sm font-16"
+                                        data-id= record.id
+                                        button-delete
+                                    ) delete
+        div(class="card-body")
+            +pagination(pagination)
+    //- form-delete
+    form(
+        action=""
+        method="POST"
+        id="form-delete-soft"
+        data-path=`${path_admin}/accounts/delete-soft`
+    )
+
+    script(src="/admin/js/script.js")
+    script(src="/admin/js/products.js")

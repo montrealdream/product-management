@@ -1,0 +1,116 @@
+extends ../../layouts/default.pug
+include ../../mixins/button-filter-status.pug
+include ../../mixins/form-search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/form-change-multi.pug
+include ../../mixins/alert.pug
+block main 
+    
+    +alert-success
+    +alert-error 
+    div(class="card")
+        div(class="card-header") Filter and Search 
+        div(class="card-body")
+            div(class="dflex-row")
+                .column-2 
+                    +button-filter-status(buttonFilterStatus)
+                .column-2 
+                    +form-search("form-search-keyword", keyword)
+        div(class="card-header") Feature    
+        div(class="card-body")
+            div(class="dflex-row")
+                .column-2
+                    +form-change-multi("form-change-multi", `${path_admin}/products-category/change-multi?_method=PATCH`)
+                .column-2 
+                    a(
+                        href=`${path_admin}/products-category/create`
+                        class="btn btn-sm btn-outline-green txt-decoration-none"
+                    ) Create
+        div(class="card-header")
+            div(class="caption")
+                |   Category 
+                span(class="length-products") #{numberOfRecords}
+        div(class="card-body")
+            table(class="table" table-record)
+                thead 
+                    tr 
+                        th 
+                            input(type="checkbox" name="checkbox-all")
+                        th Image
+                        th Name
+                        th Position
+                        th Status
+                        th Action 
+                tbody 
+                    each record in records
+                        tr 
+                            td 
+                                input(
+                                    type="checkbox"
+                                    value=record.id
+                                    name="checkbox-single"
+                                )
+                            td 
+                                img(
+                                    src=record.thumbnail 
+                                    class="infor__image"
+                                )
+                            td 
+                                span(class="infor__name") #{record.title}
+                            td 
+                                input(
+                                    type="number"
+                                    class="input-position"
+                                    name="position"
+                                    value= record.position
+                                )
+                            if(record.status == "active")
+                                td
+                                    a(
+                                        href="javascript:;" 
+                                        class="status status--active"
+                                        data-id = record.id
+                                        button-change-status="active"
+                                    ) #{record.status} 
+                            else 
+                                td
+                                    a(
+                                        href="javascript:;" 
+                                        class="status status--inactive"
+                                        data-id = record.id
+                                        button-change-status="inactive"
+                                    ) #{record.status} 
+                            td 
+                                a(
+                                    href=`${path_admin}/products-category/detail/${record.id}`
+                                    class="tag tag--detail mr-5"
+                                ) detail
+                                a(
+                                    href=`${path_admin}/products-category/edit/${record.id}`
+                                    class="tag tag--edit mr-5"
+                                ) edit
+                                button(
+                                    class="tag tag--delete btn btn-sm font-16"
+                                    data-id= record.id
+                                    button-delete
+                                ) delete
+        div(class="card-body")
+            +pagination(pagination)
+
+    //- form change status
+    form(
+        action=""
+        method="POST"
+        id="form-change-status"
+        data-path=`${path_admin}/products-category/change-status`
+    )
+    //- form-delete
+    form(
+        action=""
+        method="POST"
+        id="form-delete-soft"
+        data-path=`${path_admin}/products-category/delete-soft`
+    )
+    
+    script(src="/admin/js/script.js")
+    script(src="/admin/js/products.js")

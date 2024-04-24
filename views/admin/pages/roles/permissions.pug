@@ -1,0 +1,166 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main 
+    +alert-success
+    +alert-error 
+    div(class="card")
+        div(class="card-header dflex-row") Permission
+            div(data-records = records)
+            .column-2 
+            .column-2.txt-align-right
+                button(
+                    button-permission
+                    type="submit"
+                    class="btn btn-sm btn-bg-blue"
+                ) Update
+        div(class="card-body")
+            table(class="table" table-permission)
+                thead
+                    tr
+                        th Feature 
+                        each item in records 
+                            th #{item.title}
+                tbody 
+                    //- id
+                    tr(data-name="id" class="dnone")
+                        td
+                        each item in records    
+                            td
+                                input(type="text" value=item.id)
+                    //- danh mục sản phẩm
+                    tr
+                        td(colspan="5" class="font-bold")
+                            span(class="dblock txt-align-left")
+                                |   Product Category
+                    tr(data-name="products-category_view") 
+                        td View 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="products-category_create") 
+                        td Create 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="products-category_edit") 
+                        td Edit 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="products-category_delete") 
+                        td Delete 
+                        each item in records
+                                td(class="txt-center")
+                                    input(type="checkbox")
+                    //- danh sách sản phẩm
+                    tr
+                        td(colspan="5" class="font-bold")
+                            span(class="dblock txt-align-left")
+                                |   Product
+                    tr(data-name="products_view") 
+                        td View 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="products_create") 
+                        td Create 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="products_edit") 
+                        td Edit 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="products_delete") 
+                        td Delete 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    //- Nhóm quyền
+                    tr
+                        td(colspan="5" class="font-bold")
+                            span(class="dblock txt-align-left")
+                                |   Role
+                    tr(data-name="roles_view") 
+                        td View 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="roles_create") 
+                        td Create 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="roles_edit") 
+                        td Edit 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="roles_delete") 
+                        td Delete 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    //- Phân quyền
+                    tr
+                        td(colspan="5" class="font-bold")
+                            span(class="dblock txt-align-left")
+                                |   Permission
+                    tr(data-name="permissions_view") 
+                        td View 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="permissions_create") 
+                        td Create 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="permissions_edit") 
+                        td Edit 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="permissions_delete") 
+                        td Delete 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    //- Tài khoản
+                    tr
+                        td(colspan="5" class="font-bold")
+                            span(class="dblock txt-align-left")
+                                |   Account
+                    tr(data-name="accounts_view") 
+                        td View 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="accounts_create") 
+                        td Create 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="accounts_edit") 
+                        td Edit 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+                    tr(data-name="accounts_delete") 
+                        td Delete 
+                        each item in records
+                            td(class="txt-center")
+                                input(type="checkbox")
+    form(
+        id="form-change-permission"
+        action=`${path_admin}/roles/permissions?_method=PATCH`
+        method="POST"
+    )                       
+        div(class="form-item")
+            input(
+                type="text"
+                class="dnone"
+                name="permissions"
+            )
+    script(src="/admin/js/roles.js")

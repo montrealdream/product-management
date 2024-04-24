@@ -1,0 +1,22 @@
+doctype html 
+html 
+    head 
+        title #{title}
+        link(rel="stylesheet", href="/admin/css/reset.css")
+        link(rel="stylesheet", href="/admin/css/base.css")
+        link(rel="stylesheet", href="/admin/css/style.css")
+    body 
+        //- header
+        include ../partials/header.pug
+                        
+        //- body
+        div(class="body")
+            include ../partials/sider.pug
+            
+            block main 
+
+    script(src= "/tinymce/tinymce.min.js")
+    script(src="/admin/js/tinymce-config.js")
+    script(src="/admin/js/script.js")
+    script(src="/admin/js/sider.js")
+    script(src="/admin/js/alert.js")

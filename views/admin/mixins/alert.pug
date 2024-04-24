@@ -1,0 +1,17 @@
+mixin alert-success
+    -   if(messages.success)
+            div(
+                class="alert show-alert alert-success"
+            ) #{messages.success} <span class="close-alert">x</span>
+
+mixin alert-error
+    -   if(messages.error)
+            div(
+                class="alert show-alert alert-error"
+            ) #{messages.error} <span class="close-alert">x</span>
+
+mixin alert-warning
+    -   if(messages.warning)
+            div(
+                class="alert show-alert alert-warning"
+            ) #{messages.warning} <span class="close-alert">x</span>

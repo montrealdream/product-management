@@ -1,0 +1,43 @@
+header(class="header")
+    div(class="inner-wrap dflex-row")
+        a(class="inner-title" href=`${path_admin}/dashboard`)
+            span ADMIN
+        div(class="inner-menu")
+            if(user)
+                div(class="navigation__group")
+                    img(class="icon" src=`/admin/images/svg/message.svg`)
+                    img(class="icon" src=`/admin/images/svg/notification.svg`)
+                    img(class="profile" src=user.avatar)
+                div(class="dropdown none")
+                    div(class="dropdown__group")
+                        div(class="user-name") #{user.fullName}
+                        div(class="email") #{user.email}
+                    hr(class="divider")
+                    nav(class="dropdown__nav")
+                        ul 
+                            li 
+                                img(src=`/admin/images/svg/profile.svg`)
+                                |   My Profile
+                            li 
+                                img(src=`/admin/images/svg/setting.svg`)
+                                |   Settings
+                        hr(class="divider")
+                        ul 
+                            li 
+                                img(src="/admin/images/svg/tutorials.svg")
+                                |   Tutorials
+                            li 
+                                img(src="/admin/images/svg/help.svg")
+                                |   Helper
+                        hr(class="divider")
+                        ul 
+                            li 
+                                img(src="/admin/images/svg/premium.svg")
+                                |   Go Premium
+                            li 
+                                a(href=`${path_admin}/auth/logout` class="dflex")
+                                    img(src="/admin/images/svg/logout.svg")
+                                    |   Log out
+    if(user)
+        script(src="/admin/js/login.js")
+    

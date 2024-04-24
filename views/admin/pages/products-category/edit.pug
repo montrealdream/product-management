@@ -1,0 +1,76 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+include ../../mixins/select-tree.pug
+block main 
+    +alert-success
+    +alert-error 
+    +alert-warning
+    div(class="card")
+        div(class="card-header txt-align-center") Edit Category
+        div(class="card-body")
+            form(
+                action=`${path_admin}/products-category/edit/${record.id}?_method=PATCH` 
+                method="POST"
+                enctype="multipart/form-data"
+            )
+                div(class="form-item")
+                    label(class="label-style" for="title") Title:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="title" 
+                        name="title"
+                        placeholder="Title of product..."
+                        value=record.title
+                        required
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="parent_id") Category:
+                    select(class="select-model" name="parent_id")
+                        option(value="") Root 
+                        +select-tree(categoryList)
+                div(class="form-item")
+                    label(class="label-style" for="description") Description:
+                    textarea(
+                        name="description",
+                        class="txt-area use-tinymce"
+                        id="description",
+                         placeholder="Describe yours product here..."
+                        rows="5"
+                    ) #{record.description}
+                div(class="form-item")
+                    label(class="label-style" for="position") Position:
+                    input(
+                        type="number" 
+                        class="input-form" 
+                        id="position" 
+                        name="position"
+                        placeholder="Position of product..."
+                        min="0"
+                        value=record.position
+                    )
+                +file-upload("Image", "thumbnail", "form-item", record.thumbnail)
+                div(class="form-item-radio")
+                    input(
+                        type="radio"
+                        class="input-radio"
+                        id="statusActive"
+                        name="status"
+                        value="active"
+                        checked=(record.status==="active"?true:false)
+                    )
+                    label(class="label-style-radio" for="statusActive") Active
+                div(class="form-item-radio")
+                    input(
+                        type="radio"
+                        class="input-radio"
+                        id="statusInctive"
+                        name="status"
+                        value="inactive"
+                        checked=(record.status==="inactive"?true:false)
+                    )
+                    label(class="label-style-radio" for="statusInctive") Inactive
+                div(class="form-item ")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Edit
+    script(src="/admin/js/file-upload.js")

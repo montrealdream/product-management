@@ -1,0 +1,121 @@
+// model
+const Role = require('../../models/roles.model');
+
+// system config
+const systemConfig = require('../../config/system');
+
+//  [GET] /admin/roles
+module.exports.index = async (req, res) => {
+    try{
+        const findObject = {
+            deleted: false
+        }
+
+        // count document
+        const numberOfRecords = await Role.countDocuments(findObject);
+
+        const records = await Role.find(findObject);
+
+        res.render('admin/pages/roles/index', {
+            title: "Role",
+            records: records,
+            numberOfRecords: numberOfRecords
+        })
+    }
+    catch(error){
+        req.flash('error', 'Go to role fail');
+        res.redirect('back');
+    }
+}
+
+// [GET] /admin/roles/create
+module.exports.createView = async (req, res) => {
+    try{
+        res.render('admin/pages/roles/create', {
+            title: "Create Role"
+        });
+    }
+    catch(error){
+        req.flash('error', 'Go to create role page  fail');
+        res.redirect('back');
+    }
+}
+
+// [POST] /admin/roles/create
+module.exports.createRole = async (req, res) => {
+    try{
+        // save on Database
+        const record = new Role(req.body);
+        await record.save();
+
+        req.flash('success', 'Create new role successfully');
+        res.redirect(systemConfig.path_admin + `/roles`);
+    }
+    catch(error){
+        req.flash('error', 'Create new role fail');
+        res.redirect('back');
+    }
+}
+
+// [DELETE] /admin/roles/delete-soft/:id
+module.exports.deleteSoft = async (req, res) => {
+    try{
+        const id = req.params.id;
+
+        await Role.updateOne(
+            {_id: id},
+            {
+                deleted: true,
+                deletedAt: new Date()
+            }
+        );
+        req.flash('success', 'Delete role successfully');
+        res.redirect('back');
+    }
+    catch(error){
+        req.flash('error', 'Delete role fail');
+        res.redirect('back');
+    }
+}
+
+// [GET] /admin/roles/edit/:id
+module.exports.editView = async (req, res) => {
+    try{
+        const findObject = {
+            _id: req.params.id,
+            deleted: false
+        }
+
+        const record = await Role.findOne(findObject);
+
+        res.render('admin/pages/roles/edit', {
+            title: "Edit role",
+            record: record
+        });
+    }
+    catch(error){
+        req.flash('error', 'Go to edit role page fail');
+        res.redirect('back');
+    }
+}
+
+// [POST] /admin/roles/edit/:id
+module.exports.editRole = async (req, res) => {
+    try{
+        const id = req.params.id;
+
+        await Role.updateOne(
+            {_id: id},
+            req.body
+        );
+        
+        req.flash('success', 'Edit role successfully');
+        res.redirect(systemConfig.path_admin + `/roles`);
+    }
+    catch(error){
+        req.flash('error', 'Edit role fail');
+        res.redirect('back');
+    }
+}
+
+// ----------------PERMISSION-----------------------//
