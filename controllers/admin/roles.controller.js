@@ -119,3 +119,37 @@ module.exports.editRole = async (req, res) => {
 }
 
 // ----------------PERMISSION-----------------------//
+module.exports.permissions = async (req, res) => {
+    try{
+        const records = await Role.find({deleted: false});
+        res.render('admin/pages/roles/permissions', {
+            title: "Phân quyền",
+            records: records
+        })
+    }
+    catch(error){
+
+    }
+   
+}
+
+module.exports.changePermissions = async (req, res) => {
+    try{
+        const permissions = JSON.parse(req.body.permissions);
+        
+        for(const item of permissions){
+            const id = item.id;
+            const permissionsArray = item.permissions;
+
+            await Role.updateOne(
+                {_id: id},
+                {permissions: permissionsArray}
+            );
+        }
+        req.flash('success', 'Thay đổi phân quyền thành công');
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
