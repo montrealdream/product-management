@@ -46,3 +46,19 @@ if(tablePermissions){
         }
     });
 }
+
+// hiển thị các quyền đã được tick
+const dataRecords = document.querySelector("[data-records]");
+if(dataRecords){
+    // convert from JSON to JS
+    const roles = JSON.parse(dataRecords.getAttribute("data-records"));
+    
+    roles.forEach((role, index) => {
+        const permissions = role.permissions;
+        for(const permission of permissions){
+            const tr = tablePermissions.querySelector(`[data-name='${permission}']`);
+            const input = tr.querySelectorAll("input")[index];
+            input.checked = true;
+        }
+    });
+}
