@@ -55,3 +55,18 @@ module.exports.changeStatus = async (req, res) => {
 
     }
 }
+
+// [DELETE] /admin/accounts/delete-soft/:id
+module.exports.deleteSoft = async (req, res) => {
+    try{
+        await Account.updateOne(
+            {_id: req.params.id},
+            {deleted: true}
+        )
+        req.flash('success', 'Xóa tài khoản thành công');
+        res.redirect('back'); 
+    }
+    catch(error){
+
+    }
+}
