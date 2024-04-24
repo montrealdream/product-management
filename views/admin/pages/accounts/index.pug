@@ -75,7 +75,8 @@ block main
                                         button-delete
                                     ) delete
         div(class="card-body")
-            +pagination(pagination)
+            if(pagination)
+                +pagination(pagination)
     //- form-delete
     form(
         action=""
