@@ -70,3 +70,15 @@ module.exports.deleteSoft = async (req, res) => {
 
     }
 }
+
+// [GET] /admin/accounts/create
+module.exports.createView = async (req, res) => {
+    try{
+        res.render('admin/pages/accounts/create',{
+            title: "Create Account"
+        })
+    }   
+    catch(error){
+
+    }
+}

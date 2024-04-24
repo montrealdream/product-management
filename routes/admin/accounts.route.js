@@ -13,5 +13,7 @@ router.patch('/change-status/:id/:status',controller.changeStatus);
 
 router.delete('/delete-soft/:id', controller.deleteSoft);
 
+router.get('/create', controller.createView);
+
 // export
 module.exports = router;
