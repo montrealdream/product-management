@@ -82,3 +82,13 @@ module.exports.createView = async (req, res) => {
 
     }
 }
+
+// [POST] /admin/accounts/create
+module.exports.create = async (req, res) => {
+    try{
+
+    }
+    catch(error){
+        
+    }
+}
