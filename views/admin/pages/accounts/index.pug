@@ -9,6 +9,11 @@ block main
     +alert-success
     +alert-error 
     div(class="card")
+        if(buttonFilterStatus)
+            div(class="card-header") Filter And Search 
+            div(class="card-body")
+                +button-filter-status(buttonFilterStatus)
+
         div(class="card-header") Feature
         div(class="card-body")
             div(class="dflex-row")
