@@ -1,8 +1,10 @@
 const Account = require('../../models/account.model');
-
+const Role = require('../../models/roles.model');
 // helper
 const filterhelper = require('../../helper/filter.helper');
 const paginationHelper = require('../../helper/pagination.helper');
+
+const md5 = require('md5');
 
 // [GET] /admin/accounts
 module.exports.index = async (req, res) => {
@@ -74,8 +76,11 @@ module.exports.deleteSoft = async (req, res) => {
 // [GET] /admin/accounts/create
 module.exports.createView = async (req, res) => {
     try{
+        const roles = await Role.find({deleted: false});
+
         res.render('admin/pages/accounts/create',{
-            title: "Create Account"
+            title: "Create Account",
+            roles: roles
         })
     }   
     catch(error){
@@ -86,9 +91,11 @@ module.exports.createView = async (req, res) => {
 // [POST] /admin/accounts/create
 module.exports.create = async (req, res) => {
     try{
-
+        
+        console.log(req.body);
+        res.redirect('back');
     }
     catch(error){
-        
+
     }
 }
