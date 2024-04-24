@@ -9,5 +9,7 @@ const controller = require('../../controllers/admin/accounts.controller');
 // use
 router.get('/', controller.index);
 
+router.patch('/change-status/:id/:status',controller.changeStatus);
+
 // export
 module.exports = router;

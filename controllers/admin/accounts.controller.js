@@ -38,6 +38,20 @@ module.exports.index = async (req, res) => {
     }
     catch(error){
 
+    }  
+}
+
+// [PATCH] /admin/accounts/change-status/:id/:status
+module.exports.changeStatus = async (req, res) => {
+    try{
+        await Account.updateOne(
+            {_id: req.params.id},
+            {status: req.params.status}
+        )
+        req.flash('success', 'Thay đổi trạng thái tài khoản thành công');
+        res.redirect('back');
     }
-    
+    catch(error){
+
+    }
 }

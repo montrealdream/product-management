@@ -54,12 +54,22 @@ block main
                                     span #{record.fullName}
                                 if(record.status == "active")
                                     td
-                                        div(class="status__style")
+                                        a(
+                                            href="javascript:;" 
+                                            class="status__style txt-color-black" 
+                                            data-id = record.id
+                                            button-change-status="active"
+                                        )
                                             div(class="status__circle status__circle--active")
                                             <span>active</span>
                                 else if(record.status == "inactive")
                                     td
-                                        div(class="status__style")
+                                        a(
+                                            href="javascript:;" 
+                                            class="status__style txt-color-black" 
+                                            data-id = record.id
+                                            button-change-status="inactive"
+                                        )
                                             div(class="status__circle status__circle--inactive")
                                             <span>inactive</span>
                                 td #{record.email}
@@ -82,6 +92,14 @@ block main
         div(class="card-body")
             if(pagination)
                 +pagination(pagination)
+    //- form change status
+    form(
+        action=""
+        method="POST"
+        id="form-change-status"
+        data-path=`${path_admin}/accounts/change-status`
+    )
+
     //- form-delete
     form(
         action=""

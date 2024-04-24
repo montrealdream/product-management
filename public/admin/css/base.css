@@ -130,6 +130,9 @@ body {
 /* end margin */
 
 /* text */
+.txt-color-black {
+    color: black;
+}
 .txt-align-center {
     text-align: center;
 }
