@@ -35,12 +35,12 @@ router.post(
 
 router.get('/edit/:id', controller.editView);
 
-// router.patch(
-//     '/edit/:id',
-//     upload.single('avatar'),
-//     validate.editAccount,
-//     controller.edit
-// );
+router.patch(
+    '/edit/:id',
+    upload.single('avatar'),
+    validate.editAccount,
+    controller.edit
+);
 
 // export
 module.exports = router;

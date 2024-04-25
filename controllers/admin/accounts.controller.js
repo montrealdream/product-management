@@ -4,6 +4,10 @@ const Role = require('../../models/roles.model');
 const filterhelper = require('../../helper/filter.helper');
 const paginationHelper = require('../../helper/pagination.helper');
 
+// system
+const systemConfig = require('../../config/system');
+const PATH_ADMIN = systemConfig.path_admin;
+
 const md5 = require('md5');
 
 // [GET] /admin/accounts
@@ -142,7 +146,6 @@ module.exports.editView = async (req, res) => {
         
         const roles = await Role.find({deleted: false});
 
-        console.log(record);
         res.render('admin/pages/accounts/edit',{
             title: "Edit Account",
             record: record,
@@ -151,5 +154,46 @@ module.exports.editView = async (req, res) => {
     }
     catch(error){
 
+    }
+}
+
+module.exports.edit = async (req, res) => {
+    try{
+        // if not update password
+        if(req.body.password == ""){
+            // delete key in object
+            delete req.body.password;
+        }
+        else{
+            // hash password
+            req.body.password = md5(req.body.password);
+        }
+
+        // check email exits ?
+        const emailExits = await Account.findOne({
+            _id: {$ne: req.params.id},
+            email: req.body.email,
+            deleted: false
+        });
+
+        if(emailExits){
+            req.flash('warning', 'Email already exists');
+            res.redirect('back');
+        }
+
+        else{
+            await Account.updateOne(
+                {_id: req.params.id},
+                req.body
+            )
+            req.flash('success', 'Updated account successfully');
+            res.redirect(PATH_ADMIN + `/accounts`);
+        }
+        
+        
+    }
+    catch(error){
+        console.log(error);
+        res.redirect('back');
     }
 }
