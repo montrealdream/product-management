@@ -91,9 +91,30 @@ module.exports.createView = async (req, res) => {
 // [POST] /admin/accounts/create
 module.exports.create = async (req, res) => {
     try{
+        // hash password
+        req.body.password = md5(req.body.password);
+       
+        // check email exits
+        const emailExits = await Account.findOne({
+            email: req.body.email,
+        });
+
+        if(emailExits){
+            req.flash('warning', 'Email was exits, please choose different email');
+            res.redirect('back');
+            return;
+        }
+
+        if(req.file){
+            req.body.avatar = `/uploads/${req.file.filename}`;
+        }
         
-        console.log(req.body);
-        res.redirect('back');
+        // save on database
+        const record = new Account(req.body);
+        await record.save();
+
+        req.flash('success', 'Create new Account successfully');
+        res.redirect(`/admin/accounts`);
     }
     catch(error){
 

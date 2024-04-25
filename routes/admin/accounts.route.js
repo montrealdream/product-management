@@ -10,6 +10,13 @@ const controller = require('../../controllers/admin/accounts.controller');
 const validate = require('../../validate/admin/accounts.validate');
 
 
+// multer
+const multer  = require('multer');
+const diskStorageMulterHelper = require('../../helper/diskStorageMulter.helper');
+// when not use disk storage
+    // const upload = multer({ dest: './public/uploads/' }); 
+const upload = multer({ storage: diskStorageMulterHelper() });
+
 // use
 router.get('/', controller.index);
 
@@ -21,9 +28,10 @@ router.get('/create', controller.createView);
 
 router.post(
     '/create', 
+    upload.single('avatar'),
     validate.createAccount,
-    controller.create);
-
+    controller.create
+);
 
 // export
 module.exports = router;
