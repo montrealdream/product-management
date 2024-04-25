@@ -7,6 +7,7 @@ const productRouter = require('./products.route');
 const productCategoryRouter = require('./products-category.route');
 const roleRouter = require('./roles.route');
 const accountRouter = require('./accounts.route');
+const authenRouter = require('./auth.route');
 
 // export
 module.exports = (app) => {
@@ -35,6 +36,11 @@ module.exports = (app) => {
     app.use(
         path_admin + `/accounts`,
         accountRouter
+    );
+
+    app.use(
+        path_admin + `/auth`,
+        authenRouter
     );
 
 }

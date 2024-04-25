@@ -42,5 +42,7 @@ router.patch(
     controller.edit
 );
 
+// router.get('/detail/:id', controller.detail);
+
 // export
 module.exports = router;

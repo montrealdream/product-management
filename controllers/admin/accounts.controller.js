@@ -136,7 +136,7 @@ module.exports.create = async (req, res) => {
     }
 }
 
-// [GET] /admin/accounts/edit
+// [GET] /admin/accounts/edit/:id
 module.exports.editView = async (req, res) => {
     try{
         const record = await Account.findOne({
@@ -157,6 +157,7 @@ module.exports.editView = async (req, res) => {
     }
 }
 
+// [PATCH] /admin/accounts/edit/:id
 module.exports.edit = async (req, res) => {
     try{
         // if not update password
@@ -197,3 +198,22 @@ module.exports.edit = async (req, res) => {
         res.redirect('back');
     }
 }
+
+// [GET] /admin/accounts/detail/:id
+// module.exports.detail = async (req, res) => {
+//     try {
+//         const record = await Account.findOne({
+//             _id: req.params.id,
+//             deleted: false
+//         });
+        
+//         res.render('admin/pages/accounts/detail',{
+//             title: `Detail of ${record.fullName}`,
+//             record: record
+//         });
+
+//     } 
+//     catch (error) {
+        
+//     }
+// }
