@@ -39,11 +39,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.path_admin = systemConfig.path_admin;
 
 // template engines
-app.set('views', './views');
+// app.set('views', './views');
+app.set('views', `${__dirname}/views`);
 app.set('view engine', 'pug');
 
 // static files
-app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(express.static(`${__dirname}/public`));
 
 // database mongoDB-mongoose
 database.connect();
