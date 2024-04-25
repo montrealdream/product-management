@@ -28,12 +28,12 @@ block main
                 div(class="form-item")
                     label(class="label-style" for="role_id") Role: 
                     select(name="role_id" id="role_id" class="select-model")
-                        option(disabled) Choose 
+                        option(disabled selected = (record.role_id == "" ? true : false)) Choose 
                         if(roles)
                             each role in roles 
                                 option(
                                     value = role.id
-                                    seleted = (record.role_id == role.id ? true : false)
+                                    selected = (record.role_id == role._id ? true : false)
                                 ) #{role.title}
                         
                     

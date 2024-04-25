@@ -30,6 +30,16 @@ module.exports.index = async (req, res) => {
                                      .limit(paginationObject.limit)
                                      .skip(paginationObject.skip);
 
+        for(let record of records){
+            const role = await Role.findOne({
+                _id: record.role_id,
+                deleted: false
+            });
+            if(role){
+                record.role = role.title;
+            }
+        }
+
         res.render('admin/pages/accounts/index', {
             title: "Danh sách tài khoản",
             records: records,
@@ -39,7 +49,8 @@ module.exports.index = async (req, res) => {
         });
     }
     catch(error){
-
+        console.log(error);
+        res.redirect('back');
     }  
 }
 
@@ -115,6 +126,28 @@ module.exports.create = async (req, res) => {
 
         req.flash('success', 'Create new Account successfully');
         res.redirect(`/admin/accounts`);
+    }
+    catch(error){
+
+    }
+}
+
+// [GET] /admin/accounts/edit
+module.exports.editView = async (req, res) => {
+    try{
+        const record = await Account.findOne({
+            _id: req.params.id,
+            deleted: false
+        });
+        
+        const roles = await Role.find({deleted: false});
+
+        console.log(record);
+        res.render('admin/pages/accounts/edit',{
+            title: "Edit Account",
+            record: record,
+            roles: roles
+        })
     }
     catch(error){
 
