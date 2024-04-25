@@ -63,3 +63,14 @@ module.exports.login = async (req, res) => {
         res.redirect('back');
     }
 }
+
+// [GET] /admin/auth/logout
+module.exports.logout = async (req, res) => {
+    try{
+        res.clearCookie('token');
+        res.redirect(PATH_ADMIN + '/auth/login');
+    }
+    catch(error){
+
+    }
+}
