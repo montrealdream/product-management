@@ -6,70 +6,72 @@ block main
     +alert-success
     +alert-error 
     +alert-warning
-    div(class="card")
-        div(class="card-header txt-align-center") Create Category
-        div(class="card-body")
-            form(
-                action=`${path_admin}/products-category/create` 
-                method="POST"
-                enctype="multipart/form-data"
-            )
-                div(class="form-item")
-                    label(class="label-style" for="title") Title:
-                    input(
-                        type="text" 
-                        class="input-form" 
-                        id="title" 
-                        name="title"
-                        placeholder="Title of product..."
-                        required
-                    )
-                //- mixin create tree category
-                div(class="form-item")
-                    label(class="label-style" for="parent_id") Category:
-                    select(class="select-model" name="parent_id")
-                        option(value="") Root 
-                        +select-tree(categoryList)
-                div(class="form-item")
-                    label(class="label-style" for="description") Description:
-                    textarea(
-                        name="description",
-                        class="txt-area use-tinymce"
-                        id="description",
-                        placeholder="Describe yours product here..."
-                        rows="5"
-                    )
-                div(class="form-item")
-                    label(class="label-style" for="position") Position:
-                    input(
-                        type="number" 
-                        class="input-form" 
-                        id="position" 
-                        name="position"
-                        placeholder="Position of product..."
-                        min="0"
-                    )
-                +file-upload("Image", "thumbnail")
-                div(class="form-item-radio")
-                    input(
-                        type="radio"
-                        class="input-radio"
-                        id="statusActive"
-                        name="status"
-                        value="active"
-                        checked=true
-                    )
-                    label(class="label-style-radio" for="statusActive") Active
-                div(class="form-item-radio")
-                    input(
-                        type="radio"
-                        class="input-radio"
-                        id="statusInctive"
-                        name="status"
-                        value="inactive"
-                    )
-                    label(class="label-style-radio" for="statusInctive") Inactive
-                div(class="form-item ")
-                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Create
-
+    if(role.permissions.includes('products-category_create'))
+        div(class="card")
+            div(class="card-header txt-align-center") Create Category
+            div(class="card-body")
+                form(
+                    action=`${path_admin}/products-category/create` 
+                    method="POST"
+                    enctype="multipart/form-data"
+                )
+                    div(class="form-item")
+                        label(class="label-style" for="title") Title:
+                        input(
+                            type="text" 
+                            class="input-form" 
+                            id="title" 
+                            name="title"
+                            placeholder="Title of product..."
+                            required
+                        )
+                    //- mixin create tree category
+                    div(class="form-item")
+                        label(class="label-style" for="parent_id") Category:
+                        select(class="select-model" name="parent_id")
+                            option(value="") Root 
+                            +select-tree(categoryList)
+                    div(class="form-item")
+                        label(class="label-style" for="description") Description:
+                        textarea(
+                            name="description",
+                            class="txt-area use-tinymce"
+                            id="description",
+                            placeholder="Describe yours product here..."
+                            rows="5"
+                        )
+                    div(class="form-item")
+                        label(class="label-style" for="position") Position:
+                        input(
+                            type="number" 
+                            class="input-form" 
+                            id="position" 
+                            name="position"
+                            placeholder="Position of product..."
+                            min="0"
+                        )
+                    +file-upload("Image", "thumbnail")
+                    div(class="form-item-radio")
+                        input(
+                            type="radio"
+                            class="input-radio"
+                            id="statusActive"
+                            name="status"
+                            value="active"
+                            checked=true
+                        )
+                        label(class="label-style-radio" for="statusActive") Active
+                    div(class="form-item-radio")
+                        input(
+                            type="radio"
+                            class="input-radio"
+                            id="statusInctive"
+                            name="status"
+                            value="inactive"
+                        )
+                        label(class="label-style-radio" for="statusInctive") Inactive
+                    div(class="form-item ")
+                        button(type="submit" class="btn btn-mid font-16 btn-bg-green") Create
+    else 
+        h1(class="ml-20") You don't have permission to view this page                  
     script(src="/admin/js/file-upload.js")

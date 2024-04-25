@@ -1,84 +1,88 @@
 extends ../../layouts/default.pug
 block main 
-    div(class="card")
-        div(class="card-header txt-align-center")
-            if(record.title)
-                h4(class="")  #{record.title}
-                    a(href="#")  (view product)
-        div(class="card-body dflex")
-            div(class="column-3")
-                h3(class="mb-20 txt-align-center") Updated information
-                div(class="mb-20 dflex-row ") 
-                    |  Language: 
-                    img(src="/admin/images/english-icon.png" style="width: 30px; margin-left:5px")
+    if(role.permissions.includes('products_view'))
+        div(class="card")
+            div(class="card-header txt-align-center")
+                if(record.title)
+                    h4(class="")  #{record.title}
+                        a(href="#")  (view product)
+            div(class="card-body dflex")
+                div(class="column-3")
+                    h3(class="mb-20 txt-align-center") Updated information
+                    div(class="mb-20 dflex-row ") 
+                        |  Language: 
+                        img(src="/admin/images/english-icon.png" style="width: 30px; margin-left:5px")
 
-                if(record.status)
-                    div(class=`mb-20`) Status: 
-                        if(record.status == "active")
-                            span(class=`txt-success font-weight-bold`) Active
-                        else
-                            span(class=` txt-warning font-weight-bold`) Inactive
+                    if(record.status)
+                        div(class=`mb-20`) Status: 
+                            if(record.status == "active")
+                                span(class=`txt-success font-weight-bold`) Active
+                            else
+                                span(class=` txt-warning font-weight-bold`) Inactive
 
-                div(class="mb-20")  Date Created:
+                    div(class="mb-20")  Date Created:
 
-                div(class="mb-20")  Creator:
+                    div(class="mb-20")  Creator:
 
-                div(class="mb-20") Number of views: 
+                    div(class="mb-20") Number of views: 
 
-                div(class="mb-20") Number of comments: 
+                    div(class="mb-20") Number of comments: 
 
-                div(class="mb-20") Number of reviews: 
+                    div(class="mb-20") Number of reviews: 
 
-            div(class="column-3")
-                h3(class="mb-20 txt-align-center") Basic information
+                div(class="column-3")
+                    h3(class="mb-20 txt-align-center") Basic information
 
-                div(class="mb-20 ") Path:
+                    div(class="mb-20 ") Path:
 
-                div(class="mb-20 ") Outstanding product:
+                    div(class="mb-20 ") Outstanding product:
 
-                div(class="mb-20 ") Show table of contents:
+                    div(class="mb-20 ") Show table of contents:
 
-                div(class="mb-20 ") Category:
+                    div(class="mb-20 ") Category:
 
-                div(class="mb-20 ") Position:
+                    div(class="mb-20 ") Position:
 
-            div(class="column-3")
-                h3(class="mb-20 txt-align-center") SEO information
+                div(class="column-3")
+                    h3(class="mb-20 txt-align-center") SEO information
 
-                div(class="mb-20 ") SEO score: 
-                    span(class=`txt-success font-weight-bold`) Good
+                    div(class="mb-20 ") SEO score: 
+                        span(class=`txt-success font-weight-bold`) Good
 
-                div(class="mb-20") Keyword score: 
-                        span(class=`txt-danger font-weight-bold`) Not reached
+                    div(class="mb-20") Keyword score: 
+                            span(class=`txt-danger font-weight-bold`) Not reached
 
-                div(class="mb-20 ") Post tags...:
+                    div(class="mb-20 ") Post tags...:
 
-                div(class="mb-20 ") SEO Keywords:
+                    div(class="mb-20 ") SEO Keywords:
 
-                div(class="mb-20 ") SEO Title:
+                    div(class="mb-20 ") SEO Title:
 
-                div(class="mb-20 ") SEO Description:
+                    div(class="mb-20 ") SEO Description:
 
-        div(class="card-body dflex")
-            div(class="column-2")
-                h3(class="mb-20 txt-align-center") Product price and sales
+            div(class="card-body dflex")
+                div(class="column-2")
+                    h3(class="mb-20 txt-align-center") Product price and sales
 
-                div(class="mb-20 dflex-row " style="") Product Description: 
-                    textara(rows="5" class="ml-5") !{record.description} 
-                if(record.price)
-                    div(class="mb-20") Price: <b>$#{record.price}</b>
+                    div(class="mb-20 dflex-row " style="") Product Description: 
+                        textara(rows="5" class="ml-5") !{record.description} 
+                    if(record.price)
+                        div(class="mb-20") Price: <b>$#{record.price}</b>
 
-                if(record.discountPercentage)
-                    div(class="mb-20") Discount: <b>#{record.discountPercentage}%</b>
+                    if(record.discountPercentage)
+                        div(class="mb-20") Discount: <b>#{record.discountPercentage}%</b>
+                    
+                    if(record.stock)
+                        div(class="mb-4") Remaining : <b>#{record.stock}</b>
                 
-                if(record.stock)
-                    div(class="mb-4") Remaining : <b>#{record.stock}</b>
-            
-            div(class="column-2") 
-                h3(class="mb-20 txt-align-center") Image product
+                div(class="column-2") 
+                    h3(class="mb-20 txt-align-center") Image product
 
-        div(class="txt-align-center card-body")
-            a(
-                href=`${path_admin}/products/edit/${record.id}`
-                class="btn btn-mid btn-bg-yellow txt-decoration-none"
-            ) Edit
+            if(role.permissions.includes('products_edit'))
+                div(class="txt-align-center card-body")
+                    a(
+                        href=`${path_admin}/products/edit/${record.id}`
+                        class="btn btn-mid btn-bg-yellow txt-decoration-none"
+                    ) Edit
+    else 
+        h1(class="ml-20") You don't have permission to view this page

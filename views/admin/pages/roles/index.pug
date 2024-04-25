@@ -5,62 +5,67 @@ include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
 include ../../mixins/alert.pug
 block main 
-    
     +alert-success
     +alert-error 
-    div(class="card")
-        div(class="card-header") Feature    
-        div(class="card-body")
-            div(class="dflex-row")
-                .column-2 
-                    a(
-                        href=`${path_admin}/roles/create`
-                        class="btn btn-sm btn-outline-green txt-decoration-none"
-                    ) Create
-        div(class="card-header")
-            div(class="caption")
-                |   Role 
-                span(class="length-products") #{numberOfRecords}
-        div(class="card-body")
-            table(class="table" table-record)
-                thead 
-                    tr 
-                        th 
-                            input(type="checkbox" name="checkbox-all")
-                        th Name
-                        th Description
-                        th Action 
-                tbody 
-                    if(records) 
-                        each record in records
-                            tr 
-                                td 
-                                    input(
-                                        type="checkbox"
-                                        value=record.id
-                                        name="checkbox-single"
-                                    )
-                                td 
-                                    span(class="infor__name") #{record.title}
-                                td 
-                                    span() !{record.description}
-                                td 
-                                    a(
-                                        href=`${path_admin}/products-category/detail/${record.id}`
-                                        class="tag tag--detail mr-5"
-                                    ) detail
-                                    a(
-                                        href=`${path_admin}/roles/edit/${record.id}`
-                                        class="tag tag--edit mr-5"
-                                    ) edit
-                                    button(
-                                        class="tag tag--delete btn btn-sm font-16"
-                                        data-id= record.id
-                                        button-delete
-                                    ) delete
+    if(role.permissions.includes('roles_view'))
+        div(class="card")
+            if(role.permissions.includes('roles_create'))
+                div(class="card-header") Feature    
+                div(class="card-body")
+                    div(class="dflex-row")
+                        .column-2 
+                            a(
+                                href=`${path_admin}/roles/create`
+                                class="btn btn-sm btn-outline-green txt-decoration-none"
+                            ) Create
+            div(class="card-header")
+                div(class="caption")
+                    |   Role 
+                    span(class="length-products") #{numberOfRecords}
+            div(class="card-body")
+                table(class="table" table-record)
+                    thead 
+                        tr 
+                            th 
+                                input(type="checkbox" name="checkbox-all")
+                            th Name
+                            th Description
+                            th Action 
+                    tbody 
+                        if(records) 
+                            each record in records
+                                tr 
+                                    td 
+                                        input(
+                                            type="checkbox"
+                                            value=record.id
+                                            name="checkbox-single"
+                                        )
+                                    td 
+                                        span(class="infor__name") #{record.title}
+                                    td 
+                                        span() !{record.description}
+                                    td 
+                                        a(
+                                            href=`${path_admin}/products-category/detail/${record.id}`
+                                            class="tag tag--detail mr-5"
+                                        ) detail
+                                        if(role.permissions.includes('roles_edit'))
+                                            a(
+                                                href=`${path_admin}/roles/edit/${record.id}`
+                                                class="tag tag--edit mr-5"
+                                            ) edit
+                                        if(role.permissions.includes('roles_delete'))
+                                            button(
+                                                class="tag tag--delete btn btn-sm font-16"
+                                                data-id= record.id
+                                                button-delete
+                                            ) delete
+        
         //- div(class="card-body")
         //-     +pagination(pagination)
-
+    else 
+        h1(class="ml-20") You don't have permission to view this page
     //- form change status
     //- form(
     //-     action=""

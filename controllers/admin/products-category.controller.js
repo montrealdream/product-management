@@ -21,7 +21,7 @@ module.exports.index = async (req, res) => {
         // button filterHelper status
         const buttonFilterStatus = filterHelper.buttonStatus(req.query);
         if(req.query.status){
-            findObject.status = req.body.status
+            findObject.status = req.query.status
         }
 
         // search keyword

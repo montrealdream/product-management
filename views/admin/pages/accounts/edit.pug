@@ -6,90 +6,92 @@ block main
     +alert-success
     +alert-error 
     +alert-warning 
-    div(class="card")
-        div(class="card-header") Edit Account 
-        div(class="card-body")
-            form(
-                action=`${path_admin}/accounts/edit/${record.id}?_method=PATCH`
-                method="POST"
-                enctype="multipart/form-data"
-            )
-                div(class="form-item")
-                    label(class="label-style" for="fullName") Full Name:
-                    input(
-                        type="text" 
-                        class="input-form" 
-                        id="fullName" 
-                        name="fullName"
-                        placeholder="Your name..."
-                        value=record.fullName
-                        required
-                    )
-                div(class="form-item")
-                    label(class="label-style" for="role_id") Role: 
-                    select(name="role_id" id="role_id" class="select-model")
-                        option(disabled selected = (record.role_id == "" ? true : false)) Choose 
-                        if(roles)
-                            each role in roles 
-                                option(
-                                    value = role.id
-                                    selected = (record.role_id == role._id ? true : false)
-                                ) #{role.title}
+    if(role.permissions.includes('accounts_edit'))
+        div(class="card")
+            div(class="card-header") Edit Account 
+            div(class="card-body")
+                form(
+                    action=`${path_admin}/accounts/edit/${record.id}?_method=PATCH`
+                    method="POST"
+                    enctype="multipart/form-data"
+                )
+                    div(class="form-item")
+                        label(class="label-style" for="fullName") Full Name:
+                        input(
+                            type="text" 
+                            class="input-form" 
+                            id="fullName" 
+                            name="fullName"
+                            placeholder="Your name..."
+                            value=record.fullName
+                            required
+                        )
+                    div(class="form-item")
+                        label(class="label-style" for="role_id") Role: 
+                        select(name="role_id" id="role_id" class="select-model")
+                            option(disabled selected = (record.role_id == "" ? true : false)) Choose 
+                            if(roles)
+                                each role in roles 
+                                    option(
+                                        value = role.id
+                                        selected = (record.role_id == role._id ? true : false)
+                                    ) #{role.title}
+                            
                         
-                    
-                div(class="form-item")
-                    label(class="label-style" for="email") Email:
-                    input(
-                        type="email" 
-                        class="input-form" 
-                        id="email" 
-                        name="email"
-                        placeholder="Your email..."
-                        value = record.email
-                        required
-                    )
-                div(class="form-item")
-                    label(class="label-style" for="password") Password:
-                    input(
-                        type="password" 
-                        class="input-form" 
-                        id="password" 
-                        name="password"
-                        placeholder="Your password..."
-                    )
-                div(class="form-item")
-                    label(class="label-style" for="tel") Telephone:
-                    input(
-                        type="tel" 
-                        class="input-form" 
-                        id="tel" 
-                        name="tel"
-                        placeholder="Your telephone number..."
-                        value = record.tel
-                        required
-                    )
-                +file-upload("Avatar", "avatar", "form-item", record.avatar)
-                div(class="form-item-radio")
-                    input(
-                        type="radio"
-                        class="input-radio"
-                        id="statusActive"
-                        name="status"
-                        value="active"
-                        checked=(record.status == "active" ? true : false)
-                    )
-                    label(class="label-style-radio" for="statusActive") Active
-                div(class="form-item-radio")
-                    input(
-                        type="radio"
-                        class="input-radio"
-                        id="statusInctive"
-                        name="status"
-                        value="inactive"
-                        checked=(record.status == "inactive" ? true : false)
-                    )
-                    label(class="label-style-radio" for="statusInctive") Inactive
-                div(class="form-item ")
-                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Edit
-
+                    div(class="form-item")
+                        label(class="label-style" for="email") Email:
+                        input(
+                            type="email" 
+                            class="input-form" 
+                            id="email" 
+                            name="email"
+                            placeholder="Your email..."
+                            value = record.email
+                            required
+                        )
+                    div(class="form-item")
+                        label(class="label-style" for="password") Password:
+                        input(
+                            type="password" 
+                            class="input-form" 
+                            id="password" 
+                            name="password"
+                            placeholder="Your password..."
+                        )
+                    div(class="form-item")
+                        label(class="label-style" for="tel") Telephone:
+                        input(
+                            type="tel" 
+                            class="input-form" 
+                            id="tel" 
+                            name="tel"
+                            placeholder="Your telephone number..."
+                            value = record.tel
+                            required
+                        )
+                    +file-upload("Avatar", "avatar", "form-item", record.avatar)
+                    div(class="form-item-radio")
+                        input(
+                            type="radio"
+                            class="input-radio"
+                            id="statusActive"
+                            name="status"
+                            value="active"
+                            checked=(record.status == "active" ? true : false)
+                        )
+                        label(class="label-style-radio" for="statusActive") Active
+                    div(class="form-item-radio")
+                        input(
+                            type="radio"
+                            class="input-radio"
+                            id="statusInctive"
+                            name="status"
+                            value="inactive"
+                            checked=(record.status == "inactive" ? true : false)
+                        )
+                        label(class="label-style-radio" for="statusInctive") Inactive
+                    div(class="form-item ")
+                        button(type="submit" class="btn btn-mid font-16 btn-bg-green") Edit
+    else 
+        h1(class="ml-20") You don't have permission to view this page  
     script(src="/admin/js/file-upload.js")
