@@ -196,9 +196,10 @@ module.exports.createProduct = async(req, res) => {
             req.body.position = parseInt(req.body.position);
         }
 
-        if(req.file){
-            req.body.thumbnail = `/uploads/${req.file.filename}`;
-        }
+        /**use it when u save image on locals */
+        // if(req.file){
+        //     req.body.thumbnail = `/uploads/${req.file.filename}`;
+        // }
 
         // save on Database
         const record = new Product(req.body);
