@@ -1,0 +1,1580 @@
+[{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dd4"
+  },
+  "title": "Trí Tuệ Do Thái",
+  "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+  "price": 189,
+  "discountPercentage": 4.15,
+  "stock": 50,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tri-tue-do-thai.jpg?v=1510634413673",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:47:50.471Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dd5"
+  },
+  "title": "Bước Đi Ngẫu Nhiên Trên Phố Wall",
+  "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+  "price": 249,
+  "discountPercentage": 10.23,
+  "stock": 68,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/buoc-di-ngau-nhien-tren-pho-wall.jpg?v=1528356627027",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:44.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dd6"
+  },
+  "title": "Elon Musk: Tesla,SpaceX và sứ mệnh tìm kiếm một tương lai ngoài sức tưởng tượng",
+  "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+  "price": 339,
+  "discountPercentage": 11.83,
+  "stock": 96,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/17.jpg?v=1496894076467",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:44.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dd7"
+  },
+  "title": "Phân Tích Chứng Khoáng",
+  "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+  "price": 499,
+  "discountPercentage": 6.18,
+  "stock": 89,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/phan-tich-chung-khoan-outline-26.jpg?v=1521167573353",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:44.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dd8"
+  },
+  "title": "Sức Mạnh Của Việc Đặt Câu Hỏi Đúng",
+  "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+  "price": 99,
+  "discountPercentage": 8.4,
+  "stock": 65,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/suc-manh-cua-viec-dat-cau-hoi-dung.jpg?v=1527301463500",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:44.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dd9"
+  },
+  "title": "Tư Duy Như Một Kẻ Lập Dị",
+  "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+  "price": 119,
+  "discountPercentage": 15.66,
+  "stock": 52,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tu-duy-nhu-mot-ke-lap-di.jpg?v=1526888876190",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:44.229Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dda"
+  },
+  "title": "Nghĩ Ngược Lại Và Làm Khác Đi",
+  "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+  "price": 99,
+  "discountPercentage": 8.14,
+  "stock": 61,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nghi-nguoc-lai-lam-khac-di.jpg?v=1528356377000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:50.143Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59ddb"
+  },
+  "title": "24 Bài Học Sống Còn Để Đầu Tư Thành Công Trên Thị Trường Chứng Khoáng",
+  "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+  "price": 120,
+  "discountPercentage": 15.6,
+  "stock": 114,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/24-bai-hoc-song-con-outline-9-2-2018-02.jpg?v=1523412469000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:50.143Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59ddc"
+  },
+  "title": "Những Quy Tắc Trong Quản Lý",
+  "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+  "price": 149,
+  "discountPercentage": 10.99,
+  "stock": 105,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-quy-tac-trong-quan-ly-eb1633bc-aee6-4c5e-81c8-5d6d73b8c521.jpg?v=1549868380000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:50.143Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59ddd"
+  },
+  "title": "21 Nguyên Tắc Vàng Của Nghệ Thuật Lãnh Đạo",
+  "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+  "price": 199,
+  "discountPercentage": 13.31,
+  "stock": 110,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/21-nguyen-tac-vang-cua-nghe-thuat-lanh-dao-chot-1.png?v=1688024638000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:50.143Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59dde"
+  },
+  "title": "Sức Mạnh Của Thói Quen",
+  "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+  "price": 169,
+  "discountPercentage": 4.09,
+  "stock": 78,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/z4105964911654-5e5a35259898ca70607286170319aa65.jpg?v=1676275362000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T06:50:50.143Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59ddf"
+  },
+  "title": "Những Đòn Tâm Lý Trong Bán Hàng",
+  "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+  "price": 139,
+  "discountPercentage": 13.1,
+  "stock": 88,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-don-tam-ly-trong-ban-hang.jpg?v=1529552855000",
+  "status": "active",
+  "position": 3,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59de0"
+  },
+  "title": "Blink - Trong Chớp Mắt",
+  "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+  "price": 159,
+  "discountPercentage": 10.68,
+  "stock": 54,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/trong-chop-mat-6787e80b-b632-480f-b0d1-47d84d93cedf.jpg?v=1527212810000",
+  "status": "inactive",
+  "position": 2,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad24841aed5173b59de1"
+  },
+  "title": "Blue Ocean Strategy - Chiến Lược Đại Dương xanh",
+  "description": "<p>Fair &amp; Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.</p>",
+  "price": 239,
+  "discountPercentage": 16,
+  "stock": 140,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/bia-chien-luoc-dai-duong-xanh-jpeg.jpg?v=1676113816000",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "featured": "0",
+  "product_category_id": "660f684f7da4606e7775e795",
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-05T03:02:35.125Z"
+      },
+      "_id": {
+        "$oid": "660f69cb7da4606e7775e80c"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de3"
+  },
+  "title": "Tư Duy Nhanh và Chậm",
+  "description": "MacBook Pro 2021 with mini-LED display may launch between September, November",
+  "price": 269,
+  "discountPercentage": 11.02,
+  "stock": 83,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tu-duy-nh",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T07:32:38.210Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de4"
+  },
+  "title": "Trí Tuệ Do Thái",
+  "description": "<p>Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched</p>",
+  "price": 189,
+  "discountPercentage": 4,
+  "stock": 50,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tri-tue-do-thai.jpg?v=1510634413673",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "featured": "1",
+  "product_category_id": "660f684f7da4606e7775e795",
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-04T08:40:58.660Z"
+      },
+      "_id": {
+        "$oid": "660e679a3df0099bedfababf"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-05T03:02:15.251Z"
+      },
+      "_id": {
+        "$oid": "660f69b77da4606e7775e7d3"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de5"
+  },
+  "title": "Bước Đi Ngẫu Nhiên Trên Phố Wall",
+  "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+  "price": 249,
+  "discountPercentage": 10.23,
+  "stock": 68,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/buoc-di-ngau-nhien-tren-pho-wall.jpg?v=1528356627027",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T09:59:25.330Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de6"
+  },
+  "title": "Elon Musk: Tesla,SpaceX và sứ mệnh tìm kiếm một tương lai ngoài sức tưởng tượng",
+  "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+  "price": 339,
+  "discountPercentage": 11.83,
+  "stock": 96,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/17.jpg?v=1496894076467",
+  "status": "active",
+  "position": 5,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-28T09:40:49.640Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de7"
+  },
+  "title": "Phân Tích Chứng Khoáng",
+  "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+  "price": 499,
+  "discountPercentage": 6.18,
+  "stock": 89,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/phan-tich-chung-khoan-outline-26.jpg?v=1521167573353",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-03-29T16:45:54.197Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de8"
+  },
+  "title": "Sức Mạnh Của Việc Đặt Câu Hỏi Đúng",
+  "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+  "price": 99,
+  "discountPercentage": 8.4,
+  "stock": 65,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/suc-manh-cua-viec-dat-cau-hoi-dung.jpg?v=1527301463500",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-04-25T09:21:41.824Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59de9"
+  },
+  "title": "Tư Duy Như Một Kẻ Lập Dị",
+  "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+  "price": 119,
+  "discountPercentage": 15.66,
+  "stock": 52,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tu-duy-nhu-mot-ke-lap-di.jpg?v=1526888876190",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59dea"
+  },
+  "title": "Nghĩ Ngược Lại Và Làm Khác Đi",
+  "description": "<p>Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men</p>",
+  "price": 99,
+  "discountPercentage": 8,
+  "stock": 61,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nghi-nguoc-lai-lam-khac-di.jpg?v=1528356377000",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "featured": "1",
+  "product_category_id": "660d89ce1c23aa4e3b109027",
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-05T02:18:02.658Z"
+      },
+      "_id": {
+        "$oid": "660f5f5add3902213cf1ddce"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59deb"
+  },
+  "title": "24 Bài Học Sống Còn Để Đầu Tư Thành Công Trên Thị Trường Chứng Khoáng",
+  "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+  "price": 120,
+  "discountPercentage": 15.6,
+  "stock": 114,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/24-bai-hoc-song-con-outline-9-2-2018-02.jpg?v=1523412469000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59dec"
+  },
+  "title": "Những Quy Tắc Trong Quản Lý",
+  "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+  "price": 149,
+  "discountPercentage": 10.99,
+  "stock": 105,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-quy-tac-trong-quan-ly-eb1633bc-aee6-4c5e-81c8-5d6d73b8c521.jpg?v=1549868380000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59ded"
+  },
+  "title": "21 Nguyên Tắc Vàng Của Nghệ Thuật Lãnh Đạo",
+  "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+  "price": 199,
+  "discountPercentage": 13.31,
+  "stock": 110,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/21-nguyen-tac-vang-cua-nghe-thuat-lanh-dao-chot-1.png?v=1688024638000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59dee"
+  },
+  "title": "Sức Mạnh Của Thói Quen",
+  "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+  "price": 169,
+  "discountPercentage": 4.09,
+  "stock": 78,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/z4105964911654-5e5a35259898ca70607286170319aa65.jpg?v=1676275362000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59def"
+  },
+  "title": "Những Đòn Tâm Lý Trong Bán Hàng",
+  "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+  "price": 139,
+  "discountPercentage": 13.1,
+  "stock": 88,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-don-tam-ly-trong-ban-hang.jpg?v=1529552855000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59df0"
+  },
+  "title": "Blink - Trong Chớp Mắt",
+  "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+  "price": 159,
+  "discountPercentage": 10.68,
+  "stock": 54,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/trong-chop-mat-6787e80b-b632-480f-b0d1-47d84d93cedf.jpg?v=1527212810000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65e9ad42841aed5173b59df1"
+  },
+  "title": "Blue Ocean Strategy - Chiến Lược Đại Dương xanh",
+  "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+  "price": 239,
+  "discountPercentage": 16.99,
+  "stock": 140,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/bia-chien-luoc-dai-duong-xanh-jpeg.jpg?v=1676113816000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b3d"
+  },
+  "title": "Trí Tuệ Do Thái",
+  "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+  "price": 189,
+  "discountPercentage": 4.15,
+  "stock": 50,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tri-tue-do-thai.jpg?v=1510634413673",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b3e"
+  },
+  "title": "Bước Đi Ngẫu Nhiên Trên Phố Wall",
+  "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+  "price": 249,
+  "discountPercentage": 10.23,
+  "stock": 68,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/buoc-di-ngau-nhien-tren-pho-wall.jpg?v=1528356627027",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b3f"
+  },
+  "title": "Elon Musk: Tesla,SpaceX và sứ mệnh tìm kiếm một tương lai ngoài sức tưởng tượng",
+  "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+  "price": 339,
+  "discountPercentage": 11.83,
+  "stock": 96,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/17.jpg?v=1496894076467",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-04-25T09:01:27.322Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b40"
+  },
+  "title": "Phân Tích Chứng Khoáng",
+  "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+  "price": 499,
+  "discountPercentage": 6.18,
+  "stock": 89,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/phan-tich-chung-khoan-outline-26.jpg?v=1521167573353",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b41"
+  },
+  "title": "Sức Mạnh Của Việc Đặt Câu Hỏi Đúng",
+  "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+  "price": 99,
+  "discountPercentage": 8.4,
+  "stock": 65,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/suc-manh-cua-viec-dat-cau-hoi-dung.jpg?v=1527301463500",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b42"
+  },
+  "title": "Tư Duy Như Một Kẻ Lập Dị",
+  "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+  "price": 119,
+  "discountPercentage": 15.66,
+  "stock": 52,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tu-duy-nhu-mot-ke-lap-di.jpg?v=1526888876190",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b43"
+  },
+  "title": "Nghĩ Ngược Lại Và Làm Khác Đi",
+  "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+  "price": 99,
+  "discountPercentage": 8.14,
+  "stock": 61,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nghi-nguoc-lai-lam-khac-di.jpg?v=1528356377000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b44"
+  },
+  "title": "24 Bài Học Sống Còn Để Đầu Tư Thành Công Trên Thị Trường Chứng Khoáng",
+  "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+  "price": 120,
+  "discountPercentage": 15.6,
+  "stock": 114,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/24-bai-hoc-song-con-outline-9-2-2018-02.jpg?v=1523412469000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b45"
+  },
+  "title": "Những Quy Tắc Trong Quản Lý",
+  "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+  "price": 149,
+  "discountPercentage": 10.99,
+  "stock": 105,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-quy-tac-trong-quan-ly-eb1633bc-aee6-4c5e-81c8-5d6d73b8c521.jpg?v=1549868380000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b46"
+  },
+  "title": "21 Nguyên Tắc Vàng Của Nghệ Thuật Lãnh Đạo",
+  "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+  "price": 199,
+  "discountPercentage": 13.31,
+  "stock": 110,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/21-nguyen-tac-vang-cua-nghe-thuat-lanh-dao-chot-1.png?v=1688024638000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b47"
+  },
+  "title": "Sức Mạnh Của Thói Quen",
+  "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+  "price": 169,
+  "discountPercentage": 4.09,
+  "stock": 78,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/z4105964911654-5e5a35259898ca70607286170319aa65.jpg?v=1676275362000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b48"
+  },
+  "title": "Những Đòn Tâm Lý Trong Bán Hàng",
+  "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+  "price": 139,
+  "discountPercentage": 13.1,
+  "stock": 88,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-don-tam-ly-trong-ban-hang.jpg?v=1529552855000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b49"
+  },
+  "title": "Blink - Trong Chớp Mắt",
+  "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+  "price": 159,
+  "discountPercentage": 10.68,
+  "stock": 54,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/trong-chop-mat-6787e80b-b632-480f-b0d1-47d84d93cedf.jpg?v=1527212810000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b5eef43e26ee6b821b4a"
+  },
+  "title": "Blue Ocean Strategy - Chiến Lược Đại Dương xanh",
+  "description": "<p>Fair &amp; Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.</p>",
+  "price": 239,
+  "discountPercentage": 16,
+  "stock": 140,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/bia-chien-luoc-dai-duong-xanh-jpeg.jpg?v=1676113816000",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "featured": "1",
+  "product_category_id": "660d89ce1c23aa4e3b109027",
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-04T08:41:17.572Z"
+      },
+      "_id": {
+        "$oid": "660e67ad3df0099bedfabaf5"
+      }
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b4d"
+  },
+  "title": "Trí Tuệ Do Thái",
+  "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+  "price": 189,
+  "discountPercentage": 4.15,
+  "stock": 50,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tri-tue-do-thai.jpg?v=1510634413673",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b4e"
+  },
+  "title": "Bước Đi Ngẫu Nhiên Trên Phố Wall",
+  "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+  "price": 249,
+  "discountPercentage": 10.23,
+  "stock": 68,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/buoc-di-ngau-nhien-tren-pho-wall.jpg?v=1528356627027",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b4f"
+  },
+  "title": "Elon Musk: Tesla,SpaceX và sứ mệnh tìm kiếm một tương lai ngoài sức tưởng tượng",
+  "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+  "price": 339,
+  "discountPercentage": 11,
+  "stock": 96,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/17.jpg?v=1496894076467",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "updatedAt": {
+    "$date": "2024-03-16T15:02:49.200Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b50"
+  },
+  "title": "Phân Tích Chứng Khoáng",
+  "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+  "price": 499,
+  "discountPercentage": 6.18,
+  "stock": 89,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/phan-tich-chung-khoan-outline-26.jpg?v=1521167573353",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b51"
+  },
+  "title": "Sức Mạnh Của Việc Đặt Câu Hỏi Đúng",
+  "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+  "price": 99,
+  "discountPercentage": 8.4,
+  "stock": 65,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/suc-manh-cua-viec-dat-cau-hoi-dung.jpg?v=1527301463500",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b52"
+  },
+  "title": "Tư Duy Như Một Kẻ Lập Dị",
+  "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+  "price": 119,
+  "discountPercentage": 15.66,
+  "stock": 52,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tu-duy-nhu-mot-ke-lap-di.jpg?v=1526888876190",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b53"
+  },
+  "title": "Nghĩ Ngược Lại Và Làm Khác Đi",
+  "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+  "price": 99,
+  "discountPercentage": 8.14,
+  "stock": 61,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nghi-nguoc-lai-lam-khac-di.jpg?v=1528356377000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b54"
+  },
+  "title": "24 Bài Học Sống Còn Để Đầu Tư Thành Công Trên Thị Trường Chứng Khoáng",
+  "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+  "price": 120,
+  "discountPercentage": 15.6,
+  "stock": 114,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/24-bai-hoc-song-con-outline-9-2-2018-02.jpg?v=1523412469000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b55"
+  },
+  "title": "Những Quy Tắc Trong Quản Lý",
+  "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+  "price": 149,
+  "discountPercentage": 10.99,
+  "stock": 105,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-quy-tac-trong-quan-ly-eb1633bc-aee6-4c5e-81c8-5d6d73b8c521.jpg?v=1549868380000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b56"
+  },
+  "title": "21 Nguyên Tắc Vàng Của Nghệ Thuật Lãnh Đạo",
+  "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+  "price": 199,
+  "discountPercentage": 13.31,
+  "stock": 110,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/21-nguyen-tac-vang-cua-nghe-thuat-lanh-dao-chot-1.png?v=1688024638000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b57"
+  },
+  "title": "Sức Mạnh Của Thói Quen",
+  "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+  "price": 169,
+  "discountPercentage": 4.09,
+  "stock": 78,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/z4105964911654-5e5a35259898ca70607286170319aa65.jpg?v=1676275362000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b58"
+  },
+  "title": "Những Đòn Tâm Lý Trong Bán Hàng",
+  "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+  "price": 139,
+  "discountPercentage": 13.1,
+  "stock": 88,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-don-tam-ly-trong-ban-hang.jpg?v=1529552855000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b59"
+  },
+  "title": "Blink - Trong Chớp Mắt",
+  "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+  "price": 159,
+  "discountPercentage": 10.68,
+  "stock": 54,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/trong-chop-mat-6787e80b-b632-480f-b0d1-47d84d93cedf.jpg?v=1527212810000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b5a"
+  },
+  "title": "Blue Ocean Strategy - Chiến Lược Đại Dương xanh",
+  "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+  "price": 239,
+  "discountPercentage": 16.99,
+  "stock": 140,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/bia-chien-luoc-dai-duong-xanh-jpeg.jpg?v=1676113816000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b5c"
+  },
+  "title": "Trí Tuệ Do Thái",
+  "description": "Samsung Galaxy Book S (2020) Laptop With Intel Lakefield Chip, 8GB of RAM Launched",
+  "price": 189,
+  "discountPercentage": 4.15,
+  "stock": 50,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tri-tue-do-thai.jpg?v=1510634413673",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b5d"
+  },
+  "title": "Bước Đi Ngẫu Nhiên Trên Phố Wall",
+  "description": "Style and speed. Stand out on HD video calls backed by Studio Mics. Capture ideas on the vibrant touchscreen.",
+  "price": 249,
+  "discountPercentage": 10.23,
+  "stock": 68,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/buoc-di-ngau-nhien-tren-pho-wall.jpg?v=1528356627027",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b5e"
+  },
+  "title": "Elon Musk: Tesla,SpaceX và sứ mệnh tìm kiếm một tương lai ngoài sức tưởng tượng",
+  "description": "Infinix Inbook X1 Ci3 10th 8GB 256GB 14 Win10 Grey – 1 Year Warranty",
+  "price": 339,
+  "discountPercentage": 11.83,
+  "stock": 96,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/17.jpg?v=1496894076467",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b5f"
+  },
+  "title": "Phân Tích Chứng Khoáng",
+  "description": "HP Pavilion 15-DK1056WM Gaming Laptop 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+  "price": 499,
+  "discountPercentage": 6.18,
+  "stock": 89,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/phan-tich-chung-khoan-outline-26.jpg?v=1521167573353",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b60"
+  },
+  "title": "Sức Mạnh Của Việc Đặt Câu Hỏi Đúng",
+  "description": "Mega Discount, Impression of Acqua Di Gio by GiorgioArmani concentrated attar perfume Oil",
+  "price": 99,
+  "discountPercentage": 8.4,
+  "stock": 65,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/suc-manh-cua-viec-dat-cau-hoi-dung.jpg?v=1527301463500",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b61"
+  },
+  "title": "Tư Duy Như Một Kẻ Lập Dị",
+  "description": "Royal_Mirage Sport Brown Perfume for Men & Women - 120ml",
+  "price": 119,
+  "discountPercentage": 15.66,
+  "stock": 52,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/tu-duy-nhu-mot-ke-lap-di.jpg?v=1526888876190",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b62"
+  },
+  "title": "Nghĩ Ngược Lại Và Làm Khác Đi",
+  "description": "Product details of Best Fog Scent Xpressio Perfume 100ml For Men cool long lasting perfumes for Men",
+  "price": 99,
+  "discountPercentage": 8.14,
+  "stock": 61,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nghi-nguoc-lai-lam-khac-di.jpg?v=1528356377000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b63"
+  },
+  "title": "24 Bài Học Sống Còn Để Đầu Tư Thành Công Trên Thị Trường Chứng Khoáng",
+  "description": "Original Al Munakh® by Mahal Al Musk | Our Impression of Climate | 6ml Non-Alcoholic Concentrated Perfume Oil",
+  "price": 120,
+  "discountPercentage": 15.6,
+  "stock": 114,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/24-bai-hoc-song-con-outline-9-2-2018-02.jpg?v=1523412469000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b64"
+  },
+  "title": "Những Quy Tắc Trong Quản Lý",
+  "description": "Genuine  Al-Rehab spray perfume from UAE/Saudi Arabia/Yemen High Quality",
+  "price": 149,
+  "discountPercentage": 10.99,
+  "stock": 105,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-quy-tac-trong-quan-ly-eb1633bc-aee6-4c5e-81c8-5d6d73b8c521.jpg?v=1549868380000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b65"
+  },
+  "title": "21 Nguyên Tắc Vàng Của Nghệ Thuật Lãnh Đạo",
+  "description": "L'OrÃ©al Paris introduces Hyaluron Expert Replumping Serum formulated with 1.5% Hyaluronic Acid",
+  "price": 199,
+  "discountPercentage": 13.31,
+  "stock": 110,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/21-nguyen-tac-vang-cua-nghe-thuat-lanh-dao-chot-1.png?v=1688024638000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b66"
+  },
+  "title": "Sức Mạnh Của Thói Quen",
+  "description": "Tea tree oil contains a number of compounds, including terpinen-4-ol, that have been shown to kill certain bacteria,",
+  "price": 169,
+  "discountPercentage": 4.09,
+  "stock": 78,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/z4105964911654-5e5a35259898ca70607286170319aa65.jpg?v=1676275362000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b67"
+  },
+  "title": "Những Đòn Tâm Lý Trong Bán Hàng",
+  "description": "Dermive Oil Free Moisturizer with SPF 20 is specifically formulated with ceramides, hyaluronic acid & sunscreen.",
+  "price": 139,
+  "discountPercentage": 13.1,
+  "stock": 88,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/nhung-don-tam-ly-trong-ban-hang.jpg?v=1529552855000",
+  "status": "inactive",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b68"
+  },
+  "title": "Blink - Trong Chớp Mắt",
+  "description": "Product name: rorec collagen hyaluronic acid white face serum riceNet weight: 15 m",
+  "price": 159,
+  "discountPercentage": 10.68,
+  "stock": 54,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/trong-chop-mat-6787e80b-b632-480f-b0d1-47d84d93cedf.jpg?v=1527212810000",
+  "status": "active",
+  "position": 1,
+  "deleted": false
+},
+{
+  "_id": {
+    "$oid": "65f2b61cf43e26ee6b821b69"
+  },
+  "title": "Blue Ocean Strategy - Chiến Lược Đại Dương xanh",
+  "description": "Fair & Clear is Pakistan's only pure Freckle cream which helpsfade Freckles, Darkspots and pigments. Mercury level is 0%, so there are no side effects.",
+  "price": 239,
+  "discountPercentage": 16.99,
+  "stock": 140,
+  "thumbnail": "https://bizweb.dktcdn.net/100/197/269/products/bia-chien-luoc-dai-duong-xanh-jpeg.jpg?v=1676113816000",
+  "status": "active",
+  "position": 1,
+  "deleted": true,
+  "deletedAt": {
+    "$date": "2024-03-15T07:29:40.584Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "65f5389fd072752c6b167d0f"
+  },
+  "title": "vegeta",
+  "description": "person saiyan",
+  "price": 101,
+  "discountPercentage": 5,
+  "stock": 1,
+  "thumbnail": "/uploads/1710569631504-vegeta.jpg",
+  "status": "inactive",
+  "position": 61,
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-16T06:13:51.538Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-16T06:13:51.538Z"
+  },
+  "slug": "vegeta",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-03-29T16:32:54.404Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "65f678e6ca531b0e98e5ff55"
+  },
+  "title": "vegeta",
+  "description": "<p><span style=\"color: rgb(35, 111, 161);\">Saiyan man</span></p>",
+  "price": 1,
+  "discountPercentage": 1,
+  "stock": 1,
+  "thumbnail": "/uploads/1710651622604-vegeta.jpg",
+  "status": "active",
+  "position": 62,
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-17T05:00:22.624Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-17T05:00:22.624Z"
+  },
+  "slug": "vegeta-F2epFT1vn",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-03-29T11:58:09.185Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6606aba00c3384c9a9391b87"
+  },
+  "title": "Bai tap ve nha",
+  "product_category_id": "65f6e5ad938651b8d47640cf",
+  "description": "<p>abc</p>",
+  "price": 1,
+  "discountPercentage": 1,
+  "stock": 1,
+  "thumbnail": "/uploads/1711713184939-boy.jpg",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-03-29T11:53:04.959Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2024-03-29T11:53:04.964Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-29T11:53:04.964Z"
+  },
+  "slug": "bai-tap-ve-nha",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6606b426ce3edb703ea4ebea"
+  },
+  "title": "Hack",
+  "product_category_id": "65f6e5ad938651b8d47640cf",
+  "description": "<p>a</p>",
+  "price": 1,
+  "discountPercentage": 1,
+  "stock": 1,
+  "thumbnail": "/uploads/1711715366451-avatart.jpg",
+  "status": "inactive",
+  "position": 59,
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-03-29T12:29:26.468Z"
+    }
+  },
+  "slug": "hack",
+  "__v": 0,
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-03-29T13:03:57.978Z"
+      },
+      "_id": {
+        "$oid": "6606bc3ea1056617694e0d4d"
+      }
+    },
+    {
+      "account_id": "6606bc6ba1056617694e0d6c",
+      "updatedAt": {
+        "$date": "2024-03-29T13:05:02.360Z"
+      },
+      "_id": {
+        "$oid": "6606bc7ea1056617694e0d91"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "action": "restore",
+      "updatedAt": {
+        "$date": "2024-03-29T17:24:28.782Z"
+      },
+      "_id": {
+        "$oid": "6606f94c3163e8a2111b43ed"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "action": "restore",
+      "updatedAt": {
+        "$date": "2024-03-30T04:33:18.288Z"
+      },
+      "_id": {
+        "$oid": "6607960e274e74a69d07ee57"
+      }
+    },
+    {
+      "account_id": "6606bc6ba1056617694e0d6c",
+      "action": "restore",
+      "updatedAt": {
+        "$date": "2024-03-30T04:41:28.849Z"
+      },
+      "_id": {
+        "$oid": "660797f8af0b01171f337852"
+      }
+    },
+    {
+      "account_id": "6606bc6ba1056617694e0d6c",
+      "action": "restore",
+      "updatedAt": {
+        "$date": "2024-03-30T04:42:11.259Z"
+      },
+      "_id": {
+        "$oid": "66079823d59d0c21fcf2d364"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "action": "restore",
+      "updatedAt": {
+        "$date": "2024-03-30T04:47:51.683Z"
+      },
+      "_id": {
+        "$oid": "6607997703348261c2aaef0a"
+      }
+    }
+  ],
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-03-30T04:47:44.223Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "660d9c99c2975840f35a9855"
+  },
+  "title": "Cứu tinh xứ cát",
+  "product_category_id": "660d898c1c23aa4e3b109014",
+  "description": "<p>Nhiều năm sau khi trở th&agrave;nh Ho&agrave;ng đế Xứ C&aacute;t v&agrave; đấng ti&ecirc;n tri của con d&acirc;n đế quốc li&ecirc;n h&agrave;nh tinh, Paul Muad'dib vẫn chẳng mấy khi c&oacute; được an b&igrave;nh. Những kẻ th&ugrave; kh&ocirc;ng đội trời chung vẫn kh&ocirc;ng bu&ocirc;ng tha ch&agrave;ng. Mưu s&acirc;u chước hiểm của ch&uacute;ng lu&ocirc;n lu&ocirc;n đe dọa cướp đi tất cả những g&igrave; ch&agrave;ng y&ecirc;u qu&yacute; nhất, h&ograve;ng bẻ g&atilde;y tinh thần ch&agrave;ng, buộc ch&agrave;ng phải c&oacute; những quyết định ngược với c&aacute;c nguy&ecirc;n tắc v&agrave; l&yacute; tưởng ch&agrave;ng hằng theo đuổi. Cứu tinh Xứ C&aacute;t dẫn dắt ta theo s&aacute;t những biến cố mới đầy hiểm ngh&egrave;o v&agrave; bi thương đ&oacute; trong cuộc đời Paul Muad'dib, con người đầy quyền uy lẫn bi kịch, khiến ta vui với những chiến thẳng mới của Cứu tinh Xứ C&aacute;t đồng thời đau c&ugrave;ng nỗi đau lớn của ch&agrave;ng...</p>",
+  "price": 50,
+  "discountPercentage": 0,
+  "stock": 100,
+  "thumbnail": "/uploads/1712288771319-xu-cat.webp",
+  "status": "active",
+  "position": 59,
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T18:14:49.145Z"
+    }
+  },
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-04T08:14:21.612Z"
+      },
+      "_id": {
+        "$oid": "660e615da0abd9837d8c871c"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-04T08:45:23.051Z"
+      },
+      "_id": {
+        "$oid": "660e68a33df0099bedfabb33"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-05T03:46:11.322Z"
+      },
+      "_id": {
+        "$oid": "660f7403e29c77a1c633d98d"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-05T03:46:24.250Z"
+      },
+      "_id": {
+        "$oid": "660f7410e29c77a1c633d9bc"
+      }
+    }
+  ],
+  "slug": "cuu-tinh-xu-cat",
+  "__v": 0,
+  "featured": "0"
+},
+{
+  "_id": {
+    "$oid": "660f72cfe29c77a1c633d843"
+  },
+  "title": "Phía sau nghi can x",
+  "product_category_id": "660d887c1c23aa4e3b108fce",
+  "description": "",
+  "price": 250,
+  "discountPercentage": 25,
+  "stock": 100,
+  "thumbnail": "/uploads/1712288463437-phia-sau-nghi-can-x-2.jpg",
+  "status": "inactive",
+  "position": 60,
+  "featured": "1",
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T03:41:03.452Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "phia-sau-nghi-can-x",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-04-05T03:45:36.650Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "660f73dae29c77a1c633d93e"
+  },
+  "title": "Phía sau nghi can x",
+  "product_category_id": "660d887c1c23aa4e3b108fce",
+  "description": "<p>&ldquo;Việc nghĩ ra một b&agrave;i to&aacute;n v&ocirc; c&ugrave;ng kh&oacute; v&agrave; việc giải b&agrave;i to&aacute;n đ&oacute;, việc n&agrave;o kh&oacute; hơn?&rdquo;</p>\r\n<p>Khi nhấn chu&ocirc;ng cửa nh&agrave; nghi can ch&iacute;nh của một vụ &aacute;n mới, điều tra vi&ecirc;n Kusanagi kh&ocirc;ng biết rằng anh sắp phải đương đầu với một thi&ecirc;n t&agrave;i ẩn dật. Kusanagi c&agrave;ng kh&ocirc;ng thể ngờ rằng, chỉ một c&acirc;u n&oacute;i v&ocirc; thưởng v&ocirc; phạt của anh đ&atilde; k&eacute;o người bạn th&acirc;n, Manabu Yukawa, một ph&oacute; gi&aacute;o sư vật l&yacute; t&agrave;i năng, v&agrave;o vụ &aacute;n. V&agrave; điều l&agrave;m sững sờ nhất, đ&oacute; l&agrave; vụ &aacute;n kia chẳng qua cũng chỉ như một b&agrave;i to&aacute;n cấp ba đơn giản, tuy nhi&ecirc;n ấn số X khi được phơi b&agrave;y ra lại kh&ocirc;ng đem đến hạnh ph&uacute;c cho bất cứ ai&hellip;</p>\r\n<p>Với một giọng văn tỉnh t&aacute;o v&agrave; dung dị, Higashino Keigo đ&atilde; đem đến cho độc giả hơn cả một cuốn tiểu thuyết trinh th&aacute;m. M&ocirc; tả tội &aacute;c kh&ocirc;ng phải điều hấp dẫn nhất ở đ&acirc;y, m&agrave; c&ograve;n l&agrave; những giằng x&eacute; nội t&acirc;m thầm k&iacute;n, những nh&acirc;n vật b&igrave;nh dị, v&agrave; sự quan t&acirc;m s&acirc;u sa tới con người. T&aacute;c phẩm đ&atilde; đem lại cho Higashino Keigo Giải Naoki lần thứ 134, một giải thưởng văn học l&acirc;u đời s&aacute;nh ngang giải Akutagawa tại Nhật.</p>",
+  "price": 160,
+  "discountPercentage": 25,
+  "stock": 100,
+  "thumbnail": "/uploads/1712288730224-phia-sau-nghi-can-x.webp",
+  "status": "active",
+  "position": 61,
+  "featured": "1",
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T03:45:30.233Z"
+    }
+  },
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-05T13:03:21.445Z"
+      },
+      "_id": {
+        "$oid": "660ff6998b61249d7d2d8d7c"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-07T05:20:34.653Z"
+      },
+      "_id": {
+        "$oid": "66122d22d01c54d73770d189"
+      }
+    },
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-07T05:33:09.454Z"
+      },
+      "_id": {
+        "$oid": "66123015d01c54d73770d27d"
+      }
+    }
+  ],
+  "slug": "phia-sau-nghi-can-x-sBIeZsRfp",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660f744ae29c77a1c633d9dd"
+  },
+  "title": "Nổi niềm của thám tử Galileo",
+  "product_category_id": "660d887c1c23aa4e3b108fce",
+  "description": "",
+  "price": 120,
+  "discountPercentage": 25,
+  "stock": 100,
+  "thumbnail": "/uploads/1712288842253-noiniemcuathamtugalileo01.webp",
+  "status": "active",
+  "position": 61,
+  "featured": "1",
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T03:47:22.259Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "noi-niem-cua-tham-tu-galileo",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660fb4668d9d92bb8184ef9c"
+  },
+  "title": "Điều kỳ diệu của tiệm tạp hóa namiya",
+  "product_category_id": "660d887c1c23aa4e3b108fce",
+  "description": "<p>Một đ&ecirc;m vội v&atilde; lẩn trốn sau phi vụ khoắng đồ nh&agrave; người, Atsuya, Shota v&agrave; Kouhei đ&atilde; rẽ v&agrave;o l&aacute;nh tạm trong một căn nh&agrave; hoang b&ecirc;n con dốc vắng người qua lại. Căn nh&agrave; c&oacute; vẻ khi xưa l&agrave; một tiệm tạp h&oacute;a với biển hiệu cũ kỹ b&aacute;m đầy bồ h&oacute;ng, khiến người ta kh&oacute; l&ograve;ng đọc được tr&ecirc;n đ&oacute; viết g&igrave;. Định bụng nghỉ tạm một đ&ecirc;m rồi s&aacute;ng h&ocirc;m sau chuồn sớm, cả ba kh&ocirc;ng ngờ chờ đợi cả bọn sẽ l&agrave; một đ&ecirc;m kh&ocirc;ng ngủ, với bao điều kỳ b&iacute; bắt đầu từ một phong thư bất ngờ gửi đến&hellip;</p>\r\n<p>T&agrave;i kể chuyện hơn người đ&atilde; gi&uacute;p Keigo kh&eacute;o l&eacute;o thay đổi c&aacute;c mốc dấu thời gian v&agrave; kh&ocirc;ng gian, chắp nối những c&acirc;u chuyện tưởng chừng ho&agrave;n to&agrave;n ri&ecirc;ng rẽ th&agrave;nh một kết cấu chặt chẽ, g&acirc;y bất ngờ từ đầu tới cuối.</p>",
+  "price": 90,
+  "discountPercentage": 25,
+  "stock": 100,
+  "thumbnail": "/uploads/1712305254269-dieukydieucuatiemtaphoanamiya0.webp",
+  "status": "active",
+  "position": 62,
+  "featured": "1",
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T08:20:54.289Z"
+    }
+  },
+  "updatedBy": [
+    {
+      "account_id": "660405c2c654ceccc5f0230d",
+      "updatedAt": {
+        "$date": "2024-04-07T05:34:57.163Z"
+      },
+      "_id": {
+        "$oid": "6612308143925bd90021c198"
+      }
+    }
+  ],
+  "slug": "dieu-ky-dieu-cua-tiem-tap-hoa-namiya",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660fb4a28d9d92bb8184efbe"
+  },
+  "title": "Mật mã Davinci",
+  "product_category_id": "660d88c21c23aa4e3b108fde",
+  "description": "",
+  "price": 250,
+  "discountPercentage": 5,
+  "stock": 50,
+  "thumbnail": "/uploads/1712305314926-davinci-code.jpg",
+  "status": "active",
+  "position": 63,
+  "featured": "1",
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T08:21:54.932Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "mat-ma-davinci",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660fb4ea8d9d92bb8184eff1"
+  },
+  "title": "Đề thi đẫm máu",
+  "product_category_id": "660d89121c23aa4e3b108fef",
+  "description": "",
+  "price": 125,
+  "discountPercentage": 20,
+  "stock": 100,
+  "thumbnail": "/uploads/1712305386400-dethidammau.jpg",
+  "status": "active",
+  "position": 64,
+  "featured": "1",
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T08:23:06.406Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "de-thi-dam-mau",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660ff024bbf0b1260689b658"
+  },
+  "title": "Sự im lặng của bầy cừu",
+  "product_category_id": "660d88251c23aa4e3b108fbf",
+  "description": "",
+  "price": 230,
+  "discountPercentage": 25,
+  "stock": 100,
+  "thumbnail": "/uploads/1712320548030-suimlangcuabaycuu.jpg",
+  "status": "active",
+  "position": 65,
+  "featured": "1",
+  "deleted": false,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T12:35:48.083Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "su-im-lang-cua-bay-cuu",
+  "__v": 0
+}]

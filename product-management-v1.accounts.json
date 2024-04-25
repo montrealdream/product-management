@@ -1,0 +1,294 @@
+[{
+  "_id": {
+    "$oid": "660405c2c654ceccc5f0230d"
+  },
+  "token": "SDU8rOIqKhVNgsAPs8Qf",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "Giang Truong",
+  "email": "hogiangtruongbtre@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "02312345",
+  "avatar": "/uploads/1711539650679-user-hacker.jpg",
+  "status": "active",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-27T11:40:50.698Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T09:42:48.552Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66040690237949a9a0e6c8d2"
+  },
+  "token": "fzXPMqeavYvTDEqZdFYR",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "Kagami ",
+  "email": "ishigamistm@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "012345",
+  "avatar": "/uploads/1711539856776-user-2.jpg",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-27T11:44:16.796Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T09:07:11.787Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66040735237949a9a0e6c8e2"
+  },
+  "token": "fzXPMqeavYvTDEqZdFYR",
+  "role_id": "65f8830abeed71875a094cb5",
+  "fullName": "Nguyen Van Thieu",
+  "email": "hogiangtruongbtre2@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "029646",
+  "avatar": "/uploads/1711540021341-user-1.png",
+  "status": "inactive",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-27T11:47:01.347Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T03:27:27.955Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "660414b183f59c913b943895"
+  },
+  "token": "KQ2nSXYWvSwsGr8ucd3v",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "John Bush",
+  "email": "0467201128@caothang.edu.vn",
+  "password": "791601cfce8b3235956637d5e48303cb",
+  "tel": "24832498",
+  "avatar": "/uploads/1711596031797-user-1.png",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-27T12:44:33.892Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T03:27:26.946Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604e174f900289771a6de7d"
+  },
+  "token": "zbTmhTrvDDfoLUrp6UWb",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "Nguyen Nhan",
+  "email": "minhthuancoder111@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "012345678",
+  "avatar": "/uploads/1711596038306-user-2.jpg",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-28T03:18:12.841Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T09:07:13.017Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604e1a848621120b82730ac"
+  },
+  "token": "uWYFGpRCGBBMMQddP02E",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "nguyen minh",
+  "email": "hogiangtruongbtre1@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "123123131",
+  "avatar": "/uploads/1711596020864-user-hacker.jpg",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-28T03:19:04.183Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T09:07:10.752Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604e2203c0be1d7b57378a7"
+  },
+  "token": "MhQehJgV0jResSaIobFN",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "Tram Anh",
+  "email": "nghtramanh@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "3123131",
+  "avatar": "user-hacker.jpg",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-28T03:21:04.973Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T03:30:43.858Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604e3bba2c285f08deb6026"
+  },
+  "token": "Xodel9BHZFMpWiaGMAgK",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "Sa ma kha",
+  "email": "hogiangtruongbtre2@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "012345678",
+  "avatar": "user-hacker.jpg",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-28T03:27:55.552Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T03:30:45.000Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6604e47b735d30089d7852ed"
+  },
+  "token": "nbKUdC4CeP3MZmDYOz6n",
+  "role_id": "65f882f8beed71875a094cb1",
+  "fullName": "Tram Anh",
+  "email": "nghtramanh@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "012345678",
+  "avatar": "/uploads/1711596667389-user-1.png",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-28T03:31:07.448Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-29T10:53:19.046Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66053360d8d09ca1ef77a400"
+  },
+  "token": "VIxgvKEmbzdi57N2n6CQ",
+  "role_id": "65f8830abeed71875a094cb5",
+  "fullName": "Michael Corleone",
+  "email": "hogiangtruongbtre2@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "01234567",
+  "avatar": "/uploads/1711616864180-user.png",
+  "status": "active",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-28T09:07:44.197Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-28T16:33:35.322Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66053458d8d09ca1ef77a43d"
+  },
+  "token": "VIxgvKEmbzdi57N2n6CQ",
+  "role_id": "6628bb3843528383de4b7096",
+  "fullName": "Nguyen Nhan",
+  "email": "hogiangtruongbtre1@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "123412412",
+  "avatar": "/uploads/1711617112073-user-2.jpg",
+  "status": "active",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-03-28T09:11:52.080Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T09:43:34.489Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6606bc6ba1056617694e0d6c"
+  },
+  "token": "52HYbWtakUpPlVmyhNWM",
+  "role_id": "65f88706beed71875a094cd8",
+  "fullName": "Truong Giang",
+  "email": "giangtruongbtre@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "1231",
+  "avatar": "/uploads/1711717483844-avatart.jpg",
+  "status": "inactive",
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-29T13:04:43.859Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-24T08:02:04.664Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6628c4176264ff0d994bd76a"
+  },
+  "fullName": "Giang Truong",
+  "avatar": "/uploads/1713947671088-higashino-keigo.jpg",
+  "role_id": "6628bb3843528383de4b7096",
+  "token": "G8GtnQ7nWLn3J7YDRzqk",
+  "email": "godthunder@gmail.com",
+  "password": "ad1bf35b9696ee9cdec5680d2a81f2fa",
+  "tel": "0657193985",
+  "status": "active",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-04-24T08:34:31.110Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:14:16.672Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6628c45acf5b7f398dd0a8b4"
+  },
+  "fullName": "Giang Truong Ho",
+  "avatar": "/uploads/1713947738646-loi-me.jpg",
+  "role_id": "65f8830abeed71875a094cb5",
+  "token": "rWnvkocgWx61XuZJq5L0",
+  "email": "ishigamistmAMV@gmail.com",
+  "password": "b997e51441e53a8b02cf5c83c249ad5f",
+  "tel": "0657193985",
+  "status": "inactive",
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-04-24T08:35:38.669Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T08:55:17.274Z"
+  },
+  "__v": 0
+}]

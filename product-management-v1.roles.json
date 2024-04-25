@@ -1,0 +1,113 @@
+[{
+  "_id": {
+    "$oid": "65f882f8beed71875a094cb1"
+  },
+  "title": "Quản trị viên",
+  "description": "<p><span style=\"color: rgb(45, 194, 107);\">Quản l&yacute; tất cả nội dung</span></p>",
+  "deleted": "false",
+  "createdAt": {
+    "$date": "2024-03-18T18:07:52.370Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T09:47:01.026Z"
+  },
+  "__v": 0,
+  "permissions": [
+    "products-category_view",
+    "products-category_create",
+    "products-category_edit",
+    "products-category_delete",
+    "products_view",
+    "products_create",
+    "products_edit",
+    "products_delete",
+    "roles_view",
+    "roles_create",
+    "roles_edit",
+    "roles_delete",
+    "permissions_view",
+    "permissions_create",
+    "permissions_edit",
+    "permissions_delete",
+    "accounts_view",
+    "accounts_create",
+    "accounts_edit",
+    "accounts_delete"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f8830abeed71875a094cb5"
+  },
+  "title": "Quản lý bài viết",
+  "description": "<p><span style=\"color: rgb(53, 152, 219);\">Quản l&yacute; b&agrave;i viết</span></p>",
+  "deleted": "false",
+  "createdAt": {
+    "$date": "2024-03-18T18:08:10.234Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T09:47:01.031Z"
+  },
+  "__v": 0,
+  "permissions": [
+    "products-category_view",
+    "products-category_create",
+    "products-category_edit",
+    "products-category_delete"
+  ]
+},
+{
+  "_id": {
+    "$oid": "65f88320beed71875a094cb9"
+  },
+  "title": "Quản lý sản phẩm",
+  "description": "<p><span style=\"color: rgb(230, 126, 35);\">Theo dỗi từng loại sản phẩm</span></p>",
+  "deleted": "false",
+  "createdAt": {
+    "$date": "2024-03-18T18:08:32.803Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T09:47:01.034Z"
+  },
+  "__v": 0,
+  "permissions": []
+},
+{
+  "_id": {
+    "$oid": "65f88706beed71875a094cd8"
+  },
+  "title": "Nhân viên",
+  "description": "<p>Chỉ xem</p>",
+  "deleted": "true",
+  "createdAt": {
+    "$date": "2024-03-18T18:25:10.762Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-24T07:56:19.650Z"
+  },
+  "__v": 0,
+  "permissions": [],
+  "deletedAt": {
+    "$date": "2024-04-24T07:56:19.649Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "6628bb3843528383de4b7096"
+  },
+  "title": "Nhân viên",
+  "description": "",
+  "deleted": "false",
+  "permissions": [
+    "roles_view",
+    "permissions_view",
+    "accounts_view"
+  ],
+  "createdAt": {
+    "$date": "2024-04-24T07:56:40.753Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T09:47:01.036Z"
+  },
+  "__v": 0
+}]

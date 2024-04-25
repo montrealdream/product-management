@@ -1007,6 +1007,10 @@
     background-color: #C9D1D9;
 }
 
+.dropdown__nav li a {
+    color: black;
+}
+
 .profile {
     display: block;
     width: 40px;
@@ -1150,7 +1154,7 @@
     height: 150px;
     border: 1px solid #ddd;
     border-radius: 50%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .user-history {

@@ -1,0 +1,438 @@
+[{
+  "_id": {
+    "$oid": "65f6e5ad938651b8d47640cf"
+  },
+  "title": "Thoi trang",
+  "parent_id": "",
+  "description": "",
+  "thumbnail": "/uploads/1710679469379-avatart.jpg",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-17T12:44:29.406Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-18T06:30:46.991Z"
+  },
+  "slug": "thoi-trang",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-04-03T16:45:46.033Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "65f6e5b8938651b8d47640d7"
+  },
+  "title": "Thoi trang nam",
+  "parent_id": "65f6e5ad938651b8d47640cf",
+  "description": "",
+  "thumbnail": "/uploads/1710679480008-boy.jpg",
+  "status": "inactive",
+  "position": 2,
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-17T12:44:40.015Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-18T06:31:08.662Z"
+  },
+  "slug": "thoi-trang-nam",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-04-03T16:45:44.005Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "65f6e5c2938651b8d47640df"
+  },
+  "title": "Thoi trang nu",
+  "parent_id": "65f6e5b8938651b8d47640d7",
+  "description": "",
+  "thumbnail": "/uploads/1710679490625-boy.jpg",
+  "status": "inactive",
+  "position": 3,
+  "deleted": true,
+  "createdAt": {
+    "$date": "2024-03-17T12:44:50.632Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-31T07:10:32.399Z"
+  },
+  "slug": "thoi-trang-nu",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-04-03T16:45:43.115Z"
+    }
+  },
+  "updatedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "action": "restore",
+    "deletedAt": {
+      "$date": "2024-03-31T07:10:32.397Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "66090697f310030ae8f1ecab"
+  },
+  "title": "Thiet bi ",
+  "parent_id": "",
+  "description": "<p>abc</p>",
+  "thumbnail": "/uploads/1711867543223-user.png",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "createdBy": {
+    "createdAt": {
+      "$date": "2024-03-31T06:45:43.236Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2024-03-31T06:45:43.242Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-31T07:12:21.144Z"
+  },
+  "slug": "thiet-bi",
+  "__v": 0,
+  "updatedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "action": "restore",
+    "deletedAt": {
+      "$date": "2024-03-31T07:12:21.143Z"
+    }
+  },
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-04-03T16:45:47.166Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "6609078f4acb7a3d700ce2ea"
+  },
+  "title": "Thiet Bi Duoc Su Dung",
+  "parent_id": "",
+  "description": "<p>1</p>",
+  "thumbnail": "/uploads/1711867791019-user-hacker.jpg",
+  "status": "inactive",
+  "position": 23,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-03-31T06:49:51.034Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2024-03-31T06:49:51.040Z"
+  },
+  "updatedAt": {
+    "$date": "2024-03-31T07:12:22.141Z"
+  },
+  "slug": "thiet-bi-duoc-su-dung",
+  "__v": 0,
+  "deletedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "deletedAt": {
+      "$date": "2024-04-03T16:45:41.833Z"
+    }
+  },
+  "updatedBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "action": "restore",
+    "deletedAt": {
+      "$date": "2024-03-31T07:25:49.850Z"
+    }
+  }
+},
+{
+  "_id": {
+    "$oid": "660d88251c23aa4e3b108fbf"
+  },
+  "title": "Trinh thám",
+  "parent_id": "",
+  "description": "<p>T&acirc;m l&yacute; học tội phạm, điều tra những vụ &aacute;n mạng</p>",
+  "thumbnail": "/uploads/1712288374508-trinh-tham.png",
+  "status": "inactive",
+  "position": 1,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:47:33.364Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "trinh-tham",
+  "__v": 0,
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:25.692Z"
+  },
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:25.691Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660d887c1c23aa4e3b108fce"
+  },
+  "title": "Higashino Keigo",
+  "parent_id": "660d88251c23aa4e3b108fbf",
+  "description": "<p>T&aacute;c giả nhiều bộ truyện trinh th&aacute;m nổi tiếng</p>",
+  "thumbnail": "/uploads/1712162940291-higashino-keigo.jpg",
+  "status": "active",
+  "position": 2,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:49:00.298Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "higashino-keigo",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:26.352Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:26.352Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660d88c21c23aa4e3b108fde"
+  },
+  "title": "Dan Brow",
+  "parent_id": "660d88251c23aa4e3b108fbf",
+  "description": "<p>T&aacute;c giả của cuốn Mật m&atilde; Da Vinci</p>\r\n<p>&nbsp;</p>",
+  "thumbnail": "/uploads/1712163010846-dan-brown.jpg",
+  "status": "active",
+  "position": 3,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:50:10.852Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "dan-brow",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:26.960Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:26.961Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660d89121c23aa4e3b108fef"
+  },
+  "title": "Lôi Mễ",
+  "parent_id": "660d88251c23aa4e3b108fbf",
+  "description": "<p>T&aacute;c giả trinh th&aacute;m nổi tiếng ở Trung Quốc</p>",
+  "thumbnail": "/uploads/1712163090493-loi-me.jpg",
+  "status": "active",
+  "position": 4,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:51:30.533Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "loi-me",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:27.500Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:27.501Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660d89501c23aa4e3b109001"
+  },
+  "title": "Sci-fi",
+  "parent_id": "",
+  "description": "<p>Khoa học viễn tưởng</p>",
+  "thumbnail": "/uploads/1712163152545-sci-fi.jpg",
+  "status": "active",
+  "position": 5,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:52:32.551Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "sci-fi",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:28.195Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:28.195Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660d898c1c23aa4e3b109014"
+  },
+  "title": "Xứ cát",
+  "parent_id": "660d89501c23aa4e3b109001",
+  "description": "<p>Từ đời n&agrave;y sang đời kh&aacute;c, người Fremen tr&ecirc;n h&agrave;nh tinh sa mạc lưu truyền lời ti&ecirc;n tri về một đấng cứu tinh sẽ dẫn dắt họ gi&agrave;nh lấy tự do đ&iacute;ch thực&hellip;</p>\r\n<p>Từ thế hệ n&agrave;y sang thế hệ kh&aacute;c, những nữ ph&ugrave; thủy Bene Gesserit mỏi m&ograve;n chờ đợi sự xuất hiện của một B.G. nam giới duy nhất, người c&oacute; thể vượt qua mọi giới hạn kh&ocirc;ng gian - thời gian&hellip;</p>",
+  "thumbnail": "/uploads/1712163212570-xu-cat.jpg",
+  "status": "active",
+  "position": 6,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:53:32.577Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "xu-cat",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:28.664Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:28.665Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660d89ce1c23aa4e3b109027"
+  },
+  "title": "Thiếu nhi",
+  "parent_id": "",
+  "description": "",
+  "thumbnail": "/uploads/1712163278752-thieu-nhi.jpg",
+  "status": "active",
+  "position": 7,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-03T16:54:38.758Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "thieu-nhi",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:29.259Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:29.259Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "660f684f7da4606e7775e795"
+  },
+  "title": "Self help",
+  "parent_id": "",
+  "description": "<p><strong>Self-help</strong>&nbsp;hay&nbsp;<strong>self-improvement</strong>&nbsp;(tự cải thiện/tự ph&aacute;t triển) l&agrave; thuật ngữ chỉ h&agrave;nh động tự ph&aacute;t triển ch&iacute;nh m&igrave;nh<sup id=\"cite_ref-APA_1-0\" class=\"reference\"><a href=\"https://vi.wikipedia.org/wiki/Self-help#cite_note-APA-1\">[1]</a></sup>&nbsp;- về phương diện kinh tế, tr&iacute; tuệ hoặc t&igrave;nh cảm - thường dựa tr&ecirc;n cơ sở&nbsp;<a title=\"T&acirc;m l&yacute; học\" href=\"https://vi.wikipedia.org/wiki/T%C3%A2m_l%C3%BD_h%E1%BB%8Dc\">t&acirc;m l&yacute; học</a>.</p>",
+  "thumbnail": "/uploads/1712285775231-self-help.jpg",
+  "status": "active",
+  "position": 8,
+  "deleted": true,
+  "createdBy": {
+    "account_id": "660405c2c654ceccc5f0230d",
+    "createdAt": {
+      "$date": "2024-04-05T02:56:15.245Z"
+    }
+  },
+  "updatedBy": [],
+  "slug": "self-help",
+  "__v": 0,
+  "deletedAt": {
+    "$date": "2024-04-25T16:08:29.806Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:29.807Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "662a801b9d76ce629deac7e2"
+  },
+  "title": "Trinh thám",
+  "parent_id": "",
+  "description": "<p>Điều tra, t&acirc;m l&yacute; tội phạm</p>",
+  "thumbnail": "/uploads/1714061339066-trinh-tham.png",
+  "status": "active",
+  "position": 1,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-04-25T16:08:59.132Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:08:59.132Z"
+  },
+  "slug": "trinh-tham-a8NhvCj4O",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a803e9d76ce629deac7f0"
+  },
+  "title": "Keigo Higashino",
+  "parent_id": "662a801b9d76ce629deac7e2",
+  "description": "<p>T&aacute;c giả trinh th&aacute;m nổi tiếng nhật bản</p>",
+  "thumbnail": "/uploads/1714061374872-higashino-keigo.jpg",
+  "status": "active",
+  "position": 2,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-04-25T16:09:34.879Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:09:34.879Z"
+  },
+  "slug": "keigo-higashino",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662a80669d76ce629deac7fe"
+  },
+  "title": "Lôi Mễ",
+  "parent_id": "662a801b9d76ce629deac7e2",
+  "description": "<p>T&aacute;c giả trinh th&aacute;m nổi tiếng của Trung Quốc</p>",
+  "thumbnail": "/uploads/1714061414832-loi-me.jpg",
+  "status": "active",
+  "position": 3,
+  "deleted": false,
+  "createdAt": {
+    "$date": "2024-04-25T16:10:14.839Z"
+  },
+  "updatedAt": {
+    "$date": "2024-04-25T16:10:14.839Z"
+  },
+  "slug": "loi-me-bidik3-47",
+  "__v": 0
+}]
