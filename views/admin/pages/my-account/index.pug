@@ -1,0 +1,63 @@
+extends ../../layouts/default.pug
+block main
+    div(class="container")
+        div(class="personal-account")
+            header(class="header-account")
+                div(class="header-main")
+                    if(user.avatar)
+                        img(src=user.avatar)
+                    if(user.fullName)
+                        div(class="header-sub")
+                            div(class="full-name") #{user.fullName}
+                            div(class="sub-title") Your personal account 
+                a(
+                    href=`${path_admin}/accounts/edit/${user.id}`
+                    class="btn btn-sm btn-bg-dark-gray txt-decoration-none"
+                ) Go to your personal profile
+            div(class="body-account")
+                h3(class="mb-5") Personal profile
+                hr(class="divider")
+                div(class="body-main")
+                    div(class="body-infor")
+                        if(user.fullName)
+                            p(class="mb-20")
+                                span(class="title") Full Name: 
+                                span(class="user") #{user.fullName}
+                        
+                        if(user.email)
+                            p(class="mb-20")
+                                span(class="title")  Email: 
+                                span(class="user") #{user.email}
+
+                        if(user.tel)
+                            p(class="mb-20")
+                                span(class="title")  Telephone: 
+                                span(class="user") #{user.tel}
+
+                        if(user.status)
+                            p(class="mb-20")
+                                span(class="title")  Status: 
+                                if(user.status == "active")
+                                    span(class="status user-active") #{user.status}
+                                else 
+                                    span(class="status user-inactive") #{user.status}
+                        if(role.title)
+                            p(class="mb-20")
+                                span(class="title") Role: 
+                                span(class="user") #{role.title}
+
+
+                    div(class="body-img txt-align-center")
+                        h4(class="mb-5") Profile picture
+                        img(src=user.avatar)
+            div(class="body-history")
+                h3(class="mb-5") History
+                hr(class="divider")
+                div(class="body-main")
+                    div(class="user-history")
+                        h3(class="txt-align-center") Create
+                    div(class="user-history")
+                        h3(class="txt-align-center") Update
+                    div(class="user-history") 
+                        h3(class="txt-align-center") Delete
+    

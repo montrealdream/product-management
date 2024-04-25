@@ -1003,6 +1003,10 @@
     padding: 12px;
 }
 
+.dropdown__nav li:hover {
+    background-color: #C9D1D9;
+}
+
 .profile {
     display: block;
     width: 40px;
@@ -1072,3 +1076,85 @@
 }
 
 /* end drop down login */
+
+/* personal information */
+.personal-account {
+
+}
+
+.header-account {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.header-account .header-main {
+    display: flex;
+    align-items: center;
+}
+
+.header-account img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.header-account .header-sub .full-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-account .header-sub .sub-title {
+    font-size: 14px;
+    color: #848D97;
+}
+
+.body-main {
+    padding: 10px;
+    display: flex;
+}
+
+.body-infor {
+    width: calc(100% / 2);
+}
+
+.body-infor .title {
+    font-size: 16px;
+    font-weight: 650;
+}
+
+.body-infor .user {
+    color: black;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.body-infor .user-active {
+    background-color: #EAFEF3;
+    color: #2ECC71;
+}
+.body-infor .user-inactive {
+    background-color: #fff6e5;
+    color: #F4BD50;
+}
+
+.body-img {
+    width: calc(100% / 2);
+}
+
+.body-img img {
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-history {
+    width: calc(100% / 3);
+    /* text-align: center; */
+}
+/* end personal information */
