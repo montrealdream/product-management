@@ -903,6 +903,8 @@
 }
 
 .login .login-field input {
+    -webkit-text-fill-color: white;
+    -webkit-background-clip: text;
     color: #EFD0F8;
     background-color: transparent; /* trong suốt*/
     max-width: 100%;
