@@ -9,6 +9,7 @@ block main
     div(class="login background")
         div(class="center")
             form(
+                action= `${path_admin}/auth/login`
                 method="POST"
                 class="form-login"
                 id="form-login"
@@ -21,8 +22,9 @@ block main
                     input(
                         id="email" 
                         type='email' 
+                        name="email"
                         placeholder='Your Email' 
-                        autocomplete="off"
+                        autocomplete="on"
                         value=""
                         required
                     )
@@ -31,6 +33,7 @@ block main
                     label(for='password') Password:
                     input(
                         id="password" 
+                        name="password"
                         type='password' 
                         placeholder='Your Password' 
                         required
@@ -43,10 +46,10 @@ block main
                         a(href='#') Reset password
                     div(class="login-create")
                         a(href='#') Create Account
-    form(
-        action= `${path_admin}/auth/login`
-        method="POST"
-        id="form-submit"
-    )
-        input(type="text" name="login" value="" class="dnone")
+    //- form(
+    //-     action= `${path_admin}/auth/login`
+    //-     method="POST"
+    //-     id="form-submit"
+    //- )
+    //-     input(type="text" name="login" value="" class="dnone")
     script(src="/admin/js/login.js")

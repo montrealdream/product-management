@@ -8,5 +8,7 @@ const controller = require('../../controllers/admin/auth.controller');
 
 router.get('/login', controller.loginView);
 
+router.post('/login', controller.login);
+
 // export
 module.exports = router;
