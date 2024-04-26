@@ -3,15 +3,25 @@ include ../../mixins/pagination.pug
 block main 
     div(class="container")
         div(class="banner")
-            img(src="https://bizweb.dktcdn.net/100/363/455/themes/918830/assets/banner-col.jpg?1704690471681")
+            img(
+                src="https://static.vecteezy.com/system/resources/previews/002/294/880/non_2x/reading-book-web-banner-design-student-reading-book-on-stack-of-book-to-get-inspiration-online-education-digital-classroom-e-learning-concept-header-or-footer-banner-free-vector.jpg")
     
         div(class="d-flex")
             div(class="item-divided-1")
-                h2 ABC
-            div(class="card clear-border item-divided-2")
+                h2 Tính năng
+            div(class="card clear-border item-divided-3" )
                 div(class="card-header ")
-                    span(class="title") Tủ sách
-                    span(class="quantity") #{numberofRecords}
+                    div(class="d-flex justify-content-space-between")
+                        .col-30percent
+                            span(class="title") Tủ sách
+                            span(class="quantity") #{numberofRecords}
+                        .col-70percent 
+                            div(class="d-flex justify-content-space-around align-item-center")
+                                div() Sắp xếp theo
+                                button(class="btn btn-white-gray btn-active-gray") Mặc định
+                                button(class="btn btn-white-gray") Sách mới
+                                button(class="btn btn-white-gray") Giá thấp - cao
+                                button(class="btn btn-white-gray") Giá cao - thấp
                 div(class="card-body")
                     div(class="d-flex flex-wrap justify-content-center")
                         each record in records

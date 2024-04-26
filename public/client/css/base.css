@@ -10,6 +10,10 @@
     border: 0px;
 }
 
+.clear-margin {
+    margin: 0;
+}
+
 /* display */
 .mb-20 {
     margin-bottom: 20px;
@@ -37,6 +41,10 @@
 
 .justify-content-space-between {
     justify-content: space-between;
+}
+
+.justify-content-space-around {
+    justify-content: space-around;
 }
 
 .flex-wrap{
@@ -99,7 +107,7 @@
 .card {
     border: 1px solid #F5F5F5;
     max-width: 1250px;
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .card-header {
@@ -151,7 +159,7 @@
     flex: 1; /* Chia đều không gian cho các phần tử */
 }
 
-.item-divided-2 {
+.item-divided-3 {
     flex: 3; /* Chia đều không gian cho các phần tử */
 }
 /* end width */
