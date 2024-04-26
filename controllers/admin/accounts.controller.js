@@ -120,9 +120,9 @@ module.exports.create = async (req, res) => {
             return;
         }
 
-        if(req.file){
-            req.body.avatar = `/uploads/${req.file.filename}`;
-        }
+        // if(req.file){
+        //     req.body.avatar = `/uploads/${req.file.filename}`;
+        // }
         
         // save on database
         const record = new Account(req.body);
