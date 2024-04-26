@@ -182,6 +182,10 @@ module.exports.edit = async (req, res) => {
             res.redirect('back');
         }
 
+        // if(req.file){
+        //     req.body.avatar = `/uploads/${req.file.filename}`;
+        // }
+
         else{
             await Account.updateOne(
                 {_id: req.params.id},

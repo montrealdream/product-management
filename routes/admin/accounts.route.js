@@ -44,6 +44,7 @@ router.get('/edit/:id', controller.editView);
 router.patch(
     '/edit/:id',
     upload.single('avatar'),
+    uploadCloud.uploadSingle,
     validate.editAccount,
     controller.edit
 );
