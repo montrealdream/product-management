@@ -2,18 +2,15 @@
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
 
+// require dotenv (NPM)
+require('dotenv').config();
+
 // connect to cloudinary
 cloudinary.config({ 
     cloud_name: process.env.CLOUD_NAME, 
-    api_key: process.env.API_KEY, 
-    api_secret: process.env.API_SECRET 
+    api_key: process.env.CLOUD_KEY, 
+    api_secret: process.env.CLOUD_SECRET 
 });
-          
-// cloudinary.config({ 
-//   cloud_name: 'dgmm3wigk', 
-//   api_key: '868311338289767', 
-//   api_secret: 'RqNspsqRJZzSUNCtCPO_Z7XO6KQ' 
-// });
 
 module.exports.uploadSingle = (req, res, next) => {
      // if u have upload image (upload.single(...) will create req.file)
@@ -36,6 +33,7 @@ module.exports.uploadSingle = (req, res, next) => {
         async function upload(req) {
             let result = await streamUpload(req);
             // console.log(result);
+
             // update key 
             req.body[req.file.fieldname] = result.url;
             next();
