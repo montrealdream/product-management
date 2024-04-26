@@ -240,9 +240,10 @@ module.exports.editCategory = async (req, res) => {
     try{
         const id = req.params.id;
 
-        if(req.file){
-            req.body.thumbnail = `/uploads/${req.file.filename}`;
-        }
+        // if(req.file){
+        //     req.body.thumbnail = `/uploads/${req.file.filename}`;
+        // }
+        
         await productCategory.updateOne(
             {_id: id},
             req.body

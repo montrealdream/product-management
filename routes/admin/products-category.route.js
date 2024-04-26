@@ -46,6 +46,7 @@ router.get('/edit/:id', controller.editView);
 router.patch(
     '/edit/:id',
     upload.single('thumbnail'),
+    uploadCloud.uploadSingle,
     validate.createCategory,
     controller.editCategory
 );
