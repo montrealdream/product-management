@@ -20,14 +20,14 @@ const diskStorageMulterHelper = require('../../helper/diskStorageMulter.helper')
 // const upload = multer({ storage: diskStorageMulterHelper() });
 
 /**when u use cloudinary */
-const upload = multer();
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
-
+const upload = multer();
+          
 cloudinary.config({ 
-    cloud_name: 'dgmm3wigk', 
-    api_key: '868311338289767', 
-    api_secret: '***************************' 
+  cloud_name: 'dgmm3wigk', 
+  api_key: '868311338289767', 
+  api_secret: 'RqNspsqRJZzSUNCtCPO_Z7XO6KQ' 
 });
 
 // use
@@ -49,30 +49,32 @@ router.post(
       // if u have upload image (upload.single(...) will create req.file)
         if(req.file){
             let streamUpload = (req) => {
-                return new Promise((resolve, reject) => {
-                    let stream = cloudinary.uploader.upload_stream((error, result) => {
-                        if (result) {
-                          resolve(result);
-                        }
-                        else {
-                          reject(error);
-                        }
+              return new Promise((resolve, reject) => {
+                  let stream = cloudinary.uploader.upload_stream((error, result) => {
+                      if (result) {
+                        resolve(result);
                       }
-                    );
-                  streamifier.createReadStream(req.file.buffer).pipe(stream);
-                });
+                      else {
+                        reject(error);
+                      }
+                    }
+                  );
+                streamifier.createReadStream(req.file.buffer).pipe(stream);
+              });
             };
         
             async function upload(req) {
                 let result = await streamUpload(req);
-                console.log(result);
+                // console.log(result);
+                // update key 
+                req.body[req.file.fieldname] = result.url;
+                next();
             }
         
             upload(req);
-            next();
         }
         else{
-            // next();
+            next();
         }
         
     },
