@@ -94,9 +94,9 @@ module.exports.createCategory = async (req, res) => {
             req.body.position = parseInt(req.body.position);
         }
 
-        if(req.file){
-            req.body.thumbnail = `/uploads/${req.file.filename}`;
-        }
+        // if(req.file){
+        //     req.body.thumbnail = `/uploads/${req.file.filename}`;
+        // }
 
         const record = new productCategory(req.body);
         await record.save();
