@@ -147,7 +147,8 @@ body {
 .product__item {
     width: 160px;
     height: 290px;
-    margin: 30px;
+    /* margin: 30px; */
+    margin-bottom: 20px;
     border: 1px solid #ddd;
     border-radius: 16px;
 }
@@ -410,6 +411,11 @@ body {
     color: #228B22; 
 }
 
+.product-center {
+    display: flex;
+    justify-content: center;
+}
+
 .book__infor--detail {
     margin: 0;
     padding: 0;
@@ -476,3 +482,12 @@ body {
     height: 560px;
 }
 /* end frame */
+
+/* banner */
+.banner {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+/* end banner */

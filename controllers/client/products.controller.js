@@ -1,6 +1,9 @@
 // model
 const Product = require('../../models/product.model');
 
+// helper
+const paginationHelper = require('../../helper/pagination.helper');
+
 // [GET] /products
 module.exports.index = async (req, res) => {
     try{
@@ -12,7 +15,12 @@ module.exports.index = async (req, res) => {
         // count document
         const numberofRecords = await Product.countDocuments(findObject);
 
-        const records = await Product.find(findObject);
+        // pagination
+        const paginationObject = paginationHelper(req.query, 20, numberofRecords);
+
+        const records = await Product.find(findObject)
+                                     .limit(paginationObject.limit)
+                                     .skip(paginationObject.skip);
 
         // calc discount
         records.forEach(record => {
@@ -26,7 +34,8 @@ module.exports.index = async (req, res) => {
         res.render('client/pages/products/index', {
             title: "Products",
             records: records,
-            numberofRecords: numberofRecords
+            numberofRecords: numberofRecords,
+            pagination: paginationObject
         })
     }
     catch(error){

@@ -1,19 +1,29 @@
 extends ../../layouts/default.pug
+include ../../mixins/pagination.pug
 block main 
     div(class="container")
-        div(class="card clear-border")
-            div(class="card-header")
-                span(class="title") Tủ sách
-                span(class="quantity") #{numberofRecords}
-            div(class="card-body")
-                div(class="d-flex flex-wrap align-item-center justify-content-center")
-                    each record in records
-                        div(class="col-5 text-align-center")
-                            div(class="product__item transform-scale" title=record.title)
-                                img(src=record.thumbnail)
-                                div(class="item-infor")
-                                    h3(class="item-name")
-                                        a(href="#" class="text-decoration-none")  #{record.title}
-                                    div(class="item--price")
-                                        span(class="price-new") $#{record.newPrice}
-                                        span(class="price-old") $#{record.price}
+        div(class="banner")
+            img(src="https://bizweb.dktcdn.net/100/363/455/themes/918830/assets/banner-col.jpg?1704690471681")
+    
+        div(class="d-flex")
+            div(class="item-divided-1")
+                h2 ABC
+            div(class="card clear-border item-divided-2")
+                div(class="card-header ")
+                    span(class="title") Tủ sách
+                    span(class="quantity") #{numberofRecords}
+                div(class="card-body")
+                    div(class="d-flex flex-wrap justify-content-center")
+                        each record in records
+                            div(class="col-5 text-align-center product-center")
+                                div(class="product__item transform-scale" title=record.title)
+                                    img(src=record.thumbnail)
+                                    div(class="item-infor")
+                                        h3(class="item-name")
+                                            a(href="#" class="text-decoration-none")  #{record.title}
+                                        div(class="item--price")
+                                            span(class="price-new") $#{record.newPrice}
+                                            span(class="price-old") $#{record.price}
+                if(pagination)
+                    +pagination(pagination)
+    script(src="/client/js/script.js")
