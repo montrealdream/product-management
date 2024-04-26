@@ -51,6 +51,7 @@ router.get('/edit/:id', controller.editView);
 router.patch(
     '/edit/:id',
     upload.single('thumbnail'),
+    uploadCloud.uploadSingle, // function upload onto cloudinary
     validate.createProduct,
     controller.editProduct
 )
