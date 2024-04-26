@@ -1,7 +1,7 @@
 /* font ROBOTO*/
 @import url('https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/* set up */
+
 *{
     box-sizing: border-box;
 }
@@ -18,19 +18,7 @@ body {
     font-family: var(--font-primary);
 }
 
-.container {
-    max-width: 1400px;
-    width: 100%;
-    background-color: var(--background-primary);
-    margin-left: auto;
-    margin-right: auto;
-}
 
-.dflex-colum {
-    display: flex;
-    flex-direction: column;
-}
-/* end set up */
 
 /* header */
 .header {
@@ -132,7 +120,7 @@ body {
     padding-right: 20px;
 }
 
-.navigation li:hover svg {
+.navigation li:hover > a svg {
     transform: rotate(90deg);
     transition: all 0.7s ease;
     stroke: var(--background-third);
@@ -149,3 +137,342 @@ body {
     transition: all 1.2s ease;
 }
 /* end navigation 'ul' */
+
+/* product */
+
+.transform-scale:hover {
+    transform: scale(1.1);
+}
+
+.product__item {
+    width: 160px;
+    height: 290px;
+    margin: 30px;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+}
+
+.product__item img {
+    height: 200px;
+    width:auto;
+    margin-top: 5px;
+}
+
+.product__item .item-name {
+    font-size: 16px;
+    font-weight: 700;   
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.product__item .item-name a {
+    color: black;
+}
+
+.product__item .item--price {
+    display: flex;
+    justify-content: space-around;
+}
+
+.product__item .item--price .price-new {
+    font-size: 18px;
+    font-weight: 650;
+    color: #228B22;
+}
+
+.product__item .item--price .price-old {
+    font-size: 16px;
+    color: #777777;
+    text-decoration: line-through;
+}
+
+/* end product */
+
+/* pagination */
+.pagination {
+    /* reset ul */
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0;
+    list-style: none;
+    /* end reset ul */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination li {
+    margin-left: 5px;
+    margin-right: 5px;
+    height: 30px;
+    width: 30px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination a {
+    color: #616161;
+    text-decoration: none;
+    padding: 6px 8px;
+}
+
+.pagination li a svg {
+    width: 12px;
+    height: 12px;
+    fill: #616161;
+}
+.pagination--active {
+    background-color: #2ECC71;
+}
+
+.pagination--active a {
+    color: white;
+}
+
+.pagination li:hover {
+    background-color: #2ECC71;
+
+}
+
+.pagination li:hover a {
+    background-color: transparent;
+    color: white;
+}
+
+.pagination li:hover svg{
+    fill: white;
+}
+/* end pagination */
+
+/* menu */
+.menu {
+    position: relative;
+}
+
+.menu ul {
+    position: absolute;
+    top: 100%;
+    background-color: #1A1F25;
+    display: none;
+    max-width: 300px;
+    width: 100%;
+}
+
+.menu ul li {
+    border-bottom: 1px solid #ddd;
+    padding: 4px 8px;
+}
+
+.menu:hover > ul {
+    display: block;
+}
+
+.menu ul li {
+    position: relative;
+}
+
+.menu ul li svg {
+    transform: rotate(90deg);
+}
+
+.menu ul li:hover svg {
+    transform: rotate(0deg);
+}
+
+.menu ul li ul {
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    display: none;
+    max-width: 300px;
+    width: 100%;
+
+}
+
+.menu ul li ul li {
+    padding: 6px 8px;
+}
+
+.menu ul li:hover > ul {
+    display: block;
+}
+
+/* end menu */
+
+/* feature */
+.feature-product {
+    margin: 10px;
+}
+
+.feature-header {
+    font-size: 18px;
+    font-weight: 650;
+}
+/* end feature */
+
+/* detail product */
+.product__detail {
+    margin: 20px;
+}
+
+.product__detail--img{
+    width: 320px;
+    height: 480px;
+}
+
+.product__detail--title {
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.product__detail--author {
+    margin-bottom: 20px;
+}
+
+.product__detail--author span:nth-child(2) {
+    font-weight: 700;
+}
+
+.product__detail--price {
+    margin-bottom: 20px;
+}
+
+.product__detail--price .new-price {
+    font-size: 30px;
+    font-weight: 600;
+    color: #459D45;
+}
+
+.product__detail--price .old-price {
+    color: #777777;
+    text-decoration: line-through;
+}
+
+.product__detail--price .discount {
+    padding: 4px;
+    border-radius: 8px;
+    background-color: #EB5757;
+    color: white;
+    font-weight: 700;
+}
+
+.product__detail--quantity {
+    padding: 3px 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product__detail--quantity input {
+    background-color: white;
+    text-align: center;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+}
+
+.product__detail--quantity button {
+    background-color: white;
+    font-size: 20px;
+    border: 0;
+}
+
+.product__detail--quantity button:hover {
+    color: #228B22;
+}
+
+.product__detail--stock span {
+    color: #777777;
+    font-size: 18px;
+}
+
+.product__detail--desc {
+    font-size: 20px;
+    font-weight: 650;
+    color: #228B22;
+}
+
+.product__detail--content {
+
+}
+
+.product_detail-infor {
+    font-size: 20px;
+    font-weight: 650;
+    color: #228B22; 
+}
+
+.book__infor--detail {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: 20px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.book__infor--detail li {
+    padding: 10px 0px;
+}
+
+.book__infor--detail li .infor {
+    font-size: 16px;
+    font-weight: 650;
+}
+/* end detail product */
+
+.btn {
+    font-size: 16px;
+}
+
+.btn-large {
+    font-size: 18px;
+    padding: 16px 24px;
+    border-radius: 5px;
+}
+
+.btn-bg-white {
+    background-color: white;
+    color: #228B22;
+    border: 1px solid #228B22;
+}
+
+.btn-bg-white:hover {
+    background-color: #228B22;
+    color: #fff;
+}
+
+.btn-bg-green {
+    background-color: #228B22;
+    color: #fff;
+    border: 1px solid #228B22;
+}
+
+.btn-bg-green:hover {
+    border: 1px solid #228B22;
+    background-color: #fff;
+    color: #228B22;
+}
+
+/* form-submit */
+.form-submit {
+    margin: 20px;
+}
+/* end form-submit */
+
+/* frame */
+.frame {
+    border: 1px solid #ddd;
+    width: 520px;
+    height: 560px;
+}
+/* end frame */
