@@ -27,6 +27,28 @@ block main
                             required
                         )
                     div(class="form-item")
+                    label(class="label-style" for="feature-1") Feature:
+                    div(class="dflex-row  p-5")
+                        div(class="col-12 dflex align-item-center")
+                            input(
+                                type="radio"
+                                class="input-radio"
+                                id="feature-1"
+                                name="featured"
+                                value="1"
+                                checked=true
+                            )
+                            label(class="" for="feature-1") Yes
+                        div(class="col-12 dflex align-item-center")
+                            input(
+                                type="radio"
+                                class="input-radio"
+                                id="feature-2"
+                                name="featured"
+                                value="0"
+                            )
+                            label(class="" for="feature-2") No
+                    div(class="form-item")
                         label(class="label-style" for="product_category_id") Category:
                         select(class="select-model" name="product_category_id")
                             option(value="" selected=(record.product_category_id == "" ? false : true)) Choose
