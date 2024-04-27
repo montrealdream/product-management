@@ -9,20 +9,33 @@ module.exports.index = async (req, res) => {
     try{
         const findObject = {
             status: "active",
-            deleted: false,
-            featured: "1"
+            deleted: false
         };
 
-        const limitFeaturedRecords = 5;
+        // limit item
+        const limitRecords = 5;
 
-        const data = await Product.find(findObject)
-                                     .limit(limitFeaturedRecords);
-
-        const records = productHelper.discountMany(data);
+        // get data featured & new
+        const dataFeatured = await Product.find({
+                                              ...findObject,
+                                              featured: "1"
+                                           })
+                                           .limit(limitRecords);
+        
+        const dataNew = await Product.find({
+                                        ...findObject,            
+                                     })
+                                     .limit(limitRecords)
+                                     .sort({position: 'desc'});
+                                    
+        // calc discount
+        const recordsFeartured = productHelper.discountMany(dataFeatured);
+        const recordsNew = productHelper.discountMany(dataNew);
         
         res.render('client/pages/home/index', {
             title: "Trang chủ",
-            records: records
+            recordsFeartured: recordsFeartured,
+            recordsNew: recordsNew
         });
     }
     catch(error){

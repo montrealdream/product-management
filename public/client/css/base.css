@@ -180,3 +180,11 @@
     flex: 3; /* Chia đều không gian cho các phần tử */
 }
 /* end width */
+
+
+/* border */
+.border-top {
+    border-top: 2px solid #228B22;
+    margin-bottom: 5px;
+}
+/* end border */

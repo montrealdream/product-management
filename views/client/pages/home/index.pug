@@ -4,8 +4,17 @@ include ../../mixins/product-layouts.pug
 block main 
     div(class="container")
         div(class="feature-product") 
-            div(class="feature-header") Sản phẩm nổi bật
+            div(class="feature-header") Sách nổi bật
             div(class="feature-body")
                 div(class="d-flex flex-wrap align-item-center justify-content-center")
-                    if(records)
-                        +layout-grid(records, 'col-5mix')
+                    if(recordsFeartured)
+                        +layout-grid(recordsFeartured, 'col-5mix')
+
+        div(class="border-top")
+
+        div(class="feature-product") 
+            div(class="feature-header") Sách mới
+            div(class="feature-body")
+                div(class="d-flex flex-wrap align-item-center justify-content-center")
+                    if(recordsNew)
+                        +layout-grid(recordsNew, 'col-5mix')
