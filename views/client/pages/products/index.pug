@@ -1,6 +1,7 @@
 extends ../../layouts/default.pug
 include ../../mixins/pagination.pug
-block main 
+include ../../mixins/product-layouts.pug
+block main
     div(class="container")
         div(class="banner")
             img(
@@ -24,16 +25,18 @@ block main
                                 button(class="btn btn-white-gray") Giá cao - thấp
                 div(class="card-body")
                     div(class="d-flex flex-wrap justify-content-center")
-                        each record in records
-                            div(class="col-5 text-align-center product-center")
-                                div(class="product__item transform-scale" title=record.title)
-                                    img(src=record.thumbnail)
-                                    div(class="item-infor")
-                                        h3(class="item-name")
-                                            a(href="#" class="text-decoration-none")  #{record.title}
-                                        div(class="item--price")
-                                            span(class="price-new") $#{record.newPrice}
-                                            span(class="price-old") $#{record.price}
+                        if(records)
+                            +layout-grid(records, 'col-5')
+                        //- each record in records
+                        //-     div(class="col-5 text-align-center product-center")
+                        //-         div(class="product__item transform-scale" title=record.title)
+                        //-             img(src=record.thumbnail)
+                        //-             div(class="item-infor")
+                        //-                 h3(class="item-name")
+                        //-                     a(href="#" class="text-decoration-none")  #{record.title}
+                        //-                 div(class="item--price")
+                        //-                     span(class="price-new") $#{record.newPrice}
+                        //-                     span(class="price-old") $#{record.price}
                 if(pagination)
                     +pagination(pagination)
     script(src="/client/js/script.js")

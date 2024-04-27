@@ -76,6 +76,10 @@
     width: calc(100% / 5 - 5px);  
 }
 
+.col-5mix {
+    width: calc(100% / 5 - 50px);  
+}
+
 .col-12 {
     width: calc(100% / 12 - 50px);
 }
