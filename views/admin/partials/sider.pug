@@ -53,6 +53,20 @@ nav(class="sider")
                 ul(class="navigation")  
                     li 
                         a(href=`${path_admin}/products/create`) Tạo sản phẩm
+            li(class="d-flex-sider justify-content-space-between") 
+                    a(href=`${path_admin}/articles` class="")
+                        svg(width='22' height='23' viewbox='0 0 22 23' fill='none' xmlns='http://www.w3.org/2000/svg')
+                            path(d='M1.82764 11.8539C1.82764 9.0971 1.82764 7.71871 2.6923 6.86228C3.55695 6.00586 4.9486 6.00586 7.73189 6.00586H8.71594C11.4992 6.00586 12.8909 6.00586 13.7555 6.86228C14.6202 7.71871 14.6202 9.0971 14.6202 11.8539V14.7779C14.6202 17.5347 14.6202 18.9131 13.7555 19.7695C12.8909 20.6259 11.4992 20.6259 8.71594 20.6259H7.73189C4.9486 20.6259 3.55695 20.6259 2.6923 19.7695C1.82764 18.9131 1.82764 17.5347 1.82764 14.7779V11.8539Z' )
+                            path(d='M14.1977 15.1431H15.0413C17.4273 15.1431 18.6203 15.1431 19.3615 14.3938C20.1027 13.6444 20.1027 12.4383 20.1027 10.0261V7.46761C20.1027 5.05542 20.1027 3.84933 19.3615 3.09996C18.6203 2.35059 17.4273 2.35059 15.0413 2.35059H14.1977C11.8117 2.35059 10.6187 2.35059 9.87746 3.09996C9.22927 3.75526 9.14791 4.75983 9.1377 6.61477' )
+                            path(d='M5.48242 11.4883H8.22368M5.48242 16.0571H10.0512' )
+                            path(d='M9.59473 3.26465L13.2497 6.46279' )
+                        span(class="hide") Bài viết
+                    svg.chevron(xmlns='http://www.w3.org/2000/svg', width='24', height='24', viewBox='0 0 24 24', stroke-width='2', stroke='white', fill='none', stroke-linecap='round', stroke-linejoin='round')
+                        path(stroke='none', d='M0 0h24v24H0z', fill='none')
+                        path(d='M9 6l6 6l-6 6')
+            ul(class="navigation")  
+                li 
+                    a(href=`${path_admin}/articles/create`) Tạo bài viết
             if(role.permissions.includes('accounts_view'))
                 li(class="d-flex-sider justify-content-space-between") 
                     a(href=`${path_admin}/accounts` class="")
