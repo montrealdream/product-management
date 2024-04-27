@@ -77,12 +77,20 @@ body {
     display: block;
 }
 
+.align-item-center {
+    align-items: center;
+}
+
 .column-2 {
     width: calc(100% / 2 - 50px);
 }
 
 .column-3 {
     width: calc(100% / 3);
+}
+
+.col-12 {
+    width: calc(100% / 12 - 50px);
 }
 
 .txt-align-right {

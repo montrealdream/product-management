@@ -26,6 +26,7 @@ const productSchema = new mongoose.Schema(
             slug:"title",
             unique: true
         },
+        featured: String,
     },
     {
         timestamps: true

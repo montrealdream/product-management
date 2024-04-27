@@ -31,6 +31,11 @@
     display: flex;
 }
 
+.d-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
 .align-item-center {
     align-items: center;
 }
@@ -69,6 +74,10 @@
 
 .col-5 {
     width: calc(100% / 5 - 5px);  
+}
+
+.col-12 {
+    width: calc(100% / 12 - 50px);
 }
 
 .col-70percent {
