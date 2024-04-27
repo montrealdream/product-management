@@ -1,6 +1,9 @@
 // model
 const Product = require('../../models/product.model');
 
+// helper
+const productHelper = require('../../helper/products.helper');
+
 // [GET] /
 module.exports.index = async (req, res) => {
     try{
@@ -12,9 +15,11 @@ module.exports.index = async (req, res) => {
 
         const limitFeaturedRecords = 5;
 
-        const records = await Product.find(findObject)
+        const data = await Product.find(findObject)
                                      .limit(limitFeaturedRecords);
 
+        const records = productHelper.discountMany(data);
+        
         res.render('client/pages/home/index', {
             title: "Trang chủ",
             records: records
