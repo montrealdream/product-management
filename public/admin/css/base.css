@@ -81,6 +81,10 @@ body {
     align-items: center;
 }
 
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
 .column-2 {
     width: calc(100% / 2 - 50px);
 }
@@ -130,6 +134,15 @@ body {
 .ml-20 {
     margin-left: 20px;
 }
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mr-50 {
+    margin-right: 50px;
+}
+
 .reset-m {
     margin: 0;
 }
@@ -174,4 +187,5 @@ body {
     background-color: #fff6e5;
     color: #F4BD50;
 }
+
 /* end text */

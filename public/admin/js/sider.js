@@ -10,8 +10,32 @@ if(siderItem.length > 0){
     // scan
     siderItem.forEach((item) => {
         if(item.href === url){
-            item.classList.add("sider--active");
+            const parent = item.closest('li');
+            parent.classList.add("sider--active");
+            console.log(item);
         }   
+    });
+}
+
+// collapse sider
+const siderItemLi = bodyUserDefine.querySelectorAll(".sider-body li");
+if(siderItemLi.length > 0){
+    // scan
+    siderItemLi.forEach((item, index) => {
+        item.addEventListener("mouseover", (event) => {
+            const parentOfLi = siderItemLi[index+1].closest('ul');
+            parentOfLi.classList.add("open-sub-sider");
+
+            
+        });
+        item.addEventListener("mouseout", (event) => {
+            const parentOfLi = siderItemLi[index+1].closest('ul');
+            setTimeout(() => {
+                parentOfLi.classList.remove("open-sub-sider");
+            }, 1000);
+            
+            
+        });
     });
 }
 

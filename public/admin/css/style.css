@@ -137,17 +137,22 @@
     padding: 16px;
 }
 
-.sider-body li a:hover {
+.sider-body li:hover {
     width: 100%;
     background-color: #353E47;
 }
 
-.sider-body li a:hover span{
+/* lưu ý */
+.sider-body ul li:hover svg {
+    transform: rotate(0deg);
+}
+
+.sider-body li:hover span{
     transform: scale(1.1);
     color: #F4BD50;
 }
 
-.sider-body li a:hover svg{
+.sider-body li:hover svg{
     transform: scale(1.1);
     stroke: #F4BD50;
 }
@@ -207,6 +212,7 @@
     position: absolute;
     display: none;
 }
+
 
 .body.collapsed .sider {
     max-width: 90px;
@@ -1162,3 +1168,36 @@
     /* text-align: center; */
 }
 /* end personal information */
+
+
+/*  */
+.d-flex-sider{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.d-flex-sider > svg {
+    margin-right: 0;
+    margin-left: 10px;
+}
+/*  */
+
+/* sub sider */
+.sider-body ul .navigation li a {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sider-body ul > .navigation li:hover a {
+    color: #F4BD50;
+}
+
+.sider-body ul > .navigation {
+    display: none;
+}
+
+.sider-body ul .navigation.open-sub-sider {
+    display: block;
+}
+/* end sub sider */
