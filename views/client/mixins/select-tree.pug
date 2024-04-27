@@ -1,6 +1,8 @@
 mixin select-tree(records, level = 0, parent_id = "")
     each item in records 
         -   const prefix = Array(level + 1).join("-- ")
+        -   if(parent_id == "")
+            -   parent_id = "not-used"
         option(
             value=item.id 
             selected=(item.parent_id == parent_id ? true : false)
