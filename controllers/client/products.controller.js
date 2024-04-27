@@ -7,35 +7,11 @@ const paginationHelper = require('../../helper/pagination.helper');
 
 // [GET] /products
 module.exports.index = async (req, res) => {
-    // functionc create tree category
-    function createTree(arr, parent_id = "") {
-        let tree = [];
-
-        arr.forEach(item => {
-            if(item.parent_id === parent_id){
-                const newItem = item;
-                const children = createTree(arr, item.id);
-                
-                if(children.length > 0){
-                    newItem.children = children;
-                }
-
-                tree.push(newItem);
-            }
-        });
-
-        return tree;
-    }
-
     try{
         const findObject = {
             status: "active",
             deleted: false
         };
-
-        // get category && create tree category
-        const recordsCategory = await productCategory.find(findObject);
-        const treeCategory = createTree(recordsCategory);
 
         // count document
         const numberofRecords = await Product.countDocuments(findObject);
@@ -63,9 +39,8 @@ module.exports.index = async (req, res) => {
             title: "Products",
             records: records,
             numberofRecords: numberofRecords,
-            pagination: paginationObject,
-            category: treeCategory
-        })
+            pagination: paginationObject
+        });
     }
     catch(error){
 
