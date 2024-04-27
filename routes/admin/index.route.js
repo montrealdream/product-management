@@ -9,6 +9,7 @@ const roleRouter = require('./roles.route');
 const accountRouter = require('./accounts.route');
 const myAccountRouter = require('./my-account.route');
 const authenRouter = require('./auth.route');
+const articleRouter = require('./articles.route');
 
 // router private
 const middleware = require('../../middleware/admin/auth.middleware');
@@ -56,6 +57,11 @@ module.exports = (app) => {
     app.use(
         path_admin + `/auth`,
         authenRouter
+    );
+
+    app.use(
+        path_admin + `/articles`,
+        articleRouter
     );
 
 }
