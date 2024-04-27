@@ -1,11 +1,5 @@
+include product-item.pug
+
 mixin layout-grid(records, col)
     each record in records
-        div(class=`${col} text-align-center product-center`)
-            div(class="product__item transform-scale" title=record.title)
-                img(src=record.thumbnail)
-                div(class="item-infor")
-                    h3(class="item-name")
-                        a(href="#" class="text-decoration-none")  #{record.title}
-                    div(class="item--price")
-                        span(class="price-new") $#{record.newPrice}
-                        span(class="price-old") $#{record.price}
+        +product-item(record, col)

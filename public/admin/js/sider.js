@@ -14,6 +14,7 @@ if(siderItem.length > 0){
             const parentOfLi = siderItem[index+1].closest('ul');
             const parent = a.closest('li');
 
+            // parent.classList.add('mb-5');
             parent.classList.add("sider--active");
             parentOfLi.classList.add("open-sub-sider");
         }   
