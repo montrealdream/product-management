@@ -39,3 +39,43 @@ module.exports.index = async (req, res) => {
 
     }
 }
+
+// [GET] /products/:slugCategory
+module.exports.categoryView = async (req, res) => {
+    try{
+        const findObject = {
+            status: "active",
+            deleted: false
+        }
+
+        // get category need to find
+        const getCategory = await productCategory.findOne({
+            ...findObject,
+            slug: req.params.slugCategory
+        });
+
+        // count document
+        const numberofRecords = await Product.countDocuments({
+            product_category_id: getCategory.id,
+            ...findObject
+        });
+
+        // get records of category
+        const data = await Product.find({
+            product_category_id: getCategory.id,
+            ...findObject
+        });
+        
+        // calc discount
+        const records = productHelper.discountMany(data);
+
+        res.render('client/pages/products/index', {
+            title : 'Tủ sách',
+            numberofRecords: numberofRecords,
+            records: records
+        });
+    }
+    catch(error){
+
+    }
+}
