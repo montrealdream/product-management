@@ -1187,6 +1187,7 @@
 .sider-body ul .navigation li a {
     font-size: 16px;
     font-weight: 500;
+    margin-left: 70px;
 }
 
 .sider-body ul > .navigation li:hover a {
