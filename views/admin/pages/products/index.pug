@@ -23,12 +23,12 @@ block main
                         if(role.permissions.includes('products_edit'))
                             .column-2
                                 +form-change-multi("form-change-multi" , `${path_admin}/products/change-multi?_method=PATCH` )
-                        if(role.permissions.includes('products_create'))
-                            .column-2 
-                                a(
-                                    href=`${path_admin}/products/create`
-                                    class="btn btn-mid btn-outline-green txt-decoration-none"
-                                ) Create
+                        //- if(role.permissions.includes('products_create'))
+                        //-     .column-2 
+                        //-         a(
+                        //-             href=`${path_admin}/products/create`
+                        //-             class="btn btn-mid btn-outline-green txt-decoration-none"
+                        //-         ) Create
             div(class="card-header")
                 div(class="caption")
                     |   Products 

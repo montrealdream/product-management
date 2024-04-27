@@ -13,16 +13,15 @@ block main
                 div(class="card-header") Filter And Search 
                 div(class="card-body")
                     +button-filter-status(buttonFilterStatus)
-            if(role.permissions.includes('accounts_create') || role.permissions.includes('accounts_edit'))
-                div(class="card-header") Feature
-                div(class="card-body")
-                    div(class="dflex-row")
-                        if(role.permissions.includes('accounts_create'))
-                            .column-2 
-                                a(
-                                    href=`${path_admin}/accounts/create`
-                                    class="btn btn-sm btn-outline-green txt-decoration-none"
-                                ) Create
+            //- div(class="card-header") Feature
+            //- div(class="card-body")
+            //-     div(class="dflex-row")
+                //- if(role.permissions.includes('accounts_create'))
+                //-     .column-2 
+                //-         a(
+                //-             href=`${path_admin}/accounts/create`
+                //-             class="btn btn-sm btn-outline-green txt-decoration-none"
+                //-         ) Create
             div(class="card-header")
                 div(class="caption")
                     |   Accounts 

@@ -9,15 +9,15 @@ block main
     +alert-error 
     if(role.permissions.includes('roles_view'))
         div(class="card")
-            if(role.permissions.includes('roles_create'))
-                div(class="card-header") Feature    
-                div(class="card-body")
-                    div(class="dflex-row")
-                        .column-2 
-                            a(
-                                href=`${path_admin}/roles/create`
-                                class="btn btn-sm btn-outline-green txt-decoration-none"
-                            ) Create
+            //- if(role.permissions.includes('roles_create'))
+            //-     div(class="card-header") Feature    
+            //-     div(class="card-body")
+            //-         div(class="dflex-row")
+            //-             .column-2 
+            //-                 a(
+            //-                     href=`${path_admin}/roles/create`
+            //-                     class="btn btn-sm btn-outline-green txt-decoration-none"
+            //-                 ) Create
             div(class="card-header")
                 div(class="caption")
                     |   Role 
