@@ -4,6 +4,7 @@ include ../../mixins/form-search.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
 include ../../mixins/alert.pug
+include ../../mixins/format-time.pug
 block main 
     
     +alert-success
@@ -43,6 +44,7 @@ block main
                             th Hình ảnh
                             th Tiêu đề
                             th Vị trí
+                            th Tạo bởi
                             th Trạng thái
                             th Hành động
                     tbody 
@@ -68,6 +70,8 @@ block main
                                         name="position"
                                         value= record.position
                                     )
+                                td 
+                                    +format-date-time(record.creator, record.createdBy.createdAt)
                                 if(role.permissions.includes('products-category_edit'))
                                     if(record.status == "active")
                                         td

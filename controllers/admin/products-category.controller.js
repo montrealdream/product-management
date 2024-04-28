@@ -1,6 +1,7 @@
 // modeler
 const { path_admin } = require('../../config/system');
 const productCategory = require('../../models/products-category.model');
+const Account = require('../../models/account.model');
 
 // helper
 const filterHelper = require('../../helper/filter.helper');
@@ -33,6 +34,7 @@ module.exports.index = async (req, res) => {
         // count document [extension: deleted, status, keyword]
         const numberOfRecords = await productCategory.countDocuments(findObject);
 
+        // pagination
         const limitItem = 5;
         const paginationObject = paginationObjectHelper(req.query, limitItem, numberOfRecords);
 
@@ -41,6 +43,16 @@ module.exports.index = async (req, res) => {
                                              .limit(paginationObject.limit)
                                              .skip(paginationObject.skip);
         
+        // get user create document
+        for(let record of records){
+            const createdUser = await Account.findOne({
+                _id: record.createdBy.account_id
+            });
+
+            if(createdUser){
+                record.creator = createdUser.fullName;
+            }
+        }   
         res.render('admin/pages/products-category/index', {
             title:"Products Category",
             records: records,
@@ -93,10 +105,15 @@ module.exports.createCategory = async (req, res) => {
         else{
             req.body.position = parseInt(req.body.position);
         }
-
+        
         // if(req.file){
         //     req.body.thumbnail = `/uploads/${req.file.filename}`;
         // }
+
+        // user create doucment
+        req.body.createdBy = {
+            account_id: res.locals.user.id
+        }
 
         const record = new productCategory(req.body);
         await record.save();
