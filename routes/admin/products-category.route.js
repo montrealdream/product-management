@@ -61,5 +61,10 @@ router.delete(
     controller.restore
 );
 
+router.delete(
+    '/delete-hard/:id',
+    controller.deleteHard
+);
+
 // export
 module.exports = router;

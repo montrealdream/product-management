@@ -358,3 +358,17 @@ module.exports.restore = async (req, res) => {
 
     }
 }
+
+// [DELETE]/admin/products-category/delete-hard/:id
+module.exports.deleteHard = async (req, res) => {
+    try{
+        await productCategory.deleteOne({
+            _id: req.params.id
+        });
+        req.flash('success', 'Đã xóa vĩnh viễn  danh mục này');
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
