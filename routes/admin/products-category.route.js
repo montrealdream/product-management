@@ -51,5 +51,10 @@ router.patch(
     controller.editCategory
 );
 
+router.get(
+    '/trash',
+    controller.trash
+);
+
 // export
 module.exports = router;

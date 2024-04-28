@@ -257,3 +257,13 @@ module.exports.editCategory = async (req, res) => {
         res.redirect('back');
     }
 }
+
+// [GET] /admin/products-category/trash
+module.exports.trash = async (req, res) => {
+    try{
+
+    }
+    catch(error){
+        
+    }
+}
