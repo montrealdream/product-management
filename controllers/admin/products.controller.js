@@ -1,6 +1,7 @@
 // mongoose schema model
 const Product = require('../../models/product.model');
 const productCategory = require('../../models/products-category.model');
+const Account = require('../../models/account.model');
 
 // system config
 const systemConfig = require('../../config/system');
@@ -42,6 +43,20 @@ module.exports.index = async (req, res) => {
                                      .limit(paginationObject.limit)
                                      .skip(paginationObject.skip);
 
+        // get full-name users of records
+        for(let record of records){
+            const createdUser = await Account.findOne({
+                _id: record.createdBy.account_id,
+                status: "active",
+                deleted: false
+            });
+            if(createdUser){
+                const creator = createdUser.fullName;
+                record.creator = creator;
+            }
+        }
+
+        // views
         res.render('admin/pages/products/index', {
             title: "Products",
             numberOfRecords: numberOfRecords,

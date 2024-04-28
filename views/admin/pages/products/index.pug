@@ -4,6 +4,8 @@ include ../../mixins/form-search.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
 include ../../mixins/alert.pug
+include ../../mixins/format-time.pug
+
 block main 
     +alert-success
     +alert-error 
@@ -72,7 +74,7 @@ block main
                                         value= record.position
                                     )
                                 td 
-                                    span abc
+                                    +format-date-time(record.creator, record.createdBy.createdAt)
                                 if(role.permissions.includes('products_edit'))
                                     if(record.status == "active")
                                         td

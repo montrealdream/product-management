@@ -1203,3 +1203,14 @@
     display: block;
 }
 /* end sub sider */
+
+/* moment */
+.moment {
+    display: flex;
+    flex-direction: column;
+}
+
+.moment-item {
+    margin-bottom: 5px;
+}
+/* moment */

@@ -1,0 +1,15 @@
+mixin format-date-time(creator, time)
+    div(class="moment")
+        span(class="moment-item") #{creator}
+        span(class="moment-item")  <b>Ngày:</b> #{moment(time).format("DD-MM-YYYY")}
+        span(class="moment-item")  <b>Giờ:</b> #{moment(time).format("HH:mm")}
+
+mixin format-date(creator, time)
+    div(class="moment")
+        span(class="moment-item") #{creator}
+        span(class="moment-item")  <b>Ngày:</b> #{moment(time).format("DD-MM-YYYY")}
+
+mixin format-time(creator, time)
+    div(class="moment")
+        span(class="moment-item") #{creator}
+        span(class="moment-item")  <b>Giờ:</b> #{moment(time).format("HH:mm")}

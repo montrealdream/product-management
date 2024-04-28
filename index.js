@@ -25,6 +25,8 @@ const database = require('./config/database');
 // require path
 const path = require('path');
 
+const moment = require('moment'); // require
+
 // express
 const app = express()
 const port = process.env.PORT;
@@ -37,6 +39,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.locals 
 app.locals.path_admin = systemConfig.path_admin;
+console.log(moment('12.2').format('HH/MM'))
+app.locals.moment = moment;
 
 // template engines
 // app.set('views', './views');
