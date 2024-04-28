@@ -316,7 +316,6 @@ module.exports.detail = async (req, res) => {
     }
 }
 
-
 // [GET] /admin/products/trash
 module.exports.trash = async (req, res) => {
     try{
