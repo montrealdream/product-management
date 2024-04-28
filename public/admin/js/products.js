@@ -62,3 +62,26 @@ if(buttonRestore.length > 0){
         });
     });
 }
+
+// button delete hard
+const buttonDeleteHard = document.querySelectorAll("[button-delete-hard]");
+if(buttonDeleteHard.length > 0){
+    // get form
+    const formDeleteHard = document.querySelector("#form-delete-hard");
+    const path = formDeleteHard.getAttribute("data-path");
+
+    // listen
+    buttonDeleteHard.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const isConfirm = confirm('Bạn có chắc muốn xóa vĩnh viễn sản phẩm này');
+            if(isConfirm){
+                const id = button.getAttribute("data-id");
+            
+                // submit form: /admin/products/delete-soft/:id 
+                const action = path + `/${id}?_method=DELETE`;
+                formDeleteHard.action = action;
+                formDeleteHard.submit();
+            }
+        });
+    });
+}

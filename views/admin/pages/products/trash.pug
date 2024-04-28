@@ -119,10 +119,16 @@ block main
                                         ) Chỉnh sửa
                                     if(role.permissions.includes('products_delete'))
                                         button(
-                                            class="btn-equal-sm tag tag-sm tag--delete btn btn-sm font-16"
+                                            class="btn-equal-sm tag tag-sm tag--restore btn btn-sm font-16 mb-5"
                                             data-id= record.id
                                             button-restore
                                         ) Khôi phục
+                                    if(role.permissions.includes('products_delete'))
+                                        button(
+                                            class="btn-equal-sm tag tag-sm tag--delete btn btn-sm font-16"
+                                            data-id= record.id
+                                            button-delete-hard
+                                        ) Xóa
             div(class="card-body")
                 if(pagination)
                     +pagination(pagination)
@@ -136,12 +142,19 @@ block main
         id="form-change-status"
         data-path=`${path_admin}/products/change-status`
     )
-    //- form-delete
+    //- form-restore
     form(
         action=""
         method="POST"
         id="form-restore"
         data-path=`${path_admin}/products/restore`
+    )
+    //- form-delete
+    form(
+        action=""
+        method="POST"
+        id="form-delete-hard"
+        data-path=`${path_admin}/products/delete-hard`
     )
     
     script(src="/admin/js/script.js")

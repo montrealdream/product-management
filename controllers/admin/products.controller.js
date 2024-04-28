@@ -375,7 +375,7 @@ module.exports.trash = async (req, res) => {
     }
 }
 
-// [GET] /admin/products/restore/:id
+// [DELETE] /admin/products/restore/:id
 module.exports.restore = async (req, res) => {
     try{
         await Product.updateOne(
@@ -394,6 +394,20 @@ module.exports.restore = async (req, res) => {
             }
         );
         req.flash('success', 'Khôi phục sản phẩm thành công');
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
+
+// [DELETE] /admin/products/delete-hard/:id
+module.exports.deleteHard = async (req, res) => {
+    try{
+        await Product.deleteOne({
+            _id: req.params.id
+        });
+        req.flash('success', 'Đã xóa vĩnh viễn sản phẩm này');
         res.redirect('back');
     }
     catch(error){
