@@ -1,0 +1,148 @@
+extends ../../layouts/default.pug
+include ../../mixins/button-filter-status.pug
+include ../../mixins/form-search.pug
+include ../../mixins/pagination.pug
+include ../../mixins/form-change-multi.pug
+include ../../mixins/alert.pug
+include ../../mixins/format-time.pug
+
+block main 
+    +alert-success
+    +alert-error 
+    if(role.permissions.includes('products_view'))
+        div(class="card")
+            div(class="card-header") Filter and Search
+            div(class="card-body")
+                //- div(class="dflex-row")
+                //-     .column-2
+                //-         +button-filter-status(buttonFilterStatus)
+                //-     .column-2 
+                //-         +form-search("form-search-keyword", keyword)
+            //- if(role.permissions.includes('products_edit') || role.permissions.includes('products_create'))
+            //-     div(class="card-header") Feature
+            //-     div(class="card-body")
+            //-         div(class="dflex-row")
+            //-             if(role.permissions.includes('products_edit'))
+            //-                 .column-2
+            //-                     +form-change-multi("form-change-multi" , `${path_admin}/products/change-multi?_method=PATCH` )
+                        //- if(role.permissions.includes('products_create'))
+                        //-     .column-2 
+                        //-         a(
+                        //-             href=`${path_admin}/products/create`
+                        //-             class="btn btn-mid btn-outline-green txt-decoration-none"
+                        //-         ) Create
+            div(class="card-header")
+                div(class="caption")
+                    |   Products 
+                    span(class="length-products") #{numberOfRecords}
+            div(class="card-body")
+                table(class="table" table-record)
+                    thead 
+                        tr 
+                            th 
+                                input(type="checkbox" name="checkbox-all")
+                            th Hình ảnh
+                            th Tiêu đề
+                            th Giá
+                            th Vị trí
+                            th Tạo bởi
+                            th Trạng thái
+                            th Hành động 
+                    tbody 
+                        each record in records
+                            tr 
+                                td 
+                                    input(
+                                        type="checkbox"
+                                        value=record.id
+                                        name="checkbox-single"
+                                    )
+                                td 
+                                    img(
+                                        src=record.thumbnail 
+                                        class="infor__image"
+                                    )
+                                td 
+                                    span(class="infor__name") #{record.title}
+                                td
+                                    span(class="infor__price") $#{record.price}
+                                td 
+                                    input(
+                                        type="number"
+                                        class="input-position"
+                                        name="position"
+                                        value= record.position
+                                    )
+                                td 
+                                    +format-date-time(record.creator, record.createdBy.createdAt)
+                                if(role.permissions.includes('products_edit'))
+                                    if(record.status == "active")
+                                        td
+                                            a(
+                                                href="javascript:;" 
+                                                class="status status--active"
+                                                data-id = record.id
+                                                button-change-status="active"
+                                            ) #{record.status} 
+                                    else 
+                                        td
+                                            a(
+                                                href="javascript:;" 
+                                                class="status status--inactive"
+                                                data-id = record.id
+                                                button-change-status="inactive"
+                                            ) #{record.status} 
+                                else 
+                                    if(record.status == "active")
+                                        td
+                                            a(
+                                                href="javascript:;" 
+                                                class="status status--active"
+                                                data-id = record.id
+                                            ) #{record.status} 
+                                    else 
+                                        td
+                                            a(
+                                                href="javascript:;" 
+                                                class="status status--inactive"
+                                                data-id = record.id
+                                            ) #{record.status} 
+                                td 
+                                    a(
+                                        href=`${path_admin}/products/detail/${record.id}`
+                                        class="tag tag--detail mr-5"
+                                    ) detail
+                                    if(role.permissions.includes('products_edit'))
+                                        a(
+                                            href=`${path_admin}/products/edit/${record.id}`
+                                            class="tag tag--edit mr-5"
+                                        ) edit
+                                    if(role.permissions.includes('products_delete'))
+                                        button(
+                                            class="tag tag--delete btn btn-sm font-16"
+                                            data-id= record.id
+                                            button-delete
+                                        ) delete
+            div(class="card-body")
+                if(pagination)
+                    +pagination(pagination)
+    else 
+        h1(class="ml-20") You don't have permission to view this page
+
+    //- form change status
+    form(
+        action=""
+        method="POST"
+        id="form-change-status"
+        data-path=`${path_admin}/products/change-status`
+    )
+    //- form-delete
+    form(
+        action=""
+        method="POST"
+        id="form-delete-soft"
+        data-path=`${path_admin}/products/delete-soft`
+    )
+    
+    script(src="/admin/js/script.js")
+    script(src="/admin/js/products.js")

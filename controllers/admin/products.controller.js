@@ -309,3 +309,29 @@ module.exports.detail = async (req, res) => {
 
     }
 }
+
+
+// [GET] /admin/products/trash
+module.exports.trash = async (req, res) => {
+    try{
+        const findObject = {
+            deleted: true
+        }
+
+        // count document
+        const numberOfRecords = await Product.countDocuments(findObject);
+
+        // get document
+        const records = await Product.find(findObject);
+
+        // views
+        res.render('admin/pages/products/trash', {
+            title: "Sản phẩm đã xóa",
+            records: records,
+            numberOfRecords: numberOfRecords
+        });
+    }
+    catch(error){
+
+    }
+}

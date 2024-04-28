@@ -58,5 +58,6 @@ router.patch(
 
 router.get('/detail/:id', controller.detail);
 
+router.get('/trash', controller.trash)
 // export
 module.exports = router;
