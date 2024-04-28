@@ -74,7 +74,7 @@ block main
                                 td 
                                     +format-date-time(record.creator, record.createdBy.createdAt)
                                 td 
-                                    +format-date-time(record.creator, record.createdBy.createdAt)
+                                    +format-date-time-updater(record.updater, record.actionOfUpdater, record.createdBy.createdAt)
                                 if(role.permissions.includes('products-category_edit'))
                                     if(record.status == "active")
                                         td
@@ -121,7 +121,7 @@ block main
                                         button(
                                             class="tag tag--delete btn btn-sm font-16"
                                             data-id= record.id
-                                            button-restore
+                                            button-delete
                                         ) Xóa
             div(class="card-body")
                 +pagination(pagination)
@@ -141,13 +141,13 @@ block main
         id="form-delete-soft"
         data-path=`${path_admin}/products-category/delete-soft`
     )
-    //- form-restore
-    form(
-        action=""
-        method="POST"
-        id="form-restore"
-        data-path=`${path_admin}/products-category/restore`
-    )
+    //- //- form-restore
+    //- form(
+    //-     action=""
+    //-     method="POST"
+    //-     id="form-restore"
+    //-     data-path=`${path_admin}/products-category/restore`
+    //- )
     
     script(src="/admin/js/script.js")
     script(src="/admin/js/products.js")

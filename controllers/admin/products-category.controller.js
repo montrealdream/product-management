@@ -43,7 +43,7 @@ module.exports.index = async (req, res) => {
                                              .limit(paginationObject.limit)
                                              .skip(paginationObject.skip);
         
-        // get user create document
+        // get user create & update document
         for(let record of records){
             const createdUser = await Account.findOne({
                 _id: record.createdBy.account_id
@@ -51,6 +51,19 @@ module.exports.index = async (req, res) => {
 
             if(createdUser){
                 record.creator = createdUser.fullName;
+            }
+
+            // get last user update document
+            const sizeOfUpdatedBy = record.updatedBy.length;
+            if(sizeOfUpdatedBy > 0){
+                const updatedUser = await Account.findOne({
+                    _id: record.updatedBy[sizeOfUpdatedBy-1].account_id
+                });
+
+                if(updatedUser){
+                    record.updater = updatedUser.fullName,
+                    record.actionOfUpdater = record.updatedBy[sizeOfUpdatedBy-1].action;
+                }
             }
         }   
         res.render('admin/pages/products-category/index', {
@@ -320,7 +333,14 @@ module.exports.restore = async (req, res) => {
         await productCategory.updateOne(
             {_id: req.params.id},
             {
-                deleted: false
+                deleted: false,
+                $push: {
+                    updatedBy: {
+                        account_id: res.locals.user.id,
+                        action: "Khôi phục danh mục đã xóa",
+                        deletedAt: new Date()
+                    }
+                }
             }
         );
         req.flash('success', 'Khôi phục danh mục đã xóa thành công');
