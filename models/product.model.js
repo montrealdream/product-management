@@ -45,10 +45,10 @@ const productSchema = new mongoose.Schema(
                 updatedBy: Date
             }
         ]
-    },
-    {
-        timestamps: true
     }
+    // {
+    //     timestamps: true
+    // }
 );
 
 // Accessing a Model

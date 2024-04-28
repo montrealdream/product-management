@@ -111,18 +111,18 @@ block main
                                     a(
                                         href=`${path_admin}/products/detail/${record.id}`
                                         class="tag tag--detail mr-5"
-                                    ) detail
+                                    ) Chi tiết
                                     if(role.permissions.includes('products_edit'))
                                         a(
                                             href=`${path_admin}/products/edit/${record.id}`
                                             class="tag tag--edit mr-5"
-                                        ) edit
+                                        ) Chỉnh sửa
                                     if(role.permissions.includes('products_delete'))
                                         button(
                                             class="tag tag--delete btn btn-sm font-16"
                                             data-id= record.id
                                             button-delete
-                                        ) delete
+                                        ) Xóa
             div(class="card-body")
                 +pagination(pagination)
     else 
