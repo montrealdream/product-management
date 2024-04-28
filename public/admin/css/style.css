@@ -363,6 +363,11 @@
     font-weight: 700;
 }
 
+.tag-sm {
+    font-size: 16px;
+    padding: 4px;
+}
+
 .tag--detail {
     background-color: #f4efff;
     color: #9A84DA;

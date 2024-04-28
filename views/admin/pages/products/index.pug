@@ -110,19 +110,19 @@ block main
                                                 class="status status--inactive"
                                                 data-id = record.id
                                             ) #{record.status} 
-                                td 
+                                td(class="dflex-column")
                                     a(
                                         href=`${path_admin}/products/detail/${record.id}`
-                                        class="tag tag--detail mr-5"
+                                        class="tag tag-sm tag--detail mb-5"
                                     ) Chi tiết
                                     if(role.permissions.includes('products_edit'))
                                         a(
                                             href=`${path_admin}/products/edit/${record.id}`
-                                            class="tag tag--edit mr-5"
-                                        ) Chỉnh sửa
+                                            class="tag tag-sm tag--edit mb-5"
+                                        ) Sửa
                                     if(role.permissions.includes('products_delete'))
                                         button(
-                                            class="tag tag--delete btn btn-sm font-16"
+                                            class="tag tag-sm tag--delete btn btn-sm font-16"
                                             data-id= record.id
                                             button-delete
                                         ) Xóa
