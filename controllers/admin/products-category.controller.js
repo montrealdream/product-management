@@ -282,3 +282,13 @@ module.exports.trash = async (req, res) => {
 
     }
 }
+
+// [DELETE] /admin/products-category/restore/:id
+module.exports.restore = async (req, res) => {
+    try{
+        await productCategory.update
+    }
+    catch(error){
+
+    }
+}

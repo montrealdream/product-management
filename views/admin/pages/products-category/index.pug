@@ -114,7 +114,7 @@ block main
                                         button(
                                             class="tag tag--delete btn btn-sm font-16"
                                             data-id= record.id
-                                            button-delete
+                                            button-restore
                                         ) Xóa
             div(class="card-body")
                 +pagination(pagination)
@@ -133,6 +133,13 @@ block main
         method="POST"
         id="form-delete-soft"
         data-path=`${path_admin}/products-category/delete-soft`
+    )
+    //- form-restore
+    form(
+        action=""
+        method="POST"
+        id="form-restore"
+        data-path=`${path_admin}/products-category/restore`
     )
     
     script(src="/admin/js/script.js")

@@ -56,5 +56,10 @@ router.get(
     controller.trash
 );
 
+router.delete(
+    '/restore/:id',
+    controller.restore
+);
+
 // export
 module.exports = router;
