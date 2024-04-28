@@ -378,6 +378,11 @@
     color: #F4BD50;
 }
 
+.tag--restore {
+    background-color: #EAFEF3;
+    color: #2ECC71;
+}
+
 .tag--delete {
     background-color: #eaf2ff;
     color: red;
@@ -395,6 +400,12 @@
     padding: 14px 24px;
     border: 0;
     border-radius: 8px;
+}
+
+.btn-equal-sm {
+    text-align: center;
+    max-width: 100px;
+    width: 100%;
 }
 
 .btn-sm {

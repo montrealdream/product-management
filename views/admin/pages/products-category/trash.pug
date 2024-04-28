@@ -34,7 +34,7 @@ block main
                         //-         ) Create
             div(class="card-header")
                 div(class="caption")
-                    |   Category 
+                    |   Danh mục đã xóa 
                     span(class="length-products") #{numberOfRecords}
             div(class="card-body")
                 table(class="table" table-record)
@@ -108,25 +108,25 @@ block main
                                 td(class="dflex-column") 
                                     a(
                                         href=`${path_admin}/products-category/detail/${record.id}`
-                                        class="tag tag--detail mb-5"
+                                        class=" btn-equal-sm tag tag--detail mb-5"
                                     ) Chi tiết
                                     if(role.permissions.includes('products-category_edit'))
                                         a(
                                             href=`${path_admin}/products-category/edit/${record.id}`
-                                            class="tag tag--edit mb-5"
+                                            class=" btn-equal-sm tag tag--edit mb-5"
                                         ) Sửa
                                     if(role.permissions.includes('products-category_delete'))
                                         button(
-                                            class="tag tag--delete btn btn-sm mb-5 font-16"
+                                            class=" btn-equal-sm tag tag--restore btn btn-sm mb-5 font-16"
                                             data-id= record.id
                                             button-restore
                                         ) Khôi phục
                                     if(role.permissions.includes('products-category_delete'))
                                         button(
-                                            class="tag tag--delete btn btn-sm font-16"
+                                            class=" btn-equal-sm tag tag--delete btn btn-sm font-16"
                                             data-id= record.id
-                                            button-restore
-                                        ) Xóa vĩnh viễn
+                                            button-delete-hard
+                                        ) Xóa
             div(class="card-body")
                 if(pagination)
                     +pagination(pagination)
