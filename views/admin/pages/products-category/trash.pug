@@ -117,10 +117,16 @@ block main
                                         ) Sửa
                                     if(role.permissions.includes('products-category_delete'))
                                         button(
-                                            class="tag tag--delete btn btn-sm font-16"
+                                            class="tag tag--delete btn btn-sm mb-5 font-16"
                                             data-id= record.id
                                             button-restore
                                         ) Khôi phục
+                                    if(role.permissions.includes('products-category_delete'))
+                                        button(
+                                            class="tag tag--delete btn btn-sm font-16"
+                                            data-id= record.id
+                                            button-restore
+                                        ) Xóa vĩnh viễn
             div(class="card-body")
                 if(pagination)
                     +pagination(pagination)
