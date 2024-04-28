@@ -77,7 +77,7 @@ block main
                                 td 
                                     +format-date-time(record.creator, record.createdBy.createdAt)
                                 td 
-                                    +format-date-time(record.creator, record.createdBy.createdAt)
+                                    +format-date-time-updater(record.updater, record.actionOfUpdater, record.createdBy.createdAt)
                                 if(role.permissions.includes('products_edit'))
                                     if(record.status == "active")
                                         td

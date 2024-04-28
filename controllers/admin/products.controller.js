@@ -47,12 +47,25 @@ module.exports.index = async (req, res) => {
         for(let record of records){
             const createdUser = await Account.findOne({
                 _id: record.createdBy.account_id,
-                status: "active",
-                deleted: false
             });
+
             if(createdUser){
                 const creator = createdUser.fullName;
                 record.creator = creator;
+            }
+
+            // get length of field updateBy (GET LAST USER UPDATED)
+            const sizeOfUpdatedBy =  record.updatedBy.length - 1;
+
+            if(sizeOfUpdatedBy > 0){
+                const updatedUser = await Account.findOne({
+                    _id: record.updatedBy[sizeOfUpdatedBy].account_id
+                });
+
+                if(updatedUser){
+                    record.updater = updatedUser.fullName;
+                    record.actionOfUpdater = record.updatedBy[sizeOfUpdatedBy].action;
+                }
             }
         }
 
@@ -366,7 +379,14 @@ module.exports.restore = async (req, res) => {
                 _id: req.params.id
             },
             {
-                deleted: false
+                deleted: false,
+                $push: {
+                    updatedBy: {
+                        account_id: res.locals.user.id,
+                        action: "Khôi phục sản phẩm đã xóa",
+                        updatedAt: new Date()
+                    }
+                }
             }
         );
         req.flash('success', 'Khôi phục sản phẩm thành công');

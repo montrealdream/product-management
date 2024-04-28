@@ -1,3 +1,4 @@
+//- creator & deleter
 mixin format-date-time(creator, time)
     div(class="moment")
         span(class="moment-item") #{creator}
@@ -12,4 +13,12 @@ mixin format-date(creator, time)
 mixin format-time(creator, time)
     div(class="moment")
         span(class="moment-item") #{creator}
+        span(class="moment-item")  <b>Giờ:</b> #{moment(time).format("HH:mm")}
+
+//- updater
+mixin format-date-time-updater(updater, action, time)
+    div(class="moment")
+        span(class="moment-item") #{updater}
+        span(class="moment-item") <b>Đã làm:</b> #{action}
+        span(class="moment-item")  <b>Ngày:</b> #{moment(time).format("DD-MM-YYYY")}
         span(class="moment-item")  <b>Giờ:</b> #{moment(time).format("HH:mm")}
