@@ -154,12 +154,18 @@ module.exports.changeMulti = async (req, res) => {
 module.exports.deleteSoft = async (req, res) => {
     try{
         const id = req.params.id;
+        const deletedBy = {
+            account_id: res.locals.user.id,
+            deletedAt: new Date()
+        }
 
         await Product.updateOne(
             {_id: id},
             {
-                deleted: true,
-                deletedAt: new Date()
+                deletedBy: deletedBy,
+                status: "inactive",
+                deleted: true
+                // deletedAt: new Date()
             }
         );
         req.flash('success', `Delete product successfully`);
@@ -327,6 +333,18 @@ module.exports.trash = async (req, res) => {
         const records = await Product.find(findObject)
                                      .limit(paginationObject.limit)
                                      .skip(paginationObject.skip);
+
+        // get full-name users of records
+        for(let record of records){
+            const deletedUser = await Account.findOne({
+                _id: record.deletedBy.account_id
+            });
+
+            if(deletedUser){
+                const deletor = deletedUser.fullName;
+                record.deletor = deletor;
+            }
+        }
 
         // views
         res.render('admin/pages/products/trash', {
