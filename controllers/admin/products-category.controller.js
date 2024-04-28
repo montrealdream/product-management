@@ -154,9 +154,12 @@ module.exports.deleteSoft = async (req, res) => {
 
         await productCategory.updateOne(
             {_id: id},
-            {
+            {   
                 deleted: true,
-                deletedAt: new Date()
+                deletedBy: {
+                    account_id: res.locals.user.id,
+                    deletedAt: new Date()
+                }
             }
         );
 
@@ -287,6 +290,17 @@ module.exports.trash = async (req, res) => {
 
         // get document
         const records = await productCategory.find(findObject);
+
+        // get user delete document
+        for(let record of records){
+            const deletedUser = await Account.findOne({
+                _id: record.deletedBy.account_id
+            });
+
+            if(deletedUser){
+                record.deleter = deletedUser.fullName
+            }
+        }
 
         res.render('admin/pages/products-category/trash', {
             title : "Danh mục đã xóa",
