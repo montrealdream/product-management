@@ -321,14 +321,19 @@ module.exports.trash = async (req, res) => {
         // count document
         const numberOfRecords = await Product.countDocuments(findObject);
 
+        const paginationObject = paginationObjectHelper(req.query, 5, numberOfRecords);
+
         // get document
-        const records = await Product.find(findObject);
+        const records = await Product.find(findObject)
+                                     .limit(paginationObject.limit)
+                                     .skip(paginationObject.skip);
 
         // views
         res.render('admin/pages/products/trash', {
             title: "Sản phẩm đã xóa",
             records: records,
-            numberOfRecords: numberOfRecords
+            numberOfRecords: numberOfRecords,
+            pagination: paginationObject
         });
     }
     catch(error){

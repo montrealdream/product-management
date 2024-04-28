@@ -11,8 +11,8 @@ block main
     +alert-error 
     if(role.permissions.includes('products_view'))
         div(class="card")
-            div(class="card-header") Filter and Search
-            div(class="card-body")
+            //- div(class="card-header") Filter and Search
+            //- div(class="card-body")
                 //- div(class="dflex-row")
                 //-     .column-2
                 //-         +button-filter-status(buttonFilterStatus)
@@ -33,7 +33,7 @@ block main
                         //-         ) Create
             div(class="card-header")
                 div(class="caption")
-                    |   Products 
+                    |   Sách đã xóa 
                     span(class="length-products") #{numberOfRecords}
             div(class="card-body")
                 table(class="table" table-record)
@@ -45,7 +45,7 @@ block main
                             th Tiêu đề
                             th Giá
                             th Vị trí
-                            th Tạo bởi
+                            th Xóa bởi
                             th Trạng thái
                             th Hành động 
                     tbody 
