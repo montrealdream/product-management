@@ -67,6 +67,10 @@ module.exports.index = async (req, res) => {
                     record.actionOfUpdater = record.updatedBy[sizeOfUpdatedBy-1].action;
                 }
             }
+            else{
+                record.updater = record.creator;
+                record.actionOfUpdater = "Tạo sản phẩm"
+            }
         }
 
         // views
