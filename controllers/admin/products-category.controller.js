@@ -286,7 +286,14 @@ module.exports.trash = async (req, res) => {
 // [DELETE] /admin/products-category/restore/:id
 module.exports.restore = async (req, res) => {
     try{
-        await productCategory.update
+        await productCategory.updateOne(
+            {_id: req.params.id},
+            {
+                deleted: false
+            }
+        );
+        req.flash('success', 'Khôi phục danh mục đã xóa thành công');
+        res.redirect('back');
     }
     catch(error){
 
