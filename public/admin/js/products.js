@@ -41,3 +41,24 @@ if(buttonDelete.length > 0){
     });
 
 }
+
+
+// button restore
+const buttonRestore = document.querySelectorAll("[button-restore]");
+if(buttonRestore.length > 0){
+    // get form
+    const formRestore = document.querySelector("#form-restore");
+    const path = formRestore.getAttribute('data-path');
+
+    // listen
+    buttonRestore.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const id = button.getAttribute("data-id");
+
+            // submit form :/admin/products/restore/:id
+            const action = `${path}/${id}?_method=DELETE`;
+            formRestore.action = action;
+            formRestore.submit();
+        });
+    });
+}

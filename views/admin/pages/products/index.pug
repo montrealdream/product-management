@@ -46,6 +46,7 @@ block main
                             th Giá
                             th Vị trí
                             th Tạo bởi
+                            th Chỉnh sửa bởi
                             th Trạng thái
                             th Hành động 
                     tbody 
@@ -73,6 +74,8 @@ block main
                                         name="position"
                                         value= record.position
                                     )
+                                td 
+                                    +format-date-time(record.creator, record.createdBy.createdAt)
                                 td 
                                     +format-date-time(record.creator, record.createdBy.createdAt)
                                 if(role.permissions.includes('products_edit'))

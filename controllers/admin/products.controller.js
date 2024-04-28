@@ -357,3 +357,22 @@ module.exports.trash = async (req, res) => {
 
     }
 }
+
+// [GET] /admin/products/restore/:id
+module.exports.restore = async (req, res) => {
+    try{
+        await Product.updateOne(
+            {
+                _id: req.params.id
+            },
+            {
+                deleted: false
+            }
+        );
+        req.flash('success', 'Khôi phục sản phẩm thành công');
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
