@@ -304,8 +304,12 @@ module.exports.trash = async (req, res) => {
         // count document
         const numberOfRecords = await productCategory.countDocuments(findObject);
 
+        // pagination
+        const paginationObject = paginationObjectHelper(req.query, 5, numberOfRecords);
         // get document
-        const records = await productCategory.find(findObject);
+        const records = await productCategory.find(findObject)
+                                             .limit(findObject.limit)
+                                             .skip(findObject.skip);
 
         // get user delete document
         for(let record of records){
@@ -321,7 +325,8 @@ module.exports.trash = async (req, res) => {
         res.render('admin/pages/products-category/trash', {
             title : "Danh mục đã xóa",
             numberOfRecords: numberOfRecords,
-            records : records
+            records : records,
+            pagination: paginationObject
         })
 
     }
