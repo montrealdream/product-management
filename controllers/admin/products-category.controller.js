@@ -56,14 +56,17 @@ module.exports.index = async (req, res) => {
             // get last user update document
             const sizeOfUpdatedBy = record.updatedBy.length;
             if(sizeOfUpdatedBy > 0){
-                const updatedUser = await Account.findOne({
+                let updatedUser = await Account.findOne({
                     _id: record.updatedBy[sizeOfUpdatedBy-1].account_id
                 });
-
                 if(updatedUser){
                     record.updater = updatedUser.fullName,
                     record.actionOfUpdater = record.updatedBy[sizeOfUpdatedBy-1].action;
                 }
+            }
+            else{
+                record.updater = record.creator;
+                record.actionOfUpdater = "Tạo danh mục"
             }
         }   
         res.render('admin/pages/products-category/index', {

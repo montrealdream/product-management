@@ -55,16 +55,16 @@ module.exports.index = async (req, res) => {
             }
 
             // get length of field updateBy (GET LAST USER UPDATED)
-            const sizeOfUpdatedBy =  record.updatedBy.length - 1;
+            const sizeOfUpdatedBy =  record.updatedBy.length;
 
             if(sizeOfUpdatedBy > 0){
                 const updatedUser = await Account.findOne({
-                    _id: record.updatedBy[sizeOfUpdatedBy].account_id
+                    _id: record.updatedBy[sizeOfUpdatedBy-1].account_id
                 });
 
                 if(updatedUser){
                     record.updater = updatedUser.fullName;
-                    record.actionOfUpdater = record.updatedBy[sizeOfUpdatedBy].action;
+                    record.actionOfUpdater = record.updatedBy[sizeOfUpdatedBy-1].action;
                 }
             }
         }
