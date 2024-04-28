@@ -201,6 +201,11 @@ module.exports.createProduct = async(req, res) => {
         //     req.body.thumbnail = `/uploads/${req.file.filename}`;
         // }
 
+        // get user id create
+        req.body.createdBy = {
+            account_id: res.locals.user.id
+        } 
+
         // save on Database
         const record = new Product(req.body);
         await record.save();

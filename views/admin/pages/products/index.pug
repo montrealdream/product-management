@@ -39,12 +39,13 @@ block main
                         tr 
                             th 
                                 input(type="checkbox" name="checkbox-all")
-                            th Image
-                            th Name
-                            th Cost
-                            th Position
-                            th Status
-                            th Action 
+                            th Hình ảnh
+                            th Tiêu đề
+                            th Giá
+                            th Vị trí
+                            th Tạo bởi
+                            th Trạng thái
+                            th Hành động 
                     tbody 
                         each record in records
                             tr 
@@ -70,6 +71,8 @@ block main
                                         name="position"
                                         value= record.position
                                     )
+                                td 
+                                    span abc
                                 if(role.permissions.includes('products_edit'))
                                     if(record.status == "active")
                                         td
