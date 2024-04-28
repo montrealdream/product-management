@@ -261,9 +261,24 @@ module.exports.editCategory = async (req, res) => {
 // [GET] /admin/products-category/trash
 module.exports.trash = async (req, res) => {
     try{
+        const findObject = {
+            deleted: true
+        }
+
+        // count document
+        const numberOfRecords = await productCategory.countDocuments(findObject);
+
+        // get document
+        const records = await productCategory.find(findObject);
+
+        res.render('admin/pages/products-category/trash', {
+            title : "Danh mục đã xóa",
+            numberOfRecords: numberOfRecords,
+            records : records
+        })
 
     }
     catch(error){
-        
+
     }
 }

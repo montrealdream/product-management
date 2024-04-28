@@ -4,26 +4,27 @@ include ../../mixins/form-search.pug
 include ../../mixins/pagination.pug
 include ../../mixins/form-change-multi.pug
 include ../../mixins/alert.pug
+include ../../mixins/format-time.pug
 block main 
     
     +alert-success
     +alert-error 
     if(role.permissions.includes('products-category_view'))
         div(class="card")
-            div(class="card-header") Filter and Search 
-            div(class="card-body")
-                div(class="dflex-row")
-                    .column-2 
-                        +button-filter-status(buttonFilterStatus)
-                    .column-2 
-                        +form-search("form-search-keyword", keyword)
-            if(role.permissions.includes('products-category_create') || role.permissions.includes('products-category_edit'))
-                div(class="card-header") Feature    
-                div(class="card-body")
-                    div(class="dflex-row")
-                        if(role.permissions.includes('products-category_edit'))
-                            .column-2
-                                +form-change-multi("form-change-multi", `${path_admin}/products-category/change-multi?_method=PATCH`)
+            //- div(class="card-header") Filter and Search 
+            //- div(class="card-body")
+            //-     div(class="dflex-row")
+            //-         .column-2 
+            //-             +button-filter-status(buttonFilterStatus)
+            //-         .column-2 
+            //-             +form-search("form-search-keyword", keyword)
+            //- if(role.permissions.includes('products-category_create') || role.permissions.includes('products-category_edit'))
+            //-     div(class="card-header") Feature    
+            //-     div(class="card-body")
+            //-         div(class="dflex-row")
+            //-             if(role.permissions.includes('products-category_edit'))
+            //-                 .column-2
+            //-                     +form-change-multi("form-change-multi", `${path_admin}/products-category/change-multi?_method=PATCH`)
                         //- if(role.permissions.includes('products-category_create'))
                         //-     .column-2 
                         //-         a(
@@ -44,7 +45,7 @@ block main
                             th Tiêu đề
                             th Vị trí
                             th Trạng thái
-                            th Hành động
+                            th Hành động 
                     tbody 
                         each record in records
                             tr 
@@ -115,9 +116,10 @@ block main
                                             class="tag tag--delete btn btn-sm font-16"
                                             data-id= record.id
                                             button-delete
-                                        ) Xóa
+                                        ) Khôi phục
             div(class="card-body")
-                +pagination(pagination)
+                if(pagination)
+                    +pagination(pagination)
     else 
         h1(class="ml-20") You don't have permission to view this page
     //- form change status
