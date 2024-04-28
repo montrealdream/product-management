@@ -4,6 +4,9 @@ const Role = require('../../models/roles.model');
 // system config
 const systemConfig = require('../../config/system');
 
+// helper
+const paginationHelper = require('../../helper/pagination.helper');
+
 //  [GET] /admin/roles
 module.exports.index = async (req, res) => {
     try{
@@ -14,12 +17,17 @@ module.exports.index = async (req, res) => {
         // count document
         const numberOfRecords = await Role.countDocuments(findObject);
 
+        // pagination
+        const paginationObject = paginationHelper(req.query, 5, numberOfRecords);
+
+        // get document
         const records = await Role.find(findObject);
 
         res.render('admin/pages/roles/index', {
             title: "Role",
             records: records,
-            numberOfRecords: numberOfRecords
+            numberOfRecords: numberOfRecords,
+            pagination: paginationObject
         })
     }
     catch(error){
