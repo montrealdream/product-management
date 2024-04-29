@@ -14,7 +14,13 @@ module.exports.cart = async (req, res, next) => {
             // set cookie
             res.cookie("cartId", record.id);
         }
+        else{
+            const cart = await Cart.findOne({
+                _id: req.cookies.cartId
+            });
 
+            res.locals.miniCart = cart;
+        }
         // next middleware
         next();
     }

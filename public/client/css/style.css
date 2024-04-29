@@ -608,3 +608,32 @@ body {
     transition: all 1s ease;
 }
 /* end alert */
+
+/* cart header */
+.mini-cart {
+
+}
+
+.mini-cart a {
+    position: relative;
+}
+
+.mini-cart span {
+    position: absolute;
+    background-color: #228B22;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    top: -22px;
+    right: -9px;
+}
+
+.mini-cart svg {
+    stroke: white;
+    width: 35px;
+    height: 35px;
+}
+/* end cart header */
