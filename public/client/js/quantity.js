@@ -11,14 +11,13 @@ if(buttonQuantity.length > 0 && Inputquantity){
             const status = button.getAttribute("button-quantity");
             
 
-            if(status == "sub" && Inputquantity.value > "0"){
+            if(status == "sub" && Inputquantity.value > "1"){
                 Inputquantity.value = parseInt(Inputquantity.value) - 1;
             }
             else if(status == "add"){
                 if(parseInt(Inputquantity.value) < maxStock)
                     Inputquantity.value = parseInt(Inputquantity.value) + 1;
             }
-            console.log(Inputquantity.value );
         });
     });
 }

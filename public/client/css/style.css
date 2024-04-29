@@ -357,14 +357,19 @@ body {
 
 .product__detail--price .old-price {
     color: #777777;
+    font-size: 20px;
     text-decoration: line-through;
 }
 
 .product__detail--price .discount {
-    padding: 4px;
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    padding: 2px;
     border-radius: 8px;
     background-color: #EB5757;
     color: white;
+    font-size: 15px;
     font-weight: 700;
 }
 
