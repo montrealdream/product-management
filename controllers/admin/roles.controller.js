@@ -157,6 +157,24 @@ module.exports.trash = async (req, res) => {
     }
 }
 
+
+// [DELETE] /admin/roles/restore/:id
+module.exports.restore = async (req, res) => {
+    try{
+        await Role.updateOne(
+            {_id: req.params.id},
+            {
+                deleted: false
+            }
+        );
+
+        req.flash('success', 'Khôi phục quyền đã xóa thành công');
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
 // ----------------PERMISSION-----------------------//
 // [GET] /admin/roles/permissions
 module.exports.permissions = async (req, res) => {

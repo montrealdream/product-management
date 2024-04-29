@@ -28,9 +28,9 @@ block main
                         tr 
                             th 
                                 input(type="checkbox" name="checkbox-all")
-                            th Name
-                            th Description
-                            th Action 
+                            th Quyền
+                            th Mô tả
+                            th Hành động 
                     tbody 
                         if(records) 
                             each record in records
@@ -49,18 +49,18 @@ block main
                                         a(
                                             href=`${path_admin}/products-category/detail/${record.id}`
                                             class="tag tag--detail mr-5"
-                                        ) detail
+                                        ) Chi tiết
                                         if(role.permissions.includes('roles_edit'))
                                             a(
                                                 href=`${path_admin}/roles/edit/${record.id}`
                                                 class="tag tag--edit mr-5"
-                                            ) edit
+                                            ) Sửa
                                         if(role.permissions.includes('roles_delete'))
                                             button(
                                                 class="tag tag--delete btn btn-sm font-16"
                                                 data-id= record.id
                                                 button-delete
-                                            ) delete
+                                            ) Xóa
             div(class="card-body")
                 +pagination(pagination)
     else 
