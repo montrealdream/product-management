@@ -522,3 +522,25 @@ body {
     width: 100%;
 }
 /* end banner */
+
+/* input */
+.input-search {
+    background-color: #1A1F25;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0px 0px 5px;
+    outline: 0;
+    color: white;
+    /* remove autocomplete of chrome */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: white;
+    /* end remove autocomplete of chrome */
+}
+/* end input */
+
+.button-search {
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 0px 5px 5px 0px;
+}
+
