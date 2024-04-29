@@ -107,9 +107,15 @@ block main
                                             ) Sửa
                                         if(role.permissions.includes('accounts_delete'))
                                             button(
+                                                class="tag tag--restore btn btn-sm font-16 mr-5"
+                                                data-id= record.id
+                                                button-restore
+                                            ) Khôi phục
+                                        if(role.permissions.includes('accounts_delete'))
+                                            button(
                                                 class="tag tag--delete btn btn-sm font-16"
                                                 data-id= record.id
-                                                button-delete
+                                                button-delete-hard
                                             ) Xóa
             div(class="card-body")
                 if(pagination)
@@ -130,6 +136,13 @@ block main
         method="POST"
         id="form-delete-soft"
         data-path=`${path_admin}/accounts/delete-soft`
+    )
+    //- form-restore
+    form(
+        action=""
+        method="POST"
+        id="form-restore"
+        data-path=`${path_admin}/accounts/restore`
     )
 
     script(src="/admin/js/script.js")

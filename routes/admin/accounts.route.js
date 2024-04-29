@@ -54,6 +54,11 @@ router.get(
     controller.trash
 );
 
+router.delete(
+    '/restore/:id',
+    controller.restore
+)
+
 // router.get('/detail/:id', controller.detail);
 
 // export

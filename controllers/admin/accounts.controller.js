@@ -245,3 +245,20 @@ module.exports.trash = async (req, res) => {
 
     }
 }
+
+// [DELETE] /admin/accounts/restore/:id
+module.exports.restore = async (req, res) => {
+    try{
+        await Account.updateOne(
+            {_id: req.params.id},
+            {
+                deleted: false
+            }
+        );
+        req.flash('success', "Khôi phục tài khoản thành công");
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
