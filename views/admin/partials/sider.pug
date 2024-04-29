@@ -103,6 +103,8 @@ nav(class="sider")
                 ul(class="navigation")  
                     li 
                         a(href=`${path_admin}/roles/create`) Tạo quyền
+                    li 
+                        a(href=`${path_admin}/roles/trash`) Quyền đã xóa
             if(role.permissions.includes('permissions_view'))
                 li(class="d-flex-sider justify-content-space-between") 
                     a(href=`${path_admin}/roles/permissions` class="")

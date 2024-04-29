@@ -126,7 +126,31 @@ module.exports.editRole = async (req, res) => {
     }
 }
 
+// [GET /admin/roles/trash
+module.exports.trash = async (req, res) => {
+    try{
+
+        const numberOfRecords = await Role.countDocuments({
+            deleted: true
+        });
+
+        const records = await Role.find({
+            deleted: true
+        });
+
+        res.render('admin/pages/roles/trash', {
+            title: "Quyền đã xóa",
+            numberOfRecords: numberOfRecords,
+            records: records
+        });
+    }
+    catch(error){
+
+    }
+}
+
 // ----------------PERMISSION-----------------------//
+// [GET] /admin/roles/permissions
 module.exports.permissions = async (req, res) => {
     try{
         const records = await Role.find({deleted: false});
@@ -141,6 +165,7 @@ module.exports.permissions = async (req, res) => {
    
 }
 
+// [PATCH] /admin/roles/permissions
 module.exports.changePermissions = async (req, res) => {
     try{
         const permissions = JSON.parse(req.body.permissions);
