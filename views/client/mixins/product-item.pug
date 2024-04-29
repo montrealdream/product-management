@@ -4,7 +4,7 @@ mixin product-item(item, col)
             img(src=item.thumbnail)
             div(class="item-infor")
                 h3(class="item-name")
-                    a(href="#" class="text-decoration-none")  #{item.title}
+                    a(href=`/products/detail/${item.slug}` class="text-decoration-none")  #{item.title}
                 div(class="item--price")
                     span(class="price-new") $#{item.newPrice}
                     span(class="price-old") $#{item.price}

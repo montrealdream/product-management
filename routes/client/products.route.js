@@ -11,5 +11,7 @@ router.get('/', controller.index);
 
 router.get('/:slugCategory', controller.categoryView);
 
+router.get('/detail/:slugProduct', controller.detailProduct);
+
 // export
 module.exports = router;

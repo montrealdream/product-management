@@ -10,3 +10,14 @@ module.exports.discountMany = (records) => {
     });
     return records;
 }
+
+// calc discount one product
+module.exports.discountOne = (record) => {
+    const discount = record.discountPercentage;
+    const price = record.price;
+
+    const newPrice = price - ( price * ((discount) / 100));
+    record.newPrice = newPrice.toFixed(0);
+    
+    return record
+}

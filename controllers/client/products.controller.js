@@ -122,3 +122,26 @@ module.exports.categoryView = async (req, res) => {
 
     }
 }
+
+// [GET] /products/detail/:slugProduct
+module.exports.detailProduct = async (req, res) => {
+    try{
+        // get document
+        const data = await Product.findOne({
+            slug: req.params.slugProduct,
+            status: "active",
+            deleted: false
+        });
+
+        // calc discount
+        const record = productHelper.discountOne(data);
+
+        res.render('client/pages/products/detail', {
+            title : record.title,
+            record: record
+        })
+    }
+    catch(error){
+
+    }
+}

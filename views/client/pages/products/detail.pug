@@ -1,0 +1,87 @@
+extends ../../layouts/default.pug
+
+block main 
+    div(class="container")
+        div(class="product__detail")
+            div(class="d-flex justify-content-center flex-nowrap")
+                .col-2.text-align-center
+                    //- a(href="#" class="frame")
+                    img(src=record.thumbnail class="product__detail--img")
+                .col-2 
+                    h2(class="product__detail--title") #{record.title}
+
+                    div(class="product__detail--author ")
+                        span Tác giả: 
+                        span Đang cập nhật
+                    
+                    div(class="product__detail--price")
+                        div(class="d-flex align-item-center")
+                            .col-3
+                                if(record.newPrice)
+                                    span(class="new-price") $#{record.newPrice}
+                            .col-3
+                                if(record.price)
+                                    span(class="old-price") $#{record.price}
+                            .col-3
+                                if(record.discountPercentage)
+                                    span(class="discount") -#{record.discountPercentage}%
+
+                    hr(class="divider divider-style-gray")
+
+                    div(class="d-flex align-item-center mt-20")
+                        div(class="product__detail--quantity mr-10")
+                            button(
+                                class=""
+                                button-quantity = "sub"
+                            ) -
+
+                            input(
+                                type="text" 
+                                class="quantity"
+                                name="quantity"
+                                value="1"
+                                min="1"
+                                style="width:50px"
+                                
+                            )
+                            button(
+                                class=""
+                                type=""
+                                button-quantity = "add"
+                            ) +
+
+                        div(class="product__detail--stock")
+                            span Còn lại #{record.stock} trong kho
+                        div(data-stock=record.stock)
+
+                    div(class="d-flex align-item-center mt-20")
+                        button(class="btn btn-large btn-bg-white mr-10") Thêm vào giỏ hàng
+                        button(class="btn btn-large btn-bg-green") Mua ngay
+                    
+            div(class="d-flex justify-content-center flex-nowrap mt-20")
+                .col-70percent
+                    div(class="product__detail--desc") Giới thiệu sách
+                    if(record.description)
+                        p(class="product_detail--content") !{record.description}
+                .col-30percent
+                    div(class="product_detail-infor") Thông tin chi tiết
+                    ul(class="book__infor--detail")
+                        li
+                            span(class="width-50percent") Tác giả
+                            span(class="width-50percent infor") Đang cập nhật
+                        li
+                            span(class="width-50percent") Dịch giả
+                            span(class="width-50percent infor") Đang cập nhật
+                        li
+                            span(class="width-50percent") Nhà xuất bản
+                            span(class="width-50percent infor") Đang cập nhật
+                        li
+                            span(class="width-50percent") Kích thước
+                            span(class="width-50percent infor") Đang cập nhật
+                        li
+                            span(class="width-50percent") Số trang
+                            span(class="width-50percent infor") Đang cập nhật
+                        li
+                            span(class="width-50percent") Ngày phát hành
+                            span(class="width-50percent infor") Đang cập nhật
+    script(src="/client/js/quantity.js")
