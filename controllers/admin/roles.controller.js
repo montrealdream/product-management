@@ -130,18 +130,26 @@ module.exports.editRole = async (req, res) => {
 module.exports.trash = async (req, res) => {
     try{
 
+        // count document
         const numberOfRecords = await Role.countDocuments({
             deleted: true
         });
 
+        // pagination
+        const paginationObject = paginationHelper(req.query, 5, numberOfRecords);
+
+        // get document
         const records = await Role.find({
             deleted: true
-        });
+        }).limit(paginationObject.limit)
+          .skip(paginationObject.skip);
 
+        // view
         res.render('admin/pages/roles/trash', {
             title: "Quyền đã xóa",
             numberOfRecords: numberOfRecords,
-            records: records
+            records: records,
+            pagination: paginationObject
         });
     }
     catch(error){
