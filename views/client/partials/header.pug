@@ -37,14 +37,13 @@ header(class="header")
             form(
                 method="GET"
                 action='/search'
-
+                id="form-search-keyword"
             )
                 input(
                     name="keyword"
                     value=""
                     placeholder="Tìm kiếm..."
                     class="input-search"
-
                 )
                 button(
                     type="submit"
@@ -56,3 +55,4 @@ header(class="header")
                         a(href="/") Đăng nhập
                     li 
                         a(href="/") Đăng ký
+    script(src="/client/js/script.js")

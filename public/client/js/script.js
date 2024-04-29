@@ -37,7 +37,7 @@ if(formSearchKeyword){
         
         if(keyword){
             url.searchParams.set("keyword", keyword);
-            url.searchParams.set("page", 1);
+            // url.searchParams.set("page", 1);
         }
         // redirect url
         window.location.href = url.href;
