@@ -29,18 +29,17 @@ const formSearchKeyword = document.querySelector("#form-search-keyword");
 if(formSearchKeyword){
     // get url
     let url = new URL(window.location.href);
-
     // listen form
     formSearchKeyword.addEventListener("submit", (event) => {
         event.preventDefault();
         const keyword = formSearchKeyword.querySelector("input").value;
-        
+        console.log(url.href);
         if(keyword){
             url.searchParams.set("keyword", keyword);
             // url.searchParams.set("page", 1);
         }
         // redirect url
-        window.location.href = url.href;
+        // window.location.href = url.href;
     });
 }
 
