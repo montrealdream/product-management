@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // Defining a model
 const cartSchema = new mongoose.Schema(
     {
-        user_id: String,
+        // user_id: String,
         products: [
             {
                 product_id: String,

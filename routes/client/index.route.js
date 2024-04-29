@@ -2,12 +2,17 @@
 const homeRouter = require('./home.route');
 const productRouter = require('./products.route');
 const searchRouter = require('./search.route');
+const cartRouter = require('./cart.route');
+
 // middleware
 const middlewareCategory = require('../../middleware/client/category.middleware');
+const middlewareCart = require('../../middleware/client/cart.middleware');
 
 module.exports = (app) => {
     // chạy qua middleware category trước
     app.use(middlewareCategory.category);
+    
+    app.use(middlewareCart.cart);
 
     app.use(
         '/', 
@@ -24,5 +29,10 @@ module.exports = (app) => {
     app.use(
         '/search',
         searchRouter
+    );
+
+    app.use(
+        '/cart',
+        cartRouter
     );
 }

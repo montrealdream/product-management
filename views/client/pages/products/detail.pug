@@ -1,6 +1,9 @@
 extends ../../layouts/default.pug
-
+include ../../mixins/alert.pug
 block main 
+    +alert-success
+    +alert-error
+    +alert-warning
     div(class="container")
         div(class="product__detail")
             div(class="d-flex justify-content-center flex-nowrap")
@@ -34,35 +37,38 @@ block main
 
                     hr(class="divider divider-style-gray")
 
-                    div(class="d-flex align-item-center mt-20")
-                        div(class="product__detail--quantity mr-10")
-                            button(
-                                class=""
-                                button-quantity = "sub"
-                            ) -
+                    form(
+                        method="POST"
+                        action=`/cart/add/${record.id}`
+                    )
+                        div(class="d-flex align-item-center mt-20")
+                            div(class="product__detail--quantity mr-10")
+                                span(
+                                    class=""
+                                    button-quantity = "sub"
+                                ) -
 
-                            input(
-                                type="text" 
-                                class="quantity"
-                                name="quantity"
-                                value="1"
-                                min="1"
-                                style="width:50px"
-                                
-                            )
-                            button(
-                                class=""
-                                type=""
-                                button-quantity = "add"
-                            ) +
+                                input(
+                                    type="text" 
+                                    class="quantity"
+                                    name="quantity"
+                                    value="1"
+                                    min="1"
+                                    style="width:50px"
+                                    
+                                )
+                                span(
+                                    class=""
+                                    button-quantity = "add"
+                                ) +
 
-                        div(class="product__detail--stock")
-                            span Còn lại #{record.stock} trong kho
-                        div(data-stock=record.stock)
+                            div(class="product__detail--stock")
+                                span Còn lại #{record.stock} trong kho
+                            div(data-stock=record.stock)
 
-                    div(class="d-flex align-item-center mt-20")
-                        button(class="btn btn-large btn-bg-white mr-10") Thêm vào giỏ hàng
-                        button(class="btn btn-large btn-bg-green") Mua ngay
+                        div(class="d-flex align-item-center mt-20")
+                            button(type="submit" class="btn btn-large btn-bg-white mr-10") Thêm vào giỏ hàng
+                            button(class="btn btn-large btn-bg-green") Mua ngay
                     
             div(class="d-flex justify-content-center flex-nowrap mt-20")
                 .col-70percent
