@@ -1,0 +1,59 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main 
+    .container
+        h3(class="title") GIỎ HÀNG CỦA BẠN
+        div(class="d-flex")
+            .item-divided-4
+                table(class="table-cart")
+                    thead 
+                        tr
+                            th Thông tin sản phẩm
+                            th Đơn giá
+                            th Số lượng
+                            th Thành tiền
+                    tbody 
+                        tr 
+                            td(class="d-flex")
+                                img(
+                                    src="https://bizweb.dktcdn.net/thumb/compact/100/363/455/products/dieukydieucuatiemtaphoanamiya0.jpg"
+                                )
+                                div(class="d-flex-column justify-content-center ml-10")
+                                    a(
+                                        href="#" 
+                                        class="text-decoration-none product-cart-title"
+                                    ) ĐIỀU KỲ DIỆU CỦA TIỆM TẠP HÓA NAMIYA
+
+                                    a(class="product-cart-delete") Xóa
+                            td 
+                                span(class="product-cart-price") $500
+                            td 
+                                div(class="d-flex align-item-center")
+                                    div(class="product__detail--quantity mr-10")
+                                        span(
+                                            class=""
+                                            button-quantity = "sub"
+                                        ) -
+
+                                        input(
+                                            type="text" 
+                                            class="quantity"
+                                            name="quantity"
+                                            value="1"
+                                            min="1"
+                                            style="width:50px"
+                                            
+                                        )
+                                        span(
+                                            class=""
+                                            button-quantity = "add"
+                                        ) +
+                            td 
+                                span(class="product-cart-price") $500
+                div(class="table-pay")
+                    div(class="d-flex-column")
+                        div(class="d-flex-row mb-20 mt-10 justify-content-space-between")
+                            span Tổng tiền: 
+                            span(class="product-cart-price") $500
+                        button(class="btn btn-large btn-bg-green") Thanh toán
+            .item-divided-1

@@ -1,5 +1,5 @@
 .container {
-    max-width: 1400px;
+    max-width: 1300px;
     width: 100%;
     /* background-color: var(--background-primary); */
     margin-left: auto;
@@ -19,12 +19,25 @@
     margin-top: 20px;
 }
 
+.mt-10 {
+    margin-top: 10px;
+}
+
 .mr-10 {
     margin-right: 10px;
 }
 
+.ml-10 {
+    margin-left: 10px;
+}
+
 .mr-20 {
     margin-right: 20px;
+}
+
+.ptb-1px {
+    padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .d-flex {
@@ -34,6 +47,11 @@
 .d-flex-row {
     display: flex;
     flex-direction: row;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
 }
 
 .align-item-center {
@@ -177,6 +195,10 @@
 }
 
 .item-divided-3 {
+    flex: 3; /* Chia đều không gian cho các phần tử */
+}
+
+.item-divided-4 {
     flex: 4; /* Chia đều không gian cho các phần tử */
 }
 /* end width */
