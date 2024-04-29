@@ -157,7 +157,6 @@ module.exports.trash = async (req, res) => {
     }
 }
 
-
 // [DELETE] /admin/roles/restore/:id
 module.exports.restore = async (req, res) => {
     try{
@@ -169,6 +168,21 @@ module.exports.restore = async (req, res) => {
         );
 
         req.flash('success', 'Khôi phục quyền đã xóa thành công');
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
+
+// [DELETE] /admin/roles/delete-hard/:id
+module.exports.deleteHard = async (req, res) => {
+    try{
+        await Role.deleteOne({
+            _id: req.params.id
+        });
+
+        req.flash('success', 'Xóa vĩnh viễn quyền này thành công');
         res.redirect('back');
     }
     catch(error){

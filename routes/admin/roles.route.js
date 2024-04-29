@@ -26,5 +26,8 @@ router.patch('/permissions', controller.changePermissions);
 router.get('/trash', controller.trash);
 
 router.delete('/restore/:id', controller.restore);
+
+router.delete('/delete-hard/:id', controller.deleteHard);
+
 // export
 module.exports = router;
