@@ -49,6 +49,11 @@ router.patch(
     controller.edit
 );
 
+router.get(
+    '/trash',
+    controller.trash
+);
+
 // router.get('/detail/:id', controller.detail);
 
 // export

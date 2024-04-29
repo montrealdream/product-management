@@ -221,3 +221,27 @@ module.exports.edit = async (req, res) => {
         
 //     }
 // }
+
+// [GET /admin/accounts/trash
+module.exports.trash = async (req, res) => {
+    try{
+
+        // count document
+        const numberOfRecords = await Account.countDocuments({
+            deleted: true
+        });
+
+        // get document
+        const records = await Account.find({
+            deleted: true
+        });
+
+        res.render('admin/pages/accounts/trash', {
+            title: "Tài khoản đã xóa",
+            records: records
+        })
+    }
+    catch(error){
+
+    }
+}
