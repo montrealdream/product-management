@@ -1,11 +1,39 @@
 // model
 const Cart = require('../../models/cart.model');
+const Product = require('../../models/product.model');
+
+// helper
+const productHelper = require('../../helper/products.helper');
 
 // [GET] /cart
 module.exports.index = async (req, res) => {
     try{
+        // get cartId & find cart
+        const cartId = req.cookies.cartId;
+        const myCart = await Cart.findOne({_id: cartId});
+
+        // total all price of all products
+        myCart.totalNeedPay = 0;
+
+        // // get products in cart
+        for(const item of myCart.products){
+            const inforProduct = await Product.findOne({
+                _id: item.product_id
+            }).select("title discountPercentage price stock thumbnail");
+            
+            // new price & new price * quantity
+            inforProduct.newPrice = (inforProduct.price - (inforProduct.discountPercentage/100)*inforProduct.price).toFixed(0);
+            inforProduct.totalPriceOfProduct = inforProduct.newPrice * item.quantity;
+            
+            // total all
+            myCart.totalNeedPay += inforProduct.totalPriceOfProduct;
+            item.inforProduct = inforProduct;
+        }
+        
+        // views
         res.render('client/pages/cart/index', {
-            title: "Giỏ hàng"
+            title: "Giỏ hàng",
+            myCart: myCart
         })
     }
     catch(error){
