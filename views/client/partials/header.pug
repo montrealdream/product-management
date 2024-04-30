@@ -61,7 +61,7 @@ header(class="header")
                             path.stroke-orange-F66B2D(d='M11 9H8' )
                             path.stroke-orange-F66B2D(d='M2 3L2.26491 3.0883C3.58495 3.52832 4.24497 3.74832 4.62248 4.2721C5 4.79587 5 5.49159 5 6.88304V9.5C5 12.3284 5 13.7426 5.87868 14.6213C6.75736 15.5 8.17157 15.5 11 15.5H13M19 15.5H17' )
                             path.stroke-orange-F66B2D(d='M5 6H8M5.5 13H16.0218C16.9812 13 17.4609 13 17.8366 12.7523C18.2123 12.5045 18.4013 12.0636 18.7792 11.1818L19.2078 10.1818C20.0173 8.29294 20.4221 7.34853 19.9775 6.67426C19.5328 6 18.5054 6 16.4504 6H12' )
-                    span(class="") #{miniCart.products.length}
+                    span(class="") #{miniCart.products.length > 0 ? miniCart.products.length : 0}
 
             //- div(class="inner-user")
             //-     ul(class="navigation")
