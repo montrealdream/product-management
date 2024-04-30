@@ -1,6 +1,8 @@
 extends ../../layouts/default.pug
 include ../../mixins/alert.pug
 block main 
+    +alert-success
+    +alert-error 
     .container
         h3(class="title") GIỎ HÀNG CỦA BẠN
         div(class="d-flex")
@@ -26,7 +28,10 @@ block main
                                                 class="text-decoration-none product-cart-title text-uppercase"
                                             ) #{item.inforProduct.title}
 
-                                            a(class="product-cart-delete") Xóa
+                                            a(
+                                                href=`/cart/delete/${item.product_id}`
+                                                class="product-cart-delete text-decoration-none"
+                                            ) Xóa
                                     td 
                                         span(class="product-cart-price")  $#{item.inforProduct.newPrice}
                                     td 
@@ -52,7 +57,7 @@ block main
                                                 ) +
                                     td 
                                         span(class="product-cart-price") $#{item.inforProduct.totalPriceOfProduct}
-                div(class="table-pay")
+                div(class="table-pay mb-20")
                     div(class="d-flex-column")
                         div(class="d-flex-row mb-20 mt-10 justify-content-space-between")
                             span Tổng tiền: 

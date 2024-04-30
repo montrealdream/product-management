@@ -97,3 +97,30 @@ module.exports.addToCart = async (req, res) => {
 
     }
 }
+
+// [GET] /cart/delete/:productId
+module.exports.deleteProductInCart = async (req, res) => {
+    try{
+        // get cartId & find cart & id'sproduct needed delete
+        const cartId = req.cookies.cartId;
+        const myCart = await Cart.findOne({_id: cartId});
+        const productId = req.params.productId;
+
+        await Cart.updateOne(
+            {_id: cartId},
+            {
+                $pull: {
+                    products: {
+                        product_id: productId
+                    }
+                }
+            }
+        ); 
+        req.flash('success', 'Xóa sản phẩm khỏi giỏ hàng thành công');
+        // views
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}
