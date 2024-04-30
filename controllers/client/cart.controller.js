@@ -19,7 +19,7 @@ module.exports.index = async (req, res) => {
         for(const item of myCart.products){
             const inforProduct = await Product.findOne({
                 _id: item.product_id
-            }).select("title discountPercentage price stock thumbnail");
+            }).select("title discountPercentage price stock thumbnail slug");
             
             // new price & new price * quantity
             inforProduct.newPrice = (inforProduct.price - (inforProduct.discountPercentage/100)*inforProduct.price).toFixed(0);
@@ -117,6 +117,7 @@ module.exports.deleteProductInCart = async (req, res) => {
             }
         ); 
         req.flash('success', 'Xóa sản phẩm khỏi giỏ hàng thành công');
+
         // views
         res.redirect('back');
     }

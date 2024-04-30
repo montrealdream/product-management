@@ -43,7 +43,8 @@ block main
                     )
                         div(class="d-flex align-item-center mt-20")
                             div(class="product__detail--quantity mr-10")
-                                span(
+                                button(
+                                    type="text"
                                     class=""
                                     button-quantity = "sub"
                                 ) -
@@ -54,10 +55,12 @@ block main
                                     name="quantity"
                                     value="1"
                                     min="1"
+                                    max=record.stock
                                     style="width:50px"
                                     
                                 )
-                                span(
+                                button(
+                                    type="text"
                                     class=""
                                     button-quantity = "add"
                                 ) +

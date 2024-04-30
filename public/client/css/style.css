@@ -690,7 +690,6 @@ body {
     color: red;
 }
 
-
 .product-cart-delete:hover {
     color: #218721;
 }
@@ -707,5 +706,4 @@ body {
     display: flex;
     justify-content: right;
 }
-.
 /* end table cart */

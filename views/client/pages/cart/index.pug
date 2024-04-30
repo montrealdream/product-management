@@ -24,7 +24,7 @@ block main
                                         )
                                         div(class="d-flex-column justify-content-center ml-10")
                                             a(
-                                                href="#" 
+                                                href=`/products/detail/${item.inforProduct.slug}` 
                                                 class="text-decoration-none product-cart-title text-uppercase"
                                             ) #{item.inforProduct.title}
 
@@ -37,7 +37,7 @@ block main
                                     td 
                                         div(class="d-flex align-item-center")
                                             div(class="product__detail--quantity mr-10")
-                                                span(
+                                                button(
                                                     class=""
                                                     button-quantity = "sub"
                                                 ) -
@@ -48,10 +48,11 @@ block main
                                                     name="quantity"
                                                     value=item.quantity
                                                     min="1"
+                                                    max=item.inforProduct.stock
                                                     style="width:50px"
                                                     
                                                 )
-                                                span(
+                                                button(
                                                     class=""
                                                     button-quantity = "add"
                                                 ) +
@@ -64,3 +65,5 @@ block main
                             span(class="product-cart-price") $#{myCart.totalNeedPay}
                         button(class="btn btn-large btn-bg-green") Thanh toán
             .item-divided-1
+    
+    script(src="/client/js/quantity.js")

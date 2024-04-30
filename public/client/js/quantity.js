@@ -1,4 +1,4 @@
-// quantity stock
+// quantity stock (page detail)
 const Inputquantity = document.querySelector('input[name=quantity]');
 const buttonQuantity = document.querySelectorAll("[button-quantity]");
 
@@ -8,16 +8,26 @@ if(buttonQuantity.length > 0 && Inputquantity){
 
     buttonQuantity.forEach(button => {
         button.addEventListener("click", (event) => {
+            event.preventDefault();
             const status = button.getAttribute("button-quantity");
             
 
             if(status == "sub" && Inputquantity.value > "1"){
                 Inputquantity.value = parseInt(Inputquantity.value) - 1;
             }
+
             else if(status == "add"){
                 if(parseInt(Inputquantity.value) < maxStock)
                     Inputquantity.value = parseInt(Inputquantity.value) + 1;
             }
         });
     });
+    Inputquantity.addEventListener("change", (event) => {
+        if(parseInt(Inputquantity.value) > maxStock){
+            Inputquantity.value = maxStock;
+        }
+    });
 }
+
+// quantity stokc (page cart)
+
