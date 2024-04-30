@@ -706,4 +706,13 @@ body {
     display: flex;
     justify-content: right;
 }
+
+.table-not-pay {
+    padding: 5px;
+    border: 1px solid #ebebeb;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 /* end table cart */
