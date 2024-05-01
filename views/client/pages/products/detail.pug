@@ -14,6 +14,16 @@ block main
                 .col-2 
                     h2(class="product__detail--title") #{record.title}
 
+                    if(record.category)
+                        div(class="product__detail--author ")
+                            span Thể loại: 
+                            span #{record.category.title}
+                    else 
+                        div(class="product__detail--author ")
+                            span Thể loại: 
+                            span Đang cập nhật
+
+
                     if(record.author)
                         div(class="product__detail--author ")
                             span Tác giả: 

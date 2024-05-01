@@ -8,7 +8,7 @@ block main
         if(myCart.products.length > 0)
             div(class="d-flex")
                 .item-divided-4
-                    table(class="table-cart")
+                    table(class="table-cart" table-cart)
                         thead 
                             tr
                                 th Thông tin sản phẩm
@@ -36,12 +36,11 @@ block main
                                         span(class="product-cart-price")  $#{item.inforProduct.newPrice}
                                     td 
                                         div(class="d-flex align-item-center")
-                                            div(class="product__detail--quantity mr-10")
+                                            div(class="product__detail--quantity mr-10" )
                                                 button(
                                                     class=""
                                                     button-quantity = "sub"
                                                 ) -
-
                                                 input(
                                                     type="text" 
                                                     class="quantity"
@@ -49,8 +48,8 @@ block main
                                                     value=item.quantity
                                                     min="1"
                                                     max=item.inforProduct.stock
+                                                    data-id=item.product_id
                                                     style="width:50px"
-                                                    
                                                 )
                                                 button(
                                                     class=""

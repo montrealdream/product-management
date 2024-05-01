@@ -10,7 +10,6 @@ module.exports.cart = async (req, res, next) => {
             const record = new Cart();
             await record.save();
             
-            console.log(record);
             // set cookie
             res.cookie("cartId", record.id);
         }

@@ -135,6 +135,18 @@ module.exports.detailProduct = async (req, res) => {
 
         // calc discount
         const record = productHelper.discountOne(data);
+         
+        // get category title
+        const category = await productCategory.findOne({
+            _id: record.product_category_id,
+            status: "active",
+            deleted: false
+        });
+
+        // find category parent
+        
+
+        record.category = category;
 
         res.render('client/pages/products/detail', {
             title : record.title,

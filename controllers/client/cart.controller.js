@@ -125,3 +125,31 @@ module.exports.deleteProductInCart = async (req, res) => {
 
     }
 }
+
+// [GET] /cart/update/:productId/:quantity
+module.exports.updateQuantity = async (req, res) => {
+    try{
+        // get id cart
+        const cartId = req.cookies.cartId;
+
+        // get id's product & quantity needed update
+        const productId = req.params.productId;
+        const quantity  = parseInt(req.params.quantity);
+
+        await Cart.updateOne(
+            {
+                _id: cartId,
+                "products.product_id": productId
+            },
+            {
+                $set: {
+                    "products.$.quantity": quantity
+                }
+            }
+        );
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}

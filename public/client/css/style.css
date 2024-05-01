@@ -448,6 +448,11 @@ body {
     font-size: 16px;
 }
 
+.btn-normal {
+    display: inline-block;
+    font-size: 16px;
+}
+
 .btn-large {
     width: 300px;
     font-size: 18px;
