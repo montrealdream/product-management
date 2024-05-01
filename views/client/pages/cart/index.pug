@@ -62,7 +62,7 @@ block main
                             div(class="d-flex-row mb-20 mt-10 justify-content-space-between")
                                 span Tổng tiền: 
                                 span(class="product-cart-price") $#{myCart.totalNeedPay}
-                            button(class="btn btn-large btn-bg-green") Thanh toán
+                            a(href="/checkout" class="btn btn-large btn-bg-green text-align-center text-decoration-none") Thanh toán
                 .item-divided-1
         else 
             div(class="table-not-pay")
