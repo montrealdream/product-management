@@ -1,0 +1,96 @@
+extends ../../layouts/checkout.pug
+include ../../mixins/alert.pug
+block main 
+    +alert-success
+    +alert-error 
+    .container
+        .d-flex.justify-content-space-between
+            .col-3 
+                h3 Thông tin nhận hàng
+                form(
+                    action=""
+                    method="POST"
+                )
+                    input(
+                        type="email" 
+                        class="input-form mb-10"
+                        placeholder="Email"
+                    )
+                    input(
+                        type="text"
+                         class="input-form mb-10"
+                         placeholder="Họ và tên"
+                    )
+                    input(
+                        type="tel" 
+                        class="input-form mb-10"
+                        placeholder="Số điện thoại (Tùy chọn)"
+                    )
+                    input(
+                        type="text" 
+                        class="input-form mb-10"
+                        placeholder="Địa chỉ (Tùy chọn)"
+                    )
+                    textarea(name="", cols="", rows="3" class="textArea-form")   Ghi chú (Tùy chọn)
+            .col-3 
+                h3 Vận chuyển
+                input(
+                    type="text" value="Vui lòng nhập thông tin giao hàng" 
+                    class="input-form-transport"
+                    readonly
+                )
+
+                h3 Thanh toán
+            .col-3 
+                h3 Đơn hàng (2 sản phẩm)
+
+                hr(class="divider")
+
+                div(class="product-checkout")
+                    div(class="product-checkout-img")
+                        img(
+                            src="http://res.cloudinary.com/dgmm3wigk/image/upload/v1714116788/kwingg4cwsnsu453bfji.webp"
+                        )
+                        span(class="quantity") 1
+                    div(class="product-checkout-title")
+                        span(class="title") PHÍA SAU NGHI CAN X
+                        span(class="discount") Giảm 15% so với giá bìa
+                    div(class="product-checkout-price")
+                        span(class="price") $150
+                div(class="product-checkout")
+                    div(class="product-checkout-img")
+                        img(
+                            src="http://res.cloudinary.com/dgmm3wigk/image/upload/v1714116788/kwingg4cwsnsu453bfji.webp"
+                        )
+                        span(class="quantity") 1
+                    div(class="product-checkout-title")
+                        span(class="title") PHÍA SAU NGHI CAN X
+                        span(class="discount") Giảm 15% so với giá bìa
+                    div(class="product-checkout-price")
+                        span(class="price") $150
+                
+                hr(class="divider")
+
+                .d-flex.justify-content-space-between.align-item-center.mt-10.mb-10
+                    input(
+                        type="text"
+                        class="input-form-btn"
+                        placeholder="Nhập mã giảm giá"
+                    )
+                    button(class="btn-form") Áp dụng
+
+                hr(class="divider")
+                
+                .d-flex-column.mb-10.mt-10
+                    span(class="mb-10") Tạm tính:
+                
+                    span Phí Vận chuyển:
+                
+                hr(class="divider mb-10")
+                .mt-10
+                span Tổng cộng:
+
+                .d-flex.justify-content-space-between.mt-10.align-item-center
+                    a(href="" class="text-decoration-none") Quay về giỏ hàng 
+                    button(class="btn-form") Đặt Hàng
+
