@@ -31,10 +31,16 @@
     margin-top: 10px;
 }
 
+.mr-5 {
+    margin-right: 5px;
+}
 .mr-10 {
     margin-right: 10px;
 }
 
+.ml-5 {
+    margin-left: 5px;
+}
 .ml-10 {
     margin-left: 10px;
 }
@@ -147,6 +153,18 @@
 
 .text-bold {
     font-style: bold;
+}
+
+.txt-color-gray {
+    color: #969696;
+}
+
+.txt-color-wBlue {
+    color: #2A9DCC;
+}
+
+.font-sz24 {
+    font-size: 24px;
 }
 /* end text */
 

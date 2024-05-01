@@ -21,3 +21,11 @@ module.exports.discountOne = (record) => {
     
     return record
 }
+
+// calc (tính ra số tiền đc trừ)
+module.exports.subPriceOne = (record) => {
+    const discount = record.discountPercentage;
+    const price = record.price;
+    const subPrice = ( price * ((discount) / 100));
+    return subPrice;
+}

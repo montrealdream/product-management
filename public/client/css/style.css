@@ -810,6 +810,10 @@ body {
 /* end form & input form */
 
 /* product checkout */
+.product-checkout-background {
+    /* border-left: 1px solid #ddd;
+    background-color: #969696; */
+}
 .product-checkout {
     display: flex;
     align-items: center;
@@ -863,8 +867,24 @@ body {
 }
 
 .product-checkout-price .price {
-    margin-left: 15px;
+    font-size: 14px;
     color: #969696;
 }
 
 /* end product checkout */
+
+/* label */
+
+.hide-label {
+    display: none;
+}
+/* end label */
+
+/* input radio */
+.input-radio {
+    width: 20px;
+    height: 20px;
+    border: #969696;
+    color: #969696;
+}
+/* end input radio */

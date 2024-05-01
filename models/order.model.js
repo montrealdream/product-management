@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // Defining a model
 const orderSchema = new mongoose.Schema(
     {
-        user_id: String,
+        // user_id: String,
         cart_id: String,
         inforUser: {
             fullName: String,
