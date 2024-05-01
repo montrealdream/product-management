@@ -53,3 +53,79 @@ module.exports.index = async (req, res) => {
 
     }
 }
+
+// [POST] /checkout/order
+module.exports.order = async (req, res) => {
+    try{
+        // get cartId for get products
+        const cartId = req.cookies.cartId;
+
+        const cart = await Cart.findOne({_id: cartId});
+
+        // get price & discountPercentage according model Order
+        const products = [];
+        for(const item of cart.products){  
+            const objectProduct = {
+                product_id: item.product_id,
+                price: 0,
+                discountPercentage: 0,
+                quantity: item.quantity
+            } 
+
+            const product = await Product.findOne({
+                _id: item.product_id,
+            }).select("price discountPercentage");
+
+            objectProduct.price = product.price;
+            objectProduct.discountPercentage = product.discountPercentage;
+            
+            products.push(objectProduct);
+        }
+
+        // get infor user
+        const inforUser = {
+            fullName: req.body.fullName,
+            email: req.body.email,
+            tel: req.body.tel,
+            address: req.body.address,
+            note: (req.body.note === 'Ghi chú (Tùy chọn)' ? "" : req.body.note)
+        }
+
+        // create schema for save
+        const orderSchema = {
+            cart_id: cartId,
+            inforUser: inforUser,
+            products: products
+        }
+
+        // create & save
+        const record = new Order(orderSchema);
+        await record.save();
+
+        // reset products in cart
+        await Cart.updateOne(
+            {_id: cartId},
+            {   
+                // reset cart to zero
+                products: []
+            }
+        );
+
+        // update stock of products
+        for(const item of products){
+            const currentStock = await Product.findOne({_id: item.product_id});
+            const newStock = currentStock.stock - item.quantity;
+            await Product.updateOne(
+                {_id: item.product_id },
+                {
+                    stock: newStock
+                }
+            );
+        }
+        req.flash('success', "Đặt hàng thành công");
+        res.redirect('back');
+    }
+    catch(error){
+
+    }
+}

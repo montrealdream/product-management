@@ -11,34 +11,39 @@ block main
             )
                 .d-flex.justify-content-space-between
                     .col-3 
-                        h3 Thông tin nhận hàng
-                            input(
-                                type="email" 
-                                class="input-form mb-10"
-                                placeholder="Email"
-                                name="email"
-                            )
-                            input(
-                                type="text"
-                                class="input-form mb-10"
-                                placeholder="Họ và tên"
-                                name="fullName"
-                            )
-                            input(
-                                type="tel" 
-                                class="input-form mb-10"
-                                placeholder="Số điện thoại (Tùy chọn)"
-                                name="tel"
-                            )
-                            input(
-                                type="text" 
-                                class="input-form mb-10"
-                                placeholder="Địa chỉ (Tùy chọn)"
-                                name="address"
-                            )
-                            textarea(name="note", cols="", rows="3" class="textArea-form")   Ghi chú (Tùy chọn)
+                        h3(class="checkout-title") Thông tin nhận hàng
+                        input(
+                            type="email" 
+                            class="input-form mb-10"
+                            placeholder="Email"
+                            name="email"
+                        )
+                        input(
+                            type="text"
+                            class="input-form mb-10"
+                            placeholder="Họ và tên"
+                            name="fullName"
+                        )
+                        input(
+                            type="tel" 
+                            class="input-form mb-10"
+                            placeholder="Số điện thoại (Tùy chọn)"
+                            name="tel"
+                        )
+                        input(
+                            type="text" 
+                            class="input-form mb-10"
+                            placeholder="Địa chỉ (Tùy chọn)"
+                            name="address"
+                        )
+                        textarea(
+                            name="note", 
+                            cols="", 
+                            rows="3" 
+                            class="textArea-form"
+                        ) Ghi chú (Tùy chọn)
                     .col-3 
-                        h3 Vận chuyển
+                        h3(class="checkout-title") Vận chuyển
                         .d-flex.align-item.center
                             input(
                                 type="text" 
@@ -49,7 +54,7 @@ block main
                             )
                             label(class="hide-label txt-color-gray" id="label-transport") Giao hàng tận nơi $#{tranportationCost}
 
-                        h3 Thanh toán
+                        h3(class="checkout-title") Thanh toán
                         .d-flex.align-item.center.border-line
                             input(
                                 type="radio"    
@@ -58,7 +63,7 @@ block main
                             label(class="txt-color-gray") Thanh toán sau khi giao hàng (COD) 
 
                     .col-3.product-checkout-background
-                        h3 Đơn hàng (#{cartDetail.products.length} sản phẩm) 
+                        h3(class="checkout-title") Đơn hàng (#{cartDetail.products.length} sản phẩm) 
 
                         hr(class="divider")
 
@@ -78,16 +83,16 @@ block main
                             hr(class="divider")
 
                         //- làm thêm phần này để nhập thêm mã giảm giá
-                        //- .d-flex.justify-content-space-between.align-item-center.mt-10.mb-10
-                        //-     input(
-                        //-         type="text"
-                        //-         class="input-form-btn"
-                        //-         placeholder="Nhập mã giảm giá"
-                        //-         name="discount_code"
-                        //-     )
-                        //-     button(class="btn-form") Áp dụng
+                        .d-flex.justify-content-space-between.align-item-center.mt-10.mb-10
+                            input(
+                                type="text"
+                                class="input-form-btn"
+                                placeholder="Nhập mã giảm giá"
+                                name="discount_code"
+                            )
+                            button(class="btn-form") Áp dụng
 
-                            hr(class="divider")
+                        hr(class="divider")
                         
                         .d-flex-column.mb-10.mt-10
                             .d-flex.justify-content-space-between
