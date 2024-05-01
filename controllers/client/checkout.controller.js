@@ -123,9 +123,56 @@ module.exports.order = async (req, res) => {
             );
         }
         req.flash('success', "Đặt hàng thành công");
-        res.redirect('back');
+        res.redirect(`/checkout/success/${record.id}`);
     }
     catch(error){
 
+    }
+}
+
+// [GET] /checkout/success/:orderId
+module.exports.orderSuccess = async (req, res) => {
+    try{
+        // get order id
+        const orderId = req.params.orderId;
+        const userOrder = await Order.findOne({
+            _id: orderId
+        });
+
+        // tranportation cost
+        const tranportationCost = 5;
+
+        // tổng tiền cần trả
+        userOrder.totalCostProduct = 0;
+
+        for(const item of userOrder.products){
+            const data = await Product.findOne(
+                {_id: item.product_id},
+            );
+
+              // calc discount
+              const inforProduct = productHelper.discountOne(data);
+              // calc sub price
+              inforProduct.subPrice = productHelper.subPriceOne(data);
+  
+              // calc total needed pay
+              userOrder.totalCostProduct += parseInt(inforProduct.newPrice) * item.quantity;
+  
+              item.inforProduct = inforProduct;
+
+        }
+
+        // total needed pay + tranportationCost
+        userOrder.totalPay = userOrder.totalCostProduct + tranportationCost;
+
+
+        res.render('client/pages/checkout/success', {
+            title:"Đặt hàng thành công",
+            userOrder: userOrder,
+            tranportationCost: tranportationCost
+        });
+    }
+    catch(error){
+        console.log(error);
     }
 }

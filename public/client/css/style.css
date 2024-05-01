@@ -822,6 +822,7 @@ body {
 .product-checkout {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -893,3 +894,14 @@ body {
     color: #969696;
 }
 /* end input radio */
+
+/* table order success */
+.table-order-success {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 5px;
+    border: 1px solid #ebebeb;
+    display: flex;
+}
+/* end table order success */
