@@ -7,8 +7,10 @@ const orderSchema = new mongoose.Schema(
         cart_id: String,
         inforUser: {
             fullName: String,
+            email: String,
             tel: String,
-            address: String
+            address: String,
+            note: String,
         },
         products: [
             {
