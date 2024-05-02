@@ -16,12 +16,14 @@ const userSchema = new mongoose.Schema(
         email: String,
         password: String,
         tel: String,
-        status: String,
+        status: {
+            type: String,
+            default: "active"
+        },
         deleted: {
             type: Boolean,
             default: false
         },
-        deletedAt: Date
     },
     {
         timestamps: true
