@@ -957,6 +957,7 @@ body {
 
 .form-signup {
     border: 1px solid #228b22;
+    height: 100%;
 }
 
 .form-group {
@@ -978,6 +979,13 @@ body {
     text-align: center;
     padding: 8px;
     border-radius: 4px;
+    border: 0;
+}
+
+.btn-signup:hover {
+    color: #228B22;
+    background-color: white;
+    border: 1px solid #228B22;
 }
 
 .btn-signin {
@@ -997,6 +1005,8 @@ body {
     border: 2px solid #228B22;
     color: white;
     height: 100%;
+    /* padding-top: 20px; */
+    padding-bottom: 20px;
 }
 
 .benifit-user h3 {
@@ -1011,7 +1021,4 @@ body {
     font-weight: 600;
 }
 
-.benifit-user div {
-    text-align: center;
-}
 /* enduser login signup */

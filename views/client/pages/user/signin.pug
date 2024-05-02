@@ -9,23 +9,7 @@ block main
                         method="POST"
                         class="form-signup p-20"
                     )
-                        h3(class="clr-mt") Đăng ký tài khoản
-                        .form-group
-                            label(class="label-login-signup") Họ và Tên *
-                            input(
-                                type="text"
-                                name=""
-                                class="input-form mb-10"
-                                placeholder="Họ và tên"
-                            )
-                        .form-group 
-                            label(class="label-login-signup") Số điện thoại *
-                            input(
-                                type="tel"
-                                name=""
-                                class="input-form mb-10"
-                                placeholder="Số điện thoại"
-                            )
+                        h3(class="clr-mt") Đăng nhập tài khoản
                         .form-group 
                             label(class="label-login-signup") Email *
                             input(
@@ -43,10 +27,9 @@ block main
                                 placeholder="Mật khẩu"
                             )
                         button(
-                            type="submit"
                             href=""
                             class="text-decoration-none btn-signup"
-                        ) Đăng ký   
+                        ) Đăng nhập   
 
                 .col-3right
                     div(class="benifit-user")
@@ -59,6 +42,6 @@ block main
                             li Được giảm giá cho lần mua tiếp theo đến 10%
                         .text-align-left.mt-20.ml-20
                             a(
-                                href="/user/login"
+                                href="/user/signup"
                                 class="text-decoration-none btn-signin"
-                            ) Đăng nhập
+                            ) Đăng ký
