@@ -50,16 +50,55 @@ header(class="header")
                     type="submit"
                     class="button-search"
                 ) Tìm
-            div(class="user-login-singup ")
-                svg.icon.icon-tabler.icon-tabler-users(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round')
-                    path(stroke='none' d='M0 0h24v24H0z' fill='none')
-                    path(d='M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0')
-                    path(d='M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2')
-                    path(d='M16 3.13a4 4 0 0 1 0 7.75')
-                    path(d='M21 21v-2a4 4 0 0 0 -3 -3.85')
-                div(class="user-header")
-                    a(href="/user/signin") Đăng nhập
-                    a(href="/user/signup") Đăng ký
+            if(user)
+                 div(class="inner-menu")
+                    div(class="navigation__group")
+                        img(class="icon" src=`/admin/images/svg/message.svg`)
+                        img(class="icon" src=`/admin/images/svg/notification.svg`)
+                        img(class="profile" src=user.avatar)
+                    div(class="dropdown none")
+                        div(class="dropdown__group")
+                            div(class="user-name") #{user.fullName}
+                            div(class="email") #{user.email}
+                        hr(class="divider")
+                        nav(class="dropdown__nav")
+                            ul 
+                                li 
+                                    a(href=`${path_admin}/my-account` class="dflex txt-decoration-none txt-black")
+                                        img(src=`/admin/images/svg/profile.svg`)
+                                        |   My Profile
+                                li 
+                                    img(src=`/admin/images/svg/setting.svg`)
+                                    |   Settings
+                            hr(class="divider")
+                            ul 
+                                li 
+                                    img(src="/admin/images/svg/tutorials.svg")
+                                    |   Tutorials
+                                li 
+                                    img(src="/admin/images/svg/help.svg")
+                                    |   Helper
+                            hr(class="divider")
+                            ul 
+                                li 
+                                    img(src="/admin/images/svg/premium.svg")
+                                    |   Go Premium
+                                li 
+                                    a(href=`${path_admin}/auth/logout` class="dflex")
+                                        img(src="/admin/images/svg/logout.svg")
+                                        |   Log out
+    
+            else
+                div(class="user-login-singup ")
+                    svg.icon.icon-tabler.icon-tabler-users(xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewbox='0 0 24 24' stroke-width='2' stroke='currentColor' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                        path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                        path(d='M9 7m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0')
+                        path(d='M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2')
+                        path(d='M16 3.13a4 4 0 0 1 0 7.75')
+                        path(d='M21 21v-2a4 4 0 0 0 -3 -3.85')
+                    div(class="user-header")
+                        a(href="/user/signin") Đăng nhập
+                        a(href="/user/signup") Đăng ký
 
 
             div(class="mini-cart")
@@ -83,3 +122,5 @@ header(class="header")
             //-         li 
             //-             a(href="/") Đăng ký
     //- script(src="/client/js/script.js")
+    if(user)
+        script(src="/admin/js/login.js")

@@ -1,11 +1,15 @@
 extends ../../layouts/default.pug
-block main 
+include ../../mixins/alert.pug
+block main
+    +alert-success
+    +alert-error
+    +alert-warning 
     .page-content-signup-signin
         .container-sm
             .d-flex 
                 .col-7left
                     form(
-                        action=""
+                        action="/user/signin"
                         method="POST"
                         class="form-signup p-20"
                     )
@@ -14,7 +18,7 @@ block main
                             label(class="label-login-signup") Email *
                             input(
                                 type="email"
-                                name=""
+                                name="email"
                                 class="input-form mb-10"
                                 placeholder="Địa chỉ email..."
                             )
@@ -22,12 +26,12 @@ block main
                             label(class="label-login-signup") Mật khẩu *
                             input(
                                 type="password"
-                                name=""
+                                name="password"
                                 class="input-form mb-10"
                                 placeholder="Mật khẩu"
                             )
                         button(
-                            href=""
+                            type="submit"
                             class="text-decoration-none btn-signup"
                         ) Đăng nhập   
 

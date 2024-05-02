@@ -61,9 +61,36 @@ module.exports.signUp = async (req, res) => {
 // [POST] /user/signin
 module.exports.signIn = async (req, res) => {
     try{
+        // check email exits
+        const emailExits = await User.findOne({email: req.body.email});
+        if(!emailExits){
+            req.flash('warning', 'Email không tồn tại, hãy kiểm tra lại');
+            res.redirect('back');
+            return;
+        }
 
+        // check password
+        if(emailExits.password != md5(req.body.password)){
+            req.flash('warning', 'Sai Mật khẩu');
+            res.redirect('back');
+            return;
+        }
+
+        // check status
+        if(emailExits.status == "inactive"){
+            req.flash('warning', 'Tài khoản đã bị khóa');
+            // sau này làm thêm trang email cho admin
+            res.redirect('back');
+            return;
+        }
+
+        // set cookie
+        res.cookie("tokenUser", emailExits.tokenUser);
+        // đến trang chủ lun
+        req.flash('success', 'Đăng nhập thành công');
+        res.redirect('/');
     }
     catch(error){
-        
+
     }
 }

@@ -1026,3 +1026,97 @@ body {
 }
 
 /* enduser login signup */
+
+/* drop down login */
+.dropdown {
+    background-color: #FFFFFF;
+    width: 240px;
+    position: absolute;
+    top: 58px;
+    right: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    gap: 4px;
+}
+
+.dropdown__group {
+    padding: 12px;
+}
+
+.dropdown__nav li:hover {
+    background-color: #C9D1D9;
+}
+
+.dropdown__nav li a {
+    color: black;
+}
+
+.profile {
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 3px solid #f7f7f7;
+    filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));
+    object-fit: cover;
+}
+
+.email {
+    color: #A0A7B1
+}
+
+.divider {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown__nav > ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* gap: 4px; */
+}
+
+.dropdown__nav > ul > li {
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+    /* width: 100%; */
+}
+
+.dropdown__nav > ul > li > img {
+    margin-right: 20px;
+}
+
+.dropdown__nav a {
+    text-decoration: none;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown__nav a img {
+    margin-right: 20px;
+}
+
+.none {
+    display: none;
+}
+
+.navigation__group {
+    display: flex;
+    align-items: center;
+}
+
+.navigation__group img {
+    margin-left: 20px;
+}
+
+.navigation__group svg {
+    font-size: 20px;
+}
+
+/* end drop down login */
