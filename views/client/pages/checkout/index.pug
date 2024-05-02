@@ -9,7 +9,7 @@ block main
                 action="/checkout/order"
                 method="POST"
             )
-                .d-flex.justify-content-space-between
+                .d-flex.justify-content-space-between.p-50px
                     .col-3 
                         h3(class="checkout-title") Thông tin nhận hàng
                         input(
@@ -57,7 +57,8 @@ block main
                         h3(class="checkout-title") Thanh toán
                         .d-flex.align-item.center.border-line
                             input(
-                                type="radio"    
+                                type="radio"  
+                                checked=true  
                                 class="input-radio mr-5 ml-5"
                             )
                             label(class="txt-color-gray") Thanh toán sau khi giao hàng (COD) 

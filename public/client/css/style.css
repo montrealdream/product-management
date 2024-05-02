@@ -426,7 +426,8 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
-    margin: 20px;
+    /* margin: 20px; */
+    margin-top: 10px;
     padding: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -788,7 +789,16 @@ body {
     height: 44px;
     background-color: #fff;
     color: #333;
+    /* outline: 0;
+    border-color: #bee5eb;
+    border: 1px #d9d9d9 solid; */
     /* margin-bottom: 10px; */
+}
+
+.input-form-btn:focus {
+    outline: none;
+    border-color: #66afe9;
+    box-shadow: 0 0 0 1px #66afe9;
 }
 
 .btn-form {
@@ -811,7 +821,7 @@ body {
 
 /* product checkout */
 .checkout-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     margin-bottom: 10px;
 }
@@ -900,8 +910,9 @@ body {
     margin-top: 20px;
     margin-left: 30px;
     margin-right: 30px;
-    padding: 5px;
-    border: 1px solid #ebebeb;
+    padding: 10px;
+    border: 3px solid #E1E1E5;
     display: flex;
+    flex-direction: column;
 }
 /* end table order success */

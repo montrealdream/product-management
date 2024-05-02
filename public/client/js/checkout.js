@@ -12,6 +12,7 @@ if(inputAddress){
             inputTransport.checked = true;
             inputTransport.classList.remove("input-form-transport");
             inputTransport.classList.add("input-radio");
+            // inputTransport.classList.add("border-line");
             label.classList.remove("hide-label");
         }
         else{

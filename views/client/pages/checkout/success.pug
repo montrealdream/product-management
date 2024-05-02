@@ -3,9 +3,19 @@ include ../../mixins/alert.pug
 block main
     .background-wgray.p-50px
         .container-sm
+            div(class="d-flex align-item-center")
+                img(
+                    src="/client/images/svg/nodejs-icon.svg"
+                    alt="logo nodejs"
+                    style="width: 70px"
+                )
+                span(
+                    style=" margin-left:10px; font-weight: 700; font-size:24px"
+                       
+                ) NODEJS
             .d-flex.mt-20
                 .item-divided-2
-                    .d-flex-column
+                    .d-flex-column.mb-20
                         .d-flex.justify-content-left
                             svg(xmlns='http://www.w3.org/2000/svg' width='72px' height='72px')
                                 g(fill='none' stroke='#8EC343' stroke-width='2')
@@ -14,62 +24,71 @@ block main
                             .d-flex-column.ml-10
                                 h3(class="text-align-left clr-m mb-10") Cảm ơn bạn đã đặt hàng
                                 p(class="text-align-left clr-m") 
-                                    |   Một email xác nhận đã được gửi tới tên email của bạn <br>
+                                    |   Một email xác nhận đã được gửi tới #{userOrder.inforUser.email}. <br>
                                     |   Xin vui lòng kiểm tra email của bạn
                         div(class="table-order-success mb-20 justify-content-space-between")
-                            .col-2 
-                                h4 Thông tin mua hàng
-                                div(class="txt-color-gray mb-10") #{userOrder.inforUser.fullName}
-                                div(class="txt-color-gray mb-10") #{userOrder.inforUser.email}
-                                div(class="txt-color-gray mb-10") #{userOrder.inforUser.tel}
-                                //- label(class="txt-color-gray mb-10") #{userOrder.inforUser.email}
-                                //- label(class="txt-color-gray mb-10") #{userOrder.inforUser.tel}
-
-                                h4 Phương thức thanh toán
-                                label(class="txt-color-gray") Thanh toán khi nhận hàng (COD)
-                            .col-2
-                                h4 Địa chỉ nhận hàng
-                                div(class="txt-color-gray mb-10") #{userOrder.inforUser.address}
-                                div(class="txt-color-gray mb-10") ...
-                                div(class="txt-color-gray mb-10") ...
-
-                                h4 Phương thức vận chuyển
-                                label(class="txt-color-gray") Giao hàng tận nơi
-                                
-                .item-divided-1
-                    h3(class="checkout-title mb-10") Đơn hàng (#{userOrder.products.length}sản phẩm) 
-                    hr(class="divider")
+                            .d-flex
+                                .col-2-normal
+                                    h4 Thông tin mua hàng
+                                    div(class="txt-color-gray mb-10") #{userOrder.inforUser.fullName}
+                                    div(class="txt-color-gray mb-10") #{userOrder.inforUser.email}
+                                    div(class="txt-color-gray mb-10") #{userOrder.inforUser.tel}
+                                .col-2-normal
+                                    h4 Địa chỉ nhận hàng
+                                    div(class="txt-color-gray mb-10") #{userOrder.inforUser.address}
+                                    div(class="txt-color-gray mb-10") ...
+                                    div(class="txt-color-gray mb-10") ...
+                            .d-flex
+                                .col-2-normal
+                                    h4 Phương thức thanh toán
+                                    label(class="txt-color-gray") Thanh toán khi nhận hàng (COD)
+                            
+                                .col-2-normal
+                                    h4 Phương thức vận chuyển
+                                    label(class="txt-color-gray") Giao hàng tận nơi
+                    div(class="text-align-center")
+                        a(href="/" class="btn-form p-20 mt-20 text-decoration-none") Tiếp tục mua hàng
+                .item-divided-1.background-white.p-10.mb-95
+                    h3(class="checkout-title mb-10 clr-mt font-sz16") Đơn hàng (#{userOrder.products.length}) 
+                    //- hr(class="divider")
+                    div(class="border-bottom")
 
                     each item in userOrder.products
                         div(class="product-checkout")   
-                            div(class="product-checkout-img")
-                                img(
-                                    src=item.inforProduct.thumbnail
-                                )
-                                span(class="quantity") #{item.quantity}
-                            div(class="product-checkout-title")
-                                span(class="title") #{item.inforProduct.title}
-                                span(class="discount") Giảm #{item.inforProduct.discountPercentage}% so với giá bìa (- $#{item.inforProduct.subPrice})
+                            .d-flex.align-item-center
+                                div(class="product-checkout-img")
+                                    img(
+                                        src=item.inforProduct.thumbnail
+                                    )
+                                    span(class="quantity") #{item.quantity}
+                                div(class="product-checkout-title")
+                                    span(class="title") #{item.inforProduct.title}
+                                    span(class="discount") Giảm #{item.inforProduct.discountPercentage}% so với giá bìa (- $#{item.inforProduct.subPrice})
                             div(class="product-checkout-price")
                                 span(class="price") $#{item.inforProduct.newPrice}
                     
-                        hr(class="divider")
+                        //- hr(class="divider")
+                        div(class="border-bottom")
 
                     //- làm thêm phần này để nhập thêm mã giảm giá
                     .d-flex.justify-content-space-between.align-item-center.mt-10.mb-10
-                        label(class="txt-color-gray") Mã giảm giá đã xử dụng: Không
+                        label(class="") Mã giảm giá đã sử dụng:
+                        span(class="txt-color-gray") Không
 
-                    hr(class="divider")
+                    //- hr(class="divider")
+                    div(class="border-bottom")
                     
                     .d-flex-column.mb-10.mt-10
                         .d-flex.justify-content-space-between
-                            span(class="mb-10 txt-color-gray") Tạm tính: 
+                            span(class="mb-10 ") Tạm tính: 
                             span(class="txt-color-gray") $#{userOrder.totalCostProduct}
                         .d-flex.justify-content-space-between
-                            span(class="mb-10 txt-color-gray") Phí Vận chuyển:
+                            span(class="mb-10 ") Phí Vận chuyển:
                             span(class="txt-color-gray") $#{tranportationCost}
                     
-                    hr(class="divider mb-10")
+                    //- hr(class="divider mb-10")
+                    div(class="border-bottom")
                     .d-flex.justify-content-space-between.mt-10.align-item-center
-                        span(class="txt-color-gray") Tổng cộng: 
+                        span(class="") Tổng cộng: 
                         span(class="txt-color-wBlue font-sz24") $#{userOrder.totalPay}
+                                                
