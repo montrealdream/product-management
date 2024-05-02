@@ -173,6 +173,6 @@ module.exports.orderSuccess = async (req, res) => {
         });
     }
     catch(error){
-        console.log(error);
+        console.log(error); 
     }
 }

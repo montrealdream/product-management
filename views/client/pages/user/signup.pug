@@ -1,0 +1,63 @@
+extends ../../layouts/default.pug
+block main 
+    .page-content-signup-signin
+        .container-sm
+            .d-flex 
+                .col-7left
+                    form(
+                        action=""
+                        method="POST"
+                        class="form-signup p-20"
+                    )
+                        h3(class="clr-mt") Đăng ký tài khoản
+                        .form-group
+                            label(class="label-login-signup") Họ và Tên *
+                            input(
+                                type="text"
+                                name=""
+                                class="input-form mb-10"
+                                placeholder="Họ và tên"
+                            )
+                        .form-group 
+                            label(class="label-login-signup") Số điện thoại *
+                            input(
+                                type="tel"
+                                name=""
+                                class="input-form mb-10"
+                                placeholder="Số điện thoại"
+                            )
+                        .form-group 
+                            label(class="label-login-signup") Email *
+                            input(
+                                type="email"
+                                name=""
+                                class="input-form mb-10"
+                                placeholder="Địa chỉ email..."
+                            )
+                        .form-group 
+                            label(class="label-login-signup") Mật khẩu *
+                            input(
+                                type="password"
+                                name=""
+                                class="input-form mb-10"
+                                placeholder="Mật khẩu"
+                            )
+                        a(
+                            href=""
+                            class="text-decoration-none btn-signup"
+                        ) Đăng ký   
+
+                .col-3right
+                    div(class="benifit-user")
+                        h3 Quyền lợi thành viên
+                        ul(class="navigation d-flex-column")
+                            li Vận chuyển siêu tốc
+                            li Sản phẩm đa dạng
+                            li Đổi trả dễ dàng
+                            li Tích điểm đổi quà
+                            li Được giảm giá cho lần mua tiếp theo đến 10%
+                        .text-align-center.mt-20
+                            a(
+                                href=""
+                                class="text-decoration-none btn-signin"
+                            ) Đăng nhập

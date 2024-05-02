@@ -145,6 +145,14 @@
 .col-12 {
     width: calc(100% / 12 - 50px);
 }
+.col-7left {
+    width: calc(100% - 300px);
+
+}
+
+.col-3right {
+    width: 300px;
+}
 
 .col-70percent {
     width: calc(100% - 30% - 20px);
@@ -152,6 +160,10 @@
 
 .col-30percent {
     width: calc(100% - 70% - 20px);
+}
+
+.width-100percent {
+    width: 100%;
 }
 
 .width-75percent {
