@@ -916,3 +916,38 @@ body {
     flex-direction: column;
 }
 /* end table order success */
+
+/* user login signup */
+.user-login-singup {
+    position: relative;
+}
+
+.user-login-singup:hover .user-header {
+    display: flex;
+}
+
+.user-login-singup .icon {
+    width: 24px;
+    height: 24px;
+    margin: 5px;
+    stroke: white;
+}
+
+.user-login-singup .user-header {
+    display: flex;
+    flex-direction: column;
+    background: #1A1F25;
+    top: 38px;
+    left: -70px;
+    position: absolute;
+    width: 100px;
+    /* /* display: none; */
+    display: none;
+}
+
+.user-login-singup .user-header a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
+/* enduser login signup */
