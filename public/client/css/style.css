@@ -992,6 +992,23 @@ body {
     border: 1px solid #228B22;
 }
 
+.btn-signup-white {
+    display: block;
+    width: 100%;
+    background-color: white;
+    color: #228b22;
+    text-align: center;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #228B22;
+}
+
+.btn-signup-white:hover {
+    color: white;
+    background-color: #228b22;
+    border: 1px solid #228B22;
+}
+
 .btn-signin {
     background-color: #228B22;
     color: white;
@@ -1093,6 +1110,7 @@ body {
 }
 
 .dropdown__nav a {
+    display: flex;
     text-decoration: none;
     align-items: center;
     justify-content: space-between;

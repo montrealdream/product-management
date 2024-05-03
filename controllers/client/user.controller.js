@@ -94,3 +94,27 @@ module.exports.signIn = async (req, res) => {
 
     }
 }
+
+// [GET] /user/logout
+module.exports.logOut = async (req, res) => {
+    try {
+        // clear cookie
+        res.clearCookie("tokenUser");
+        req.flash('success', 'Đăng xuất tài khoản thành công');
+        res.redirect('/user/signin');
+    } catch (error) {
+        
+    }
+}
+
+// [GET] /user/password/forgot
+module.exports.forgotPasswordView = async (req, res) => {
+    try{
+        res.render('client/pages/user/forgot-password', {
+            title: "Quên mật khẩu"
+        })
+    }
+    catch(error){
+
+    }
+}

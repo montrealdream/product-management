@@ -15,6 +15,9 @@ router.get('/signin', controller.signInView);
 
 router.post('/signin', controller.signIn);
 
+router.get('/logout', controller.logOut);
+
+router.get('/password/forgot', controller.forgotPasswordView);
 
 // export
 module.exports = router;
