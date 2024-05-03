@@ -9,12 +9,15 @@ const userRouter = require('./user.route');
 // middleware
 const middlewareCategory = require('../../middleware/client/category.middleware');
 const middlewareCart = require('../../middleware/client/cart.middleware');
+const middlwareUser = require('../../middleware/client/auth.middleware');
 
 module.exports = (app) => {
     // chạy qua middleware category trước
     app.use(middlewareCategory.category);
     
     app.use(middlewareCart.cart);
+    
+    app.use(middlwareUser.auth);
 
     app.use(
         '/', 

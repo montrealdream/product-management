@@ -8,7 +8,11 @@ const userSchema = new mongoose.Schema(
     {
         cart_id: String,
         fullName: String,
-        avatar: String,
+        avatar: {
+            type: String,
+            // default avatar
+            default: "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+        },
         tokenUser: {
             type: String,
             default: generateHelper.randomString(20)
