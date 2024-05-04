@@ -166,6 +166,15 @@ module.exports.otpPasswordView = async (req, res) => {
             return;
         }
         const email = req.query.email;
+        // check email valid
+        const user = await User.findOne({email: email});
+
+        // when have token but token is not valid
+        if(!user){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
 
         res.render('client/pages/user/otp-password', {
             title: "OTP",
@@ -177,7 +186,7 @@ module.exports.otpPasswordView = async (req, res) => {
     }
 }
 
-// [POST /user/password/otp
+// [POST] /user/password/otp
 module.exports.otpPassword = async (req, res) => {
     try{
         // validate if not have token
@@ -187,11 +196,21 @@ module.exports.otpPassword = async (req, res) => {
             return;
         }
 
-        const objectOtpPassword = {
-            email: req.body.email,
-            otp: req.body.otp
+        // check tokenUser valid
+        const tokenUser = req.cookies.tokenUser;
+        const user = await User.findOne({tokenUser: tokenUser});
+
+        // when have token but token is not valid
+        if(!user){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
         }
 
+        const objectOtpPassword = {
+            email: user.email,
+            otp: req.body.otp
+        }
         // find
         const isValidOtp = await forgotPassword.findOne(objectOtpPassword);
 
@@ -217,6 +236,17 @@ module.exports.resetPasswordView = async (req, res) => {
             res.redirect('back');
             return;
         }
+
+        // check tokenUser valid
+        const tokenUser = req.cookies.tokenUser;
+        const user = await User.findOne({tokenUser: tokenUser});
+
+        // when have token but token is not valid
+        if(!user){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
         
         res.render('client/pages/user/reset-password', {
             title : "Đổi mật khẩu"
@@ -235,7 +265,32 @@ module.exports.resetPassword = async (req, res) => {
             res.redirect('back');
             return;
         }
-        res.redirect('back');
+
+        // check tokenUser valid
+        const tokenUser = req.cookies.tokenUser;
+        const user = await User.findOne({tokenUser: tokenUser});
+
+        // when have token but token is not valid
+        if(!user){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
+        
+        // update password
+        const password = md5(req.body.password);
+        await User.updateOne(
+            {tokenUser: tokenUser},
+            {
+                password: password
+            }
+        );
+
+        // clear cookie
+        res.clearCookie("tokenUser");
+
+        req.flash('success', 'Cập nhật mật khẩu thành công');
+        res.redirect('/user/signin');
     }
     catch(error){
 
