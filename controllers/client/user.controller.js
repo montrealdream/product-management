@@ -3,6 +3,7 @@ const User = require('../../models/user.model');
 const forgotPassword = require('../../models/forgotPassword.model');
 // help
 const generateHelper = require('../../helper/generate.help');
+const mailHelper = require('../../helper/mail.helper');
 
 const md5 = require('md5');
 
@@ -146,6 +147,18 @@ module.exports.forgotPassword = async (req, res) => {
 
         // cookie token for sercurity
         res.cookie("tokenUserForgot", user.tokenUser);
+
+        // send otp by email
+        const subject = `Mã OTP xác minh lấy lại mật khẩu`;
+        const html = `
+            Mã OTP xác minh lấy lại mật khẩu là: ${objectForgotPassword.otp}
+        `
+
+        mailHelper.send(
+            objectForgotPassword.email,
+            subject,
+            html
+        );
 
         // query get email
         res.redirect(`/user/password/otp?email=${user.email}`);
