@@ -151,8 +151,8 @@ module.exports.forgotPassword = async (req, res) => {
         // send otp by email
         const subject = `Mã OTP xác minh lấy lại mật khẩu`;
         const html = `
-            Mã OTP xác minh lấy lại mật khẩu là: ${objectForgotPassword.otp}
-        `
+            Mã OTP xác minh lấy lại mật khẩu là <b>${objectForgotPassword.otp}</b>
+        `;
 
         mailHelper.send(
             objectForgotPassword.email,

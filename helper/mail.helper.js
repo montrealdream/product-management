@@ -16,7 +16,9 @@ module.exports.send = (toEmail, subject, html) => {
     to: toEmail,
     subject: subject,
     // html
-    text: html
+    // text: html
+    // để dạng text thì nó gửi bình thường
+    html: html
   };
   
   transporter.sendMail(mailOptions, function(error, info){
