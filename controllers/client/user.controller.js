@@ -118,3 +118,30 @@ module.exports.forgotPasswordView = async (req, res) => {
 
     }
 }
+
+// [POST] /user/password/forgot
+module.exports.forgotPassword = async (req, res) => {
+    try{
+        // check email exits
+        const user = await User.findOne({email: req.body.email});
+        if(!user){
+            req.flash('warning', 'Email không tồn tại');
+            res.redirect('back');
+            return;
+        }
+        
+        // res.redirect('');
+        res.render('client/pages/user/otp-password', {
+            title: "OTP"
+        })
+    }
+    catch(error){
+
+    }
+}
+
+
+// [GET] /user/password/otp/:userId
+module.exports.otpViews = async (req, res) => {
+    
+}

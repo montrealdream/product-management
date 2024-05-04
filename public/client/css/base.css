@@ -18,6 +18,14 @@
     margin-right: auto;
 }
 
+.container-smest {
+    max-width: 750px;
+    width: 100%;
+    /* background-color: var(--background-primary); */
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .clr-m {
     margin: 0;
 }
