@@ -1,5 +1,8 @@
 // model
 const User = require('../../models/user.model');
+const forgotPassword = require('../../models/forgotPassword.model');
+// help
+const generateHelper = require('../../helper/generate.help');
 
 const md5 = require('md5');
 
@@ -129,11 +132,21 @@ module.exports.forgotPassword = async (req, res) => {
             res.redirect('back');
             return;
         }
+
+        // when email exits
+        const objectForgotPassword = {
+            email: user.email,
+            otp: generateHelper.randomNumber(6),
+            expireAt: Date.now() + (1*60*1000), // 1000s * 60 * 1 = 1m
+        }
+
+        // create & save
+        const record = new forgotPassword(objectForgotPassword);
+        await record.save();
+
+        // query get email
+        res.redirect(`/user/password/otp?email=${user.email}`);
         
-        // res.redirect('');
-        res.render('client/pages/user/otp-password', {
-            title: "OTP"
-        })
     }
     catch(error){
 
@@ -141,7 +154,42 @@ module.exports.forgotPassword = async (req, res) => {
 }
 
 
-// [GET] /user/password/otp/:userId
-module.exports.otpViews = async (req, res) => {
-    
+// [GET] /user/password/otp
+module.exports.otpPasswordView = async (req, res) => {
+    try{
+        const email = req.query.email;
+
+        res.render('client/pages/user/otp-password', {
+            title: "OTP",
+            email: email
+        })
+    }
+    catch(erorr){
+
+    }
+}
+
+// [POST /user/password/otp
+module.exports.otpPassword = async (req, res) => {
+    try{
+        const objectOtpPassword = {
+            email: req.body.email,
+            otp: req.body.otp
+        }
+
+        // find
+        const isValidOtp = await forgotPassword.findOne(objectOtpPassword);
+
+        if(!isValidOtp){
+            req.flash('warning', 'Mã otp không hợp lệ');
+        }
+
+
+        res.render('client/pages/user/reset-password', {
+            title : "Đổi mật khẩu"
+        })
+    }
+    catch(error){
+
+    }
 }

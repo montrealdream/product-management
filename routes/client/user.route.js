@@ -21,7 +21,9 @@ router.get('/password/forgot', controller.forgotPasswordView);
 
 router.post('/password/forgot', controller.forgotPassword);
 
-// router.get('/password/otp/', controller.otpViews)
-router.get('/password/otp/:userId', controller.otpViews)
+router.get('/password/otp', controller.otpPasswordView);
+
+router.post('/password/otp', controller.otpPassword);
+
 // export
 module.exports = router;
