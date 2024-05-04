@@ -144,6 +144,9 @@ module.exports.forgotPassword = async (req, res) => {
         const record = new forgotPassword(objectForgotPassword);
         await record.save();
 
+        // cookie token for sercurity
+        res.cookie("tokenUser", user.tokenUser);
+
         // query get email
         res.redirect(`/user/password/otp?email=${user.email}`);
         
@@ -157,6 +160,11 @@ module.exports.forgotPassword = async (req, res) => {
 // [GET] /user/password/otp
 module.exports.otpPasswordView = async (req, res) => {
     try{
+        if(!req.cookies.tokenUser){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
         const email = req.query.email;
 
         res.render('client/pages/user/otp-password', {
@@ -172,6 +180,13 @@ module.exports.otpPasswordView = async (req, res) => {
 // [POST /user/password/otp
 module.exports.otpPassword = async (req, res) => {
     try{
+        // validate if not have token
+        if(!req.cookies.tokenUser){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
+
         const objectOtpPassword = {
             email: req.body.email,
             otp: req.body.otp
@@ -182,12 +197,45 @@ module.exports.otpPassword = async (req, res) => {
 
         if(!isValidOtp){
             req.flash('warning', 'Mã otp không hợp lệ');
+            res.redirect('back');
+            return;
         }
 
+        res.redirect('/user/password/reset');
+    }
+    catch(error){
 
+    }
+}
+
+
+// [GET] /user/password/reset
+module.exports.resetPasswordView = async (req, res) => {
+    try{
+        if(!req.cookies.tokenUser){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
+        
         res.render('client/pages/user/reset-password', {
             title : "Đổi mật khẩu"
-        })
+        });
+    }
+    catch(error){
+
+    }
+}
+
+// [POST] /user/password/reset
+module.exports.resetPassword = async (req, res) => {
+    try{
+        if(!req.cookies.tokenUser){
+            req.flash('warning', ' Bạn không thể vào trang này');
+            res.redirect('back');
+            return;
+        }
+        res.redirect('back');
     }
     catch(error){
 
