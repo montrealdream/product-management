@@ -6,6 +6,7 @@ const generateHelper = require('../../helper/generate.help');
 const mailHelper = require('../../helper/mail.helper');
 
 const md5 = require('md5');
+const Cart = require('../../models/cart.model');
 
 // [GET] /user/signup
 module.exports.signUpView = async (req, res) => {
@@ -66,30 +67,38 @@ module.exports.signUp = async (req, res) => {
 module.exports.signIn = async (req, res) => {
     try{
         // check email exits
-        const emailExits = await User.findOne({email: req.body.email});
-        if(!emailExits){
+        const user = await User.findOne({email: req.body.email});
+        if(!user){
             req.flash('warning', 'Email không tồn tại, hãy kiểm tra lại');
             res.redirect('back');
             return;
         }
 
         // check password
-        if(emailExits.password != md5(req.body.password)){
+        if(user.password != md5(req.body.password)){
             req.flash('warning', 'Sai Mật khẩu');
             res.redirect('back');
             return;
         }
 
         // check status
-        if(emailExits.status == "inactive"){
+        if(user.status == "inactive"){
             req.flash('warning', 'Tài khoản đã bị khóa');
             // sau này làm thêm trang email cho admin
             res.redirect('back');
             return;
         }
 
+        // set id'user connect with cart
+        await Cart.updateOne(
+            {_id: req.cookies.cartId,},
+            {
+                user_id: user.id
+            }
+        );
+
         // set cookie
-        res.cookie("tokenUser", emailExits.tokenUser);
+        res.cookie("tokenUser", user.tokenUser);
         // đến trang chủ lun
         req.flash('success', 'Đăng nhập thành công');
         res.redirect('/');
@@ -241,7 +250,6 @@ module.exports.otpPassword = async (req, res) => {
 
     }
 }
-
 
 // [GET] /user/password/reset
 module.exports.resetPasswordView = async (req, res) => {
