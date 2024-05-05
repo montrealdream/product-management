@@ -66,7 +66,7 @@ module.exports = (app) => {
     );
 
     app.use(
-        '/setting',
+        path_admin + '/setting',
         middleware.requireAuth,
         settingRouter
     )

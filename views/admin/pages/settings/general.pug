@@ -1,0 +1,52 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+block main
+    div(class="card")
+        div(class="card-header") Cài đặt chung 
+        div(class="card-body")
+            form(
+                action=`${path_admin}/setting/general`
+                method="POST"
+                enctype="multipart/form-data"
+            )
+                div(class="form-item")
+                    label(class="label-style" for="websiteNam") Tên website:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="websiteNam" 
+                        name="websiteNam"
+                        placeholder="Tên website"
+                        required
+                    )
+                +file-upload("Logo", "logo")
+                div(class="form-item")
+                    label(class="label-style" for="email") Email:
+                    input(
+                        type="email" 
+                        class="input-form" 
+                        id="email" 
+                        name="email"
+                        placeholder="Địa chỉ email"
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="tel") Số điện thoại:
+                    input(
+                        type="number" 
+                        class="input-form" 
+                        id="tel" 
+                        name="tel"
+                        placeholder="Số điện thoại"
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="address") Địa chỉ:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="address" 
+                        name="address"
+                        placeholder="Địa chỉ"
+                    )
+                //- div(class="form-item")
+                button(type="submit" class="mt-10 btn btn-mid font-16 btn-bg-blue") Cập nhật
