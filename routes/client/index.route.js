@@ -10,6 +10,7 @@ const userRouter = require('./user.route');
 const middlewareCategory = require('../../middleware/client/category.middleware');
 const middlewareCart = require('../../middleware/client/cart.middleware');
 const middlwareUser = require('../../middleware/client/user.middleware');
+const middlwareSetting = require('../../middleware/client/setting.middlware');
 
 module.exports = (app) => {
     // chạy qua middleware category trước
@@ -18,6 +19,8 @@ module.exports = (app) => {
     app.use(middlewareCart.cart);
     
     app.use(middlwareUser.infoUser);
+
+    app.use(middlwareSetting.general);
 
     app.use(
         '/', 

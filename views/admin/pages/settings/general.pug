@@ -2,6 +2,9 @@ extends ../../layouts/default.pug
 include ../../mixins/alert.pug
 include ../../mixins/file-upload.pug
 block main
+    +alert-success
+    +alert-error 
+    +alert-warning
     div(class="card")
         div(class="card-header") Cài đặt chung 
         div(class="card-body")
