@@ -151,7 +151,7 @@ module.exports.forgotPassword = async (req, res) => {
         // send otp by email
         const subject = `Mã OTP xác minh lấy lại mật khẩu`;
         const html = `
-            Mã OTP xác minh lấy lại mật khẩu là <b>${objectForgotPassword.otp}</b>
+            Mã OTP xác minh lấy lại mật khẩu là: <b>${objectForgotPassword.otp}</b>
         `;
 
         mailHelper.send(
@@ -168,7 +168,6 @@ module.exports.forgotPassword = async (req, res) => {
 
     }
 }
-
 
 // [GET] /user/password/otp
 module.exports.otpPasswordView = async (req, res) => {
@@ -307,6 +306,18 @@ module.exports.resetPassword = async (req, res) => {
 
         req.flash('success', 'Cập nhật mật khẩu thành công');
         res.redirect('/user/signin');
+    }
+    catch(error){
+
+    }
+}
+
+// [GET] /user/infor
+module.exports.infor = async (req, res) => {
+    try{
+        res.render('client/pages/user/infor', {
+            title: "Thông tin cá nhân"
+        })
     }
     catch(error){
 
