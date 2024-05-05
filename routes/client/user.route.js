@@ -6,6 +6,9 @@ const router = express.Router();
 // controller
 const controller = require('../../controllers/client/user.controller');
 
+// middlware auth 
+const middlewareAuth = require('../../middleware/client/auth.middleware');
+
 // use
 router.get('/signup', controller.signUpView);
 
@@ -29,7 +32,11 @@ router.get('/password/reset', controller.resetPasswordView);
 
 router.post('/password/reset', controller.resetPassword);
 
-router.get('/infor', controller.infor);
+router.get(
+    '/infor', 
+    middlewareAuth.auth,
+    controller.infor
+);
 
 // export
 module.exports = router;
