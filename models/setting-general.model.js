@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const settingGeneralSchema = new mongoose.Schema(
     {
         // lưu ý luôn luôn trong collection chỉ có 1 bản ghi này
-        websiteNam: String,
+        websiteName: String,
         logo: String,
         email: String,
         tel: String,

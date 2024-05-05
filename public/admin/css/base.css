@@ -196,3 +196,9 @@ body {
 }
 
 /* end text */
+
+/* width */
+.width-100 {
+    width: 100%;
+}
+/* end width */
