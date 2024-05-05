@@ -131,6 +131,10 @@ body {
     margin-top: 10px;
 }
 
+.mt-20 {
+    margin-top: 20px;
+}
+
 .mb-5 {
     margin-bottom: 5px;
 }
@@ -197,6 +201,15 @@ body {
 
 /* end text */
 
+
+/* background */
+.background-white{
+    background-color: #fff;
+}
+.background-wgray {
+    background-color: #F3F4F7;
+}
+/* end background */
 /* width */
 .width-100 {
     width: 100%;

@@ -1,1 +1,18 @@
 extends ../../layouts/default.pug
+block main 
+    .background-wgray
+    .container 
+        h2(class="mt-20") Hi #{user.fullName}
+        p(class="mt-10") Welcome to dashboard
+
+        .dashboard 
+            .dflex
+                .column-3
+                    .my-account.background-white
+                        img(
+                            src=user.avatar
+                        )
+                        .dflex-column
+                            div(class="fullName") #{user.fullName}
+                            div(class="role") #{role.title}
+    

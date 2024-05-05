@@ -1230,3 +1230,29 @@
     margin-bottom: 5px;
 }
 /* moment */
+
+/* dashboard */
+.dashboard {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.dashboard .my-account {
+    display: flex;
+}
+
+.dashboard .my-account img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.dashboard .my-account .fullName {
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.dashboard .my-account .role {
+
+}
+/* end dashboard */
