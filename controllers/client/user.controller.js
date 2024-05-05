@@ -98,7 +98,12 @@ module.exports.signIn = async (req, res) => {
         );
 
         // set cookie
-        res.cookie("tokenUser", user.tokenUser);
+        res.cookie("tokenUser", user.tokenUser,
+            {
+                expires: new Date(Date.now() + (24*60*1000)), //1day
+                httpOnly: true 
+            }
+        );
         // đến trang chủ lun
         req.flash('success', 'Đăng nhập thành công');
         res.redirect('/');
