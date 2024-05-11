@@ -1290,6 +1290,7 @@ body {
     text-align: left;
     justify-content: right;
     display: flex;
+    padding-bottom: 10px;
 }
 
 .box-chat-body .out-going .content {

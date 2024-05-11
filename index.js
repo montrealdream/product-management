@@ -73,10 +73,6 @@ const { Server } = require("socket.io");
 const io = new Server(server);
 global._io = io;
 
-// _io.on('connection', (socket) => {
-//   console.log('a user connected');
-// });
-
 // console.log(_io);
 
 // router

@@ -7,11 +7,12 @@ module.exports.index = async (req, res) => {
     try{
 
         const userId = res.locals.user.id;
-        // // LISTEN CLIENT CONNECT "ONLINE"
+        
+        // LISTEN CLIENT CONNECT "ONLINE"
         _io.on('connection', (socket) => {
             console.log('a user connected');
         });
-
+          
         const chats = await Chat.find({deleted: false});
 
         for(const chat of chats){
