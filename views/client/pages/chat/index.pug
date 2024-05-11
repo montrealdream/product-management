@@ -10,7 +10,7 @@ block main
                     img(src="https://cdn-media.sforum.vn/storage/app/media/wp-content/uploads/2024/02/avatar-anh-meo-cute-1.jpg")
                     .d-flex-column
                         span(class="fullName") Hội trường lớn
-                .box-chat-body 
+                .box-chat-body(user-id=user.id)
                     if(chats)
                         each chat in chats 
                             if(chat.user_id != user.id)
@@ -22,20 +22,6 @@ block main
                             else 
                                 .out-going 
                                     p(class="content") #{chat.content}
-
-                    //- .in-comming 
-                    //-     img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ-d8oCBbRS-RbWjn73Ld29pFd7XA6WfM_VqbxqNsCXg&s")
-                    //-     .d-flex-column
-
-                    //-         span(class="fullName") Giang Trường
-                    //-         p(
-                    //-             class="content"
-                                
-                    //-         ) Xin chào tôi tên là Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ex natus at sunt eaque eos, excepturi facilis cumque. Beatae porro ratione temporibus, eveniet magnam molestiae accusamus debitis. Perferendis, a unde!
-
-                    //- .out-going 
-                    //-     p(class="content") Xin chào tôi tên là Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ex natus at sunt eaque eos, excepturi facilis cumque. Beatae porro ratione temporibus, eveniet magnam molestiae accusamus debitis. Perferendis, a unde!
-
                 .box-chat-footer 
                     .iconSite
                         ul(class="reset-ul d-flex")
@@ -62,4 +48,3 @@ block main
                             class="box-chat-button"
                         ) 
                             <i class="fa-brands fa-telegram"></i>
-    script(src="/client/js/chat.js")

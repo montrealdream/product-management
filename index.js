@@ -72,12 +72,7 @@ app.use(
   express.static(path.join(__dirname, 'node_modules', 'tinymce'))
 );
 
-// io.on('connection', (socket) => {
-//   console.log('a user connected');
-//   socket.on('disconnect', () => {
-//     console.log('user disconnected');
-//   });
-// });
+
 
 // router
 routerClient(app);
