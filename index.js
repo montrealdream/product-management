@@ -73,15 +73,14 @@ app.use(
 // socket io
 const server = http.createServer(app);
 const io = new Server(server);
-console.log(io); 
-global._io = io; // global variable
+global._io = io;
+
 io.on('connection', (socket) => {
   console.log('a user connected');
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
 });
-
 // router
 routerClient(app);
 routerAdmin(app);
