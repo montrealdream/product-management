@@ -6,22 +6,27 @@ const User = require('../../models/user.model');
 module.exports.index = async (req, res) => {
     try{
 
-        // const userId = res.locals.user.id;
-
+        const userId = res.locals.user.id;
         // // LISTEN CLIENT CONNECT "ONLINE"
-        // _io.on('connection', (socket) => {
-        //     console.log(1);
-        //     console.log('a user connected');
+        _io.on('connection', (socket) => {
+            console.log('a user connected');
+        });
 
-        //     socket.on('disconnect', () => {
-        //       console.log('user disconnected');
-        //     });
-        // });
+        const chats = await Chat.find({deleted: false});
+
+        for(const chat of chats){
+            const user = await User.findOne({
+                _id: chat.user_id,
+            });
+            chat.fullName =  user.fullName;
+            chat.avatar = user.avatar;
+        }
         res.render("client/pages/chat/index", {
-            title: "Hội trường"
+            title: "Hội trường",
+            chats: chats
         });
     }
     catch(error){
-
+        console.log(error);
     }
 }

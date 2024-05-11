@@ -12,7 +12,8 @@ const authMiddleware = require('../../middleware/client/auth.middleware');
 router.get(
     '/', 
     authMiddleware.auth,
-    controller.index);
+    controller.index
+);
 
 // export
 module.exports = router;

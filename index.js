@@ -31,10 +31,6 @@ const moment = require('moment'); // require
 const app = express()
 const port = process.env.PORT;
 
-// socket io
-const http = require('http');
-const { Server } = require("socket.io");
-
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
@@ -71,20 +67,22 @@ app.use(
 );
 
 // socket io
+const http = require('http');
 const server = http.createServer(app);
+const { Server } = require("socket.io");
 const io = new Server(server);
 global._io = io;
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
-  socket.on('disconnect', () => {
-    console.log('user disconnected');
-  });
-});
+// _io.on('connection', (socket) => {
+//   console.log('a user connected');
+// });
+
+// console.log(_io);
+
 // router
 routerClient(app);
 routerAdmin(app);
 
 server.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`server listening on port ${port}`)
 })

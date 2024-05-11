@@ -11,6 +11,18 @@ block main
                     .d-flex-column
                         span(class="fullName") Hội trường lớn
                 .box-chat-body 
+                    if(chats)
+                        each chat in chats 
+                            if(chat.user_id != user.id)
+                                .in-comming 
+                                    img(src=chat.avatar)
+                                    .d-flex-column 
+                                        span(class="fullName") #{chat.fullName}
+                                        p(class="content") #{chat.content}
+                            else 
+                                .out-going 
+                                    p(class="content" #{chat.content})
+
                     //- .in-comming 
                     //-     img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ-d8oCBbRS-RbWjn73Ld29pFd7XA6WfM_VqbxqNsCXg&s")
                     //-     .d-flex-column
