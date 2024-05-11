@@ -31,6 +31,10 @@ const moment = require('moment'); // require
 const app = express()
 const port = process.env.PORT;
 
+// socket io
+const http = require('http');
+const { Server } = require("socket.io");
+
 // override with POST having ?_method=DELETE
 app.use(methodOverride('_method'));
 
@@ -39,8 +43,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // app.locals 
 app.locals.path_admin = systemConfig.path_admin;
-console.log(moment('12.2').format('HH/MM'))
+// console.log(moment('12.2').format('HH/MM'))
 app.locals.moment = moment;
+
 
 // template engines
 // app.set('views', './views');
@@ -65,10 +70,22 @@ app.use(
   express.static(path.join(__dirname, 'node_modules', 'tinymce'))
 );
 
+// socket io
+const server = http.createServer(app);
+const io = new Server(server);
+console.log(io); 
+global._io = io; // global variable
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+
 // router
 routerClient(app);
 routerAdmin(app);
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
