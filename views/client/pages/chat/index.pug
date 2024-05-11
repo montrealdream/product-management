@@ -1,0 +1,52 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main 
+    .d-flex 
+        .item-divided-1 
+            div() content 
+        .item-divided-3 
+            .box-chat 
+                .box-chat-header
+                    img(src="https://cdn-media.sforum.vn/storage/app/media/wp-content/uploads/2024/02/avatar-anh-meo-cute-1.jpg")
+                    .d-flex-column
+                        span(class="fullName") Hội trường lớn
+                .box-chat-body 
+                    //- .in-comming 
+                    //-     img(src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ-d8oCBbRS-RbWjn73Ld29pFd7XA6WfM_VqbxqNsCXg&s")
+                    //-     .d-flex-column
+
+                    //-         span(class="fullName") Giang Trường
+                    //-         p(
+                    //-             class="content"
+                                
+                    //-         ) Xin chào tôi tên là Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ex natus at sunt eaque eos, excepturi facilis cumque. Beatae porro ratione temporibus, eveniet magnam molestiae accusamus debitis. Perferendis, a unde!
+
+                    //- .out-going 
+                    //-     p(class="content") Xin chào tôi tên là Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores ex natus at sunt eaque eos, excepturi facilis cumque. Beatae porro ratione temporibus, eveniet magnam molestiae accusamus debitis. Perferendis, a unde!
+
+                .box-chat-footer 
+                    .iconSite
+                        ul(class="reset-ul d-flex")
+                            li.p-lr-10px
+                                i.fa-solid.fa-circle-plus
+                            li.p-lr-10px
+                                i.fa-solid.fa-camera
+                            li.p-lr-10px
+                                i.fa-solid.fa-image
+                            li.p-lr-10px
+                                i.fa-solid.fa-microphone
+
+                    form(action=""  class="box-chat-form")
+                        div(class="divInput")
+                            input(
+                                class="content"
+                                name="content"
+                                placeholder="Aa"
+                                autocomplete="off"
+                            )
+                            <i class="fa-solid fa-face-smile"></i>
+                        button(
+                            type="submit"
+                            class="box-chat-button"
+                        ) 
+                            <i class="fa-brands fa-telegram"></i>

@@ -1222,3 +1222,131 @@ body {
     /* text-align: center; */
 }
 /* end personal information */
+
+/* box chat */
+.box-chat {
+    border-left: 1px solid #ddd;
+    width: 100%;
+    height: 100%;
+}
+
+.box-chat .box-chat-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    background-color: #ddd;
+
+}
+
+.box-chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    object-fit: cover;
+}
+
+.box-chat-header .fullName {
+    font-size: 20px;
+    font-weight: 650;
+}
+
+.box-chat-body {
+    padding: 10px;
+    max-height: 530px;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.box-chat-body .in-comming {
+    display: flex;   
+    align-items: end;
+    padding-bottom: 10px;
+}
+
+.box-chat-body .in-comming img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;  
+}
+
+.box-chat-body .in-comming .fullName {
+    font-size: 14px;
+    padding-bottom: 5px;
+}
+
+.box-chat-body .in-comming .content {
+    background-color: #ddd;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 0;
+    max-width: 700px;
+}
+
+.box-chat-body .out-going {
+    text-align: left;
+    justify-content: right;
+    display: flex;
+}
+
+.box-chat-body .out-going .content {
+    background-color: #ddd;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 0;
+    max-width: 700px;
+}
+
+.box-chat-footer {
+    /* border-top: 1px solid #ddd; */
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.box-chat-footer .content {
+    max-width: 918px;
+    width: 100%;
+    padding: 6px;
+    border: 0;
+    margin-right: 8px;
+}
+
+.box-chat-footer .divInput {
+    position: relative;
+    width: 960px;
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.box-chat-footer .content:focus {
+    outline: none;
+}
+
+.box-chat-footer .box-chat-button {
+    /* position: absolute; */
+    border: 0px;
+    border-radius: 8px;
+    background-color: white;
+    padding: 6px;
+    /* top: 2px;
+    right: 5px; */
+    font-size: 25px;
+}
+
+.box-chat-form {
+    display: flex;
+}
+
+.fa-face-smile:before, .fa-smile:before {
+    position: absolute;
+    content: "\f118";
+    top: 12px;
+    right: 10px;
+}
+/* end box chat */

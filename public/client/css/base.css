@@ -3,7 +3,7 @@
 }
 
 .container {
-    max-width: 1300px;
+    max-width: 1400px;
     width: 100%;
     /* background-color: var(--background-primary); */
     margin-left: auto;
@@ -46,6 +46,12 @@
 .p-50px {
     padding: 50px;
 }
+
+.p-lr-10px {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .mb-20 {
     margin-bottom: 20px;
 }
