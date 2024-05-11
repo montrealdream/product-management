@@ -6,11 +6,14 @@ const User = require('../../models/user.model');
 module.exports.index = async (req, res) => {
     try{
 
-        const userId = res.locals.user.id;
+        // const userId = res.locals.user.id;
         
         // LISTEN CLIENT CONNECT "ONLINE"
         _io.on('connection', (socket) => {
-            console.log('a user connected');
+          console.log('a user connected');
+          socket.on('disconnect', () => {
+            console.log('user disconnected');
+          });
         });
           
         const chats = await Chat.find({deleted: false});

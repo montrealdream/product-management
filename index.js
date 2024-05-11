@@ -22,13 +22,16 @@ const session = require('express-session');
 const systemConfig = require('./config/system');
 const database = require('./config/database');
 
+const http = require('http');
+const { Server } = require("socket.io");
+
 // require path
 const path = require('path');
 
 const moment = require('moment'); // require
 
 // express
-const app = express()
+const app = express();
 const port = process.env.PORT;
 
 // override with POST having ?_method=DELETE
@@ -41,7 +44,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.locals.path_admin = systemConfig.path_admin;
 // console.log(moment('12.2').format('HH/MM'))
 app.locals.moment = moment;
-
 
 // template engines
 // app.set('views', './views');
@@ -60,20 +62,22 @@ app.use(cookieParser('pnup'));
 app.use(session({ cookie: { maxAge: 60000 }}));
 app.use(flash());
 
+const server = http.createServer(app);
+const io = new Server(server);
+global._io = io;
+
 // router tinymce
 app.use(
   '/tinymce', 
   express.static(path.join(__dirname, 'node_modules', 'tinymce'))
 );
 
-// socket io
-const http = require('http');
-const server = http.createServer(app);
-const { Server } = require("socket.io");
-const io = new Server(server);
-global._io = io;
-
-// console.log(_io);
+// io.on('connection', (socket) => {
+//   console.log('a user connected');
+//   socket.on('disconnect', () => {
+//     console.log('user disconnected');
+//   });
+// });
 
 // router
 routerClient(app);
