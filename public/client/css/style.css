@@ -1351,3 +1351,14 @@ body {
     right: 10px;
 }
 /* end box chat */
+
+/* emoji picker */
+emoji-picker {
+    --num-columns: 6;
+}
+
+.tooltip:not(.shown) {
+    display: none;
+}
+
+/* end emoji picker */

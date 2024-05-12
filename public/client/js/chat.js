@@ -1,6 +1,6 @@
 // GET ELEMENT
 const boxChatBody = document.querySelector(".box-chat-body");
-
+const contentChat = document.querySelector('input[name=content]');
 // AUTO SCROLL DOWN SCREEN
 boxChatBody.scrollTop = boxChatBody.scrollHeight;
 // END AUTO SCROLL DOWN SCREEN
@@ -64,3 +64,14 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
     boxChatBody.scrollTop = boxChatBody.scrollHeight;
 });
 // END SERVER RETURN MESSAGE
+
+// ICON
+const emojiPicker = document.querySelector('emoji-picker');
+if(emojiPicker){
+    emojiPicker.addEventListener('emoji-click', (event) => {
+        const icon = event.detail.unicode;
+
+        contentChat.value = contentChat.value + icon;
+    });
+}
+// END ICON

@@ -3,7 +3,7 @@ include ../../mixins/alert.pug
 block main 
     .d-flex 
         .item-divided-1 
-            div() content 
+            //- div() content 
         .item-divided-3 
             .box-chat 
                 .box-chat-header
@@ -48,3 +48,4 @@ block main
                             class="box-chat-button"
                         ) 
                             <i class="fa-brands fa-telegram"></i>
+    emoji-picker(class="light tooltip" role="tooltip")
