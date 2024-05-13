@@ -9,6 +9,12 @@ module.exports.index = async (req, res) => {
         const userId = res.locals.user.id;
         const userFullName = res.locals.user.fullName;
 
+        // get avatar of client
+        const user = await User.findOne({_id: userId});
+        if(!user.avatar){
+            user.avatar = "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg";
+        }
+
         // LISTEN CLIENT CONNECT "ONLINE"
         _io.once('connection', (socket) => {
             // inform user connect
@@ -16,7 +22,7 @@ module.exports.index = async (req, res) => {
 
             // inform user disconnect
             socket.on('disconnect', () => {
-            console.log('user disconnected');
+                console.log(`${userFullName} dừng hoạt động`);
             });
 
            
@@ -29,12 +35,6 @@ module.exports.index = async (req, res) => {
 
                 await chat.save();
 
-                 // get avatar of client
-                const user = await User.findOne({_id: userId});
-                if(!user.avatar){
-                    user.avatar = "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg";
-                }
-
                 // SERVER RETURN MESSAGE
                 _io.emit("SERVER_RETURN_MESSAGE", {
                     user_id: userId,
@@ -43,6 +43,17 @@ module.exports.index = async (req, res) => {
                     avatar: user.avatar
                 });
             });
+            
+            // CLIENT SEND TYPING
+            socket.on("CLIENT_SEND_TYPING", (type) => {
+                // SEVER SEND TYPING
+                socket.broadcast.emit("SERVER_RETURN_TYPING", {
+                    user_id: userId,
+                    user_name: userFullName,
+                    avatar: user.avatar,
+                    type: type
+                });
+             });
         });
           
         const chats = await Chat.find({deleted: false});
