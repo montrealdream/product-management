@@ -222,3 +222,9 @@ socket.on("SERVER_RETURN_TYPING", (obj) => {
     boxChatBody.scrollTop = boxChatBody.scrollHeight;
 });
 // END SERVER SEND TYPING
+
+// Preview Image
+if(boxChatBody) {
+    const gallery = new Viewer(boxChatBody);
+  }
+// End Preview Image
