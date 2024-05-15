@@ -24,6 +24,13 @@ const showTyping = () => {
     }, TIME_CLEAR_TYPING);
 }
 
+// UPLOAD MULTI IMAGES
+const upload = new FileUploadWithPreview.FileUploadWithPreview('upload-images', {
+    multiple: true,
+    maxFileCount: 6
+});
+// END UPLOAD MULTI IMAGES
+
 // AUTO SCROLL DOWN SCREEN
 if(boxChatBody){
     boxChatBody.scrollTop = boxChatBody.scrollHeight;
@@ -35,14 +42,23 @@ const formChat = document.querySelector(".box-chat-form");
 if(formChat){
     formChat.addEventListener("submit", (event) => {
         event.preventDefault();
+
         const content = event.target.content.value;
-        tooltip.classList.toggle('shown');
-        if(content){
+        const images = upload.cachedFileArray;
+
+        if(content || images){
             // CLIENT SEND MESSAGE
-            socket.emit("CLIENT_SEND_MESSAGE", content);
-            event.target.content.value = '';
-            socket.emit("CLIENT_SEND_TYPING", CLIENT_NOT_TYPING);
+            socket.emit("CLIENT_SEND_MESSAGE", {
+                content: content,
+                images: images
+            });
+            
+            socket.emit("CLIENT_SEND_TYPING", CLIENT_NOT_TYPING); //when send mess then clear typing
         }
+
+        event.target.content.value = ''; //clear input contain content
+        upload.resetPreviewPanel(); // clear all selected images
+        tooltip.classList.toggle('shown'); // close table icon
     });
 }
 // END CLIENT SEND MESSAGE 

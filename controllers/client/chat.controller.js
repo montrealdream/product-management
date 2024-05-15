@@ -27,21 +27,22 @@ module.exports.index = async (req, res) => {
 
            
             // CLIENT SEND MESSAGE
-            socket.on("CLIENT_SEND_MESSAGE", async (content) => {
-                const chat = new Chat({
-                    user_id: userId,
-                    content: content
-                });
+            socket.on("CLIENT_SEND_MESSAGE", async (obj) => {
+                console.log(obj);
+                // const chat = new Chat({
+                //     user_id: userId,
+                //     content: content
+                // });
 
-                await chat.save();
+                // await chat.save();
 
-                // SERVER RETURN MESSAGE
-                _io.emit("SERVER_RETURN_MESSAGE", {
-                    user_id: userId,
-                    user_name: userFullName,
-                    content: content,
-                    avatar: user.avatar
-                });
+                // // SERVER RETURN MESSAGE
+                // _io.emit("SERVER_RETURN_MESSAGE", {
+                //     user_id: userId,
+                //     user_name: userFullName,
+                //     content: content,
+                //     avatar: user.avatar
+                // });
             });
             
             // CLIENT SEND TYPING
