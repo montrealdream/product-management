@@ -2,6 +2,9 @@
 const Chat = require('../../models/chat.model');
 const User = require('../../models/user.model');
 
+// helper
+const uploadToCloudinary = require('../../helper/uploadToCloudinary.helper');
+
 // [GET] /chat
 module.exports.index = async (req, res) => {
     try{
@@ -28,21 +31,32 @@ module.exports.index = async (req, res) => {
            
             // CLIENT SEND MESSAGE
             socket.on("CLIENT_SEND_MESSAGE", async (obj) => {
-                console.log(obj);
-                // const chat = new Chat({
-                //     user_id: userId,
-                //     content: content
-                // });
+                let imagesArray = []; //empty array
 
-                // await chat.save();
+                const content = obj.content; // get content
+                
+                // create link image on cloudinary
+                for(const image of obj.images){
+                    const linkImg = await uploadToCloudinary(image);
+                    imagesArray.push(linkImg);
+                }
+                
+                // create & save
+                const chat = new Chat({
+                    user_id: userId,
+                    content: content,
+                    images: imagesArray
+                });
+                await chat.save();
 
-                // // SERVER RETURN MESSAGE
-                // _io.emit("SERVER_RETURN_MESSAGE", {
-                //     user_id: userId,
-                //     user_name: userFullName,
-                //     content: content,
-                //     avatar: user.avatar
-                // });
+                // SERVER RETURN MESSAGE
+                _io.emit("SERVER_RETURN_MESSAGE", {
+                    user_id: userId,
+                    user_name: userFullName,
+                    content: content,
+                    avatar: user.avatar,
+                    images: imagesArray //array contain link img
+                });
             });
             
             // CLIENT SEND TYPING
@@ -56,9 +70,9 @@ module.exports.index = async (req, res) => {
                 });
              });
         });
-          
+        
+        // get & render views
         const chats = await Chat.find({deleted: false});
-
         for(const chat of chats){
             const user = await User.findOne({
                 _id: chat.user_id,

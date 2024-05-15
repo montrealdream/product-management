@@ -18,10 +18,26 @@ block main
                                     img(src=chat.avatar)
                                     .d-flex-column 
                                         span(class="fullName") #{chat.fullName}
-                                        p(class="content") #{chat.content}
+                                        if(chat.content)
+                                            p(class="content") #{chat.content}
+                                        if(chat.images.length > 0)
+                                            div(class="images")
+                                                each image in chat.images
+                                                    img(
+                                                        src=image
+                                                    )
                             else 
                                 .out-going 
-                                    p(class="content") #{chat.content}
+                                    .d-flex-column
+                                        if(chat.content)
+                                            p(class="content") #{chat.content}
+                                        if(chat.images.length > 0)
+                                                div(class="images")
+                                                    each image in chat.images
+                                                        img(
+                                                            loading="lazy"
+                                                            src=image
+                                                        )
                                     
                     div(class="box-list-typing")
                         //- div(class="box-typing")
@@ -33,8 +49,9 @@ block main
                         //-                 span 
                         //-                 span 
                         //-                 span   
+                    emoji-picker(class="light tooltip .emoji-picker" role="tooltip")
+                .inner-preview-images  
                     div(class="custom-file-container" data-upload-id="upload-images")
-                    emoji-picker(class="light tooltip .emoji-picker" role="tooltip")  
                 .box-chat-footer 
                     .iconSite
                         ul(class="reset-ul d-flex")
@@ -43,10 +60,14 @@ block main
                             li.p-lr-10px
                                 i.fa-solid.fa-camera
                             li.p-lr-10px
-                                i.fa-solid.fa-image
+                                label(
+                                    for="file-upload-with-preview-upload-images"
+                                )
+                                    i.fa-solid.fa-image
                             li.p-lr-10px
                                 i.fa-solid.fa-microphone
-
+                    .d-flex-column
+                       
                     form(action=""  class="box-chat-form")
                         div(class="divInput")
                             input(
@@ -61,3 +82,4 @@ block main
                             class="box-chat-button"
                         ) 
                             <i class="fa-brands fa-telegram"></i> 
+                    

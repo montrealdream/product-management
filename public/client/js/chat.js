@@ -58,7 +58,7 @@ if(formChat){
 
         event.target.content.value = ''; //clear input contain content
         upload.resetPreviewPanel(); // clear all selected images
-        tooltip.classList.toggle('shown'); // close table icon
+        tooltip.classList.remove('shown'); // close table icon
     });
 }
 // END CLIENT SEND MESSAGE 
@@ -75,15 +75,31 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
     const user_name =  obj.user_name;
     const content = obj.content;
     const avatar  = obj.avatar;
+    const images  = obj.images; // array
     
     let html = '';
 
     if(myID == user_id) {
         // mean you chat
         div.classList.add("out-going");
-        html = `
-            <p class="content">${content}</p>
-        `;
+
+        if(content){
+            html = `
+                <p class="content">${content}</p>
+            `;
+        }
+        if(images.length > 0){
+            // image
+            html += `<div class="images">`;  //open element div
+
+            for(const image of images){
+                html += `
+                    <img src="${image}"/>
+                `;
+            }
+
+            html += `</div>` //end element div
+        }
     }
     else{ 
         // mean different people chat
@@ -92,9 +108,25 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
             <img src=${avatar}/>
             <div class="d-flex-column">
                 <span class="fullName">${user_name}</span>
-                <p class="content">${content}</p>
-            </div>
         `;
+        if(content){
+            html += `<p class="content">${content}</p>`;
+        }
+
+        if(images.length > 0){
+            // image
+            html += `<div class="images">`;  //open element div
+
+            for(const image of images){
+                html += `
+                    <img src="${image}"/>
+                `;
+            }
+
+            html += `</div>` //end element div
+        }
+
+        html += `</div>` //end element div class="d-flex-column"
     }
     
     // append for realtime

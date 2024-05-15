@@ -8,7 +8,6 @@ module.exports.uploadSingle = async (req, res, next) => {
 
       // update key 
       req.body[req.file.fieldname] = linkImage;
-      console.log(linkImage);
     }
     // alway next middleware
     next();
