@@ -6,12 +6,13 @@ const cartRouter = require('./cart.route');
 const orderRouter = require('./checkout.route');
 const userRouter = require('./user.route');
 const chatRouter = require('./chat.route');
-
+const usersRouter = require('./users.route');
 // middleware
 const middlewareCategory = require('../../middleware/client/category.middleware');
 const middlewareCart = require('../../middleware/client/cart.middleware');
 const middlwareUser = require('../../middleware/client/user.middleware');
 const middlwareSetting = require('../../middleware/client/setting.middlware');
+const authMiddleware = require('../../middleware/client/auth.middleware');
 
 module.exports = (app) => {
     // chạy qua middleware category trước
@@ -57,6 +58,13 @@ module.exports = (app) => {
 
     app.use(
         '/chat',
+        authMiddleware.auth,
         chatRouter
+    );
+
+    app.use(
+        '/users',
+        authMiddleware.auth,
+        usersRouter
     );
 }

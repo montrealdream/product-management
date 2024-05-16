@@ -77,9 +77,15 @@ block main
                                 autocomplete="off"
                             )
                             <i class="fa-solid fa-face-smile"></i>
+                        span(
+                            class="box-chat-button"
+                            type-msg = "like"
+                        ) 
+                            <i class="fa-solid fa-thumbs-up"></i>
                         button(
                             type="submit"
-                            class="box-chat-button"
+                            class="box-chat-button d-none"
+                            type-msg = "send"
                         ) 
-                            <i class="fa-brands fa-telegram"></i> 
+                            <i class="d-none fa-brands fa-telegram"></i> 
                     

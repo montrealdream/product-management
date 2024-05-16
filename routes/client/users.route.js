@@ -4,12 +4,12 @@ const express = require('express');
 const router = express.Router();
 
 // controller
-const controller = require('../../controllers/client/chat.controller');
+const controller = require('../../controllers/client/users.controller');
 
 // use
 router.get(
-    '/', 
-    controller.index
+    '/not-friend', 
+    controller.notFriend
 );
 
 // export

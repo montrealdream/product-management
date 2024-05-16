@@ -1285,6 +1285,7 @@ body {
     border-radius: 8px;
     margin: 0;
     max-width: 700px;
+    width: auto;
 }
 
 .box-chat-body .out-going {
@@ -1300,6 +1301,7 @@ body {
     border-radius: 8px;
     margin: 0;
     max-width: 700px;
+    width: auto;
     word-wrap: break-word;
 }
 
@@ -1452,3 +1454,45 @@ emoji-picker {
    }
   }
   /* End box-typing */
+
+
+/* users */
+.box-user {
+    border: 1px solid #ddd;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.box-user img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 5px;
+}
+
+.box-user .fullName {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.box-user .btn {
+    font-size: 14px;
+    padding: 4px 8px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.box-user .add-friend {
+    background-color: #2A9DCC;
+    color: white;
+    /* margin-bottom: 5px; */
+}
+
+.box-user .not-friend {
+    background-color: #8a989e;
+    color: white;
+}
+/* end users */

@@ -120,6 +120,10 @@
     flex-direction: column;
 }
 
+.d-grid {
+    display: grid;
+}
+
 .align-item-center {
     align-items: center;
 }
@@ -167,9 +171,14 @@
     width: calc(100% / 5 - 50px);  
 }
 
+.col-6 {
+    width: calc(100% / 6 - 50px);
+}
+
 .col-12 {
     width: calc(100% / 12 - 50px);
 }
+
 .col-7left {
     width: calc(100% - 300px);
 

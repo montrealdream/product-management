@@ -5,6 +5,9 @@ const boxChatBody = document.querySelector(".box-chat-body");
 const contentChat = document.querySelector('input[name=content]');
 const boxListTyping = document.querySelector(".box-list-typing");
 const tooltip = document.querySelector('.tooltip');
+const formChat = document.querySelector(".box-chat-form");
+const buttonTypeLike = formChat.querySelector("[type-msg='like']");
+const buttonTypeSend = formChat.querySelector("[type-msg='send']");
 
 // DEFAULT VARIBALE
 const CLIENT_TYPING = "show";
@@ -38,7 +41,6 @@ if(boxChatBody){
 // END AUTO SCROLL DOWN SCREEN
 
 // CLIENT SEND MESSAGE 
-const formChat = document.querySelector(".box-chat-form");
 if(formChat){
     formChat.addEventListener("submit", (event) => {
         event.preventDefault();
@@ -85,7 +87,8 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
 
         if(content){
             html = `
-                <p class="content">${content}</p>
+                <div class="d-flex-column">
+                    <p class="content">${content}</p>
             `;
         }
         if(images.length > 0){
@@ -100,6 +103,7 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
 
             html += `</div>` //end element div
         }
+        html += `</div>` //end element div class="d-flex-column"
     }
     else{ 
         // mean different people chat
@@ -138,6 +142,9 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
 
     // scroll down screen
     boxChatBody.scrollTop = boxChatBody.scrollHeight;
+
+    //Preview Image
+    new Viewer(div);
 });
 // END SERVER RETURN MESSAGE
 
@@ -172,6 +179,18 @@ contentChat.addEventListener("keyup", (event) => {
     if(event.keyCode != 13){
         showTyping();
     }
+
+    // alternate button "LIKE" & "SEND MESSENGER"
+    if(contentChat.value.length > 0){
+        buttonTypeLike.classList.add("d-none");
+        buttonTypeSend.classList.remove("d-none");
+    }
+    else{
+        buttonTypeLike.classList.remove("d-none");
+        buttonTypeSend.classList.add("d-none");
+    }
+    // END alternate button "LIKE" & "SEND MESSENGER"
+
 });
 // END CLIENT SEND TYPING
 
@@ -226,5 +245,9 @@ socket.on("SERVER_RETURN_TYPING", (obj) => {
 // Preview Image
 if(boxChatBody) {
     const gallery = new Viewer(boxChatBody);
-  }
+}
 // End Preview Image
+
+// CLIENT SEND LIKE (ONLY ONE)
+socket.on("CLIENT_SEND_ONLY_ICON", )
+// END CLIENT SEND LIKE (ONLY LIKE)
