@@ -2,6 +2,9 @@
 const User = require('../../models/user.model');
 const Chat = require('../../models/chat.model');
 
+// helper
+const uploadToCloudinary = require('../../helper/uploadToCloudinary.helper');
+
 module.exports =  async (req, res) => {
     // my user
     const userId = res.locals.user.id;

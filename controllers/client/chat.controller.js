@@ -1,8 +1,6 @@
 // model
 const Chat = require('../../models/chat.model');
-
-// helper
-const uploadToCloudinary = require('../../helper/uploadToCloudinary.helper');
+const User = require('../../models/user.model');
 
 // socket
 const chatSocket = require('../../socket/client/chat.socket');
