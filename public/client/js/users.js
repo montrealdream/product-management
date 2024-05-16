@@ -5,7 +5,11 @@ if(btnAddFriend.length > 0) {
         button.addEventListener("click", (event) => {
             // add class "add" for box-user
             button.closest(".box-user").classList.add("add");
-           
+
+            // ger id user want to add friend & emit to sever
+            const idWantAddFriend = button.getAttribute("btn-add-friend");
+            
+            socket.emit("CLIENT_ADD_FRIEND", idWantAddFriend);
         });
     });
 }
@@ -13,12 +17,16 @@ if(btnAddFriend.length > 0) {
 
 // CLICK CANCEL FRIEND
 const btnCancleFriend = document.querySelectorAll("[btn-cancel-friend]");
-if(btnAddFriend.length > 0) {
+if(btnCancleFriend.length > 0) {
     btnCancleFriend.forEach(button => {
         button.addEventListener("click", (event) => {
-            // add class "add" for box-user
+            // remove class "add" for box-user
             button.closest(".box-user").classList.remove("add");
            
+            // ger id user want to add friend & emit to sever
+            const idWantCancelAddFriend = button.getAttribute("btn-cancel-friend");
+        
+            socket.emit("CLIENT_CANCEL_ADD_FRIEND", idWantCancelAddFriend);
         });
     });
 }

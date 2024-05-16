@@ -28,6 +28,8 @@ const userSchema = new mongoose.Schema(
             type: Boolean,
             default: false
         },
+        acceptFriend: Array,
+        requestFriend: Array,
     },
     {
         timestamps: true
