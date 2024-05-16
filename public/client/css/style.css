@@ -1479,6 +1479,7 @@ emoji-picker {
 }
 
 .box-user .btn {
+    cursor: pointer;
     font-size: 14px;
     padding: 4px 8px;
     text-align: center;
@@ -1495,4 +1496,17 @@ emoji-picker {
     background-color: #8a989e;
     color: white;
 }
+
+.box-user [btn-cancel-friend] {
+  display: none;
+}
+
+.box-user.add [btn-add-friend] {
+  display: none;
+}
+
+.box-user.add [btn-cancel-friend] {
+  display: inline-block;
+}
+
 /* end users */
