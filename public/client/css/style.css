@@ -1479,6 +1479,8 @@ emoji-picker {
 }
 
 .box-user .btn {
+    width: 100px;
+    height: 25px;
     cursor: pointer;
     font-size: 14px;
     padding: 4px 8px;

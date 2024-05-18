@@ -13,9 +13,12 @@ const buttonTypeSend = formChat.querySelector("[type-msg='send']");
 const CLIENT_TYPING = "show";
 const CLIENT_NOT_TYPING = "hidden";
 const TIME_CLEAR_TYPING = 1500; // ~1.5s
-let timeOut; //contain function setTimeout
+
+let ICON_DEFAULT = '👍🏻'; //test
 
 // FUNCTION
+let timeOut; //contain function setTimeout
+
 const showTyping = () => {
     // send typing when you typeon icon
     socket.emit("CLIENT_SEND_TYPING", CLIENT_TYPING);
@@ -163,10 +166,20 @@ if(buttonIcon){
     emojiPicker.addEventListener('emoji-click', (event) => {
         const icon = event.detail.unicode;
         contentChat.value = contentChat.value + icon;
-
         const end = contentChat.value.length;
         contentChat.setSelectionRange(end, end);
         contentChat.focus();
+
+       // alternate button "LIKE" & "SEND MESSENGER"
+        if(contentChat.value.length > 0){
+            buttonTypeLike.classList.add("d-none");
+            buttonTypeSend.classList.remove("d-none");
+        }
+        else{
+            buttonTypeLike.classList.remove("d-none");
+            buttonTypeSend.classList.add("d-none");
+        }
+        // END alternate button "LIKE" & "SEND MESSENGER"
 
         showTyping();
     });
@@ -249,5 +262,58 @@ if(boxChatBody) {
 // End Preview Image
 
 // CLIENT SEND LIKE (ONLY ONE)
-socket.on("CLIENT_SEND_ONLY_ICON", )
+buttonTypeLike.addEventListener("click", (event) => {
+    socket.emit("CLIENT_SEND_ONLY_ICON_DEFAULT", ICON_DEFAULT);
+});
 // END CLIENT SEND LIKE (ONLY LIKE)
+
+// SERVER RETURN ONLY ICON DEFAULT
+socket.on("SERVER_RETURN_ONLY_ICON_DEFAULT", (obj) => {
+    // get data of object
+    const user_id = obj.user_id;
+    const user_name =  obj.user_name;
+    const icon = obj.icon;
+    const avatar  = obj.avatar;
+
+    // get my id
+    const myID =  boxChatBody.getAttribute("user-id");
+
+    // create div 
+    const div = document.createElement('div');
+
+    let html = ``;
+
+    if(myID == user_id){
+        div.classList.add("out-going");
+        html = `
+            <p class="content"> ${icon} </p>
+            
+        `;
+    }
+
+    else {
+        div.classList.add("in-comming");
+
+        html = `
+            <img src=${avatar}/>
+            <div class="d-flex-column">
+                <span class="fullName"> ${user_name} </span>
+                <p class="content"> ${icon} </p>
+            </div>
+        `;
+    }
+
+    div.innerHTML = `${html}`;
+
+    boxChatBody.insertBefore(div, boxListTyping);
+
+    // scroll down screen
+    boxChatBody.scrollTop = boxChatBody.scrollHeight;
+});
+// END SERVER RETURN ONLY ICON DEFAULT
+
+
+const imagePreview = document.querySelector(".image-preview");
+imagePreview.addEventListener("change", (e) => {
+    console.log(1);
+});

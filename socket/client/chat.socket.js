@@ -25,7 +25,6 @@ module.exports =  async (req, res) => {
         socket.on('disconnect', () => {
             console.log(`${userFullName} dừng hoạt động`);
         });
-
     
         // CLIENT SEND MESSAGE
         socket.on("CLIENT_SEND_MESSAGE", async (obj) => {
@@ -69,5 +68,26 @@ module.exports =  async (req, res) => {
             });
         });
         // END CLIENT SEND TYPING
+
+
+        // CLIENT SEND ONLY ICON DEFAULT
+        socket.on("CLIENT_SEND_ONLY_ICON_DEFAULT", async (icon) => {
+
+            // save on db ****
+            const newChat = new Chat({
+                user_id: userId,
+                content: icon
+            });
+            await newChat.save();
+
+            // SERVER RETURN
+            _io.emit("SERVER_RETURN_ONLY_ICON_DEFAULT", {
+                user_id: userId,
+                user_name: userFullName,
+                avatar: user.avatar,
+                icon: icon
+            });
+        });
+        // END CLIENT SEND ONLY ICON DEFAULT
     });
 }

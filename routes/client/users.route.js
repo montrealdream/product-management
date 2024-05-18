@@ -12,5 +12,10 @@ router.get(
     controller.notFriend
 );
 
+router.get(
+    '/request',
+    controller.requestFriend
+);
+
 // export
 module.exports = router;

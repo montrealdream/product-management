@@ -6,9 +6,9 @@ block main
     .container 
         include ../../partials/list-btn-user.pug
         .d-flex.flex-wrap
-            each user in userNotFriend
+            each user in usersRequested
                 .col-5
-                    div(class=`box-user`)
+                    div(class=`box-user add`)
                         img(
                             src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
                         )

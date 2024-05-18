@@ -32,12 +32,12 @@ block main
                                         if(chat.content)
                                             p(class="content") #{chat.content}
                                         if(chat.images.length > 0)
-                                                div(class="images")
-                                                    each image in chat.images
-                                                        img(
-                                                            loading="lazy"
-                                                            src=image
-                                                        )
+                                            div(class="images")
+                                                each image in chat.images
+                                                    img(
+                                                        loading="lazy"
+                                                        src=image
+                                                    )
                                     
                     div(class="box-list-typing")
                         //- div(class="box-typing")
@@ -62,6 +62,7 @@ block main
                             li.p-lr-10px
                                 label(
                                     for="file-upload-with-preview-upload-images"
+                                    id="open-image-browser"
                                 )
                                     i.fa-solid.fa-image
                             li.p-lr-10px
