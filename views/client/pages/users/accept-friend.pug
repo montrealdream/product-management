@@ -9,7 +9,7 @@ block main
             if(users)
                 each user in users
                     .col-5
-                        div(class=`box-user add`)
+                        div(class=`box-user`)
                             img(
                                 src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
                             )
@@ -17,14 +17,25 @@ block main
                                 span(
                                     class="fullName" 
                                 ) #{user.fullName} 
+                                .d-flex
                                 span(
-                                    class="btn add-friend"
-                                    btn-add-friend = user.id
-                                ) Thêm bạn bè
+                                    class="btn add-friend mb-5"
+                                    btn-accept-friend = user.id
+                                ) Xác nhận
                                 span(
                                     class="btn not-friend"
-                                    btn-cancel-friend = user.id
-                                ) Hủy lời mời
+                                    btn-refuse-friend = user.id
+                                ) Xóa
+                                span(
+                                    class="btn not-friend"
+                                    btn-deleted-friend = user.id
+                                    disabled
+                                ) Đã xóa
+                                span(
+                                    class="btn add-friend"
+                                    btn-accepted-friend = user.id
+                                    disabled
+                                ) Đã chấp nhận
         //- .d-flex
         //-     .col-6 
         //-         div(class="box-user")

@@ -17,5 +17,10 @@ router.get(
     controller.requestFriend
 );
 
+router.get(
+    '/accept',
+    controller.acceptFriend
+);
+
 // export
 module.exports = router;

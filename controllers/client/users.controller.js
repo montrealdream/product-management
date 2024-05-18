@@ -12,16 +12,18 @@ module.exports.notFriend = async (req, res) => {
         const myUser = await User.findOne({_id: myId});
 
         const myRequestFriends = myUser.requestFriend;
+        const myAcceptFriends = myUser.acceptFriend;
 
         // socket
         userSocket(req, res);
         // end socket
         
         // view render
-        const userNotFriend = await User.find({
+        const users = await User.find({
             $and: [
                 {_id: {$ne: myId}},
-                { _id: {$nin: myRequestFriends}}
+                { _id: {$nin: myRequestFriends}},
+                {_id: {$nin: myAcceptFriends}}
             ],
             status: "active",
             deleted: false
@@ -53,7 +55,7 @@ module.exports.notFriend = async (req, res) => {
 
         res.render('client/pages/users/not-friend', {
             title: "Danh sách người dùng",
-            userNotFriend: userNotFriend
+            users: users
         });
     }
     catch(error){
@@ -74,7 +76,7 @@ module.exports.requestFriend = async (req, res) => {
         // end socket
 
         // view render
-        const usersRequested = await User.find({
+        const users = await User.find({
             _id: {$in: myRequestFriend},
             status: "active",
             deleted: false
@@ -82,7 +84,7 @@ module.exports.requestFriend = async (req, res) => {
 
         res.render("client/pages/users/request-friend", {
             title: "Lời mời đã gửi",
-            usersRequested: usersRequested
+            users: users
         })
     }
     catch(error){
@@ -91,6 +93,27 @@ module.exports.requestFriend = async (req, res) => {
 }
 
 // // [GET] /users/accept
-// module.exports.acceptFriend = asyc (req, res) => {
+module.exports.acceptFriend = async (req, res) => {
+    try{
+        // my user
+        const myId = res.locals.user.id;
+        const myUser = await User.findOne({_id: myId});
+        const myAcceptFriend = myUser.acceptFriend;
 
-// }
+        // view render
+        const users = await User.find({
+            _id: {$in: myAcceptFriend},
+            status: "active",
+            deleted: false
+        });
+
+        res.render("client/pages/users/accept-friend", {
+            title: "Lời mời kết bạn",
+            users: users
+        });
+         
+    }
+    catch(error){
+        console.log(error);
+    }
+}
