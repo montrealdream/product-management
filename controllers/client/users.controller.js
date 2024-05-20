@@ -9,10 +9,19 @@ module.exports.notFriend = async (req, res) => {
     try{
         // my user
         const myId = res.locals.user.id;
-        const myUser = await User.findOne({_id: myId});
+        // bởi vì đã respone cái user nên ta có thể . từ user lấy ra các biến luôn
 
-        const myRequestFriends = myUser.requestFriend;
-        const myAcceptFriends = myUser.acceptFriend;
+        const myRequestFriends = res.locals.user.requestFriend;
+        const myAcceptFriends = res.locals.user.acceptFriend;
+        let myListFriend = []; //(1)
+
+        // because listFriend mean array object, we need get id in object (1)
+        res.locals.user.listFriend.forEach(item => {
+            myListFriend.push(item.user_id);
+        });
+
+        // nếu không dùng cách (1), ta có thể dùng cách (2);
+        // const myListFriend = myUser.listFriend.map(item => item.user_id);
 
         // socket
         userSocket(req, res);
@@ -23,7 +32,8 @@ module.exports.notFriend = async (req, res) => {
             $and: [
                 {_id: {$ne: myId}},
                 { _id: {$nin: myRequestFriends}},
-                {_id: {$nin: myAcceptFriends}}
+                {_id: {$nin: myAcceptFriends}},
+                {_id: {$nin: myListFriend}}
             ],
             status: "active",
             deleted: false
@@ -59,7 +69,7 @@ module.exports.notFriend = async (req, res) => {
         });
     }
     catch(error){
-
+        console.log(error);
     }
 }
 
@@ -68,8 +78,9 @@ module.exports.requestFriend = async (req, res) => {
     try{
         // my user
         const myId = res.locals.user.id;
-        const myUser = await User.findOne({_id: myId});
-        const myRequestFriend = myUser.requestFriend;
+        // const myUser = await User.findOne({_id: myId});
+
+        const myRequestFriend =res.locals.user.requestFriend;
 
         // socket
         userSocket(req, res);
@@ -97,8 +108,9 @@ module.exports.acceptFriend = async (req, res) => {
     try{
         // my user
         const myId = res.locals.user.id;
-        const myUser = await User.findOne({_id: myId});
-        const myAcceptFriend = myUser.acceptFriend;
+        // const myUser = await User.findOne({_id: myId});
+
+        const myAcceptFriend = res.locals.user.acceptFriend;
 
         // socket
         userSocket(req, res);

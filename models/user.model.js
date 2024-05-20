@@ -33,10 +33,7 @@ const userSchema = new mongoose.Schema(
         listFriend: [
             {
                 user_id: String,
-                room_chat_id: String
-            },{
-                timestamps: true
-                // will set time add friend
+                room_chat_id: String,
             }
         ],
     },
