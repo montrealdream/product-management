@@ -82,6 +82,44 @@ module.exports = async (req, res) => {
                 }
             });
             // END CLIENT CANCEL ADD FRIEND
+
+            // CLIENT REFUSE ADD FRIEND
+            socket.on("CLIENT_REFUSE_ADD_FRIEND", async idRefuseAddFriend => {
+                // ckeck & clear accept friend in my document (B mean is a friend was request add me)
+                const exitsB = await User.findOne({
+                    _id: myId,
+                    "acceptFriend" : idRefuseAddFriend
+                });
+                if(exitsB){
+                    await User.updateOne(
+                        {_id: myId}, 
+                        {
+                            $pull : {
+                                acceptFriend: idRefuseAddFriend
+                            }
+                        }
+                    );
+                }
+                
+                
+                // ckeck & clear request friend in B document (exitsMydId mean me in request add friend of them)
+                const exitsMyId = await User.findOne({
+                    _id: idRefuseAddFriend, 
+                    "requestFriend" : myId
+                });
+                if(exitsMyId){
+                    await User.updateOne(
+                        {_id: idRefuseAddFriend}, 
+                        {
+                            $pull : {
+                                requestFriend: myId
+                            }
+                        }
+                    );
+                }
+            });
+            // END CLIENT REFUSE ADD FRIEND
+
         });
     }
     catch(error){

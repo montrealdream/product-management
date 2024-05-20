@@ -100,6 +100,10 @@ module.exports.acceptFriend = async (req, res) => {
         const myUser = await User.findOne({_id: myId});
         const myAcceptFriend = myUser.acceptFriend;
 
+        // socket
+        userSocket(req, res);
+        // end socket
+
         // view render
         const users = await User.find({
             _id: {$in: myAcceptFriend},
