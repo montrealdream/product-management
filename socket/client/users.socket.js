@@ -10,6 +10,13 @@ module.exports = async (req, res) => {
         _io.once('connection', (socket) => { 
             // CLIENT ADD FRIEND
             socket.on("CLIENT_ADD_FRIEND", async (idWantAddFriend) => {  
+                // check id want add friend is valid
+                const isValidId = await User.findOne({_id: idWantAddFriend}); 
+                console.log(isValidId)
+                // if(!idWantAddFriendValid){
+                //     return;
+                // }
+                return;
                 // add id'user want add friend into field requestFriend in database
                 const exitsB = await User.findOne({
                     _id: myId,
@@ -49,6 +56,12 @@ module.exports = async (req, res) => {
 
             // CLIENT CANCEL ADD FRIEND
             socket.on("CLIENT_CANCEL_ADD_FRIEND", async (idWantCancelAddFriend) => {
+                // check id want cancel friend is valid
+                const idWantCancelAddFriendValid = await User.findOne({_id: idWantCancelAddFriend});
+                if(!idWantCancelAddFriendValid){
+                    return;
+                }
+
                 // remove id'user want cancel add friend into field requestFriend in database
                 const exitsB = await User.findOne({
                     _id: myId,
@@ -70,6 +83,7 @@ module.exports = async (req, res) => {
                     _id: idWantCancelAddFriend,
                     "acceptFriend": myId
                 });
+
                 if(exitsMyId){
                     await User.updateOne(
                         {_id: idWantCancelAddFriend},
@@ -101,7 +115,6 @@ module.exports = async (req, res) => {
                     );
                 }
                 
-                
                 // ckeck & clear request friend in B document (exitsMydId mean me in request add friend of them)
                 const exitsMyId = await User.findOne({
                     _id: idRefuseAddFriend, 
@@ -122,6 +135,12 @@ module.exports = async (req, res) => {
 
             // CLIENT ACCEPT ADD FRIEND
             socket.on("CLIENT_ACCEPT_ADD_FRIEND", async idAcceptedlAddFriend => {
+                // id accept add friend is valid
+                const idAcceptedlAddFriendValid = await User.findOne({_id: idAcceptedlAddFriend});
+                if(!idAcceptedlAddFriendValid){
+                    return;
+                }
+
                 // check & add "B" into listFriend array of my document
                 const exitsB = await User.findOne({
                     _id: myId,
@@ -146,7 +165,6 @@ module.exports = async (req, res) => {
                     );
                 }
 
-
                 // check & add "me" into listFriend array of my document
                 const exitsMyId = await User.findOne({
                     _id: idAcceptedlAddFriend,
@@ -168,7 +186,6 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
-                
             });
             // END CLIENT ACCEPT ADD FRIEND
 

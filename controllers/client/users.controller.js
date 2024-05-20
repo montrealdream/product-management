@@ -103,7 +103,7 @@ module.exports.requestFriend = async (req, res) => {
     }
 }
 
-// // [GET] /users/accept
+// [GET] /users/accept
 module.exports.acceptFriend = async (req, res) => {
     try{
         // my user
@@ -128,6 +128,30 @@ module.exports.acceptFriend = async (req, res) => {
             users: users
         });
          
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
+// [GET] /users/friends
+module.exports.myFriends = async (req, res) => {
+    try{
+        // my user
+        const myId = res.locals.user.id;
+        const myFriends = res.locals.user.listFriend.map(item => item.user_id);
+
+        const users = await User.find({
+            _id: {$in: myFriends},
+            status: "active",
+            deleted: false
+        });
+
+        res.render("client/pages/users/my-friends", {
+            title: "Danh sách bạn bè",
+            users: users
+        });
+
     }
     catch(error){
         console.log(error);

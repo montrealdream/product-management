@@ -22,5 +22,9 @@ router.get(
     controller.acceptFriend
 );
 
+router.get(
+    '/friends',
+    controller.myFriends
+);
 // export
 module.exports = router;

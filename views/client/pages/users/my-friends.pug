@@ -1,0 +1,43 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main
+    +alert-success
+    +alert-error 
+    .container 
+        include ../../partials/list-btn-user.pug
+        .d-flex.flex-wrap
+            if(users)
+                each user in users
+                    .col-5
+                        div(class=`box-user add`)
+                            img(
+                                src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+                            )
+                            .d-flex-column 
+                                span(
+                                    class="fullName" 
+                                ) #{user.fullName} 
+                                span(
+                                    class="btn add-friend"
+                                ) Nhắn tin
+                                //- span(
+                                //-     class="btn not-friend"
+                                //-     btn-cancel-friend = user.id
+                                //- ) Hủy lời mời
+        //- .d-flex
+        //-     .col-6 
+        //-         div(class="box-user")
+        //-             img(
+        //-                 src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+        //-             )
+        //-             .d-flex-column
+        //-                 span(class="fullName") Nguyễn Nhân
+
+        //-                 span(class="btn add-friend") Thêm bạn bè
+
+                        //- span(class="btn not-friend") Hủy kết bạn
+block script 
+    script(src="/client/js/users.js")
+
+
+                
