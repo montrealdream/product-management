@@ -51,19 +51,19 @@ if(btnRefuseFriend.length > 0){
 // END CLICK REFUSE ADD FRIEND
 
 // CLICK ACCEPT FRIEND
-// const btnAcceptFriend = document.querySelectorAll("[btn-accept-friend]");
-// if(btnAcceptFriend.length > 0){
-//     btnAcceptFriend.forEach(button  => {
-//         button.addEventListener("click", (event) => {
-//             // add class "accepted" for box-user
-//             button.closest(".box-user").classList.remove("accepted");
+const btnAcceptFriend = document.querySelectorAll("[btn-accept-friend]");
+if(btnAcceptFriend.length > 0){
+    btnAcceptFriend.forEach(button  => {
+        button.addEventListener("click", (event) => {
+            // add class "accepted" for box-user
+            button.closest(".box-user").classList.add("accepted");
 
-//             // get id user was accepted add friend & emit to sever
-//             const idAcceptedlAddFriend = button.getAttribute("btn-accept-friend");
+            // get id user was accepted add friend & emit to sever
+            // const idAcceptedlAddFriend = button.getAttribute("btn-accept-friend");
 
-//             socket.emit("CLIENT_ACCEPT_ADD_FRIEND", idAcceptedlAddFriend);
-//         });
-//     });
-// }
+            // socket.emit("CLIENT_ACCEPT_ADD_FRIEND", idAcceptedlAddFriend);
+        });
+    });
+}
 // END CLICK ACCEPT FRIEND
 

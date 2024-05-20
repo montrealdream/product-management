@@ -100,7 +100,7 @@ module.exports.signIn = async (req, res) => {
         // set cookie
         res.cookie("tokenUser", user.tokenUser,
             {
-                expires: new Date(Date.now() + (24*60*1000)), //1day
+                expires: new Date(Date.now() + (60*60*1000)), // 1houre
                 httpOnly: true 
             }
         );
