@@ -120,6 +120,58 @@ module.exports = async (req, res) => {
             });
             // END CLIENT REFUSE ADD FRIEND
 
+            // CLIENT ACCEPT ADD FRIEND
+            socket.on("CLIENT_ACCEPT_ADD_FRIEND", async idAcceptedlAddFriend => {
+                // check & add "B" into listFriend array of my document
+                const exitsB = await User.findOne({
+                    _id: myId,
+                    "acceptFriend": idAcceptedlAddFriend
+                });
+                if(exitsB){
+                    // push {user_id, room_chat_id} into array listFriend
+                    // pull idAcceptAddFriend outo array acceptFriend
+                    await User.updateOne(
+                        {_id: myId},
+                        {
+                            $push: {
+                                listFriend: {
+                                    user_id: idAcceptedlAddFriend,
+                                    room_chat_id: ""
+                                }
+                            },
+                            $pull: {
+                                acceptFriend: idAcceptedlAddFriend
+                            }
+                        }
+                    );
+                }
+
+
+                // check & add "me" into listFriend array of my document
+                const exitsMyId = await User.findOne({
+                    _id: idAcceptedlAddFriend,
+                    "requestFriend": myId
+                });
+                if(exitsMyId){
+                    await User.updateOne(
+                        {_id: idAcceptedlAddFriend}, 
+                        {
+                            $push: {
+                                listFriend: {
+                                    user_id: myId,
+                                    room_chat_id: ""
+                                }
+                            },
+                            $pull: {
+                                requestFriend: myId
+                            }
+                        }
+                    );
+                }
+                
+            });
+            // END CLIENT ACCEPT ADD FRIEND
+
         });
     }
     catch(error){

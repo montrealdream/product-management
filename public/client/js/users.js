@@ -59,9 +59,9 @@ if(btnAcceptFriend.length > 0){
             button.closest(".box-user").classList.add("accepted");
 
             // get id user was accepted add friend & emit to sever
-            // const idAcceptedlAddFriend = button.getAttribute("btn-accept-friend");
+            const idAcceptedlAddFriend = button.getAttribute("btn-accept-friend");
 
-            // socket.emit("CLIENT_ACCEPT_ADD_FRIEND", idAcceptedlAddFriend);
+            socket.emit("CLIENT_ACCEPT_ADD_FRIEND", idAcceptedlAddFriend);
         });
     });
 }
