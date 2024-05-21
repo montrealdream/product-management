@@ -1,0 +1,64 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+include ../../mixins/select-tree.pug
+block main 
+    +alert-success
+    +alert-error 
+    +alert-warning 
+    div(class="card ")
+        div(class="card-header") Chỉnh sửa tài khoản
+        div(class="card-body")
+            form(
+                action=`/user/edit?_method=PATCH`
+                method="POST"
+                enctype="multipart/form-data"
+            )
+                div(class="form-item")
+                    label(class="label-style" for="fullName") Họ tên:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="fullName" 
+                        name="fullName"
+                        placeholder="Your name..."
+                        value=user.fullName
+                        required
+                    )
+                        
+                    
+                div(class="form-item")
+                    label(class="label-style" for="email") Email:
+                    input(
+                        type="email" 
+                        class="input-form" 
+                        id="email" 
+                        name="email"
+                        placeholder="Your email..."
+                        value = user.email
+                        required
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="password") Mật khẩu:
+                    input(
+                        type="password" 
+                        class="input-form" 
+                        id="password" 
+                        name="password"
+                        placeholder="Your password..."
+                    )
+                div(class="form-item")
+                    label(class="label-style" for="tel") Số điện thoại:
+                    input(
+                        type="tel" 
+                        class="input-form" 
+                        id="tel" 
+                        name="tel"
+                        placeholder="Your telephone number..."
+                        value = user.tel
+                        required
+                    )
+                +file-upload("Avatar", "avatar", "form-item", user.avatar)
+                div(class="form-item ")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Chỉnh sửa
+    script(src="/admin/js/file-upload.js")

@@ -336,3 +336,64 @@ module.exports.infor = async (req, res) => {
 
     }
 }
+
+// [GET] /user/edit
+module.exports.editView = async (req, res) => {
+    try{
+        const tokenUser = req.cookies.tokenUser;
+
+        const user = await User.findOne({tokenUser: tokenUser});
+
+        res.render('client/pages/user/edit', {
+            title: "Chỉnh sửa thông tin",
+            user: user
+        }).select("-password");
+    }
+    catch(error){
+
+    }
+}
+
+// [PATCH] /user/edit
+module.exports.editUser = async (req, res) => {
+    try{
+        const tokenUser = req.cookies.tokenUser;
+
+        // check email exits
+        const emailExits = await User.findOne({
+            tokenUser: {$ne: tokenUser},
+            email: req.body.email
+        });
+        if(emailExits){
+            req.flash('warning', 'Email này đã tồn tại, hãy chọn email khác');
+            res.redirect('back');
+            return;
+        }
+
+        // check avatar
+        if(!req.body.avatar){
+            req.body.avatar = "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg";
+        }
+
+        // if not update password, delete field empty password
+        if(!req.body.password){
+            delete req.body.password;
+        }
+        else {
+            // hasing password
+            req.body.password = md5(req.body.password);
+        }
+        
+        // update edit user
+        await User.updateOne(
+            {tokenUser: tokenUser},
+            req.body
+        );
+
+        req.flash('success', 'Cập nhật tài khoản thành công');
+        res.redirect('/user/infor');
+    }
+    catch(error){
+
+    }
+}

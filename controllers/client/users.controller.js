@@ -31,7 +31,7 @@ module.exports.notFriend = async (req, res) => {
         const users = await User.find({
             $and: [
                 {_id: {$ne: myId}},
-                { _id: {$nin: myRequestFriends}},
+                {_id: {$nin: myRequestFriends}},
                 {_id: {$nin: myAcceptFriends}},
                 {_id: {$nin: myListFriend}}
             ],
@@ -145,7 +145,7 @@ module.exports.myFriends = async (req, res) => {
             _id: {$in: myFriends},
             status: "active",
             deleted: false
-        });
+        }).select("fullName avatar");
 
         res.render("client/pages/users/my-friends", {
             title: "Danh sách bạn bè",

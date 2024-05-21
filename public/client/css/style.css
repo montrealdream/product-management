@@ -444,9 +444,25 @@ body {
 /* end detail product */
 
 .btn {
-    display: inline-block;
+    padding: 14px 24px;
+    border: 0;
+    border-radius: 8px;
+}
+
+.btn-equal-sm {
+    text-align: center;
+    max-width: 100px;
     width: 100%;
-    font-size: 16px;
+}
+
+.btn-sm {
+    font-size: 14px;
+    padding: 8px 8px;
+}
+
+.btn-mid {
+    font-size: 18px;
+    padding: 8px 16px;
 }
 
 .btn-normal {
@@ -1543,3 +1559,157 @@ emoji-picker {
     display: none;
 }
 /* end users */
+
+/* card */
+.card {
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 16px 0px 0px 16px;
+    /* margin: 20px 30px; */
+    margin: 0px 0px 0px 25px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.card-header {
+    /* overflow: hidden; */
+    background-color: #ddd;
+    font-weight: 650;
+    padding: 10px;
+}
+
+.card-body {
+    margin: 8px;
+    padding: 5px;
+}
+/* end card */
+
+/* form */
+.form-item {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.form-item-radio {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.form-item-file {
+
+}
+
+.input-form {
+    outline: none;
+    text-indent: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px;
+}
+
+.input-radio {
+    /* tắt giao diện mặc định */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    /* css lại kiểu mới */
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 5px;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ddd;
+    background-color: #fff;
+}
+
+.input-radio:checked {
+    /* border: 2px solid #141318; */
+    background-color: #616161;
+}
+
+.input-radio:focus {
+    outline-color: transparent;
+}
+
+/* end form */
+
+
+/* label */
+.label-style {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.label-style-radio {
+    font-size: 16px;
+}
+/* end label */
+
+/* file upload */
+.file-upload-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 300px;
+    max-height: 100px;
+    padding: 50px;
+    border: 1px dashed black;
+    border-radius: 8px;
+}
+
+.file-upload-area p {
+    margin: 5px;
+}
+
+.file-upload-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-upload-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.image-upload-preview {
+    position: relative;
+    max-width: 300px;
+}
+
+.image-preview[src=""]{
+    display: none;
+}
+
+.image-preview {
+    width: 300px;
+    height: auto;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+[close-image] {
+    position: absolute;
+    top: 6px;
+    right: -10px;
+    /* set view */
+    width: 25px;
+    height: 25px;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    text-align: center;
+}
+/* end file upload */
+
