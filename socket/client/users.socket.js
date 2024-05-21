@@ -49,6 +49,20 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
+
+
+                // get length of acceptFriend of id want add friend
+                const userB = await User.findOne({
+                    _id: idWantAddFriend
+                });
+
+                // RETURN LENGTH OF ACCEPT FRIEND OF USER B
+                const lengthAcceptFriends = userB.acceptFriend.length;
+                socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
+                    userId: idWantAddFriend,
+                    lengthAcceptFriends: lengthAcceptFriends
+                });
+
                 req.flash('success', "Gửi lời mời kết bạn thành công");
             });
             // END CLIENT ADD FRIEND
@@ -94,6 +108,19 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
+
+                // get length of acceptFriend of id want add friend
+                const userB = await User.findOne({
+                    _id: idWantCancelAddFriend
+                });
+
+                // RETURN LENGTH OF ACCEPT FRIEND OF USER B
+                const lengthAcceptFriends = userB.acceptFriend.length;
+                socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
+                    userId: idWantCancelAddFriend,
+                    lengthAcceptFriends: lengthAcceptFriends
+                });
+
             });
             // END CLIENT CANCEL ADD FRIEND
 

@@ -67,3 +67,14 @@ if(btnAcceptFriend.length > 0){
 }
 // END CLICK ACCEPT FRIEND
 
+
+// LENGTH ACCREPT FRIEND
+socket.on("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", obj => {
+    const badgeUsersAccept = document.querySelector(`[badge-users-accept="${obj.userId}"]`);
+    if(badgeUsersAccept){
+        badgeUsersAccept.innerHTML = obj.lengthAcceptFriends;
+    }
+});
+
+// END LENGTH ACCREPT FRIEND
+
