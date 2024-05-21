@@ -76,6 +76,12 @@ app.use(
 // router
 routerClient(app);
 routerAdmin(app);
+// router 404
+app.use('*', (req, res) => {
+  res.render('client/pages/errors/404', {
+    title: "404 Not Found"
+  });
+});
 
 server.listen(port, () => {
   console.log(`server listening on port ${port}`)

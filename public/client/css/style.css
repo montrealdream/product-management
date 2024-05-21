@@ -1712,4 +1712,13 @@ emoji-picker {
     text-align: center;
 }
 /* end file upload */
+.screen-404 {
+    position: relative;
+}
+
+.item-404 {
+    position: absolute;
+    top: 10px;
+    left: 450px;
+}
 
