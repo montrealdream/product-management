@@ -7,6 +7,8 @@
 - SocketIO
 
 ## <a name="features">🔋 Features</a>
+👉 **CRUD**
+
 👉 **Authentication**
 
 👉 **Authority**
