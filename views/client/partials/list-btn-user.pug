@@ -15,6 +15,10 @@
                 href="/users/request"
                 class="p-10 btn btn-normal btn-bg-green text-decoration-none"
             ) Lời mời đã gửi
+                span(
+                    class="badge bagde-white ml-2"
+                    badge-users-request=user.id
+                ) #{user.requestFriend.length}
         .col-4
             a(
                 href="/users/accept"

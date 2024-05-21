@@ -63,6 +63,16 @@ module.exports = async (req, res) => {
                     lengthAcceptFriends: lengthAcceptFriends
                 });
 
+                // get length of requestFriend of my user
+                const myUser = await User.findOne({_id: myId});
+
+                const lengthRequestFriends = myUser.requestFriend.length;
+
+                socket.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
+                    userId: myId,
+                    lengthRequestFriends: lengthRequestFriends
+                });
+
                 req.flash('success', "Gửi lời mời kết bạn thành công");
             });
             // END CLIENT ADD FRIEND
@@ -121,6 +131,17 @@ module.exports = async (req, res) => {
                     lengthAcceptFriends: lengthAcceptFriends
                 });
 
+                // get length of requestFriend of my user
+                const myUser = await User.findOne({_id: myId});
+
+                const lengthRequestFriends = myUser.requestFriend.length;
+                
+                socket.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
+                    userId: myId,
+                    lengthRequestFriends: lengthRequestFriends
+                });
+
+                
             });
             // END CLIENT CANCEL ADD FRIEND
 

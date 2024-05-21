@@ -75,6 +75,14 @@ socket.on("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", obj => {
         badgeUsersAccept.innerHTML = obj.lengthAcceptFriends;
     }
 });
-
 // END LENGTH ACCREPT FRIEND
+
+// LENGTH REQUEST FRIEND
+socket.on("SERVER_RETURN_LENGTH_REQUEST_FRIEND", obj => {
+    const badgeUsersRequest = document.querySelector(`[badge-users-request="${obj.userId}"]`);
+    if(badgeUsersRequest){
+        badgeUsersRequest.innerHTML = obj.lengthRequestFriends;
+    }
+});
+// END LENGTH REQUEST FRIEND
 
