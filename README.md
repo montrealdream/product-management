@@ -13,9 +13,12 @@
 
 👉 **Authority**
 
-👉 **Real-time Chat**
+👉 **Send mail get OTP**
 
 👉 **Cart**
+
+👉 **Real-time Chat**
+
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
