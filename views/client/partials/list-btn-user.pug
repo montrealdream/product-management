@@ -10,13 +10,17 @@
                 href="/users/friends"
                 class="p-10 btn btn-normal btn-bg-green text-decoration-none"
             ) Danh sách bạn bè
+                span(
+                    class="badge bagde-white ml-5"
+                    badge-users-friends=user.id
+                ) #{user.listFriend.length}
         .col-4.mr-5
             a(
                 href="/users/request"
                 class="p-10 btn btn-normal btn-bg-green text-decoration-none"
             ) Lời mời đã gửi
                 span(
-                    class="badge bagde-white ml-2"
+                    class="badge bagde-white ml-5"
                     badge-users-request=user.id
                 ) #{user.requestFriend.length}
         .col-4
@@ -25,6 +29,6 @@
                 class="p-10 btn btn-normal btn-bg-green text-decoration-none"
             ) Lời mời kết bạn
                 span(
-                    class="badge bagde-white ml-2"
+                    class="badge bagde-white ml-5"
                     badge-users-accept=user.id
                 ) #{user.acceptFriend.length}

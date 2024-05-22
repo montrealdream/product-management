@@ -56,13 +56,15 @@ module.exports = async (req, res) => {
                     _id: idWantAddFriend
                 });
 
-                // RETURN LENGTH OF ACCEPT FRIEND OF USER B
+                // SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
                 const lengthAcceptFriends = userB.acceptFriend.length;
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
                     userId: idWantAddFriend,
                     lengthAcceptFriends: lengthAcceptFriends
                 });
+                // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
 
+                // SERVER RETURN LENGTH REQUEST FRIEND
                 // get length of requestFriend of my user
                 const myUser = await User.findOne({_id: myId});
 
@@ -72,6 +74,7 @@ module.exports = async (req, res) => {
                     userId: myId,
                     lengthRequestFriends: lengthRequestFriends
                 });
+                // END SERVER RETURN LENGTH REQUEST FRIEND
 
                 req.flash('success', "Gửi lời mời kết bạn thành công");
             });
@@ -119,18 +122,22 @@ module.exports = async (req, res) => {
                     );
                 }
 
+                // SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
                 // get length of acceptFriend of id want add friend
                 const userB = await User.findOne({
                     _id: idWantCancelAddFriend
                 });
-
-                // RETURN LENGTH OF ACCEPT FRIEND OF USER B
+                
+                
                 const lengthAcceptFriends = userB.acceptFriend.length;
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
                     userId: idWantCancelAddFriend,
                     lengthAcceptFriends: lengthAcceptFriends
                 });
+                // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
 
+
+                // SERVER RETURN LENGTH REQUEST FRIEND
                 // get length of requestFriend of my user
                 const myUser = await User.findOne({_id: myId});
 
@@ -139,8 +146,13 @@ module.exports = async (req, res) => {
                 socket.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
                     userId: myId,
                     lengthRequestFriends: lengthRequestFriends
+                    
+                    /**hoặc có thể ghi như bên dưới nếu tên các biến giống nhau thì js nó vẫn hiểu
+                    userId,
+                    lengthRequestFriends
+                    */
                 });
-
+                // END SERVER RETURN LENGTH REQUEST FRIEND
                 
             });
             // END CLIENT CANCEL ADD FRIEND
