@@ -9,13 +9,20 @@
 ## <a name="features">🔋 Features</a>
 👉 **CRUD**
 
+👉 **Setting General**
+
+👉 **Permissions**
+
 👉 **Authentication**
 
 👉 **Authority**
 
-👉 **Real-time Chat**
+👉 **Send mail get OTP**
 
 👉 **Cart**
+
+👉 **Real-time Chat**
+
 
 ## <a name="quick-start">🤸 Quick Start</a>
 
