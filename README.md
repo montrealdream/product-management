@@ -11,6 +11,8 @@
 
 👉 **Setting General**
 
+👉 **Permissions**
+
 👉 **Authentication**
 
 👉 **Authority**
