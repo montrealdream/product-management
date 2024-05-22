@@ -9,6 +9,8 @@
 ## <a name="features">🔋 Features</a>
 👉 **CRUD**
 
+👉 **Setting General**
+
 👉 **Authentication**
 
 👉 **Authority**
