@@ -5,13 +5,13 @@ block main
     +alert-error 
     .container 
         include ../../partials/list-btn-user.pug
-        .d-flex.flex-wrap
+        .d-flex.flex-wrap(user-accepts-friend=user.id)
             if(users)
                 each user in users
                     .col-5
                         div(class=`box-user`)
                             img(
-                                src="https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+                                src=user.avatar
                             )
                             .d-flex-column 
                                 span(

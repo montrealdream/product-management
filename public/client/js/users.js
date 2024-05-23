@@ -86,7 +86,6 @@ socket.on("SERVER_RETURN_LENGTH_REQUEST_FRIEND", obj => {
 });
 // END LENGTH REQUEST FRIEND
 
-
 // LENGTH LIST FRIEND
 socket.on("SERVER_RETURN_LENGTH_LIST_FRIEND", (obj) => {
     const idUserA = obj.idUserA;
@@ -104,4 +103,60 @@ socket.on("SERVER_RETURN_LENGTH_LIST_FRIEND", (obj) => {
     }
 });
 // END LENGTH LIST FRIEND
+
+// SERVER RETURN INFOR ACCEPT FRIEND
+socket.on("SERVER_RETURN_INFOR_ACCEPT_FRIEND", obj => {
+    const userIdB = obj.userId;
+    const inforUserA = obj.inforUser;
+
+    const userAcceptFriend = document.querySelector(`[user-accepts-friend="${userIdB}"]`);
+   
+    if(userAcceptFriend){
+        const div = document.createElement('div');
+        div.classList.add("col-5");
+
+        div.innerHTML = `
+            <div class="box-user">
+                <img src=${inforUserA.avatar} />
+                <div class="d-flex-column">
+                    <span class="fullName">${inforUserA.fullName}</span>
+                    <div class="d-flex"></div>
+                    <span class="btn add-friend mb-5" btn-accept-friend=${inforUserA._id}>Xác nhận</span><span class="btn not-friend" btn-refuse-friend="66335cdfceb06789e749136e">Xóa</span>
+                    <span class="btn not-friend" btn-deleted-friend=${inforUserA._id} disabled="disabled">Đã xóa</span><span class="btn add-friend" btn-accepted-friend="66335cdfceb06789e749136e" disabled="disabled">Đã chấp nhận</span>
+                </div>
+            </div>
+        `;
+
+        userAcceptFriend.appendChild(div);
+
+        // beacause new box then can't listen button refuse or accept
+        const newBtnRefuseFriend = document.querySelector("[btn-refuse-friend]");
+        if(newBtnRefuseFriend){
+            newBtnRefuseFriend.addEventListener("click", (event) => {
+                // add class "refuse" for box-user
+                newBtnRefuseFriend.closest(".box-user").classList.add("refuse");
+    
+                //  get id user was accepted add friend & emit to sever
+                const idRefuseAddFriend = newBtnRefuseFriend.getAttribute("btn-refuse-friend");
+    
+                socket.emit("CLIENT_REFUSE_ADD_FRIEND", idRefuseAddFriend);
+            });
+        }
+
+        const newBtnAcceptFriend = document.querySelector("[btn-accept-friend]");
+        if(newBtnAcceptFriend){
+            newBtnAcceptFriend.addEventListener("click", (event) => {
+                // add class "accepted" for box-user
+                newBtnAcceptFriend.closest(".box-user").classList.add("accepted");
+    
+                // get id user was accepted add friend & emit to sever
+                const idAcceptedlAddFriend = newBtnAcceptFriend.getAttribute("btn-accept-friend");
+    
+                socket.emit("CLIENT_ACCEPT_ADD_FRIEND", idAcceptedlAddFriend);
+            });
+        }
+
+    }
+});
+// END SERVER RETURN INFOR ACCEPT FRIEND
 

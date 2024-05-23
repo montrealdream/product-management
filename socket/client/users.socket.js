@@ -55,13 +55,10 @@ module.exports = async (req, res) => {
                     );
                 }
 
-
-                // get length of acceptFriend of id want add friend
-                const userB = await User.findOne({
-                    _id: idWantAddFriend
-                });
-
                 // SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
+                // get length of acceptFriend of id want add friend
+                const userB = await User.findOne({_id: idWantAddFriend}).select("-password -tokenUser");
+                    
                 const lengthAcceptFriends = userB.acceptFriend.length;
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
                     userId: idWantAddFriend,
@@ -71,17 +68,21 @@ module.exports = async (req, res) => {
 
                 // SERVER RETURN LENGTH REQUEST FRIEND
                 // get length of requestFriend of my user
-                const myUser = await User.findOne({_id: myId});
+                const myUser = await User.findOne({_id: myId}).select("-password -tokenUser");
 
                 const lengthRequestFriends = myUser.requestFriend.length;
-
                 socket.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
                     userId: myId,
                     lengthRequestFriends: lengthRequestFriends
                 });
                 // END SERVER RETURN LENGTH REQUEST FRIEND
 
-                req.flash('success', "Gửi lời mời kết bạn thành công");
+                // SERVER RETURN INFOR USER ACCEPT FRIEND (TRẢ VỀ INFO CỦA NGƯỜI GỬI LỜI MỜI KẾT BẠN CHO MÌNH)
+                socket.broadcast.emit("SERVER_RETURN_INFOR_ACCEPT_FRIEND", {
+                    userId: idWantAddFriend,// id để xác định người được gửi lời mời kết bạn
+                    inforUser: myUser //infor của người gửi lời mời kết bạn (user a)
+                });
+                // END SERVER RETURN INFOR USER ACCEPT FRIEND (TRẢ VỀ INFO CỦA NGƯỜI GỬI LỜI MỜI KẾT BẠN CHO MÌNH)
             });
             // END CLIENT ADD FRIEND
 
@@ -292,7 +293,7 @@ module.exports = async (req, res) => {
                 // END SERVER RETURN LEGNTH REQUEST FRIEND OF PEOPLE ACCEPT FRIEND
             });
             // END CLIENT ACCEPT ADD FRIEND
-
+            
         });
     }
     catch(error){
