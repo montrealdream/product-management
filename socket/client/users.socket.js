@@ -364,6 +364,23 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
+                // SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
+                // user A
+                const getUserA = await User.findOne({_id: myId}).select("listFriend");
+
+                // user B
+                const getUserB = await User.findOne({_id: idWantDeleteFriend}).select("listFriend");
+
+                _io.emit("SERVER_RETURN_LENGTH_LIST_FRIEND", {
+                    // user A
+                    idUserA: myId,
+                    lengthListFriendUserA: getUserA.listFriend.length,
+
+                    // user B
+                    idUserB: idWantDeleteFriend,
+                    lengthListFriendUserB: getUserB.listFriend.length
+                });
+                // // END SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
             });
             // END CLIENT DELETE FRIEND (Xóa kết bạn)
         });
