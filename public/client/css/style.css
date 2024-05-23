@@ -1558,6 +1558,10 @@ emoji-picker {
 .box-user.accepted [btn-refuse-friend] {
     display: none;
 }
+
+.box-user.accepted [btn-cancel-friend] {
+    display: none;
+}
 /* end users */
 
 /* card */

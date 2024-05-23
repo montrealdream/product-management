@@ -213,7 +213,6 @@ module.exports = async (req, res) => {
                 });
                 // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
 
-
                 // SERVER RETURN LENGTH REQUEST FRIEND
                 // get length of requestFriend of my user
                 const userB = await User.findOne({_id: idRefuseAddFriend});
@@ -324,6 +323,13 @@ module.exports = async (req, res) => {
                     lengthRequestFriends: userB.requestFriend.length
                 });
                 // END SERVER RETURN LEGNTH REQUEST FRIEND OF PEOPLE ACCEPT FRIEND
+
+                // SERVER RETURN ACCEPTED FRIEND (Khi B chấp nhận kết bạn của A, lúc A vừa mới gửi kết bạn, và B vẫn còn nằm ở giao diện dsach mọi người của A)
+                socket.broadcast.emit("SERVER_RETURN_ACCEPTED_FRIEND", {
+                    userIdA: myId, //id của ng chấp nhận kết bạn
+                    userIdB: idAcceptedlAddFriend //id của ng` đc chấp nhận kết bạn
+                });
+                // END SERVER RETURN ACCEPTED FRIEND
             });
             // END CLIENT ACCEPT ADD FRIEND
             

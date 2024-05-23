@@ -160,3 +160,16 @@ socket.on("SERVER_RETURN_INFOR_ACCEPT_FRIEND", obj => {
 });
 // END SERVER RETURN INFOR ACCEPT FRIEND
 
+// SERVER RETURN ACCEPTED FRIEND (Khi B chấp nhận kết bạn của A, lúc A vừa mới gửi kết bạn, và B vẫn còn nằm ở giao diện dsach mọi người của A)
+socket.on("SERVER_RETURN_ACCEPTED_FRIEND", obj => {
+    const userIdA = obj.userIdA;
+    const userIdB = obj.userIdB; //id của ng đc chấp nhận kết bạn
+
+    const userNotFriend = document.querySelector(`[user-not-friend="${userIdB}"]`);
+
+    const boxUserIdA = userNotFriend.querySelector(`[box-user-id="${userIdA}"]`);
+    
+
+    boxUserIdA.querySelector(".box-user").classList.add("accepted");
+});
+// SERVER RETURN ACCEPTED FRIEND 
