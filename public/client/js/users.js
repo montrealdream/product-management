@@ -173,3 +173,24 @@ socket.on("SERVER_RETURN_ACCEPTED_FRIEND", obj => {
     boxUserIdA.querySelector(".box-user").classList.add("accepted");
 });
 // SERVER RETURN ACCEPTED FRIEND 
+
+
+// CLICK DELETE FRIEND
+const btnDeleteFriend = document.querySelectorAll("[btn-delete-friend]");
+if(btnDeleteFriend.length > 0){
+    btnDeleteFriend.forEach(button => {
+        button.addEventListener("click", (event) => {
+            const isConFirm = confirm("Bạn có chắc muốn xóa kết bạn");
+
+            if(isConFirm){
+                const idWantDeleteFriend = button.getAttribute("btn-delete-friend");
+                
+                // mặc dù class refuse dùng cho từ chối, nhưng vẫn dùng lại được ở trg hợp này
+                button.closest('.box-user').classList.add("refuse");
+
+                socket.emit("CLIENT_DELETE_FRIEND", idWantDeleteFriend);
+            }
+        });
+    });
+}
+// END CLICK DELETE FRIEND

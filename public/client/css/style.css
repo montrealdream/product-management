@@ -1551,6 +1551,14 @@ emoji-picker {
     display: none;
 }
 
+.box-user.refuse [btn-delete-friend] {
+    display: none;
+}
+
+.box-user.refuse [btn-message] {
+    display: none;
+}
+
 .box-user.accepted [btn-accept-friend] {
     display: none;
 }

@@ -18,12 +18,18 @@ block main
                                     class="fullName" 
                                 ) #{user.fullName} 
                                 span(
-                                    class="btn add-friend"
+                                    class="btn add-friend mb-5"
+                                    btn-message=user.id
                                 ) Nhắn tin
-                                //- span(
-                                //-     class="btn not-friend"
-                                //-     btn-cancel-friend = user.id
-                                //- ) Hủy lời mời
+                                span(
+                                    class="btn not-friend"
+                                    btn-delete-friend = user.id
+                                ) Xóa bạn bè
+                                span(
+                                    class="btn not-friend"
+                                    btn-deleted-friend = user.id
+                                    disabled
+                                ) Đã xóa
         //- .d-flex
         //-     .col-6 
         //-         div(class="box-user")

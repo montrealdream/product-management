@@ -333,6 +333,39 @@ module.exports = async (req, res) => {
             });
             // END CLIENT ACCEPT ADD FRIEND
             
+            // CLIENT DELETE FRIEND (Xóa kết bạn)
+            socket.on("CLIENT_DELETE_FRIEND", async idWantDeleteFriend => {
+                // delete B in listFriend A
+                const exitsB =  await User.findOne({_id: idWantDeleteFriend});
+                if(exitsB){
+                    await User.updateOne(
+                        {_id: myId},
+                        {
+                            $pull: {
+                                listFriend: {
+                                    user_id: idWantDeleteFriend
+                                }
+                            }
+                        }
+                    );
+                }
+
+                // delete A in listFriend B
+                const exitsAinB = await User.findOne({_id: myId});
+                if(exitsAinB){
+                    await User.updateOne(
+                        {_id: idWantDeleteFriend},
+                        {
+                            $pull: {
+                                listFriend: {
+                                    user_id: myId
+                                }
+                            }
+                        }
+                    );
+                }
+            });
+            // END CLIENT DELETE FRIEND (Xóa kết bạn)
         });
     }
     catch(error){

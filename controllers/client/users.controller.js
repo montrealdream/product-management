@@ -141,6 +141,10 @@ module.exports.myFriends = async (req, res) => {
         const myId = res.locals.user.id;
         const myFriends = res.locals.user.listFriend.map(item => item.user_id);
 
+        // socket
+        userSocket(req, res);
+        // end socket
+        
         const users = await User.find({
             _id: {$in: myFriends},
             status: "active",
