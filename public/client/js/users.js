@@ -86,3 +86,22 @@ socket.on("SERVER_RETURN_LENGTH_REQUEST_FRIEND", obj => {
 });
 // END LENGTH REQUEST FRIEND
 
+
+// LENGTH LIST FRIEND
+socket.on("SERVER_RETURN_LENGTH_LIST_FRIEND", (obj) => {
+    const idUserA = obj.idUserA;
+    const idUserB = obj.idUserB;
+
+    const badgeUsersFriendsA = document.querySelector(`[badge-users-friends="${idUserA}"]`);
+    const badgeUsersFriendsB = document.querySelector(`[badge-users-friends="${idUserB}"]`);
+
+    if(badgeUsersFriendsA){
+        badgeUsersFriendsA.innerHTML = obj.lengthListFriendUserA;
+    }
+
+    else if(badgeUsersFriendsB){
+        badgeUsersFriendsB.innerHTML = obj.lengthListFriendUserB;
+    }
+});
+// END LENGTH LIST FRIEND
+

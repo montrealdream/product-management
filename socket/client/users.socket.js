@@ -3,6 +3,11 @@ const User = require('../../models/user.model');
 
 module.exports = async (req, res) => {
     try{
+        /**
+         * QUY ĐỊNH:
+                USER A: Nghĩa là của mình
+                USER B: Là người Khác
+         */
         // my user
         const myId = res.locals.user.id;
 
@@ -246,6 +251,43 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
+
+                // SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
+                // user A
+                const getUserA = await User.findOne({_id: myId}).select("listFriend");
+
+                // user B
+                const getUserB = await User.findOne({_id: idAcceptedlAddFriend}).select("listFriend");
+
+                _io.emit("SERVER_RETURN_LENGTH_LIST_FRIEND", {
+                    // user A
+                    idUserA: myId,
+                    lengthListFriendUserA: getUserA.listFriend.length,
+
+                    // user B
+                    idUserB: idAcceptedlAddFriend,
+                    lengthListFriendUserB: getUserB.listFriend.length
+                });
+                // // END SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
+
+                // SERVER RETURN LEGNTH ACCEPT FRIEND OF PEOPLE ACCEPT FRIEND (CỦA NGƯỜI CHẤP NHẬT KẾT BẠN)
+                /**Cập nhật lại danh sách lời mời kết bạn của người chấp nhận kết bạn */
+                const myUser = await User.findOne({_id: myId}).select("acceptFriend");
+
+                socket.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
+                    userId: myId,
+                    lengthAcceptFriends: myUser.acceptFriend.length
+                });
+                // END SERVER RETURN LEGNTH ACCEPT FRIEND OF PEOPLE ACCEPT FRIEND
+
+                // SERVER RETURN LEGNTH REQUEST FRIEND OF PEOPLE ACCEPT FRIEND (CỦA NGƯỜI "ĐƯỢC" CHẤP NHẬN KẾT BẠN)
+                /**Cập nhật lại danh sách lời mời kết bạn của người vừa được chấp nhận kết bạn */
+                const userB = await User.findOne({_id: idAcceptedlAddFriend}).select("requestFriend");
+                socket.broadcast.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
+                    userId: idAcceptedlAddFriend,
+                    lengthRequestFriends: userB.requestFriend.length
+                });
+                // END SERVER RETURN LEGNTH REQUEST FRIEND OF PEOPLE ACCEPT FRIEND
             });
             // END CLIENT ACCEPT ADD FRIEND
 
