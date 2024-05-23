@@ -98,7 +98,7 @@ module.exports = async (req, res) => {
                 const exitsB = await User.findOne({
                     _id: myId,
                     "requestFriend": idWantCancelAddFriend
-                });
+                }).select("-tokenUser -password");
                 if(exitsB){
                     await User.updateOne(
                         {_id: myId},
@@ -114,7 +114,7 @@ module.exports = async (req, res) => {
                 const exitsMyId = await User.findOne({
                     _id: idWantCancelAddFriend,
                     "acceptFriend": myId
-                });
+                }).select("-tokenUser -password");
 
                 if(exitsMyId){
                     await User.updateOne(
@@ -168,7 +168,8 @@ module.exports = async (req, res) => {
                 const exitsB = await User.findOne({
                     _id: myId,
                     "acceptFriend" : idRefuseAddFriend
-                });
+                }).select("-tokenUser -password");
+                
                 if(exitsB){
                     await User.updateOne(
                         {_id: myId}, 
@@ -184,7 +185,7 @@ module.exports = async (req, res) => {
                 const exitsMyId = await User.findOne({
                     _id: idRefuseAddFriend, 
                     "requestFriend" : myId
-                });
+                }).select("-tokenUser -password");
                 if(exitsMyId){
                     await User.updateOne(
                         {_id: idRefuseAddFriend}, 
@@ -210,7 +211,7 @@ module.exports = async (req, res) => {
                 const exitsB = await User.findOne({
                     _id: myId,
                     "acceptFriend": idAcceptedlAddFriend
-                });
+                }).select("-tokenUser -password");
                 if(exitsB){
                     // push {user_id, room_chat_id} into array listFriend
                     // pull idAcceptAddFriend outo array acceptFriend
@@ -234,7 +235,8 @@ module.exports = async (req, res) => {
                 const exitsMyId = await User.findOne({
                     _id: idAcceptedlAddFriend,
                     "requestFriend": myId
-                });
+                }).select("-password -tokenUser");
+
                 if(exitsMyId){
                     await User.updateOne(
                         {_id: idAcceptedlAddFriend}, 
