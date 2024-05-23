@@ -21,6 +21,8 @@
 
 👉 **Cart**
 
+👉 **Friend**
+
 👉 **Real-time Chat**
 
 
