@@ -187,6 +187,7 @@ module.exports = async (req, res) => {
                     _id: idRefuseAddFriend, 
                     "requestFriend" : myId
                 }).select("-tokenUser -password");
+                
                 if(exitsMyId){
                     await User.updateOne(
                         {_id: idRefuseAddFriend}, 
@@ -197,6 +198,38 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
+
+                // SERVER RETURN LENGTH OF ACCEPT FRIEND OF ME
+                // get length of acceptFriend of id want add friend
+                const myUserA = await User.findOne({
+                    _id: myId
+                }).select("-password -tokenUser");
+                
+                
+                const lengthAcceptFriends = myUserA.acceptFriend.length;
+                socket.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
+                    userId: myId,
+                    lengthAcceptFriends: lengthAcceptFriends
+                });
+                // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
+
+
+                // SERVER RETURN LENGTH REQUEST FRIEND
+                // get length of requestFriend of my user
+                const userB = await User.findOne({_id: idRefuseAddFriend});
+
+                const lengthRequestFriends = userB.requestFriend.length;
+                
+                socket.broadcast.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
+                    userId: idRefuseAddFriend,
+                    lengthRequestFriends: lengthRequestFriends
+                    
+                    /**hoặc có thể ghi như bên dưới nếu tên các biến giống nhau thì js nó vẫn hiểu
+                    userId,
+                    lengthRequestFriends
+                    */
+                });
+                // END SERVER RETURN LENGTH REQUEST FRIEND
             });
             // END CLIENT REFUSE ADD FRIEND
 
