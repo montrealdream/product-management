@@ -1,8 +1,5 @@
 const mongoose = require('mongoose');
 
-// helper
-const generateHelper = require('../helper/generate.help');
-
 // Defining a model
 const userSchema = new mongoose.Schema(
     {
@@ -13,10 +10,7 @@ const userSchema = new mongoose.Schema(
             // default avatar
             default: "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
         },
-        tokenUser: {
-            type: String,
-            default: generateHelper.randomString(20)
-        },
+        tokenUser: String,
         email: String,
         password: String,
         tel: String,

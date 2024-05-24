@@ -48,7 +48,8 @@ module.exports.signUp = async (req, res) => {
             fullName: req.body.fullName,
             email: req.body.email,
             tel: req.body.tel,
-            password: md5(req.body.password)
+            password: md5(req.body.password),
+            tokenUser: generateHelper.randomString(30)
         }
 
         // create & save
