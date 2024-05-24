@@ -380,7 +380,14 @@ module.exports = async (req, res) => {
                     idUserB: idWantDeleteFriend,
                     lengthListFriendUserB: getUserB.listFriend.length
                 });
-                // // END SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
+                // END SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
+                
+                // UPDATE UI OF B WHEN B DELETED BY A
+                socket.broadcast.emit("UPDATE_UI_OF_B_WHEN_DELETED_BY_A", {
+                    userIdB: idWantDeleteFriend,
+                    userIdA: myId
+                });
+                // END UPDATE UI OF B WHEN B DELETED BY A
             });
             // END CLIENT DELETE FRIEND (Xóa kết bạn)
         });

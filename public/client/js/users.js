@@ -174,7 +174,6 @@ socket.on("SERVER_RETURN_ACCEPTED_FRIEND", obj => {
 });
 // SERVER RETURN ACCEPTED FRIEND 
 
-
 // CLICK DELETE FRIEND
 const btnDeleteFriend = document.querySelectorAll("[btn-delete-friend]");
 if(btnDeleteFriend.length > 0){
@@ -194,3 +193,27 @@ if(btnDeleteFriend.length > 0){
     });
 }
 // END CLICK DELETE FRIEND
+
+// UPDATE UI OF B WHEN B DELETED BY A
+socket.on("UPDATE_UI_OF_B_WHEN_DELETED_BY_A", obj => {
+    const userIdA = obj.userIdA;
+    const userIdB = obj.userIdB;
+
+    const userMyFriend = document.querySelector(`[user-my-friend="${userIdB}"]`);
+
+    if(userMyFriend){
+        const boxUserA = userMyFriend.querySelector(`[box-user-id="${userIdA}"]`);
+        console.log(userMyFriend);
+        console.log(boxUserA);
+
+        if(boxUserA){
+            console.log(1);
+            const getBoxUser = boxUserA.querySelector(".box-user");
+            console.log(getBoxUser)
+            getBoxUser.classList.add("refuse");
+    }
+    }
+    
+
+});
+// END UPDATE UI OF B WHEN B DELETED BY A

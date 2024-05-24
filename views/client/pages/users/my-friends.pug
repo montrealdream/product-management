@@ -5,10 +5,10 @@ block main
     +alert-error 
     .container 
         include ../../partials/list-btn-user.pug
-        .d-flex.flex-wrap
+        .d-flex.flex-wrap(user-my-friend=user.id)
             if(users)
                 each user in users
-                    .col-5
+                    .col-5(box-user-id=user.id)
                         div(class=`box-user add`)
                             img(
                                 src=user.avatar
@@ -29,7 +29,7 @@ block main
                                     class="btn not-friend"
                                     btn-deleted-friend = user.id
                                     disabled
-                                ) Đã xóa
+                                ) Đã bị xóa
         //- .d-flex
         //-     .col-6 
         //-         div(class="box-user")
