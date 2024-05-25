@@ -1479,6 +1479,7 @@ emoji-picker {
     padding: 10px;
     margin: 10px;
     box-sizing: border-box;
+    position: relative;
 }
 
 .box-user img {
@@ -1748,3 +1749,28 @@ emoji-picker {
     color: black;
 }
 /* end badge */
+
+/* status */
+.box-user .status {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+.status {
+    width: 15px;
+    height: 15px;
+}
+
+.status-circle {
+    border-radius: 50%;
+}
+
+.status[status="online"] {
+    background-color: green;
+}
+
+.status[status="offline"] {
+    background-color: #969696;
+}
+/* end status */

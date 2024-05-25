@@ -30,6 +30,11 @@ block main
                                     btn-deleted-friend = user.id
                                     disabled
                                 ) Đã bị xóa
+                            span(
+                                status=user.statusOnline
+                                class=`
+                                status status-circle `
+                            )
         //- .d-flex
         //-     .col-6 
         //-         div(class="box-user")

@@ -364,6 +364,7 @@ module.exports = async (req, res) => {
                         }
                     );
                 }
+
                 // SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
                 // user A
                 const getUserA = await User.findOne({_id: myId}).select("listFriend");
@@ -390,6 +391,25 @@ module.exports = async (req, res) => {
                 // END UPDATE UI OF B WHEN B DELETED BY A
             });
             // END CLIENT DELETE FRIEND (Xóa kết bạn)
+
+            // SERVER RETURN STATUS ONLINE
+            socket.on("SERVER_RETURN_STATUS_ONLINE", obj => {
+                console.log(1);
+                // get my list friend
+                const userMyFriend = document.querySelector(`[user-my-friend="${myId}"]`);
+                
+                if(userMyFriend){
+                    // get user online
+                    const boxUserId = userMyFriend.querySelector(`[box-user-id="${obj.userId}"]`);
+
+                    if(boxUserId){
+                        const statusElement = boxUserId.querySelector(".status");
+
+                        statusElement.classList.add = obj.statusOnline;
+                    }
+                }
+            });
+            // END SERVER RETURN STATUS ONLINE
         });
     }
     catch(error){

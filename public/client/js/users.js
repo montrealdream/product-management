@@ -217,3 +217,21 @@ socket.on("UPDATE_UI_OF_B_WHEN_DELETED_BY_A", obj => {
 
 });
 // END UPDATE UI OF B WHEN B DELETED BY A
+
+// SERVER RETURN STATUS ONLINE
+socket.on("SERVER_RETURN_STATUS_ONLINE", obj => {
+    const userMyFriend = document.querySelector("[user-my-friend]");
+    if(userMyFriend){
+        // get user online
+        const boxUserId = userMyFriend.querySelector(`[box-user-id="${obj.userId}"]`);
+        console.log(boxUserId);
+
+        if(boxUserId){
+            const statusElement = boxUserId.querySelector(".status");
+
+            statusElement.setAttribute("status", obj.statusOnline);
+        }
+    }
+});
+// END SERVER RETURN STATUS ONLINE
+

@@ -105,6 +105,23 @@ module.exports.signIn = async (req, res) => {
                 httpOnly: true 
             }
         );
+        
+        // update status online of user
+        await User.updateOne(
+            {tokenUser: user.tokenUser },
+            {
+                statusOnline: "online"
+            }
+        );
+
+        // listen when user connection
+        _io.once('connection', (socket) => {
+            socket.broadcast.emit("SERVER_RETURN_STATUS_ONLINE", {
+                userId: user.id,
+                statusOnline: "online"
+            });
+        });
+
         // đến trang chủ lun
         req.flash('success', 'Đăng nhập thành công');
         res.redirect('/');
@@ -118,6 +135,25 @@ module.exports.signIn = async (req, res) => {
 module.exports.logOut = async (req, res) => {
     try {
         // clear cookie
+        // update status online of user
+        await User.updateOne(
+            {tokenUser: req.cookies.tokenUser },
+            {
+                statusOnline: "offline"
+            }
+        );
+
+        // get userId
+        const user = await User.findOne({tokenUser: req.cookies.tokenUser});
+
+        // listen when user connection
+        _io.once('connection', (socket) => {
+            socket.broadcast.emit("SERVER_RETURN_STATUS_ONLINE", {
+                userId: user.id,
+                statusOnline: "offline"
+            });
+        });
+
         res.clearCookie("tokenUser");
         req.flash('success', 'Đăng xuất tài khoản thành công');
         res.redirect('/user/signin');

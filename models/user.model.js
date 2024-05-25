@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema(
         email: String,
         password: String,
         tel: String,
+        statusOnline: String, // online/offline/busy
         status: {
             type: String,
             default: "active"
