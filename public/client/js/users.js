@@ -224,7 +224,6 @@ socket.on("SERVER_RETURN_STATUS_ONLINE", obj => {
     if(userMyFriend){
         // get user online
         const boxUserId = userMyFriend.querySelector(`[box-user-id="${obj.userId}"]`);
-        console.log(boxUserId);
 
         if(boxUserId){
             const statusElement = boxUserId.querySelector(".status");
