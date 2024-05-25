@@ -13,13 +13,13 @@ module.exports.index = async (req, res) => {
         chatSocket(req, res);
         // end socket
 
-        // // get room chat id
+        // get room chat id
         const roomChatId = req.cookies.roomChatId;
 
-        // // get tokenUser
+        // get tokenUser
         // const myUser = await User.findOne({tokenUser: tokenUser}).select("-password");
 
-        // // get room chat
+        // get room chat
         // const roomChat = await RoomChat.findOne({_id: roomChatId});
 
         // get & render views
@@ -34,7 +34,7 @@ module.exports.index = async (req, res) => {
             });
             chat.fullName =  user.fullName;
             chat.avatar = user.avatar;
-        }
+        }   
         res.render("client/pages/chat/index", {
             title: "Hội trường",
             chats: chats
