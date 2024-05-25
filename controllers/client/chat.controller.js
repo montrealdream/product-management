@@ -1,6 +1,7 @@
 // model
 const Chat = require('../../models/chat.model');
 const User = require('../../models/user.model');
+const RoomChat = require('../../models/rooms-chat.model');
 
 // socket
 const chatSocket = require('../../socket/client/chat.socket');
@@ -12,7 +13,15 @@ module.exports.index = async (req, res) => {
         chatSocket(req, res);
         // end socket
 
-        // get & render views
+        // // get room chat id
+        // const roomChatId = req.cookies.roomChatId;
+        // // get tokenUser
+        // const myUser = await User.findOne({tokenUser: tokenUser}).select("-password");
+
+        // // get room chat
+        // const roomChat = await RoomChat.findOne({_id: roomChatId});
+
+        // // get & render views
         // const chats = await Chat.find({deleted: false});
         // for(const chat of chats){
         //     const user = await User.findOne({
@@ -21,10 +30,10 @@ module.exports.index = async (req, res) => {
         //     chat.fullName =  user.fullName;
         //     chat.avatar = user.avatar;
         // }
-        res.render("client/pages/chat/index", {
-            title: "Hội trường",
-            // chats: chats
-        });
+        // res.render("client/pages/chat/index", {
+        //     title: "Hội trường",
+        //     // chats: chats
+        // });
     }
     catch(error){
         console.log(error);

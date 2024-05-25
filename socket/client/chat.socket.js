@@ -10,6 +10,9 @@ module.exports =  async (req, res) => {
     const userId = res.locals.user.id;
     const userFullName = res.locals.user.fullName;
 
+    // room chat id
+    const roomChatId = req.cookies.roomChatId;
+
     // get avatar of client
     const user = await User.findOne({_id: userId});
     if(!user.avatar){
@@ -41,6 +44,7 @@ module.exports =  async (req, res) => {
             // create & save
             const chat = new Chat({
                 user_id: userId,
+                room_chat_id: roomChatId,
                 content: content,
                 images: imagesArray
             });
