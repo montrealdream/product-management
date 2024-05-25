@@ -48,6 +48,7 @@ module.exports =  async (req, res) => {
                 content: content,
                 images: imagesArray
             });
+            
             await chat.save();
 
             // SERVER RETURN MESSAGE
