@@ -8,7 +8,7 @@ const controller = require('../../controllers/client/chat.controller');
 
 // use
 router.get(
-    '/', 
+    '/:roomChatId', 
     controller.index
 );
 

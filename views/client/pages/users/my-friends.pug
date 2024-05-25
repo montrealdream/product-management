@@ -18,7 +18,7 @@ block main
                                     class="fullName" 
                                 ) #{user.fullName} 
                                 a(
-                                    href=`/chat`
+                                    href=`/chat/${user.room_chat_id}`
                                     class="btn add-friend mb-5 text-decoration-none"
                                     btn-message=user.id
                                 ) Nhắn tin

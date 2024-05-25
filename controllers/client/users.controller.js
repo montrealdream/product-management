@@ -1,4 +1,5 @@
 // model
+const RoomChat = require('../../models/rooms-chat.model');
 const User = require('../../models/user.model');
 
 // socket
@@ -139,8 +140,9 @@ module.exports.myFriends = async (req, res) => {
     try{
         // my user
         const myId = res.locals.user.id;
-        const myFriends = res.locals.user.listFriend.map(item => item.user_id);
+        const myFriends = res.locals.user.listFriend.map(item => item.user_id); //only get id
 
+        
         // socket
         userSocket(req, res);
         // end socket
@@ -149,13 +151,18 @@ module.exports.myFriends = async (req, res) => {
             _id: {$in: myFriends},
             status: "active",
             deleted: false
-        }).select("fullName avatar statusOnline");
+        }).select("fullName avatar statusOnline"); //only get infor of friend
+
+        // get roomChat Id with each user
+        users.forEach(user =>  {
+            const infor = res.locals.user.listFriend.find(friend => friend.user_id == user.id);
+            user.room_chat_id = infor.room_chat_id;
+        });
 
         res.render("client/pages/users/my-friends", {
             title: "Danh sách bạn bè",
             users: users
         });
-
     }
     catch(error){
         console.log(error);

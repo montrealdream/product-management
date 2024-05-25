@@ -13,17 +13,17 @@ module.exports.index = async (req, res) => {
         // end socket
 
         // get & render views
-        const chats = await Chat.find({deleted: false});
-        for(const chat of chats){
-            const user = await User.findOne({
-                _id: chat.user_id,
-            });
-            chat.fullName =  user.fullName;
-            chat.avatar = user.avatar;
-        }
+        // const chats = await Chat.find({deleted: false});
+        // for(const chat of chats){
+        //     const user = await User.findOne({
+        //         _id: chat.user_id,
+        //     });
+        //     chat.fullName =  user.fullName;
+        //     chat.avatar = user.avatar;
+        // }
         res.render("client/pages/chat/index", {
             title: "Hội trường",
-            chats: chats
+            // chats: chats
         });
     }
     catch(error){
