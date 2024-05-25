@@ -1,5 +1,6 @@
 // model 
 const User = require('../../models/user.model');
+const RoomChat = require('../../models/rooms-chat.model');
 
 module.exports = async (req, res) => {
     try{
@@ -234,7 +235,25 @@ module.exports = async (req, res) => {
 
             // CLIENT ACCEPT ADD FRIEND
             socket.on("CLIENT_ACCEPT_ADD_FRIEND", async idAcceptedlAddFriend => {
-                // id accept add friend is valid
+                // CREATE ROOM CHAT
+                const objRoomChat = {
+                    typeRoom: "friend",
+                    users: [
+                        {
+                            user_id: myId,
+                            role: "SuperAdmin"
+                        },
+                        {
+                            user_id: idAcceptedlAddFriend,
+                            role: "SuperAdmin"
+                        }
+                    ]
+                }
+                const roomChat = new RoomChat(objRoomChat);
+                await roomChat.save();
+                // END CREATE ROOM CHAT
+
+                // ID ACCEPT ADD FRIEND IS VALID
                 const isValidId = await User.findOne({_id: idAcceptedlAddFriend}); 
                 if(!isValidId){
                     return;
@@ -254,7 +273,7 @@ module.exports = async (req, res) => {
                             $push: {
                                 listFriend: {
                                     user_id: idAcceptedlAddFriend,
-                                    room_chat_id: ""
+                                    room_chat_id: roomChat.id
                                 }
                             },
                             $pull: {
@@ -277,7 +296,7 @@ module.exports = async (req, res) => {
                             $push: {
                                 listFriend: {
                                     user_id: myId,
-                                    room_chat_id: ""
+                                    room_chat_id: roomChat.id
                                 }
                             },
                             $pull: {

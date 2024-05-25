@@ -17,8 +17,9 @@ block main
                                 span(
                                     class="fullName" 
                                 ) #{user.fullName} 
-                                span(
-                                    class="btn add-friend mb-5"
+                                a(
+                                    href=`/chat`
+                                    class="btn add-friend mb-5 text-decoration-none"
                                     btn-message=user.id
                                 ) Nhắn tin
                                 span(

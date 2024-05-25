@@ -1,5 +1,8 @@
 const express = require('express');
 
+// model
+const User = require('./models/user.model');
+
 // require router
 const routerClient = require('./routes/client/index.route');
 const routerAdmin = require('./routes/admin/index.route');
@@ -72,6 +75,7 @@ app.use(
   express.static(path.join(__dirname, 'node_modules', 'tinymce'))
 );
 
+_io.on('connection', (socket) => {});
 
 // router
 routerClient(app);
