@@ -1,0 +1,103 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+block main 
+    .d-flex 
+        .item-divided-1 
+            //- div() content 
+        .item-divided-3 
+            .box-chat 
+                .box-chat-header
+                    img(src=inforUserB.avatar)
+                    .d-flex-column
+                        span(class="fullName") #{inforUserB.fullName}
+                .box-chat-body(user-id=user.id)
+                    if(chats)
+                        each chat in chats 
+                            if(chat.user_id != user.id)
+                                .in-comming 
+                                    img(src=chat.avatar)
+                                    .d-flex-column 
+                                        if(chat.content)
+                                            p(class="content") #{chat.content}
+                                        if(chat.images.length > 0)
+                                            div(class="images")
+                                                each image in chat.images
+                                                    img(
+                                                        src=image
+                                                    )
+                            else 
+                                .out-going 
+                                    .d-flex-column
+                                        if(chat.content)
+                                            p(class="content") #{chat.content}
+                                        if(chat.images.length > 0)
+                                            div(class="images")
+                                                each image in chat.images
+                                                    img(
+                                                        loading="lazy"
+                                                        src=image
+                                                    )
+                                    
+                    div(class="box-list-typing")
+                        //- div(class="box-typing")
+                        //-     .in-comming 
+                        //-         img(src="https://cdn-media.sforum.vn/storage/app/media/wp-content/uploads/2024/02/avatar-anh-meo-cute-1.jpg")
+                        //-         .d-flex-column 
+                        //-             span(class="fullName") Giang Truong
+                        //-             div(class="inner-dots")
+                        //-                 span 
+                        //-                 span 
+                        //-                 span   
+                    emoji-picker(class="light tooltip .emoji-picker" role="tooltip")
+                .inner-preview-images  
+                    div(class="custom-file-container" data-upload-id="upload-images")
+                .box-chat-footer 
+                    .iconSite
+                        ul(class="reset-ul d-flex")
+                            li.p-lr-10px
+                                i.fa-solid.fa-circle-plus
+                            li.p-lr-10px
+                                i.fa-solid.fa-camera
+                            li.p-lr-10px
+                                label(
+                                    for="file-upload-with-preview-upload-images"
+                                    id="open-image-browser"
+                                )
+                                    i.fa-solid.fa-image
+                            li.p-lr-10px
+                                i.fa-solid.fa-microphone
+                    .d-flex-column
+                       
+                    form(action=""  class="box-chat-form")
+                        div(class="divInput")
+                            input(
+                                class="content"
+                                name="content"
+                                placeholder="Aa"
+                                autocomplete="off"
+                            )
+                            <i class="fa-solid fa-face-smile"></i>
+                        span(
+                            class="box-chat-button"
+                            type-msg = "like"
+                        ) 
+                            <i class="fa-solid fa-thumbs-up"></i>
+                        button(
+                            type="submit"
+                            class="box-chat-button d-none"
+                            type-msg = "send"
+                        ) 
+                            <i class="d-none fa-brands fa-telegram"></i> 
+block script 
+    //- thư viện icon
+    script(type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js")
+    
+    //- viewerjs
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.6/viewer.min.js')
+
+
+    //- file upload with preview
+    script(src="https://unpkg.com/file-upload-with-preview/dist/file-upload-with-preview.iife.js")
+   
+    //- thư viện chat (client)
+    script(type="module" src="/client/js/chat.js")

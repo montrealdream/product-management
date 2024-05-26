@@ -70,12 +70,14 @@ if(formChat){
 
 // SERVER RETURN MESSAGE
 socket.on("SERVER_RETURN_MESSAGE", (obj) => {
+    console.log(obj);
     const myID =  boxChatBody.getAttribute("user-id");
 
     // create new div content message
     const div = document.createElement('div');
 
     // get data of object
+    const typeRoom = obj.typeRoom;
     const user_id = obj.user_id;
     const user_name =  obj.user_name;
     const content = obj.content;
@@ -113,9 +115,15 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
         div.classList.add("in-comming");
         html = `
             <img src=${avatar}/>
-            <div class="d-flex-column">
-                <span class="fullName">${user_name}</span>
         `;
+
+        if(typeRoom != "friend"){
+            html += `
+                <div class="d-flex-column">
+                    <span class="fullName">${user_name}</span>
+            `;
+        }
+
         if(content){
             html += `<p class="content">${content}</p>`;
         }

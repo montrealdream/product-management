@@ -12,7 +12,11 @@ const RoomChatSchema = new mongoose.Schema(
                 user_id: String,
                 role: String
             }
-        ]
+        ],
+        deleted: {
+            type: Boolean,
+            default: false
+        }
     },
     {
         timestamps: true

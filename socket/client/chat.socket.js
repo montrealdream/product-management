@@ -1,6 +1,7 @@
 // model
 const User = require('../../models/user.model');
 const Chat = require('../../models/chat.model');
+const RoomChat = require('../../models/rooms-chat.model');
 
 // helper
 const uploadToCloudinary = require('../../helper/uploadToCloudinary.helper');
@@ -10,15 +11,13 @@ module.exports =  async (req, res) => {
         // my user
         const userId = res.locals.user.id;
         const userFullName = res.locals.user.fullName;
+        const userAvatar = res.locals.user.avatar;
 
         // room chat id
         const roomChatId = req.params.roomChatId;
-
-        // get avatar of client
-        const user = await User.findOne({_id: userId});
-        if(!user.avatar){
-            user.avatar = "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg";
-        }
+        const infoRoomChat = await RoomChat.findOne({
+            _id: roomChatId,
+        });
 
         // LISTEN CLIENT CONNECT "ONLINE"
         _io.once('connection', (socket) => {
@@ -39,6 +38,7 @@ module.exports =  async (req, res) => {
             
                 // create & save
                 const chat = new Chat({
+                    typeRoom: infoRoomChat.typeRoom,
                     user_id: userId,
                     room_chat_id: roomChatId,
                     content: content,
@@ -49,10 +49,11 @@ module.exports =  async (req, res) => {
 
                 // SERVER RETURN MESSAGE
                 _io.to(roomChatId).emit("SERVER_RETURN_MESSAGE", {
+                    typeRoom: infoRoomChat.typeRoom,
                     user_id: userId,
                     user_name: userFullName,
                     content: content,
-                    avatar: user.avatar,
+                    avatar: userAvatar,
                     images: imagesArray //array contain link img
                 });
             });
@@ -62,9 +63,10 @@ module.exports =  async (req, res) => {
             socket.on("CLIENT_SEND_TYPING", (type) => {
                 // SEVER SEND TYPING
                 socket.broadcast.to(roomChatId).emit("SERVER_RETURN_TYPING", {
+                    typeRoom: infoRoomChat.typeRoom,
                     user_id: userId,
                     user_name: userFullName,
-                    avatar: user.avatar,
+                    avatar: res.locals.user.avatar,
                     type: type
                 });
             });
@@ -82,9 +84,10 @@ module.exports =  async (req, res) => {
 
                 // SERVER RETURN
                 _io.to(roomChatId).emit("SERVER_RETURN_ONLY_ICON_DEFAULT", {
+                    typeRoom: infoRoomChat.typeRoom,
                     user_id: userId,
                     user_name: userFullName,
-                    avatar: user.avatar,
+                    avatar: res.locals.user.avatar,
                     icon: icon
                 });
             });

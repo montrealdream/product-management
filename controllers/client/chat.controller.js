@@ -13,16 +13,21 @@ module.exports.index = async (req, res) => {
         chatSocket(req, res);
         // end socket
 
-        // get room chat id
-        const roomChatId = req.cookies.roomChatId;
+        // get my user 
+        const myUser = res.locals.user;
 
-        // get tokenUser
-        // const myUser = await User.findOne({tokenUser: tokenUser}).select("-password");
+        // Lấy thông tin phòng chat
+        const roomChatId = req.params.roomChatId;
 
-        // get room chat
-        // const roomChat = await RoomChat.findOne({_id: roomChatId});
+        const infoRoomChat = await RoomChat.findOne({
+            _id: roomChatId,
+            // need deleted false
+        });
 
-        // get & render views
+        const typeRoomChat = infoRoomChat.typeRoom;
+        // End Lấy thông tin phòng chat
+
+        // Lấy dữ liệu đoạn chat
         const chats = await Chat.find({
             room_chat_id: roomChatId,
             deleted: false
@@ -35,10 +40,30 @@ module.exports.index = async (req, res) => {
             chat.fullName =  user.fullName;
             chat.avatar = user.avatar;
         }   
-        res.render("client/pages/chat/index", {
-            title: "Hội trường",
-            chats: chats
-        });
+        // End Lấy dữ liệu đoạn chat
+
+        if(typeRoomChat == "friend"){
+            // nếu tin nhắn giữa 2 người thì cần phải get được thông tin của userB
+            const getIdUserB = infoRoomChat.users.find(user => user.user_id != myUser.id);
+            const inforUserB = await User.findOne({
+                _id: getIdUserB.user_id,
+                
+            }).select("-password -tokenUser");
+
+            res.render("client/pages/chat/friend", {
+                title: inforUserB.fullName,
+                chats: chats,
+                inforUserB: inforUserB
+            });
+        }
+
+        else if(typeRoomChat == "group"){
+            res.render("client/pages/chat/group", {
+                title: "Hội trường",
+                chats: chats,
+            });
+        }
+       
     }
     catch(error){
         console.log(error);
