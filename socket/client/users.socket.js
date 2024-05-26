@@ -7,47 +7,51 @@ module.exports = async (req, res) => {
         /**
          * QUY ĐỊNH:
                 USER A: Nghĩa là của mình
-                USER B: Là người Khác
+                USER B: Là người Khác (requestID)
          */
+        
         // my user
         const myId = res.locals.user.id;
 
         // LISTEN CLIENT CONNECT "ONLINE"
         _io.once('connection', (socket) => { 
-            // CLIENT ADD FRIEND
-            socket.on("CLIENT_ADD_FRIEND", async (idWantAddFriend) => {  
-                // check id want add friend is valid
-                const isValidId = await User.findOne({_id: idWantAddFriend}); 
-                if(!isValidId){
+            // **CLIENT ADD FRIEND
+            socket.on("CLIENT_ADD_FRIEND", async (requestID) => {  
+                // kiểm tra xem ID mình GỬI KẾT BẠN có tồn tại không ?
+                const isValidRequestID = await User.findOne({
+                    _id: requestID
+                }).select("-password -tokenUser"); 
+
+                if(!isValidRequestID){
                     return;
                 }
 
-                // add id'user want add friend into field requestFriend in database
-                const exitsB = await User.findOne({
+                // tìm xem trong danh sách GỬI YÊU CẦU KẾT BẠN của UserA đã tồn tại UserB chưa ?
+                const existUserB = await User.findOne({
                     _id: myId,
-                    "requestFriend": idWantAddFriend
-                });
+                    "requestFriend": requestID
+                }).select("-password -tokenUser"); 
 
-                if(!exitsB){
+                if(!existUserB){s
                     await User.updateOne(
                         {_id: myId},
                         {
                             $push: {
-                                requestFriend: idWantAddFriend
+                                requestFriend: requestID
                             }
                         }
                     );
                 }
             
-                // add my id field acceptFriend of user want to add friend
-                const exitsMyId = await User.findOne({
-                    _id: idWantAddFriend,
+                // tìm xem trong danh sách LỜI MỜI KẾT BẠN của UserB đã tồn tại userA chưa ?
+                const existUserA = await User.findOne({
+                    _id: requestID,
                     "acceptFriend": myId
                 });
 
-                if(!exitsMyId){
+                if(!existUserA){
                     await User.updateOne(
-                        {_id: idWantAddFriend},
+                        {_id: requestID},
                         {
                             $push: {
                                 acceptFriend: myId
@@ -57,21 +61,30 @@ module.exports = async (req, res) => {
                 }
 
                 // SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
-                // get length of acceptFriend of id want add friend
-                const userB = await User.findOne({_id: idWantAddFriend}).select("-password -tokenUser");
+                
+                const infoUserB = await User.findOne({
+                    _id: requestID
+                }).select("-password -tokenUser");
                     
-                const lengthAcceptFriends = userB.acceptFriend.length;
+                // lấy độ dài của danh sách LỜI MỜI KẾT BẠN của UserB
+                const lengthAcceptFriends = infoUserB.acceptFriend.length;
+
+                // trả về độ dài (tức số lượng) LỜI MỜI KẾT BẠN CỦA UserB
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
-                    userId: idWantAddFriend,
+                    userId: requestID,
                     lengthAcceptFriends: lengthAcceptFriends
                 });
                 // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
 
                 // SERVER RETURN LENGTH REQUEST FRIEND
-                // get length of requestFriend of my user
-                const myUser = await User.findOne({_id: myId}).select("-password -tokenUser");
+                const infoUserA = await User.findOne({
+                    _id: myId
+                }).select("-password -tokenUser");
 
-                const lengthRequestFriends = myUser.requestFriend.length;
+                // lấy độ dài của danh sách GỬI YÊU CẦU KẾT BẠN của UserA
+                const lengthRequestFriends = infoUserA.requestFriend.length;
+
+                // trả về độ dài (tức số lượng) GỬI YÊU CẦU KẾT BẠN của UserA
                 socket.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
                     userId: myId,
                     lengthRequestFriends: lengthRequestFriends
@@ -80,47 +93,47 @@ module.exports = async (req, res) => {
 
                 // SERVER RETURN INFOR USER ACCEPT FRIEND (TRẢ VỀ INFO CỦA NGƯỜI GỬI LỜI MỜI KẾT BẠN CHO MÌNH)
                 socket.broadcast.emit("SERVER_RETURN_INFOR_ACCEPT_FRIEND", {
-                    userId: idWantAddFriend,// id để xác định người được gửi lời mời kết bạn
-                    inforUser: myUser //infor của người gửi lời mời kết bạn (user a)
+                    userId: requestID,
+                    inforUser: infoUserA 
                 });
                 // END SERVER RETURN INFOR USER ACCEPT FRIEND (TRẢ VỀ INFO CỦA NGƯỜI GỬI LỜI MỜI KẾT BẠN CHO MÌNH)
             });
-            // END CLIENT ADD FRIEND
+            // **END CLIENT ADD FRIEND
 
-            // CLIENT CANCEL ADD FRIEND
-            socket.on("CLIENT_CANCEL_ADD_FRIEND", async (idWantCancelAddFriend) => {
-                // check id want cancel friend is valid
-               // check id want add friend is valid
-                const isValidId = await User.findOne({_id: idWantCancelAddFriend}); 
-                if(!isValidId){
+            // **CLIENT CANCEL ADD FRIEND
+            socket.on("CLIENT_CANCEL_ADD_FRIEND", async (requestID) => {
+                // kiểm tra xem ID mình muốn HỦY GỬI KẾT BẠN có tồn tại không ?
+                const isValidRequestID = await User.findOne({_id: requestID}); 
+                if(!isValidRequestID){
                     return;
                 }
 
-                // remove id'user want cancel add friend into field requestFriend in database
-                const exitsB = await User.findOne({
+                // tìm xem trong danh sách GỬI YÊU CẦU KẾT BẠN của UserA đã tồn tại UserB chưa ?
+                const existUserB = await User.findOne({
                     _id: myId,
-                    "requestFriend": idWantCancelAddFriend
+                    "requestFriend": requestID
                 }).select("-tokenUser -password");
-                if(exitsB){
+
+                if(existUserB){
                     await User.updateOne(
                         {_id: myId},
                         {
                             $pull: {
-                                requestFriend: idWantCancelAddFriend
+                                requestFriend: requestID
                             }
                         }
                     );
                 }
 
-                // remove my id field acceptFriend of user want to cancel add friend 
-                const exitsMyId = await User.findOne({
-                    _id: idWantCancelAddFriend,
+                // tìm xem trong danh sách LỜI MỜI KẾT BẠN của UserB đã tồn tại UserA chưa ?
+                const existUserA = await User.findOne({
+                    _id: requestID,
                     "acceptFriend": myId
                 }).select("-tokenUser -password");
 
-                if(exitsMyId){
+                if(existUserA){
                     await User.updateOne(
-                        {_id: idWantCancelAddFriend},
+                        {_id: requestID},
                         {
                             $pull: {
                                 acceptFriend: myId
@@ -130,25 +143,27 @@ module.exports = async (req, res) => {
                 }
 
                 // SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
-                // get length of acceptFriend of id want add friend
-                const userB = await User.findOne({
-                    _id: idWantCancelAddFriend
-                });
+                const infoUserB = await User.findOne({
+                    _id: requestID
+                }).select("-tokenUser -password");
                 
-                
-                const lengthAcceptFriends = userB.acceptFriend.length;
+                // lấy độ dài danh sách LỜI MỜI KẾT BẠN của UserB
+                const lengthAcceptFriends = infoUserB.acceptFriend.length;
+
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
-                    userId: idWantCancelAddFriend,
+                    userId: requestID,
                     lengthAcceptFriends: lengthAcceptFriends
                 });
                 // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
 
 
                 // SERVER RETURN LENGTH REQUEST FRIEND
-                // get length of requestFriend of my user
-                const myUser = await User.findOne({_id: myId});
+                const infoUserA = await User.findOne({
+                    _id: myId
+                }).select("-tokenUser -password");;
 
-                const lengthRequestFriends = myUser.requestFriend.length;
+                 // lấy độ dài danh sách GỬI KẾT BẠN của UserA
+                const lengthRequestFriends = infoUserA.requestFriend.length;
                 
                 socket.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
                     userId: myId,
@@ -162,36 +177,36 @@ module.exports = async (req, res) => {
                 // END SERVER RETURN LENGTH REQUEST FRIEND
                 
             });
-            // END CLIENT CANCEL ADD FRIEND
+            // **END CLIENT CANCEL ADD FRIEND
 
-            // CLIENT REFUSE ADD FRIEND
-            socket.on("CLIENT_REFUSE_ADD_FRIEND", async idRefuseAddFriend => {
-                // ckeck & clear accept friend in my document (B mean is a friend was request add me)
-                const exitsB = await User.findOne({
+            // **CLIENT REFUSE ADD FRIEND
+            socket.on("CLIENT_REFUSE_ADD_FRIEND", async requestID => {
+                // tìm xem trong danh sách LỜI MỜI KẾT BẠN của UserA đã tồn tại UserB chưa ?
+                const existUserB = await User.findOne({
                     _id: myId,
-                    "acceptFriend" : idRefuseAddFriend
+                    "acceptFriend" : requestID
                 }).select("-tokenUser -password");
                 
-                if(exitsB){
+                if(existUserB){
                     await User.updateOne(
                         {_id: myId}, 
                         {
                             $pull : {
-                                acceptFriend: idRefuseAddFriend
+                                acceptFriend: requestID
                             }
                         }
                     );
                 }
                 
-                // ckeck & clear request friend in B document (exitsMydId mean me in request add friend of them)
-                const exitsMyId = await User.findOne({
-                    _id: idRefuseAddFriend, 
+                // tìm xem trong danh sách GỬI LỜI MỜI KẾT BẠN của UserB đã tồn tại UserA chưa ?
+                const existUserA = await User.findOne({
+                    _id: requestID, 
                     "requestFriend" : myId
                 }).select("-tokenUser -password");
                 
-                if(exitsMyId){
+                if(existUserA){
                     await User.updateOne(
-                        {_id: idRefuseAddFriend}, 
+                        {_id: requestID}, 
                         {
                             $pull : {
                                 requestFriend: myId
@@ -202,12 +217,13 @@ module.exports = async (req, res) => {
 
                 // SERVER RETURN LENGTH OF ACCEPT FRIEND OF ME
                 // get length of acceptFriend of id want add friend
-                const myUserA = await User.findOne({
+                const infoUserA = await User.findOne({
                     _id: myId
                 }).select("-password -tokenUser");
                 
-                
-                const lengthAcceptFriends = myUserA.acceptFriend.length;
+                // lấy độ dài danh sách LỜI MỜI KẾT BẠN của UserA
+                const lengthAcceptFriends = infoUserA.acceptFriend.length;
+
                 socket.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
                     userId: myId,
                     lengthAcceptFriends: lengthAcceptFriends
@@ -215,13 +231,15 @@ module.exports = async (req, res) => {
                 // END SERVER RETURN LENGTH OF ACCEPT FRIEND OF USER B
 
                 // SERVER RETURN LENGTH REQUEST FRIEND
-                // get length of requestFriend of my user
-                const userB = await User.findOne({_id: idRefuseAddFriend});
+                const infoUserB = await User.findOne({
+                    _id: requestID
+                }).select("-password -tokenUser");
 
-                const lengthRequestFriends = userB.requestFriend.length;
+                // lấy độ dài danh sách GỬI LỜI MỜI KẾT BẠN của UserB
+                const lengthRequestFriends = infoUserB.requestFriend.length;
                 
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
-                    userId: idRefuseAddFriend,
+                    userId: requestID,
                     lengthRequestFriends: lengthRequestFriends
                     
                     /**hoặc có thể ghi như bên dưới nếu tên các biến giống nhau thì js nó vẫn hiểu
@@ -231,40 +249,26 @@ module.exports = async (req, res) => {
                 });
                 // END SERVER RETURN LENGTH REQUEST FRIEND
             });
-            // END CLIENT REFUSE ADD FRIEND
+            // **END CLIENT REFUSE ADD FRIEND
 
-            // CLIENT ACCEPT ADD FRIEND
-            socket.on("CLIENT_ACCEPT_ADD_FRIEND", async idAcceptedlAddFriend => {
-                // CREATE ROOM CHAT
-                const objRoomChat = {
-                    typeRoom: "friend",
-                    users: [
-                        {
-                            user_id: myId,
-                            role: "SuperAdmin"
-                        },
-                        {
-                            user_id: idAcceptedlAddFriend,
-                            role: "SuperAdmin"
-                        }
-                    ]
-                }
-                const roomChat = new RoomChat(objRoomChat);
-                await roomChat.save();
-                // END CREATE ROOM CHAT
-
-                // ID ACCEPT ADD FRIEND IS VALID
-                const isValidId = await User.findOne({_id: idAcceptedlAddFriend}); 
-                if(!isValidId){
+            // **CLIENT ACCEPT ADD FRIEND
+            socket.on("CLIENT_ACCEPT_ADD_FRIEND", async (requestID) => {
+                // kiểm tra xem ID mình CHẤP NHẬN KẾT BẠN có tồn tại không ?
+                const isValidRequestID = await User.findOne({
+                    _id: requestID
+                }).select("-password -tokenUser");
+                
+                if(!isValidRequestID){
                     return;
                 }
 
-                // check & add "B" into listFriend array of my document
-                const exitsB = await User.findOne({
+                // kiểm tra xem trong LỜI MỜI KẾT BẠN CỦA UserA có tồn tại UserB không ?
+                const existUserB = await User.findOne({
                     _id: myId,
-                    "acceptFriend": idAcceptedlAddFriend
+                    "acceptFriend": requestID
                 }).select("-tokenUser -password");
-                if(exitsB){
+
+                if(existUserB){
                     // push {user_id, room_chat_id} into array listFriend
                     // pull idAcceptAddFriend outo array acceptFriend
                     await User.updateOne(
@@ -272,26 +276,26 @@ module.exports = async (req, res) => {
                         {
                             $push: {
                                 listFriend: {
-                                    user_id: idAcceptedlAddFriend,
+                                    user_id: requestID,
                                     room_chat_id: roomChat.id
                                 }
                             },
                             $pull: {
-                                acceptFriend: idAcceptedlAddFriend
+                                acceptFriend: requestID
                             }
                         }
                     );
                 }
 
-                // check & add "me" into listFriend array of my document
-                const exitsMyId = await User.findOne({
-                    _id: idAcceptedlAddFriend,
+                // kiểm tra xem trong danh sách GỬI KẾT BẠN CỦA UserB có tồn tại UserA không ?
+                const existUserA = await User.findOne({
+                    _id: requestID,
                     "requestFriend": myId
                 }).select("-password -tokenUser");
 
-                if(exitsMyId){
+                if(existUserA){
                     await User.updateOne(
-                        {_id: idAcceptedlAddFriend}, 
+                        {_id: requestID}, 
                         {
                             $push: {
                                 listFriend: {
@@ -306,12 +310,30 @@ module.exports = async (req, res) => {
                     );
                 }
 
+                // Tạo phòng chat (khi kết bạn)
+                const objRoomChat = {
+                    typeRoom: "friend",
+                    users: [
+                        {
+                            user_id: myId,
+                            role: "SuperAdmin"
+                        },
+                        {
+                            user_id: requestID,
+                            role: "SuperAdmin"
+                        }
+                    ]
+                }
+                const roomChat = new RoomChat(objRoomChat);
+                await roomChat.save();
+                // END Tạo phòng chat (khi kết bạn)
+
                 // SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
                 // user A
                 const getUserA = await User.findOne({_id: myId}).select("listFriend");
 
                 // user B
-                const getUserB = await User.findOne({_id: idAcceptedlAddFriend}).select("listFriend");
+                const getUserB = await User.findOne({_id: requestID}).select("listFriend");
 
                 _io.emit("SERVER_RETURN_LENGTH_LIST_FRIEND", {
                     // user A
@@ -319,61 +341,61 @@ module.exports = async (req, res) => {
                     lengthListFriendUserA: getUserA.listFriend.length,
 
                     // user B
-                    idUserB: idAcceptedlAddFriend,
+                    idUserB: requestID,
                     lengthListFriendUserB: getUserB.listFriend.length
                 });
                 // // END SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
 
                 // SERVER RETURN LEGNTH ACCEPT FRIEND OF PEOPLE ACCEPT FRIEND (CỦA NGƯỜI CHẤP NHẬT KẾT BẠN)
                 /**Cập nhật lại danh sách lời mời kết bạn của người chấp nhận kết bạn */
-                const myUser = await User.findOne({_id: myId}).select("acceptFriend");
+                const infoUserA = await User.findOne({_id: myId}).select("acceptFriend");
 
                 socket.emit("SERVER_RETURN_LENGTH_ACCEPT_FRIEND", {
                     userId: myId,
-                    lengthAcceptFriends: myUser.acceptFriend.length
+                    lengthAcceptFriends: infoUserA.acceptFriend.length
                 });
                 // END SERVER RETURN LEGNTH ACCEPT FRIEND OF PEOPLE ACCEPT FRIEND
 
                 // SERVER RETURN LEGNTH REQUEST FRIEND OF PEOPLE ACCEPT FRIEND (CỦA NGƯỜI "ĐƯỢC" CHẤP NHẬN KẾT BẠN)
                 /**Cập nhật lại danh sách lời mời kết bạn của người vừa được chấp nhận kết bạn */
-                const userB = await User.findOne({_id: idAcceptedlAddFriend}).select("requestFriend");
+                const infoUserB = await User.findOne({_id: requestID}).select("requestFriend");
                 socket.broadcast.emit("SERVER_RETURN_LENGTH_REQUEST_FRIEND", {
-                    userId: idAcceptedlAddFriend,
-                    lengthRequestFriends: userB.requestFriend.length
+                    userId: requestID,
+                    lengthRequestFriends: infoUserB.requestFriend.length
                 });
                 // END SERVER RETURN LEGNTH REQUEST FRIEND OF PEOPLE ACCEPT FRIEND
 
                 // SERVER RETURN ACCEPTED FRIEND (Khi B chấp nhận kết bạn của A, lúc A vừa mới gửi kết bạn, và B vẫn còn nằm ở giao diện dsach mọi người của A)
                 socket.broadcast.emit("SERVER_RETURN_ACCEPTED_FRIEND", {
                     userIdA: myId, //id của ng chấp nhận kết bạn
-                    userIdB: idAcceptedlAddFriend //id của ng` đc chấp nhận kết bạn
+                    userIdB: requestID //id của ng` đc chấp nhận kết bạn
                 });
                 // END SERVER RETURN ACCEPTED FRIEND
             });
-            // END CLIENT ACCEPT ADD FRIEND
+            // **END CLIENT ACCEPT ADD FRIEND
             
-            // CLIENT DELETE FRIEND (Xóa kết bạn)
-            socket.on("CLIENT_DELETE_FRIEND", async idWantDeleteFriend => {
-                // delete B in listFriend A
-                const exitsB =  await User.findOne({_id: idWantDeleteFriend});
-                if(exitsB){
+            // **CLIENT DELETE FRIEND (Xóa kết bạn)
+            socket.on("CLIENT_DELETE_FRIEND", async (requestID) => {
+                // kiểm tra xem trong danh sách bạn bè của UserA có tồn tại UserB không ?
+                const existUserB =  await User.findOne({_id: requestID});
+                if(existUserB){
                     await User.updateOne(
                         {_id: myId},
                         {
                             $pull: {
                                 listFriend: {
-                                    user_id: idWantDeleteFriend
+                                    user_id: requestID
                                 }
                             }
                         }
                     );
                 }
 
-                // delete A in listFriend B
-                const exitsAinB = await User.findOne({_id: myId});
-                if(exitsAinB){
+                // kiểm tra xem trong danh sách bạn bè của UserB có tồn tại UserA không ?
+                const existUserA = await User.findOne({_id: myId});
+                if(existUserA){
                     await User.updateOne(
-                        {_id: idWantDeleteFriend},
+                        {_id: requestID},
                         {
                             $pull: {
                                 listFriend: {
@@ -389,7 +411,7 @@ module.exports = async (req, res) => {
                 const getUserA = await User.findOne({_id: myId}).select("listFriend");
 
                 // user B
-                const getUserB = await User.findOne({_id: idWantDeleteFriend}).select("listFriend");
+                const getUserB = await User.findOne({_id: requestID}).select("listFriend");
 
                 _io.emit("SERVER_RETURN_LENGTH_LIST_FRIEND", {
                     // user A
@@ -397,19 +419,20 @@ module.exports = async (req, res) => {
                     lengthListFriendUserA: getUserA.listFriend.length,
 
                     // user B
-                    idUserB: idWantDeleteFriend,
+                    idUserB: requestID,
                     lengthListFriendUserB: getUserB.listFriend.length
                 });
                 // END SERVER RETURN LENGTH LIST FRIEND (REAL TIME)
                 
                 // UPDATE UI OF B WHEN B DELETED BY A
+                // cập nhật giao diện của UserA khi B xóa
                 socket.broadcast.emit("UPDATE_UI_OF_B_WHEN_DELETED_BY_A", {
-                    userIdB: idWantDeleteFriend,
+                    userIdB: requestID,
                     userIdA: myId
                 });
                 // END UPDATE UI OF B WHEN B DELETED BY A
             });
-            // END CLIENT DELETE FRIEND (Xóa kết bạn)
+            // **END CLIENT DELETE FRIEND (Xóa kết bạn)
         });
     }
     catch(error){
