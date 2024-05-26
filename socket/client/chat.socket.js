@@ -12,7 +12,7 @@ module.exports =  async (req, res) => {
         const userFullName = res.locals.user.fullName;
 
         // room chat id
-        const roomChatId = req.cookies.roomChatId;
+        const roomChatId = req.params.roomChatId;
 
         // get avatar of client
         const user = await User.findOne({_id: userId});
@@ -22,13 +22,8 @@ module.exports =  async (req, res) => {
 
         // LISTEN CLIENT CONNECT "ONLINE"
         _io.once('connection', (socket) => {
-            // inform user connect
-            console.log(`${userFullName} đang hoạt động`);
-
-            // inform user disconnect
-            socket.on('disconnect', () => {
-                console.log(`${userFullName} dừng hoạt động`);
-            });
+            // khi vào phòng chat, sẽ join vào id phòng chat trước
+            socket.join(roomChatId);
         
             // CLIENT SEND MESSAGE
             socket.on("CLIENT_SEND_MESSAGE", async (obj) => {
@@ -53,7 +48,7 @@ module.exports =  async (req, res) => {
                 await chat.save();
 
                 // SERVER RETURN MESSAGE
-                _io.emit("SERVER_RETURN_MESSAGE", {
+                _io.to(roomChatId).emit("SERVER_RETURN_MESSAGE", {
                     user_id: userId,
                     user_name: userFullName,
                     content: content,
@@ -66,7 +61,7 @@ module.exports =  async (req, res) => {
             // CLIENT SEND TYPING
             socket.on("CLIENT_SEND_TYPING", (type) => {
                 // SEVER SEND TYPING
-                socket.broadcast.emit("SERVER_RETURN_TYPING", {
+                socket.broadcast.to(roomChatId).emit("SERVER_RETURN_TYPING", {
                     user_id: userId,
                     user_name: userFullName,
                     avatar: user.avatar,
@@ -78,7 +73,6 @@ module.exports =  async (req, res) => {
 
             // CLIENT SEND ONLY ICON DEFAULT
             socket.on("CLIENT_SEND_ONLY_ICON_DEFAULT", async (icon) => {
-
                 // save on db ****
                 const newChat = new Chat({
                     user_id: userId,
@@ -87,7 +81,7 @@ module.exports =  async (req, res) => {
                 await newChat.save();
 
                 // SERVER RETURN
-                _io.emit("SERVER_RETURN_ONLY_ICON_DEFAULT", {
+                _io.to(roomChatId).emit("SERVER_RETURN_ONLY_ICON_DEFAULT", {
                     user_id: userId,
                     user_name: userFullName,
                     avatar: user.avatar,
