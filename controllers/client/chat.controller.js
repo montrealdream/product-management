@@ -58,8 +58,9 @@ module.exports.index = async (req, res) => {
 
         else if(typeRoomChat == "group"){
             res.render("client/pages/chat/group", {
-                title: "Hội trường",
+                title: infoRoomChat.title,
                 chats: chats,
+                infoRoomChat
             });
         }
        

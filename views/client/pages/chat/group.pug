@@ -6,10 +6,16 @@ block main
             //- div() content 
         .item-divided-3 
             .box-chat 
-                .box-chat-header
-                    img(src="https://cdn-media.sforum.vn/storage/app/media/wp-content/uploads/2024/02/avatar-anh-meo-cute-1.jpg")
-                    .d-flex-column
-                        span(class="fullName") Hội trường lớn
+                .box-chat-header.justify-content-space-between
+                    .d-flex
+                        img(src=infoRoomChat.avatar)
+                        .d-flex-column
+                            span(class="fullName") #{infoRoomChat.title}
+                            span(class="") #{infoRoomChat.users.length} thành viên
+                    a(
+                        href=`/rooms-chat/edit/${infoRoomChat.id}`
+                        class="text-decoration-none btn btn-bg-green btn-sm"
+                    ) Chỉnh sửa
                 .box-chat-body(user-id=user.id)
                     if(chats)
                         each chat in chats 

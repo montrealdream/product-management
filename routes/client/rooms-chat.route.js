@@ -46,5 +46,10 @@ router.post(
     controller.createRoomChat
 );
 
+router.get(
+    '/edit/:roomChatId',
+    controller.editView
+);
+
 // export
 module.exports = router;

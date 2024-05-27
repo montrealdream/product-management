@@ -89,3 +89,13 @@ module.exports.createRoomChat = async (req, res) => {
 
     }
 }
+
+// [GET] /rooms-chat/edit
+module.exports.editView = async (req, res) => {
+    try{
+         
+    }
+    catch(error){
+
+    }
+}

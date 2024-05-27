@@ -8,13 +8,13 @@ block main
             .box-chat 
                 .box-chat-header
                     img(src=inforUserB.avatar)
-                    .d-flex-column
-                        span(class="fullName") #{inforUserB.fullName}
-                        if(inforUserB.statusOnline == "online")
-                            span(class="") Đang hoạt động
-                        else 
-                            span(class="") Dừng hoạt động
-                        
+                    .d-flex
+                        .d-flex-column
+                            span(class="fullName") #{inforUserB.fullName}
+                            if(inforUserB.statusOnline == "online")
+                                span(class="") Đang hoạt động
+                            else 
+                                span(class="") Dừng hoạt động
                 .box-chat-body(user-id=user.id)
                     if(chats)
                         each chat in chats 

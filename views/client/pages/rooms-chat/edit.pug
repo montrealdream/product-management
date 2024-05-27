@@ -1,0 +1,42 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+block main 
+    +alert-success
+    +alert-error 
+    +alert-warning
+    div(class="card")
+        div(class="card-header txt-align-center") Chỉnh sửa phòng chat
+        div(class="card-body")
+            form(
+                action=`/rooms-chat/create` 
+                method="POST"
+                enctype="multipart/form-data"
+            )   
+                div(class="form-item")
+                    label(class="label-style" for="title") Tên nhóm:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="title" 
+                        name="title"
+                        placeholder="Tên của nhóm chat..."
+                        required
+                    )
+                +file-upload("Image", "avatar", "form-item", "")
+                div(class="form-item")
+                    label(class="label-style" for="position") Thêm thành viên:
+                    each friend in listFriendInfo 
+                        div(class="form-item-radio")
+                            input(
+                                type="checkbox"
+                                class="input-radio"
+                                id=`user-${friend.id}`
+                                name="userId"
+                                value=friend.id
+                                checked=false
+                            )
+                            label(class="label-style-radio" for=`user-${friend.id}`) #{friend.fullName}
+                div(class="form-item ")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Sửa
+    script(src="/client/js/file-upload.js")
