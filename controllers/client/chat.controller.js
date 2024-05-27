@@ -47,7 +47,6 @@ module.exports.index = async (req, res) => {
             const getIdUserB = infoRoomChat.users.find(user => user.user_id != myUser.id);
             const inforUserB = await User.findOne({
                 _id: getIdUserB.user_id,
-                
             }).select("-password -tokenUser");
 
             res.render("client/pages/chat/friend", {
