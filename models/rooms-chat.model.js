@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const RoomChatSchema = new mongoose.Schema(
     {
         title: String,
-        avatar: String,
+        avatar: {
+            type: String,
+            default: "https://vnn-imgs-a1.vgcloud.vn/image1.ictnews.vn/_Files/2020/03/17/trend-avatar-1.jpg"
+        },
         typeRoom: String, //friend or group
         status: String,
         users: [

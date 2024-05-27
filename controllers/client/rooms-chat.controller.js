@@ -3,6 +3,12 @@ const Chat = require('../../models/chat.model');
 const User = require('../../models/user.model');
 const RoomChat = require('../../models/rooms-chat.model');
 
+/**
+ * THỨ TỰ CÁC QUYỀN TRONG NHÓM:
+ * SuperAdmin
+ * Admin
+ * Member
+ */
 // [GET] /rooms-chat
 module.exports.index = async (req, res) => {
     try{
@@ -32,6 +38,46 @@ module.exports.createView = async (req, res) => {
             title : "Tạo phòng",
             listFriendInfo
         });
+    }
+    catch(error){
+
+    }
+}
+
+// [POST] /rooms-chat/create
+module.exports.createRoomChat = async (req, res) => {
+    try{
+        const ObjRoomChat = {
+            title: req.body.title,
+            typeRoom: "group",
+            users: [],
+        };
+
+        // nếu có tồn tại ảnh nhóm
+        if(req.body.avatar){
+            ObjRoomChat.avatar = req.body.avatar
+        }
+
+        // đẩy các user cần thêm vào nhóm, với vai trò Member
+        req.body.userId.forEach(user_id => {
+            ObjRoomChat.users.push({
+                user_id: user_id,
+                role:"member",
+            });
+        });
+
+        // đẩy mình (NGƯỜI TẠO NHÓM) vào , nhưng với quyền Cao nhất
+        ObjRoomChat.users.push({
+            user_id: res.locals.user.id,
+            role:"superAdmin",
+        });
+
+        // tạo mới
+        const roomChat = new RoomChat(ObjRoomChat);
+
+        await roomChat.save();
+        
+        res.redirect('back');
     }
     catch(error){
 
