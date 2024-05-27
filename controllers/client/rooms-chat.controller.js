@@ -12,9 +12,15 @@ const RoomChat = require('../../models/rooms-chat.model');
 // [GET] /rooms-chat
 module.exports.index = async (req, res) => {
     try{
+        // lấy ra những roomChat mà mình có
+        const listRoomChat = await RoomChat.find({
+            "users.user_id": res.locals.user.id,
+            typeRoom: "group"
+        });
+
         res.render('client/pages/rooms-chat/index', {
             title : "Danh sách phòng chat",
-
+            listRoomChat
         })
     }
     catch(error){

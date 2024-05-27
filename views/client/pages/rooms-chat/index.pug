@@ -12,26 +12,27 @@ block main
             ) Tạo phòng chat
 
         .d-flex
-            .col-5
-                div(class="box-user")
-                    img(
-                         src="https://robohash.org/hicveldicta.png"
-                    )
-                    .d-flex-column 
-                        span(
-                            class="fullName" 
-                        ) #{user.fullName} 
-                        a(
-                            href=`/chat/${user.room_chat_id}`
-                            class="btn add-friend mb-5 text-decoration-none"
-                            btn-message=user.id
-                        ) Nhắn tin
-                        span(
-                            class="btn not-friend"
-                            btn-delete-friend = user.id
-                        ) Rời khỏi nhóm
-                        span(
-                            class="btn not-friend"
-                            btn-deleted-friend = user.id
-                            disabled
-                        ) Đã rời khỏi nhóm
+            each roomChat in listRoomChat
+                .col-5
+                    div(class="box-user")
+                        img(
+                            src=roomChat.avatar
+                        )
+                        .d-flex-column 
+                            span(
+                                class="fullName" 
+                            ) #{roomChat.title} 
+                            a(
+                                href=`/chat/${roomChat.id}`
+                                class="btn add-friend mb-5 text-decoration-none"
+                                btn-message=user.id
+                            ) Nhắn tin
+                            span(
+                                class="btn not-friend"
+                                btn-delete-friend = user.id
+                            ) Rời khỏi nhóm
+                            span(
+                                class="btn not-friend"
+                                btn-deleted-friend = user.id
+                                disabled
+                            ) Đã rời khỏi nhóm
