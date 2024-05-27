@@ -20,20 +20,23 @@ block main
                         class="input-form" 
                         id="title" 
                         name="title"
-                        placeholder="Title of product..."
+                        placeholder="Tên của nhóm chat..."
                         required
                     )
-                +file-upload("Ảnh nhóm", "thumbnail")
+                +file-upload("Image", "avatar", "form-item", "")
                 div(class="form-item")
                     label(class="label-style" for="position") Thêm thành viên:
-                    input(
-                        type="number" 
-                        class="input-form" 
-                        id="position" 
-                        name="position"
-                        placeholder="Position of product..."
-                        min="0"
-                    )
+                    each friend in listFriendInfo 
+                        div(class="form-item-radio")
+                            input(
+                                type="checkbox"
+                                class="input-radio"
+                                id=`user-${friend.id}`
+                                name="userId"
+                                value=friend.id
+                                checked=false
+                            )
+                            label(class="label-style-radio" for=`user-${friend.id}`) #{friend.fullName}
                 div(class="form-item ")
-                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Create
-    script(src="/admin/js/file-upload.js")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Tạo
+    script(src="/client/js/file-upload.js")
