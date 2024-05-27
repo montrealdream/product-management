@@ -15,5 +15,10 @@ router.get(
     controller.index
 );
 
+router.get(
+    '/create',
+    controller.createView
+);
+
 // export
 module.exports = router;

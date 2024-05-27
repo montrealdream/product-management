@@ -1,0 +1,39 @@
+extends ../../layouts/default.pug
+include ../../mixins/alert.pug
+include ../../mixins/file-upload.pug
+block main 
+    +alert-success
+    +alert-error 
+    +alert-warning
+    div(class="card")
+        div(class="card-header txt-align-center") Tạo phòng
+        div(class="card-body")
+            form(
+                action=`${path_admin}/rooms-chat/create` 
+                method="POST"
+                enctype="multipart/form-data"
+            )   
+                div(class="form-item")
+                    label(class="label-style" for="title") Tên nhóm:
+                    input(
+                        type="text" 
+                        class="input-form" 
+                        id="title" 
+                        name="title"
+                        placeholder="Title of product..."
+                        required
+                    )
+                +file-upload("Ảnh nhóm", "thumbnail")
+                div(class="form-item")
+                    label(class="label-style" for="position") Thêm thành viên:
+                    input(
+                        type="number" 
+                        class="input-form" 
+                        id="position" 
+                        name="position"
+                        placeholder="Position of product..."
+                        min="0"
+                    )
+                div(class="form-item ")
+                    button(type="submit" class="btn btn-mid font-16 btn-bg-green") Create
+    script(src="/admin/js/file-upload.js")
