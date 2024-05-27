@@ -1495,6 +1495,12 @@ emoji-picker {
     margin-bottom: 5px;
 }
 
+.box-user .quantity {
+    font-size: 13px;
+    margin-bottom: 5px;
+    color: #969696;
+}
+
 .box-user .btn {
     width: 120px;
     height: 25px;
