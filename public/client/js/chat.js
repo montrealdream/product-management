@@ -70,7 +70,6 @@ if(formChat){
 
 // SERVER RETURN MESSAGE
 socket.on("SERVER_RETURN_MESSAGE", (obj) => {
-    console.log(obj);
     const myID =  boxChatBody.getAttribute("user-id");
 
     // create new div content message
@@ -114,7 +113,7 @@ socket.on("SERVER_RETURN_MESSAGE", (obj) => {
         // mean different people chat
         div.classList.add("in-comming");
         html = `
-            <img src=${avatar}/>
+            <img src="${avatar}"/>
         `;
 
         if(typeRoom != "friend"){
@@ -217,6 +216,7 @@ contentChat.addEventListener("keyup", (event) => {
 
 // SERVER SEND TYPING
 socket.on("SERVER_RETURN_TYPING", (obj) => {
+    console.log(obj.avatar);
     // get data of object
     const user_id = obj.user_id;
     const user_name =  obj.user_name;
@@ -235,7 +235,7 @@ socket.on("SERVER_RETURN_TYPING", (obj) => {
     
             let html = `
                 <div class="in-comming">
-                    <img src=${avatar}/>
+                    <img src="${avatar}"/>
                     <div class="d-flex-column">
                         <span class="fullName"> ${user_name} </span>
                         <div class="inner-dots">

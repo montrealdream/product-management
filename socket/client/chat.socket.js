@@ -66,7 +66,7 @@ module.exports =  async (req, res) => {
                     typeRoom: infoRoomChat.typeRoom,
                     user_id: userId,
                     user_name: userFullName,
-                    avatar: res.locals.user.avatar,
+                    avatar: userAvatar,
                     type: type
                 });
             });
@@ -87,7 +87,7 @@ module.exports =  async (req, res) => {
                     typeRoom: infoRoomChat.typeRoom,
                     user_id: userId,
                     user_name: userFullName,
-                    avatar: res.locals.user.avatar,
+                    avatar: userAvatar,
                     icon: icon
                 });
             });
