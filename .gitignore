@@ -3,6 +3,7 @@
 /.pnp
 .pnp.js
 .email_admin.txt
+/socket
 
 #testing
 /coverage

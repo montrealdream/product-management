@@ -21,22 +21,23 @@ block main
                         id="title" 
                         name="title"
                         placeholder="Tên của nhóm chat..."
+                        value=infoRoomChat.title
                         required
                     )
-                +file-upload("Image", "avatar", "form-item", "")
+                +file-upload("Image", "avatar", "form-item", infoRoomChat.avatar)
                 div(class="form-item")
                     label(class="label-style" for="position") Thêm thành viên:
-                    each friend in listFriendInfo 
+                    each user in infoRoomChat.users 
                         div(class="form-item-radio")
                             input(
                                 type="checkbox"
                                 class="input-radio"
-                                id=`user-${friend.id}`
+                                id=`user-${user.user_id}`
                                 name="userId"
-                                value=friend.id
-                                checked=false
+                                value=user.user_id
+                                checked=true
                             )
-                            label(class="label-style-radio" for=`user-${friend.id}`) #{friend.fullName}
+                            label(class="label-style-radio" for=`user-${user.user_id}`) #{user.infoUser.fullName}
                 div(class="form-item ")
                     button(type="submit" class="btn btn-mid font-16 btn-bg-green") Sửa
     script(src="/client/js/file-upload.js")

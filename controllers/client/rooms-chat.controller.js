@@ -93,7 +93,26 @@ module.exports.createRoomChat = async (req, res) => {
 // [GET] /rooms-chat/edit
 module.exports.editView = async (req, res) => {
     try{
-         
+         const roomChatId = req.params.roomChatId;
+
+        // lấy thông tin phòng chat
+        const infoRoomChat = await RoomChat.findOne({
+            _id: roomChatId
+        });
+
+        // lấy thông tin user trong phòng chat
+        for(const user of infoRoomChat.users) {
+            const infoUser = await User.findOne({
+                _id: user.user_id,
+                status: "active",
+                deleted: false
+            }).select('fullName avatar');
+            user.infoUser = infoUser;
+        }
+         res.render('client/pages/rooms-chat/edit', {
+            title: "Chỉnh sửa nhóm chat",
+            infoRoomChat
+         })
     }
     catch(error){
 
