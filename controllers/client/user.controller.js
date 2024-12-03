@@ -189,7 +189,7 @@ module.exports.forgotPassword = async (req, res) => {
         const objectForgotPassword = {
             email: user.email,
             otp: generateHelper.randomNumber(6),
-            expireAt: Date.now() + (1*60*1000), // 1000s * 60 * 1 = 1m
+            expireAt: Date.now() + (1*60*1000), // 1000ms * 60 * 1 = 1m
         }
 
         // create & save
@@ -229,8 +229,10 @@ module.exports.otpPasswordView = async (req, res) => {
             return;
         }
         const email = req.query.email;
+
         // check email valid
         const user = await User.findOne({email: email});
+        // cần lấy theo tokenUserForgot nữa để bảo mật, ví dụ như là email hợp lệ và tokenUser không hợp lệ với email đó và ngược lại
 
         // when have token but token is not valid
         if(!user){
